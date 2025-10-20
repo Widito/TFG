@@ -8,6 +8,8 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
+# MEJORA: Importamos el divisor de texto 
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 print("Librerías importadas.")
 print("-" * 30)
@@ -20,18 +22,29 @@ g = rdflib.Graph()
 
 # Cargar el fichero de la ontología.
 try:
-    g.parse("../dataset/mo_2013-07-22.n3", format="n3")
+    g.parse("dataset/mo_2013-07-22.n3", format="n3")
     print(f"Ontología cargada con éxito. Contiene {len(g)} tripletas.")
 except Exception as e:
     print(f"Error al cargar la ontología: {e}")
     exit()
 
 # Consulta SPARQL para extraer todas las clases/propiedades y sus comentarios (descripciones)
+# Mejoramos la consulta para incluir etiquetas opcionales.
+# MEJORA: Consulta SPARQL mejorada (con UNION) 
+# Ahora buscamos descripciones en rdfs:comment Y TAMBIÉN en dc:description
+# También cargamos dc:title si rdfs:label no existe.
 query_text = """
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-    SELECT ?subject ?comment
+    PREFIX dc: <http://purl.org/dc/elements/1.1/>
+
+    SELECT ?subject ?label ?description
     WHERE {
-        ?subject rdfs:comment ?comment .
+        { ?subject rdfs:comment ?description . }
+        UNION
+        { ?subject dc:description ?description . }
+        
+        OPTIONAL { ?subject rdfs:label ?label . }
+        OPTIONAL { ?subject dc:title ?label . }
     }
 """
 results = g.query(query_text)
@@ -40,8 +53,10 @@ results = g.query(query_text)
 documents = []
 for row in results:
     # Filtramos los comentarios para que tengan una longitud mínima, evitando ruido.
+    # Mejoramos la legibilidad incluyendo la etiqueta si está disponible.
     if len(row.comment) > 20:
-        doc_text = f"Concepto URI: {row.subject}\nDescripción: {row.comment}"
+        label_text = str(row.label) if row.label else ""
+        doc_text = f"Concepto URI: {row.subject}\nEtiqueta: {label_text}\nDescripción: {row.comment}"
         documents.append(doc_text)
 
 print(f"Se han extraído {len(documents)} descripciones de la ontología.")
@@ -50,20 +65,32 @@ print("-" * 30)
 # PASO 3: CONSTRUIR LA CADENA RAG 
 print("Paso 3: Construyendo la cadena RAG con LangChain...")
 
-# MODIFICACIÓN: Cambiamos el motor de embeddings a Sentence Transformers para mejor rendimiento.
-print("Configurando embeddings con Sentence Transformers (esto puede tardar la primera vez)...")
+# 3.1 - Embeddings: Convertir texto a vectores.
+print("Configurando embeddings con Sentence Transformers...")
 model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
 print("Embeddings listos.")
 
+# MEJORA: Añadimos el Divisor de Texto (Text Splitter) 
+print("Dividiendo los documentos en fragmentos (chunks)...")
+text_splitter = RecursiveCharacterTextSplitter(
+    chunk_size=1000,  # Tamaño de cada fragmento
+    chunk_overlap=200, # Solapamiento para no perder contexto entre fragmentos
+    length_function=len
+)
+document_splits = text_splitter.create_documents(text_documents)
+print(f"Se han creado {len(document_splits)} fragmentos (chunks) para la base de datos.")
+
 
 # 3.2 - Vector Store: La base de datos que almacena los vectores.
-vectorstore = Chroma.from_texts(texts=documents, embedding=embeddings)
+print("Creando la base de datos vectorial con Chroma...")
+# MEJORA: Usamos .from_documents() en lugar de .from_texts() 
+vectorstore = Chroma.from_documents(documents=document_splits, embedding=embeddings)
 
 # 3.3 - Retriever: El componente que busca en la base de datos vectorial.
 # Dado un texto, encontrará los documentos (vectores) más similares.
-# k=3 significa que traerá los 3 resultados más relevantes.
-retriever = vectorstore.as_retriever(search_kwargs={"k": 3}) 
+# MEJORA: Aumentamos K a 10 para obtener más contexto.
+retriever = vectorstore.as_retriever(search_kwargs={"k": 10}) 
 print("Retriever configurado.")
 
 # 3.4 - LLM: El modelo de lenguaje que generará las respuestas.
