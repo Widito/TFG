@@ -14,18 +14,48 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 print("Librerías importadas.")
 print("-" * 30)
 
-# PASO 2: CARGAR LA ONTOLOGÍA Y EXTRAER EL TEXTO LEGIBLE
-print("Paso 2: Cargando la ontología y extrayendo descripciones...")
+# PASO 2: CARGAR TODAS LAS ONTOLOGÍAS DEL DIRECTORIO 'dataset' 
+print("Paso 2: Cargando todas las ontologías .n3 desde 'dataset'...")
 
 # Crear un grafo RDF vacío
 g = rdflib.Graph()
 
-# Cargar el fichero de la ontología.
+# MODIFICACIÓN: Cargar todos los archivos .n3 de la carpeta 'dataset' 
+ontologies_dir = "dataset" # Directorio principal de datasets
+files_loaded = 0
+files_failed = 0
+
+print(f"Accediendo al directorio: {ontologies_dir}")
+
 try:
-    g.parse("dataset/mo_2013-07-22.n3", format="n3")
-    print(f"Ontología cargada con éxito. Contiene {len(g)} tripletas.")
+    # Iteramos sobre cada archivo en el directorio
+    for filename in os.listdir(ontologies_dir):
+        # Comprobamos que es un archivo .n3
+        if filename.endswith(".n3"):
+            filepath = os.path.join(ontologies_dir, filename)
+            
+            try:
+                print(f"  Cargando {filename}...")
+                # Cargamos el archivo .n3 en el grafo 'g'
+                g.parse(filepath, format="n3")
+                files_loaded += 1
+            except Exception as e:
+                # Si un archivo falla al parsear, informamos y continuamos
+                print(f"    -> ERROR: No se pudo parsear {filename}. Motivo: {e}")
+                files_failed += 1
+
+    total_tripletas = len(g)
+    print("\n--- Resumen de Carga ---")
+    print(f"Archivos .n3 procesados: {files_loaded}")
+    print(f"Archivos fallidos: {files_failed}")
+    
+    if total_tripletas == 0:
+         print("ADVERTENCIA: No se cargaron tripletas. ¿La ruta del directorio 'dataset' es correcta?")
+    
+    print(f"Ontologías cargadas con éxito. El grafo total contiene {total_tripletas} tripletas.")
+
 except Exception as e:
-    print(f"Error al cargar la ontología: {e}")
+    print(f"Error fatal al acceder al directorio {ontologies_dir}: {e}")
     exit()
 
 # Consulta SPARQL para extraer todas las clases/propiedades y sus comentarios (descripciones)
@@ -98,23 +128,29 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
 print("Retriever configurado.")
 
 # 3.4 - LLM: El modelo de lenguaje que generará las respuestas.
-# Se utiliza Ollama con el modelo Llama 3.
-llm = ChatOllama(model="llama3")
+# MODIFICACION: Se utiliza Ollama con el modelo deepseek-r1:8b.
+llm = ChatOllama(model="deepseek-r1:8b")
 
 # 3.5 - Prompt Template
 template = """
-Actúa como un asistente experto en la 'Music Ontology'. Responde a la pregunta del usuario basándote ÚNICAMENTE en el siguiente contexto extraído de la ontología. Revisa todo el contexto con atención, ya que la información puede estar en varios fragmentos. Si la información no está en el contexto, di que no lo sabes.
+Actúa como un experto en modelado semántico y RDF. Tu objetivo es ayudar al usuario a modelar sus datos usando las ontologías de LOV.
 
-CONTEXTO:
+La petición del usuario es: **{question}**
+
+He buscado en la base de datos de Clases y Propiedades y este es el CONTEXTO relevante que he encontrado:
+---
 {context}
+---
 
-PREGUNTA:
-{question}
+Por favor, basándote ÚNICAMENTE en este contexto:
+1.  Identifica las Clases y Propiedades más adecuadas (incluyendo su prefijo).
+2.  **Nombra y describe** las tripletas (sujeto, predicado, objeto) que el usuario debería crear para modelar su petición.
+3.  Si el contexto no es suficiente para responder, simplemente di que no tienes la información necesaria.
 
 RESPUESTA:
 """
 prompt = ChatPromptTemplate.from_template(template)
-print("Plantilla de prompt creada.")
+print("Plantilla de prompt (Asistente de Modelado) creada.")
 
 # 3.6 - Cadena RAG (RAG Chain)
 rag_chain = (
@@ -136,7 +172,7 @@ print("Paso 4: ¡Haciendo preguntas! (Escribe 'salir' para terminar)")
 
 # Bucle interactivo para poder hacer varias preguntas.
 while True:
-    user_question = input("\n ¿Qué quieres saber sobre la Music Ontology?: ")
+    user_question = input("\n¿Qué petición de datos quieres modelar? (o 'salir'): ")
     if user_question.lower() == 'salir':
         break
     
