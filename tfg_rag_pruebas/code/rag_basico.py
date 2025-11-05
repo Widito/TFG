@@ -2,6 +2,7 @@
 print("Paso 1: Importando librerías...")
 
 import rdflib
+import os
 from langchain_community.vectorstores import Chroma
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
@@ -21,7 +22,7 @@ print("Paso 2: Cargando todas las ontologías .n3 desde 'dataset'...")
 g = rdflib.Graph()
 
 # MODIFICACIÓN: Cargar todos los archivos .n3 de la carpeta 'dataset' 
-ontologies_dir = "dataset" # Directorio principal de datasets
+ontologies_dir = "tfg_rag_pruebas/dataset" # Directorio principal de datasets
 files_loaded = 0
 files_failed = 0
 
