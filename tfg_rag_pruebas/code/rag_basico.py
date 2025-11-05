@@ -210,7 +210,7 @@ He buscado en la base de datos de Clases y Propiedades y este es el CONTEXTO rel
 
 Por favor, basándote ÚNICAMENTE en este contexto:
 1.  Identifica las Clases y Propiedades más adecuadas (incluyendo su prefijo).
-2.  **Nombra y describe** las tripletas (sujeto, predicado, objeto) que el usuario debería crear para modelar su petición.
+2.  Nombra y describe las tripletas (sujeto, predicado, objeto) que el usuario debería crear para modelar su petición.
 3.  Si el contexto no es suficiente para responder, simplemente di que no tienes la información necesaria.
 
 RESPUESTA:
