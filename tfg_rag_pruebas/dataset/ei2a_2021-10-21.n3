@@ -1,0 +1,2211 @@
+@prefix : <http://opendata.aragon.es/def/ei2av2#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix bio: <http://purl.org/vocab/bio/0.1/> .
+@prefix eli: <http://data.europa.eu/eli/ontology/> .
+@prefix geo: <https://www.geonames.org/ontology#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <https://www.w3.org/TR/vocab-dcat-2/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gtfs: <http://vocab.gtfs.org/terms#> .
+@prefix ocds: <http://data.tbfy.eu/ontology/ocds#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@base <http://opendata.aragon.es/def/ei2av2> .
+
+<http://opendata.aragon.es/def/ei2av2> rdf:type owl:Ontology ;
+                                        dc:creator "Dirección General de Administración Electrónica y Sociedad de la Información. Departamento de Ciencia, Universidad y Sociedad del Conocimiento. Gobierno de Aragón"@es ;
+                                        dc:rights "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International."@en ;
+                                        rdfs:comment "Esta sección detalla la ontología de Información Interoperable de Aragón EI2A para describir datos básicos del dominio del Gobierno de Aragón, destinados a apoyar la interoperabilidad de datos con el objetivo de estandarizar información y explotarla en un futuro. En la descripción de la ontología se incorpora un diagrama de clases o entidades de la ontología que permiten visualizar su organización más fácilmente, el espacio de nombres utilizado y las clases, propiedades e individuos que la componen. De acuerdo a las recomendaciones de la Web Semántica, la ontología EI2A reutiliza diversas ontologías, esquemas y vocabularios para describir entidades que se adecuen al dominio del Gobierno de Aragón. Reutilizar ontologías facilita el intercambio de conocimiento y la comunicación entre personas, agentes inteligentes y sistemas. De esta forma, se consigue describir los conceptos deseados del dominio del Gobierno de Aragón introduciendo un número mínimo de nuevos elementos."@es ,
+                                                     "The initiative Aragón Open Data was initiated by agreement of 17 of July of 2012 of the Government of Aragon. Under the same was ordered the start of the project to open public data and on February 6, 2013 was implemented through the Portal <a href=\"http://opendata.aragon.es/\"> opendata.aragon.es </a>. Throughout this time there have been numerous works to achieve automation in the publication of information to ensure that third parties can reuse it in the best way. Given the volume of data that begins to exist, within the line of work of automation in information management, all those elements that help in the improvement of the <b> structuring of information </b> and the <b> standardization of the data </b> contained in the databases are beginning to have a special relevance. Based on this, within the General Directorate of Electronic Administration and Information Society, the idea arises of generating a set of technical and legal rules that allow to deepen in that standardization and that lead to think in the creation of the Interoperable Information Scheme Of Aragon (E2IA). The E2IA thus emerges as the framework in which the open data and in general the information of the Government of Aragon can begin to be automated in a much more profound way. The E2IA has to have a number of technical, organizational and legal elements that need to be developed. For this reason, the Technological Institute of Aragon (ITAINNOVA) has been entrusted with carrying out actions consisting in identifying, studying and analyzing current research trends and technological development in relation to ontologies and dictionaries of data interoperability, defining the ontological proposal, performing The necessary tests to validate the ontological proposal and generate the text and web versions of the ontology."@en ;
+                                        rdfs:label "Estructura de Información Interoperable de Aragón EI2A v.2"@en ;
+                                        owl:versionInfo "2.0.3"@es .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://opendata.aragon.es/def/ei2av2#comment
+:comment rdf:type owl:AnnotationProperty ;
+         rdfs:subPropertyOf rdfs:comment .
+
+
+###  http://opendata.aragon.es/def/ei2av2#label
+:label rdf:type owl:AnnotationProperty ;
+       rdfs:subPropertyOf rdfs:label .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+dc:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+dc:rights rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#equivalentProperty
+owl:equivalentProperty rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:AnnotationProperty ;
+               rdfs:range xsd:string ;
+               rdfs:domain skos:Concept .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:AnnotationProperty ;
+               rdfs:range xsd:string ;
+               rdfs:domain skos:Collection .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://data.europa.eu/eli/ontology/amended_by
+eli:amended_by rdf:type owl:ObjectProperty ;
+               rdfs:domain eli:LegalResource ;
+               rdfs:range eli:LegalResource ;
+               rdfs:comment "Enlace inversa  eli:amends"@es ;
+               rdfs:label "Enlace inversa con normativa que modifica"@es .
+
+
+###  http://data.europa.eu/eli/ontology/amends
+eli:amends rdf:type owl:ObjectProperty ;
+           rdfs:domain eli:LegalResource ;
+           rdfs:range eli:LegalResource ;
+           rdfs:comment "Enlace con normativa a la cual modifica"@es ;
+           rdfs:label "Normativa a la cual modifica"@es .
+
+
+###  http://data.europa.eu/eli/ontology/related_to
+eli:related_to rdf:type owl:ObjectProperty ;
+               rdfs:domain schema:ListItem ;
+               rdfs:range eli:LegalResource .
+
+
+###  http://data.europa.eu/eli/ontology/type_document
+eli:type_document rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain eli:LegalResource ;
+                  rdfs:range eli:ResourceType ;
+                  rdfs:comment "Enlace con tipo documento"@es ;
+                  rdfs:label "Enlace con tipo documento"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#hasContractPeriod
+ocds:hasContractPeriod rdf:type owl:ObjectProperty ;
+                       rdfs:domain ocds:Contract ;
+                       rdfs:range ocds:Period ;
+                       rdfs:comment "Enlace con Periodo"@es ;
+                       rdfs:label "Enlace con Periodo"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#hasContractValue
+ocds:hasContractValue rdf:type owl:ObjectProperty ;
+                      rdfs:domain ocds:Contract ;
+                      rdfs:range ocds:Value ;
+                      rdfs:comment "Valor"^^xsd:string .
+
+
+###  http://data.tbfy.eu/ontology/ocds#hasTenderPeriod
+ocds:hasTenderPeriod rdf:type owl:ObjectProperty ;
+                     rdfs:domain ocds:Tender ;
+                     rdfs:range ocds:Period .
+
+
+###  http://data.tbfy.eu/ontology/ocds#isSupplierFor
+ocds:isSupplierFor rdf:type owl:ObjectProperty ;
+                   rdfs:domain org:Organization ;
+                   rdfs:range ocds:Contract ;
+                   rdfs:comment "Enlace con el contrato"@es ;
+                   rdfs:label "Contrato"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#isTendererFor
+ocds:isTendererFor rdf:type owl:ObjectProperty ;
+                   rdfs:domain org:Organization ;
+                   rdfs:range ocds:Tender ;
+                   rdfs:comment "Enlace con la licitación"@es ;
+                   rdfs:label "Licitación"@es .
+
+
+###  http://opendata.aragon.es/def/ei2av2#legislature
+:legislature rdf:type owl:ObjectProperty ;
+             rdfs:domain org:Organization ;
+             rdfs:range :Legislature ;
+             rdfs:comment "Enlace con legislatura"@es ;
+             rdfs:label "Legislatura"@es .
+
+
+###  http://purl.org/linked-data/cube#component
+qb:component rdf:type owl:ObjectProperty ;
+             rdfs:domain qb:DataStructureDefinition ;
+             rdfs:range qb:ComponentSpecification ;
+             rdfs:comment "Enlace a las especificaciones de los componentes"@es ;
+             rdfs:label "Especificaciones de los componentes"@es .
+
+
+###  http://purl.org/linked-data/cube#componentProperty
+qb:componentProperty rdf:type owl:ObjectProperty ;
+                     rdfs:domain qb:ComponentSpecification ;
+                     rdfs:range qb:ComponentProperty ;
+                     rdfs:comment "Enlace a la entidad raiz de propiedades de componente"@es ;
+                     rdfs:label "propiedades de componente"@es .
+
+
+###  http://purl.org/linked-data/cube#concept
+qb:concept rdf:type owl:ObjectProperty ;
+           rdfs:domain qb:DimensionProperty ;
+           rdfs:range skos:Concept ;
+           rdfs:comment "Enlace con Categoria Skos"@es ;
+           rdfs:label "Categorías"@es .
+
+
+###  http://purl.org/linked-data/cube#dataSet
+qb:dataSet rdf:type owl:ObjectProperty ;
+           rdfs:domain qb:Observation ;
+           rdfs:comment "Enlace al DataSet"@es .
+
+
+###  http://purl.org/linked-data/cube#dimension
+qb:dimension rdf:type owl:ObjectProperty ;
+             rdfs:domain qb:ComponentSpecification ;
+             rdfs:range qb:DimensionProperty ;
+             rdfs:comment "Enlace a dimensión"@es ;
+             rdfs:label "Dimensión"@es .
+
+
+###  http://purl.org/linked-data/cube#measure
+qb:measure rdf:type owl:ObjectProperty ;
+           rdfs:domain qb:ComponentSpecification ;
+           rdfs:range qb:MeasureProperty ;
+           rdfs:comment "Enlace con medidas"@es ;
+           rdfs:label "Medidas"@es .
+
+
+###  http://purl.org/linked-data/cube#structure
+qb:structure rdf:type owl:ObjectProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain qb:DataSet ;
+             rdfs:range qb:DataStructureDefinition ;
+             rdfs:comment "Enlace a la definición de la estructura"@es ;
+             rdfs:label "Definición de estructura"@es .
+
+
+###  http://schema.org/contributor
+schema:contributor rdf:type owl:ObjectProperty ;
+                   rdfs:domain schema:CreativeWork ;
+                   rdfs:comment "Enlace con persona, colaborador"@es ;
+                   rdfs:label "Colaborador"@es .
+
+
+###  http://schema.org/hasPart
+schema:hasPart rdf:type owl:ObjectProperty ;
+               rdfs:domain schema:CreativeWork ;
+               rdfs:range schema:CreativeWork ;
+               rdfs:comment "Enlace con documento  al que pertenece"@es ;
+               rdfs:label "Documento al que pertenece"@es .
+
+
+###  http://schema.org/isPartOf
+schema:isPartOf rdf:type owl:ObjectProperty ;
+                rdfs:domain schema:CreativeWork ;
+                rdfs:range schema:CreativeWork ;
+                rdfs:comment "Inversa de schema:hasPart"@es ;
+                rdfs:label "Parte de documento"@es .
+
+
+###  http://schema.org/itemListElement
+schema:itemListElement rdf:type owl:ObjectProperty ;
+                       rdfs:domain schema:ListItem ;
+                       rdfs:range schema:ListItem .
+
+
+###  http://schema.org/location
+schema:location rdf:type owl:ObjectProperty ;
+                rdfs:domain schema:Event ;
+                rdfs:range vcard:Location ;
+                rdfs:comment "Enlace con lugar"@es ;
+                rdfs:label "Lugar"@es .
+
+
+###  http://schema.org/locationCreated
+schema:locationCreated rdf:type owl:ObjectProperty ;
+                       rdfs:domain schema:CreativeWork ;
+                       rdfs:range vcard:Location ;
+                       rdfs:comment "Enlace con lugar de creación"@es ;
+                       rdfs:label "Lugar de creación"@es .
+
+
+###  http://schema.org/nextItem
+schema:nextItem rdf:type owl:ObjectProperty ;
+                rdfs:domain schema:ItemList ;
+                rdfs:range schema:ItemList .
+
+
+###  http://schema.org/previousItem
+schema:previousItem rdf:type owl:ObjectProperty ;
+                    rdfs:domain schema:ItemList ;
+                    rdfs:range schema:ListItem .
+
+
+###  http://vocab.gtfs.org/terms#agency
+gtfs:agency rdf:type owl:ObjectProperty ;
+            rdfs:domain gtfs:Route ;
+            rdfs:range gtfs:Agency ;
+            rdfs:comment "Agencia"@es ;
+            rdfs:label "Agencia"@es .
+
+
+###  http://vocab.gtfs.org/terms#destinationStop
+gtfs:destinationStop rdf:type owl:ObjectProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain gtfs:Route ;
+                     rdfs:range gtfs:Stop ;
+                     rdfs:comment "Destino"@es ;
+                     rdfs:label "Destino"@es .
+
+
+###  http://vocab.gtfs.org/terms#originStop
+gtfs:originStop rdf:type owl:ObjectProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain gtfs:Route ;
+                rdfs:range gtfs:Stop ;
+                rdfs:comment "Inicio"@es ;
+                rdfs:label "Inicio"@es .
+
+
+###  http://vocab.gtfs.org/terms#route
+gtfs:route rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain gtfs:Trip ;
+           rdfs:comment "Enlace con ruta"@es ;
+           rdfs:label "Ruta"@es .
+
+
+###  http://vocab.gtfs.org/terms#routeType
+gtfs:routeType rdf:type owl:ObjectProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain gtfs:Route ;
+               rdfs:comment "Tipo de ruta"@es .
+
+
+###  http://vocab.gtfs.org/terms#stop
+gtfs:stop rdf:type owl:ObjectProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain gtfs:StopTime ;
+          rdfs:range gtfs:Stop ;
+          rdfs:comment "Parada"@es ;
+          rdfs:label "Parada"@es .
+
+
+###  http://vocab.gtfs.org/terms#trip
+gtfs:trip rdf:type owl:ObjectProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain gtfs:StopTime ;
+          rdfs:range gtfs:Trip ;
+          rdfs:comment "Enlace con viaje"@es ;
+          rdfs:label "viaje"@es .
+
+
+###  http://www.w3.org/2004/02/skos/core#broadMatch_
+skos:broadMatch_ rdf:type owl:ObjectProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain skos:Concept ;
+                 rdfs:range skos:Concept .
+
+
+###  http://www.w3.org/2004/02/skos/core#broader
+skos:broader rdf:type owl:ObjectProperty ;
+             rdfs:domain skos:Concept ;
+             rdfs:range skos:Concept ;
+             rdfs:comment "Apunta a las categorías padre"@es ;
+             rdfs:label "Padre"@es .
+
+
+###  http://www.w3.org/2004/02/skos/core#concept
+skos:concept rdf:type owl:ObjectProperty ;
+             rdfs:domain schema:ListItem ;
+             rdfs:range skos:Concept ;
+             rdfs:comment "Enlace categoría"@es ;
+             rdfs:label "Categoría"^^xsd:string .
+
+
+###  http://www.w3.org/2004/02/skos/core#member
+skos:member rdf:type owl:ObjectProperty ;
+            rdfs:domain skos:Collection ;
+            rdfs:range skos:Concept ;
+            rdfs:comment "Categorías raíz del tesauro"@es ;
+            rdfs:label "Categorías raíz del tesauro"@es .
+
+
+###  http://www.w3.org/2006/time#inXSDDateTimeStamp
+time:inXSDDateTimeStamp rdf:type owl:ObjectProperty ,
+                                 owl:FunctionalProperty ;
+                        rdfs:domain time:TemporalEntity ;
+                        rdfs:range xsd:dateTimeStamp ;
+                        rdfs:comment "null"@es .
+
+
+###  http://www.w3.org/2006/vcard/ns#org
+vcard:org rdf:type owl:ObjectProperty ;
+          rdfs:domain vcard:Location ;
+          rdfs:comment "Enlace con organización"@es ;
+          rdfs:label "Organización"@es .
+
+
+###  http://www.w3.org/ns/org#changedBy
+org:changedBy rdf:type owl:ObjectProperty ;
+              rdfs:domain org:Organization ;
+              rdfs:range org:ChangeEvent ;
+              rdfs:comment "Enlace con evento  modificación de organización"@es ;
+              rdfs:label "Evento  modificación de organización"@es .
+
+
+###  http://www.w3.org/ns/org#classification
+org:classification rdf:type owl:ObjectProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain org:Organization ;
+                   rdfs:range skos:Concept ;
+                   rdfs:comment "Enlace categoría"@es ;
+                   rdfs:label "Categoría"@es .
+
+
+###  http://www.w3.org/ns/org#hasPost
+org:hasPost rdf:type owl:ObjectProperty ;
+            rdfs:domain org:Organization ;
+            rdfs:range foaf:Post ;
+            rdfs:comment "Puesto, inversa de org:postIn"@es ;
+            rdfs:label "Inversa Puesto"@es .
+
+
+###  http://www.w3.org/ns/org#hasSite
+org:hasSite rdf:type owl:ObjectProperty ;
+            rdfs:domain org:Organization ;
+            rdfs:range org:Site ;
+            rdfs:comment "Enlace con Centro"@es ;
+            rdfs:label "Centro"@es .
+
+
+###  http://www.w3.org/ns/org#heldBy
+org:heldBy rdf:type owl:ObjectProperty ,
+                    owl:FunctionalProperty ;
+           rdfs:domain foaf:Post ;
+           rdfs:range foaf:Person ;
+           rdfs:comment "Inversa de org:holds de persona"@es ;
+           rdfs:label "Enlace inverso a persona"@es .
+
+
+###  http://www.w3.org/ns/org#holds
+org:holds rdf:type owl:ObjectProperty ;
+          rdfs:domain foaf:Person ;
+          rdfs:range foaf:Post .
+
+
+###  http://www.w3.org/ns/org#linkedTo
+org:linkedTo rdf:type owl:ObjectProperty ;
+             rdfs:domain org:Organization ;
+             rdfs:range org:Organization ;
+             rdfs:comment "Organizacion relacionada"@es ;
+             skos:altLabel "Organizacion relacionada"@es .
+
+
+###  http://www.w3.org/ns/org#organization
+org:organization rdf:type owl:ObjectProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( eli:Agent
+                                             ocds:Contract
+                                             ocds:Tender
+                                             schema:CreativeWork
+                                             schema:ListItem
+                                             gtfs:Agency
+                                           )
+                             ] ;
+                 rdfs:range org:Organization ;
+                 rdfs:comment "Enlace con organización"@es ;
+                 rdfs:label "Organización"@es .
+
+
+###  http://www.w3.org/ns/org#originalOrganization
+org:originalOrganization rdf:type owl:ObjectProperty ;
+                         rdfs:domain org:ChangeEvent ;
+                         rdfs:range org:Organization ;
+                         rdfs:comment "Organización que ha sido creada tras un evento, inversa org:resultedFrom"@es ;
+                         rdfs:label "Organización que ha sido creada tras un evento"@es .
+
+
+###  http://www.w3.org/ns/org#postIn
+org:postIn rdf:type owl:ObjectProperty ;
+           rdfs:domain foaf:Post ;
+           rdfs:range org:Organization ;
+           rdfs:comment "Indica la pertenencia a un organismo"@es ;
+           rdfs:label "Enlace con organismo"@es .
+
+
+###  http://www.w3.org/ns/org#resultedFrom
+org:resultedFrom rdf:type owl:ObjectProperty ;
+                 rdfs:domain org:Organization ;
+                 rdfs:range org:ChangeEvent ;
+                 rdfs:comment "Enlace a evento creación de organización"@es ;
+                 rdfs:label "Evento creación de organización"@es .
+
+
+###  http://www.w3.org/ns/org#resultingOrganization
+org:resultingOrganization rdf:type owl:ObjectProperty ;
+                          rdfs:domain org:ChangeEvent ;
+                          rdfs:range org:Organization ;
+                          rdfs:comment "Organización que ha sido modificada tras un evento, inversa org:changedBy"@es ;
+                          rdfs:label "Organización que ha sido modificada tras un evento"@es .
+
+
+###  http://www.w3.org/ns/org#role
+org:role rdf:type owl:ObjectProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain foaf:Post ;
+         rdfs:range org:Role ;
+         rdfs:comment "Enlace con Rol"@es ;
+         rdfs:label "Rol"@es .
+
+
+###  http://www.w3.org/ns/org#siteAddress
+org:siteAddress rdf:type owl:ObjectProperty ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( schema:CreativeWork
+                                            gtfs:Stop
+                                            vcard:Location
+                                            org:Site
+                                            sosa:Featureofinterest
+                                          )
+                            ] ;
+                rdfs:range vcard:Location ;
+                rdfs:comment "Dirección de la sede según una codificación adecuada. Se recomienda el uso de vCard (que utiliza el vocabulario en vcard), pero el rango no se restringe únicamente al uso de este vocabulario sino que se permite el uso de otros códigos. La dirección puede constar de una dirección de correo electrónico, un número de teléfono o información de geo-localización, y no se limita a una dirección postal física"@es ,
+                             "Enlace con lugar"@es ,
+                             "Indicates an address for the site in a suitable encoding. Use of vCard (using the vcard vocabulary) is encouraged but the range is left open to allow other encodings to be used. The address may include email, telephone, and geo-location information and is not restricted to a physical address"@en ;
+                rdfs:label "Dirección de la sede"@es ,
+                           "Site address"@en .
+
+
+###  http://www.w3.org/ns/org#subOrganizationOf
+org:subOrganizationOf rdf:type owl:ObjectProperty ;
+                      rdfs:domain org:Organization ;
+                      rdfs:range org:Organization ;
+                      rdfs:comment "Enlace con Organización padre"@es ;
+                      rdfs:label "Organización padre"@es .
+
+
+###  http://www.w3.org/ns/prov#wasAssociatedWith
+prov:wasAssociatedWith rdf:type owl:ObjectProperty ;
+                       rdfs:domain prov:Activity ;
+                       rdfs:range [ rdf:type owl:Class ;
+                                    owl:unionOf ( prov:SoftwareAgent
+                                                  dcat:Dataset
+                                                )
+                                  ] .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+sosa:ObservableProperty rdf:type owl:ObjectProperty ,
+                                 owl:FunctionalProperty ;
+                        rdfs:domain sosa:Featureofinterest ;
+                        rdfs:range sosa:Observation ;
+                        rdfs:comment "Enlace observacion"@es ;
+                        rdfs:label "observacion"@es .
+
+
+###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
+sosa:hasFeatureOfInterest rdf:type owl:ObjectProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain sosa:Observation ;
+                          rdfs:range sosa:Featureofinterest ;
+                          rdfs:comment "Enlace a hasFEatureOfInterest"^^xsd:string .
+
+
+###  http://www.w3.org/ns/sosa/phenomenonTime
+sosa:phenomenonTime rdf:type owl:ObjectProperty ,
+                             owl:FunctionalProperty ;
+                    rdfs:domain sosa:Observation ;
+                    rdfs:range time:TemporalEntity ;
+                    rdfs:comment "Enlace con sosa:phenomenonTime"@es .
+
+
+###  https://www.geonames.org/ontology#SpatialThing
+geo:SpatialThing rdf:type owl:ObjectProperty ;
+                 rdfs:domain vcard:Location ;
+                 rdfs:comment "Enlace con geo"@es ;
+                 rdfs:label "geo"@es .
+
+
+###  https://www.w3.org/TR/vocab-dcat-2/distribution
+dcat:distribution rdf:type owl:ObjectProperty ;
+                  rdfs:domain dcat:Dataset ;
+                  rdfs:comment "A specific representation of a dataset."@en ,
+                               "Una representación específica de un conjunto de datos."@es .
+
+
+###  https://www.w3.org/TR/vocab-dcat-2/landingPage
+dcat:landingPage rdf:type owl:ObjectProperty ;
+                 rdfs:domain dcat:Dataset ;
+                 rdfs:comment "A Web page that can be navigated to in a Web browser to gain access to the catalog"^^xsd:string ,
+                              "Una página web a la que se puede navegar en un navegador web para obtener acceso al catálogo"@es .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://data.europa.eu/eli/ontology/date_applicability
+eli:date_applicability rdf:type owl:DatatypeProperty ;
+                       rdfs:domain [ rdf:type owl:Class ;
+                                     owl:unionOf ( eli:LegalResource
+                                                   schema:CreativeWork
+                                                 )
+                                   ] ;
+                       rdfs:range xsd:dateTime ;
+                       rdfs:comment "Fecha de aplicación"@es ;
+                       rdfs:label "Fecha de aplicación"@es .
+
+
+###  http://data.europa.eu/eli/ontology/date_publication
+eli:date_publication rdf:type owl:DatatypeProperty ;
+                     rdfs:domain [ rdf:type owl:Class ;
+                                   owl:unionOf ( eli:LegalResource
+                                                 schema:CreativeWork
+                                               )
+                                 ] ;
+                     rdfs:range xsd:dateTime ;
+                     rdfs:comment "Fecha de publicación"@es ;
+                     rdfs:label "Fecha de publicación"@es .
+
+
+###  http://data.europa.eu/eli/ontology/description
+eli:description rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain eli:LegalResource ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Texto"@es ;
+                rdfs:label "Texto"@es .
+
+
+###  http://data.europa.eu/eli/ontology/first_date_entry_in__force
+eli:first_date_entry_in__force rdf:type owl:DatatypeProperty ;
+                               rdfs:domain [ rdf:type owl:Class ;
+                                             owl:unionOf ( eli:LegalResource
+                                                           schema:CreativeWork
+                                                         )
+                                           ] ;
+                               rdfs:range xsd:dateTime ;
+                               rdfs:comment "Fecha de entrada en vigor"@es ;
+                               rdfs:label "Fecha de entrada en vigor"@es .
+
+
+###  http://data.europa.eu/eli/ontology/id_local
+eli:id_local rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain eli:LegalResource ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Tipo"@es ;
+             rdfs:label "Tipo"@es .
+
+
+###  http://data.europa.eu/eli/ontology/number
+eli:number rdf:type owl:DatatypeProperty ;
+           rdfs:domain eli:LegalResource ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Identificador de la normativa"@es ;
+           rdfs:label "Identificador"@es .
+
+
+###  http://data.europa.eu/eli/ontology/passed_by
+eli:passed_by rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain eli:LegalResource ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Enlace con agente"@es ;
+              rdfs:label "Agente"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#contractId
+ocds:contractId rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( ocds:Contract
+                                            ocds:Tender
+                                          )
+                            ] ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Identificador"@es ;
+                rdfs:label "Identificador"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#description
+ocds:description rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( ocds:Contract
+                                             ocds:Tender
+                                           )
+                             ] ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Descripción"@es ;
+                 rdfs:label "Descripción"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#endDate
+ocds:endDate rdf:type owl:DatatypeProperty ;
+             rdfs:domain ocds:Period ;
+             rdfs:range xsd:dateTime ;
+             rdfs:comment "Fecha de final"@es ;
+             rdfs:label "Fecha de final"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#startDate
+ocds:startDate rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain ocds:Period ;
+               rdfs:range xsd:dateTime ;
+               rdfs:comment "Fecha de inicio"@es ;
+               rdfs:label "Fecha de inicio"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#valueAmount
+ocds:valueAmount rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain ocds:Value ;
+                 rdfs:range xsd:float ;
+                 rdfs:comment "ocds:valueAmount"^^xsd:string .
+
+
+###  http://opendata.aragon.es/def/ei2av2#comment
+:comment rdf:type owl:DatatypeProperty ;
+         rdfs:domain sosa:Observation ;
+         rdfs:range xsd:string .
+
+
+###  http://opendata.aragon.es/def/ei2av2#isDefinedBy
+:isDefinedBy rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain qb:DataSet ;
+             rdfs:range xsd:string ;
+             rdfs:comment "subpropiedad de rdfs:isDefinedBy"^^xsd:string .
+
+
+###  http://opendata.aragon.es/def/ei2av2#label
+:label rdf:type owl:DatatypeProperty ,
+                owl:FunctionalProperty ;
+       rdfs:domain qb:ComponentProperty ;
+       rdfs:range xsd:string .
+
+
+###  http://opendata.aragon.es/def/ei2av2#order
+:order rdf:type owl:DatatypeProperty ,
+                owl:FunctionalProperty ;
+       rdfs:domain [ rdf:type owl:Class ;
+                     owl:unionOf ( org:Organization
+                                   foaf:Post
+                                 )
+                   ] ;
+       rdfs:range xsd:int ;
+       rdfs:comment "Orden"@es ;
+       rdfs:label "Orden"@es .
+
+
+###  http://opendata.aragon.es/def/ei2av2#provenance
+:provenance rdf:type owl:DatatypeProperty ;
+            rdfs:domain schema:CreativeWork ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Decreto"@es ;
+            rdfs:label "Decreto"@es .
+
+
+###  http://opendata.aragon.es/def/ei2av2#range
+:range rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf rdfs:range ;
+       rdf:type owl:FunctionalProperty ;
+       rdfs:domain qb:ComponentProperty ;
+       rdfs:range xsd:string ;
+       rdfs:comment "Entidad relacionada"@es ;
+       rdfs:label "Entidad relacionada"@es .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:DatatypeProperty ;
+        rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( gtfs:Trip
+                                    org:Organization
+                                    sosa:Featureofinterest
+                                  )
+                    ] ;
+        rdfs:range xsd:dateTime ;
+        rdfs:comment "Fecha"@es ;
+        rdfs:label "Fecha"@es .
+
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:DatatypeProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( gtfs:Trip
+                                           org:Organization
+                                           dcat:Dataset
+                                         )
+                           ] ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Observaciones"@es ;
+               rdfs:label "Observaciones"@es .
+
+
+###  http://purl.org/dc/elements/1.1/identifier
+dc:identifier rdf:type owl:DatatypeProperty ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( gtfs:Agency
+                                          gtfs:Route
+                                          gtfs:StopTime
+                                          gtfs:Trip
+                                          skos:Concept
+                                          org:Organization
+                                          org:Role
+                                          org:Site
+                                          sosa:Featureofinterest
+                                          foaf:Person
+                                          foaf:Post
+                                        )
+                          ] ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Identificador"@es ;
+              rdfs:label "Identificador"@es .
+
+
+###  http://purl.org/dc/elements/1.1/source
+dc:source rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( skos:Collection
+                                      skos:Concept
+                                    )
+                      ] ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Indentificador"@es ;
+          rdfs:label "Indentificador"@es .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:DatatypeProperty ;
+         rdfs:domain [ rdf:type owl:Class ;
+                       owl:unionOf ( ocds:Contract
+                                     ocds:Tender
+                                     qb:DataSet
+                                     gtfs:Agency
+                                     gtfs:Route
+                                     gtfs:Stop
+                                     org:Organization
+                                     org:Role
+                                     org:Site
+                                     sosa:Featureofinterest
+                                     dcat:Dataset
+                                   )
+                     ] ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Título"@es ;
+         rdfs:label "Título"@es .
+
+
+###  http://purl.org/linked-data/cube#componentRequired
+qb:componentRequired rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     rdfs:domain qb:ComponentSpecification ;
+                     rdfs:range xsd:boolean ;
+                     rdfs:comment "Indica si la dimensión o medidas son requeridos"@es ;
+                     rdfs:label "Indica la obligatoridad"@es .
+
+
+###  http://purl.org/linked-data/cube#order
+qb:order rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain qb:ComponentSpecification ;
+         rdfs:range xsd:int ;
+         rdfs:comment "Indica el orden de las dimensiones o medidas"@es ;
+         rdfs:label "Orden"@es .
+
+
+###  http://purl.org/vocab/bio/0.1/biography
+bio:biography rdf:type owl:DatatypeProperty ;
+              rdfs:domain foaf:Person ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Datos biográficos de la persona"@es ;
+              rdfs:label "biografía"@es .
+
+
+###  http://schema.org/abstract
+schema:abstract rdf:type owl:DatatypeProperty ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( schema:CreativeWork
+                                            schema:ItemList
+                                            schema:ListItem
+                                          )
+                            ] ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Descripción"@es ;
+                rdfs:label "Descripción"@es .
+
+
+###  http://schema.org/citation
+schema:citation rdf:type owl:DatatypeProperty ;
+                rdfs:domain schema:CreativeWork ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Bibliografía"@es ;
+                rdfs:label "Bibliografía"@es .
+
+
+###  http://schema.org/creator
+schema:creator rdf:type owl:DatatypeProperty ;
+               rdfs:domain schema:CreativeWork ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Creador"@es ;
+               rdfs:label "Creador"@es .
+
+
+###  http://schema.org/description
+schema:description rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain schema:Event ;
+                   rdfs:range xsd:string ;
+                   rdfs:comment "Descripción"@es ;
+                   rdfs:label "Descripción"@es .
+
+
+###  http://schema.org/endDate
+schema:endDate rdf:type owl:DatatypeProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( schema:Event
+                                           gtfs:Agency
+                                         )
+                           ] ;
+               rdfs:range xsd:dateTime ;
+               rdfs:comment "Fecha de fin"@es ;
+               rdfs:label "Fecha de fin"@es .
+
+
+###  http://schema.org/eventSchedule
+schema:eventSchedule rdf:type owl:DatatypeProperty ;
+                     rdfs:domain schema:Event ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Horario literal  del evento"@es ;
+                     rdfs:label "Horario del evento"@es .
+
+
+###  http://schema.org/expires
+schema:expires rdf:type owl:DatatypeProperty ;
+               rdfs:domain schema:CreativeWork ;
+               rdfs:comment "Fecha de suspensión"@es ;
+               rdfs:label "Fecha de suspensión"@es .
+
+
+###  http://schema.org/identifier
+schema:identifier rdf:type owl:DatatypeProperty ;
+                  rdfs:domain [ rdf:type owl:Class ;
+                                owl:unionOf ( schema:CreativeWork
+                                              schema:Event
+                                              schema:ItemList
+                                              schema:ListItem
+                                            )
+                              ] ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Identificador"@es ;
+                  rdfs:label "Identificador"@es .
+
+
+###  http://schema.org/image
+schema:image rdf:type owl:DatatypeProperty ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( schema:CreativeWork
+                                         schema:Event
+                                       )
+                         ] ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Url de la imagen"@es ;
+             rdfs:label "Imagen"^^xsd:string .
+
+
+###  http://schema.org/inLanguage
+schema:inLanguage rdf:type owl:DatatypeProperty ;
+                  rdfs:domain schema:CreativeWork ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Idioma"@es ;
+                  rdfs:label "Idioma"@es .
+
+
+###  http://schema.org/license
+schema:license rdf:type owl:DatatypeProperty ;
+               rdfs:domain schema:CreativeWork ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Licencia"@es ;
+               rdfs:label "Licencia"@es .
+
+
+###  http://schema.org/material
+schema:material rdf:type owl:DatatypeProperty ;
+                rdfs:domain schema:CreativeWork ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Material"@es ;
+                rdfs:label "Material"@es .
+
+
+###  http://schema.org/name
+schema:name rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+            rdfs:domain schema:Event ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Nombre"@es ;
+            rdfs:label "Nombre"@es .
+
+
+###  http://schema.org/position
+schema:position rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain schema:ItemList ;
+                rdfs:range xsd:int .
+
+
+###  http://schema.org/publisher
+schema:publisher rdf:type owl:DatatypeProperty ;
+                 rdfs:domain schema:CreativeWork ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Editorial"@es ;
+                 rdfs:label "Editorial"@es .
+
+
+###  http://schema.org/size
+schema:size rdf:type owl:DatatypeProperty ;
+            rdfs:domain schema:CreativeWork ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Tamaño"@es ;
+            rdfs:label "Tamaño"@es .
+
+
+###  http://schema.org/startDate
+schema:startDate rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( schema:Event
+                                             gtfs:Agency
+                                           )
+                             ] ;
+                 rdfs:range xsd:dateTime ;
+                 rdfs:comment "Fecha de inicio"@es ;
+                 rdfs:label "Fecha de inicio"@es .
+
+
+###  http://schema.org/temporal
+schema:temporal rdf:type owl:DatatypeProperty ;
+                rdfs:domain schema:CreativeWork ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Literal de fecha (año)"@es ;
+                rdfs:label "Año"@es .
+
+
+###  http://schema.org/title
+schema:title rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( schema:CreativeWork
+                                         schema:ItemList
+                                         schema:ListItem
+                                       )
+                         ] ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Título"@es ;
+             rdfs:label "Título"@es .
+
+
+###  http://schema.org/url
+schema:url rdf:type owl:DatatypeProperty ;
+           rdfs:domain schema:CreativeWork ;
+           rdfs:range xsd:string ;
+           rdfs:comment "URL"@es ;
+           rdfs:label "URL"@es .
+
+
+###  http://schema.org/version
+schema:version rdf:type owl:DatatypeProperty ;
+               rdfs:domain schema:CreativeWork ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Edición"@es ;
+               rdfs:label "Edición"@es .
+
+
+###  http://vocab.gtfs.org/terms#arrivalTime
+gtfs:arrivalTime rdf:type owl:DatatypeProperty ;
+                 rdfs:domain gtfs:StopTime ;
+                 rdfs:range xsd:dateTime ;
+                 rdfs:comment "Llegada"@es ;
+                 rdfs:label "Llegada"@es .
+
+
+###  http://vocab.gtfs.org/terms#stopSequence
+gtfs:stopSequence rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:domain gtfs:StopTime ;
+                  rdfs:range xsd:int ;
+                  rdfs:comment ""^^xsd:string .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#range
+rdfs:range rdf:type owl:DatatypeProperty .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+wgs84_pos:lat rdf:type owl:DatatypeProperty ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( gtfs:Stop
+                                          vcard:Location
+                                        )
+                          ] ;
+              rdfs:range xsd:float ;
+              rdfs:comment "Latitud"@es ;
+              rdfs:label "Latitud"@es .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+wgs84_pos:long rdf:type owl:DatatypeProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( gtfs:Stop
+                                           vcard:Location
+                                         )
+                           ] ;
+               rdfs:range xsd:float ;
+               rdfs:comment "Longitud"@es ;
+               rdfs:label "Longitud"@es .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+skos:inScheme rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain eli:ResourceType ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Tipo de documento"@es ;
+              rdfs:label "Tipo de documento"@es .
+
+
+###  http://www.w3.org/2004/02/skos/core#prefLabel
+skos:prefLabel rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#scopeNote
+skos:scopeNote rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty .
+
+
+###  http://www.w3.org/2006/time#hasBeginning
+time:hasBeginning rdf:type owl:DatatypeProperty ;
+                  rdfs:domain foaf:Post ;
+                  rdfs:range xsd:dateTime ;
+                  rdfs:comment "Fecha en la que finaliza la pertenicia al puesto"@es ;
+                  rdfs:label "Fecha de inicio"@es .
+
+
+###  http://www.w3.org/2006/time#hasEnd
+time:hasEnd rdf:type owl:DatatypeProperty ;
+            rdfs:domain foaf:Post ;
+            rdfs:range xsd:dateTime ;
+            rdfs:comment "Fecha en la que finaliza la pertenicia al puesto"@es ;
+            rdfs:label "Fecha de fin"@es .
+
+
+###  http://www.w3.org/2006/vcard/ns#email
+vcard:email rdf:type owl:DatatypeProperty ;
+            rdfs:domain vcard:Location ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Email"@es ;
+            rdfs:label "Email"@es .
+
+
+###  http://www.w3.org/2006/vcard/ns#fn
+vcard:fn rdf:type owl:DatatypeProperty ;
+         rdfs:domain vcard:Location ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Nombre"@es ;
+         rdfs:label "Nombre"@es .
+
+
+###  http://www.w3.org/2006/vcard/ns#locality
+vcard:locality rdf:type owl:DatatypeProperty ;
+               rdfs:domain vcard:Location ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Localidad"@es ;
+               rdfs:label "Localidad"@es .
+
+
+###  http://www.w3.org/2006/vcard/ns#postal-code
+vcard:postal-code rdf:type owl:DatatypeProperty ;
+                  rdfs:domain vcard:Location ;
+                  rdfs:range xsd:int ;
+                  rdfs:comment "Código postal"@es ;
+                  rdfs:label "Código postal"@es .
+
+
+###  http://www.w3.org/2006/vcard/ns#region
+vcard:region rdf:type owl:DatatypeProperty ;
+             rdfs:domain vcard:Location ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Provincia"@es ;
+             rdfs:label "Provincia"@es .
+
+
+###  http://www.w3.org/2006/vcard/ns#street-address
+vcard:street-address rdf:type owl:DatatypeProperty ;
+                     rdfs:domain vcard:Location ;
+                     rdfs:range xsd:string ;
+                     rdfs:comment "Dirección"@es ;
+                     rdfs:label "Dirección"@es .
+
+
+###  http://www.w3.org/2006/vcard/ns#tel
+vcard:tel rdf:type owl:DatatypeProperty ;
+          rdfs:domain vcard:Location ;
+          rdfs:range xsd:int ;
+          rdfs:comment "Teléfono"@es ;
+          rdfs:label "Teléfono"@es .
+
+
+###  http://www.w3.org/ns/org#identifier
+org:identifier rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain org:Organization ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Identificador de la organización"@es ;
+               rdfs:label "Identificador de la organización"@es .
+
+
+###  http://www.w3.org/ns/prov#startedAtTime
+prov:startedAtTime rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain [ rdf:type owl:Class ;
+                                 owl:unionOf ( org:ChangeEvent
+                                               prov:Activity
+                                             )
+                               ] ;
+                   rdfs:range xsd:dateTime ;
+                   rdfs:comment "Fecha de inicio del cambio"@es ;
+                   rdfs:label "Fecha de inicio del cambio"@es .
+
+
+###  http://www.w3.org/ns/prov#wasUsedBy
+prov:wasUsedBy rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain [ rdf:type owl:Class ;
+                             owl:unionOf ( eli:Agent
+                                           eli:LegalResource
+                                           eli:ResourceType
+                                           ocds:Contract
+                                           ocds:Period
+                                           ocds:Tender
+                                           qb:ComponentProperty
+                                           qb:ComponentSpecification
+                                           qb:DataSet
+                                           qb:DataStructureDefinition
+                                           qb:Observation
+                                           schema:CreativeWork
+                                           schema:Event
+                                           schema:ItemList
+                                           schema:ListItem
+                                           gtfs:Agency
+                                           gtfs:Route
+                                           gtfs:Stop
+                                           gtfs:StopTime
+                                           gtfs:Trip
+                                           time:TemporalEntity
+                                           vcard:Location
+                                           org:ChangeEvent
+                                           org:Organization
+                                           org:Role
+                                           org:Site
+                                           sosa:Featureofinterest
+                                           sosa:Observation
+                                           foaf:Person
+                                           foaf:Post
+                                         )
+                           ] ;
+               rdfs:range xsd:string .
+
+
+###  http://www.w3.org/ns/sosa/hasResult
+sosa:hasResult rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain sosa:Observation ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Resultado"@es .
+
+
+###  http://xmlns.com/foaf/0.1/familyName
+foaf:familyName rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:domain foaf:Person ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Apellidos"@es ;
+                rdfs:label "Apellidos"@es .
+
+
+###  http://xmlns.com/foaf/0.1/givenName
+foaf:givenName rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:domain foaf:Person ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Nombre persona"@es ;
+               rdfs:label "Nombre persona"@es .
+
+
+###  http://xmlns.com/foaf/0.1/homepage
+foaf:homepage rdf:type owl:DatatypeProperty ;
+              rdfs:domain [ rdf:type owl:Class ;
+                            owl:unionOf ( org:Organization
+                                          foaf:Person
+                                        )
+                          ] ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Página web"@es ;
+              rdfs:label "Página web"^^xsd:string .
+
+
+###  http://xmlns.com/foaf/0.1/img
+foaf:img rdf:type owl:DatatypeProperty ;
+         rdfs:domain foaf:Person ;
+         rdfs:range xsd:string ;
+         rdfs:comment "Url de la imagen"@es ;
+         rdfs:label "Imagen de usuario"@es .
+
+
+###  http://xmlns.com/foaf/0.1/mbox
+foaf:mbox rdf:type owl:DatatypeProperty ;
+          rdfs:domain foaf:Person ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Correo electrónico"@es ;
+          rdfs:label "Correo electrónico"^^xsd:string .
+
+
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:DatatypeProperty ,
+                   owl:FunctionalProperty ;
+          rdfs:domain [ rdf:type owl:Class ;
+                        owl:unionOf ( prov:SoftwareAgent
+                                      foaf:Person
+                                    )
+                      ] ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Nombre y apellidos de la persona"@es ;
+          rdfs:label "Nombre completo"@es .
+
+
+###  http://xmlns.com/foaf/0.1/phone
+foaf:phone rdf:type owl:DatatypeProperty ;
+           rdfs:domain foaf:Person ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Teléfono"@es ;
+           rdfs:label "Teléfono"@es .
+
+
+###  https://www.w3.org/TR/vocab-dcat-2/keyword
+dcat:keyword rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://data.europa.eu/eli/ontology/Agent
+eli:Agent rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty org:organization ;
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty org:organization ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ;
+          rdfs:comment "Organización que genera una norma"@es ,
+                       "Organization that generates a law"@en ;
+          rdfs:label "ELI Agent"@en ,
+                     "ELI Agent"@es .
+
+
+###  http://data.europa.eu/eli/ontology/LegalResource
+eli:LegalResource rdf:type owl:Class ;
+                  rdfs:subClassOf owl:Thing ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty eli:amended_by ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty eli:amends ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty eli:date_publication ;
+                                    owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty eli:first_date_entry_in__force ;
+                                    owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty eli:date_applicability ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty eli:date_publication ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty eli:first_date_entry_in__force ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty eli:number ;
+                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ;
+                  rdfs:comment "Laws modeled according the ELI ontology"@en ,
+                               "Normas modeladas según la ontología ELI"@es ;
+                  rdfs:label "Legal resource"@en ,
+                             "Recurso legal"@es .
+
+
+###  http://data.europa.eu/eli/ontology/ResourceType
+eli:ResourceType rdf:type owl:Class ;
+                 rdfs:comment "Representa el tipo de norma"@es ,
+                              "Represents the law type"@en ;
+                 rdfs:label "ELI Resource type"@en ,
+                            "ELI Tipo de recurso"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#Contract
+ocds:Contract rdf:type owl:Class ;
+              rdfs:subClassOf owl:Thing ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty org:organization ;
+                                owl:minCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty org:organization ;
+                                owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty dc:title ;
+                                owl:minCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty dc:title ;
+                                owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                              ] ;
+              rdfs:comment "It models the contract and its process"@en ,
+                           "Modela el contrato y su proceso"@es ;
+              rdfs:label "Contract"@en ,
+                         "Contrato"@es .
+
+
+###  http://data.tbfy.eu/ontology/ocds#Period
+ocds:Period rdf:type owl:Class .
+
+
+###  http://data.tbfy.eu/ontology/ocds#Tender
+ocds:Tender rdf:type owl:Class ;
+            rdfs:comment "Model for public tender"@en ,
+                         "Modelado de licitación publica"@es ;
+            rdfs:label "Licitación"@es ,
+                       "Tender"@en .
+
+
+###  http://data.tbfy.eu/ontology/ocds#Value
+ocds:Value rdf:type owl:Class .
+
+
+###  http://opendata.aragon.es/def/ei2av2#Axiom_1
+:Axiom_1 rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Class ;
+                               owl:unionOf ( org:ChangeEvent
+                                             prov:Activity
+                                           )
+                             ] .
+
+
+###  http://opendata.aragon.es/def/ei2av2#Legislature
+:Legislature rdf:type owl:Class ;
+             rdfs:subClassOf schema:Event ;
+             rdfs:comment "Event that identifies a legislature of Aragon Government"@en ,
+                          "Evento que identifica a una legislatura del Gobierno de Aragón"@es ;
+             rdfs:label "Legislatura"@es ,
+                        "Legislature"@en .
+
+
+###  http://purl.org/linked-data/cube#ComponentProperty
+qb:ComponentProperty rdf:type owl:Class ;
+                     rdfs:comment "Indica una propiedad de un Dataset Cube. rdfs:Range indica el tipo de objeto. Ejemplo org:organization"@es ,
+                                  "Indicates a property on a Dataset Cube. rdfs:Range indicates the object type. E.g.: org:organization"@en ;
+                     rdfs:label "Component"@en ,
+                                "Componente"@es .
+
+
+###  http://purl.org/linked-data/cube#ComponentSpecification
+qb:ComponentSpecification rdf:type owl:Class ;
+                          rdfs:subClassOf owl:Thing ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty qb:dimension ;
+                                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty qb:measure ;
+                                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                          ] ;
+                          rdfs:comment "Se usa para definir propiedades de un componente (atributo, dimensión, etc.) que son específicas de su uso en DataStructureDefinition"@es ,
+                                       "Used to define properties of a component (attribute, dimension etc) which are specific to its usage in a DSD"@en ;
+                          rdfs:label "Component specification"@en ,
+                                     "Especificación de componente"@es .
+
+
+###  http://purl.org/linked-data/cube#DataSet
+qb:DataSet rdf:type owl:Class ;
+           rdfs:subClassOf owl:Thing ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty dc:title ;
+                             owl:minCardinality "1"^^xsd:nonNegativeInteger
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty dc:title ;
+                             owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                           ] ;
+           rdfs:comment "Representa una colección de observaciones, conforme a una estructura de dimensiones común"@es ,
+                        "Represents a collection of observations, conforming to some common dimensional structure"@en ;
+           rdfs:isDefinedBy :Concept ;
+           rdfs:label "Cube Dataset"@en ,
+                      "Cube Dataset"@es .
+
+
+###  http://purl.org/linked-data/cube#DataStructureDefinition
+qb:DataStructureDefinition rdf:type owl:Class ;
+                           rdfs:subClassOf owl:Thing ,
+                                           [ rdf:type owl:Restriction ;
+                                             owl:onProperty qb:component ;
+                                             owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                           ] ;
+                           rdfs:comment "Define la estructura de un Dataset"@es ,
+                                        "Defines the structure of a DataSet"@en ;
+                           rdfs:label "Data Structure Definition"@en ,
+                                      "Definición de la estructura de datos"@es .
+
+
+###  http://purl.org/linked-data/cube#DimensionProperty
+qb:DimensionProperty rdf:type owl:Class ;
+                     rdfs:subClassOf qb:ComponentProperty ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty qb:concept ;
+                                       owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                     ] ;
+                     rdfs:comment "It represents the dimensions of the cube"@en ,
+                                  "Representa las dimensiones de un cubo"@es ;
+                     rdfs:label "Dimension property"@en ,
+                                "Propiedad dimensión"@es .
+
+
+###  http://purl.org/linked-data/cube#MeasureProperty
+qb:MeasureProperty rdf:type owl:Class ;
+                   rdfs:subClassOf qb:ComponentProperty ;
+                   rdfs:comment "Represent the measured value of the phenomenon being observed"@en ,
+                                "Representa el valor medido para el fenómeno observado"@es ;
+                   rdfs:label "Measure"@en ,
+                              "Medida"@es .
+
+
+###  http://purl.org/linked-data/cube#Observation
+qb:Observation rdf:type owl:Class ;
+               rdfs:subClassOf owl:Thing ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty qb:dataSet ;
+                                 owl:minCardinality "1"^^xsd:nonNegativeInteger
+                               ] ;
+               rdfs:comment "A single observation in the cube, may have one or more associated measured values"@en ,
+                            "Una observación individual del cubo, puede tener una o más medidas asociadas"@es ;
+               rdfs:label "Observación"@es ,
+                          "Observation"@en .
+
+
+###  http://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class ;
+                    rdfs:subClassOf owl:Thing ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:hasPart ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:isPartOf ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:locationCreated ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty org:organization ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty org:siteAddress ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty eli:date_applicability ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty eli:date_publication ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty eli:first_date_entry_in__force ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :provenance ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:citation ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:creator ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:expires ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:identifier ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:image ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:inLanguage ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:license ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:material ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:publisher ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:size ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:temporal ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:version ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ;
+                    rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc"@en ,
+                                 "Tipo genérico de trabajo creativo, incluyendo libros, obras de artes, etc."@es ;
+                    rdfs:label "Creative work"@en ,
+                               "Trabajo creativo"@es .
+
+
+###  http://schema.org/Event
+schema:Event rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:location ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:endDate ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:eventSchedule ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:identifier ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:image ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ;
+             rdfs:comment "It models events such as holidays"@en ,
+                          "Modela eventos como los días festivos"@es ;
+             rdfs:label "Event"@en ,
+                        "Evento"@es .
+
+
+###  http://schema.org/ItemList
+schema:ItemList rdf:type owl:Class ;
+                rdfs:subClassOf owl:Thing ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:nextItem ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:previousItem ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:abstract ;
+                                  owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:abstract ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:identifier ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ;
+                rdfs:comment "A list of items of any sort, sucha as the steps of an administrative process"@en ,
+                             "Una lista de ítems de cualquier tipo, como los pasos de un trámite administrativo"@es ;
+                rdfs:label "Item List"@en ,
+                           "Lista de Item"@es .
+
+
+###  http://schema.org/ListItem
+schema:ListItem rdf:type owl:Class ;
+                rdfs:subClassOf owl:Thing ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:itemListElement ;
+                                  owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty skos:concept ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:abstract ;
+                                  owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:identifier ;
+                                  owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:abstract ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:identifier ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ;
+                rdfs:comment "An list item, e.g. a step in an administrative process"@en ,
+                             "Un ítem de una lista, por ejemplo el paso de un trámite"@es ;
+                rdfs:label "List item"@en ,
+                           "Ítem de una lista"@es .
+
+
+###  http://vocab.gtfs.org/terms#Agency
+gtfs:Agency rdf:type owl:Class ;
+            rdfs:subClassOf owl:Thing ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty org:organization ;
+                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty org:organization ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            rdfs:comment "An agency operates a certain schedule based transport mode"@en ,
+                         "Una empresa opera un cierto modo de transporte de manera programada"@es ;
+            rdfs:label "Agency"@en ,
+                       "Empresa"@es .
+
+
+###  http://vocab.gtfs.org/terms#Route
+gtfs:Route rdf:type owl:Class ;
+           rdfs:subClassOf owl:Thing ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty gtfs:agency ;
+                             owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                           ] ;
+           rdfs:comment "Es un grupo de viajes (gtfs:Trips) que se muestran a los usuarios como servicio independiente"@es ,
+                        "It is a commercial route followed entirely or partly by gtfs:Trips"@en ;
+           rdfs:label "Route"@en ,
+                      "Ruta"@es .
+
+
+###  http://vocab.gtfs.org/terms#Stop
+gtfs:Stop rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty org:siteAddress ;
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty org:siteAddress ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty dc:title ;
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty wgs84_pos:lat ;
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty wgs84_pos:long ;
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty dc:title ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty wgs84_pos:lat ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty wgs84_pos:long ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ;
+          rdfs:comment "A location where passengers board or disembark from a transit vehicle"@en ,
+                       "Un lugar donde los pasajeros suben o bajan de un vehículo de transporte público"@es ;
+          rdfs:label "Parada"@es ,
+                     "Stop"@en .
+
+
+###  http://vocab.gtfs.org/terms#StopTime
+gtfs:StopTime rdf:type owl:Class ;
+              rdfs:subClassOf owl:Thing ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty dc:identifier ;
+                                owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty gtfs:arrivalTime ;
+                                owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                              ] ;
+              rdfs:comment "Describe una hora de parada como parte de un viaje"@es ,
+                           "Describes a stop time as part of a trip"@en ;
+              rdfs:label "Hora de parada"@es ,
+                         "Stop time"@en .
+
+
+###  http://vocab.gtfs.org/terms#Trip
+gtfs:Trip rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty dc:date ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ;
+          rdfs:comment "A collection of gtfs:StopTimes followed by a transit vehicle"@en ,
+                       "Trayecto de dos o más paradas realizadas por un vehículo que se produce a una gtfs:StopTime"@es ;
+          rdfs:label "Trip"@en ,
+                     "Viaje"@es .
+
+
+###  http://www.w3.org/2001/XMLSchema#dateTimeStamp
+xsd:dateTimeStamp rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Collection
+skos:Collection rdf:type owl:Class .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             rdfs:comment "Used to classify entities, such as the organization types"@en ,
+                          "Utilizado para clasificar entidades, como los tipos de organizaciones"@es ;
+             rdfs:label "Concept"@en ,
+                        "Concepto"@es .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+time:TemporalEntity rdf:type owl:Class ;
+                    rdfs:comment "A temporal interval or instant"@en ,
+                                 "Un instante o intervalo temporal"@es ;
+                    rdfs:label "Entidad temporal"@es ,
+                               "Temporal entity"@en .
+
+
+###  http://www.w3.org/2006/vcard/ns#Location
+vcard:Location rdf:type owl:Class ;
+               rdfs:subClassOf owl:Thing ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty org:siteAddress ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty wgs84_pos:lat ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty wgs84_pos:long ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty vcard:email ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty vcard:fn ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty vcard:locality ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty vcard:postal-code ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty vcard:region ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty vcard:street-address ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty vcard:tel ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ;
+               rdfs:comment "An object representing a named geographical place"@en ,
+                            "Un objeto que representa un sitio geográfico"@es ;
+               rdfs:label "Location"@en ,
+                          "Lugar"@es .
+
+
+###  http://www.w3.org/ns/org#ChangeEvent
+org:ChangeEvent rdf:type owl:Class ;
+                rdfs:subClassOf owl:Thing ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty org:originalOrganization ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty org:resultingOrganization ;
+                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                ] ;
+                rdfs:comment "Evento que da como resultado un cambio sustancial en la organización, por ejemplo, una fusión o una reestructuración total. Está pensado para situaciones en las que la organización resultante es lo suficientemente distinta de las organizaciones originales, tiene una identidad distinta y una URI también distinta. Se deberían definir subtipos de eventos mediante vocabularios específicos (Extension vocabularies) para referirse a categorías de eventos específicos. El momento o periodo en el que el evento ocurre se debería expresar mediante las propiedades prov:startAtTime y prov:endedAtTime, y una descripción del mismo se debería incluir mediante el uso de la propiedad dct:description"@es ,
+                             "Represents an event which resulted in a major change to an organization such as a merger or complete restructuring. It is intended for situations where the resulting organization is sufficient distinct from the original organizations that it has a distinct identity and distinct URI. Extension vocabularies should define sub-classes of this to denote particular categories of event. The instant or interval at which the event occurred should be given by prov:startAtTime and prov:endedAtTime, a description should be given by dct:description"@en ;
+                rdfs:label "Change Event"@en ,
+                           "Evento de cambio"@es .
+
+
+###  http://www.w3.org/ns/org#Organization
+org:Organization rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :legislature ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty org:changedBy ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty org:resultedFrom ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty org:subOrganizationOf ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty dc:title ;
+                                   owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :order ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty dc:date ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty dc:description ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty dc:identifier ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty foaf:homepage ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ;
+                 rdfs:comment "Grupo de personas que se organiza en una comunidad u otro tipo de estructura social, comercial o política. Dicho grupo tiene un objetivo o motivo común para su existencia que va más allá del conjunto de personas que lo forman y que puede actuar como Agente. A menudo las organizaciones se pueden agrupar en estructuras jerárquicas"@es ,
+                              "Represents a collection of people organized together into a community or other social, commercial or political structure. The group has some common purpose or reason for existence which goes beyond the set of people belonging to it and can act as an Agent. Organizations are often decomposable into hierarchical structures"@en ;
+                 rdfs:label "Organización"@es ,
+                            "Organization"@en .
+
+
+###  http://www.w3.org/ns/org#Role
+org:Role rdf:type owl:Class ;
+         rdfs:subClassOf owl:Thing ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty dc:identifier ;
+                           owl:minCardinality "1"^^xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty dc:title ;
+                           owl:minCardinality "1"^^xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty dc:identifier ;
+                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty dc:title ;
+                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                         ] ;
+         rdfs:comment "Denotes a role that a Person or other Agent can take in an organization. Instances of this class describe the abstract role; to denote a specific instance of a person playing that role in a specific organization use an instance of `org:Membership`. It is common for roles to be arranged in some taxonomic structure and we use SKOS to represent that"@en ,
+                      "Función que una persona o agente desempeña en el seno de una organización. Las instancias de esta clase describen la actividad en abstracto; si lo que se pretende es incluir una instancia que refleje la función o actividad que desempeña una persona en concreto en una organización específica, se indica el uso de instancias de la clase org:Membership. Es común que dichas actividades se representen en una estructura taxonómica mediante SKOS"@es ;
+         rdfs:label "Rol"@es ,
+                    "Role"@en .
+
+
+###  http://www.w3.org/ns/org#Site
+org:Site rdf:type owl:Class ;
+         rdfs:subClassOf owl:Thing ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty org:siteAddress ;
+                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty dc:identifier ;
+                           owl:minCardinality "1"^^xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty dc:identifier ;
+                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty dc:title ;
+                           owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                         ] .
+
+
+###  http://www.w3.org/ns/prov#Activity
+prov:Activity rdf:type owl:Class ;
+              rdfs:comment "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities"@en ,
+                           "Una actividad ocurre en un periodo de tiempo y actúa con o sobre entidades; puede incluir consumir, procesar, transformar, modificar, mover, usar o generar entidades del grafo"@es ;
+              rdfs:label "PROV Actividad"@es ,
+                         "PROV Activity"@en .
+
+
+###  http://www.w3.org/ns/prov#SoftwareAgent
+prov:SoftwareAgent rdf:type owl:Class ;
+                   rdfs:comment "A software agent is running software that provides data to the graph"@en ,
+                                "Es un software en ejecución que proporciona datos al grafo"@es ;
+                   rdfs:label "Agente de software"@es ,
+                              "Software Agent"@en .
+
+
+###  http://www.w3.org/ns/sosa/Featureofinterest
+sosa:Featureofinterest rdf:type owl:Class ;
+                       rdfs:subClassOf owl:Thing ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty org:siteAddress ;
+                                         owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty org:siteAddress ;
+                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty dc:date ;
+                                         owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty dc:identifier ;
+                                         owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty dc:title ;
+                                         owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty dc:date ;
+                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty dc:identifier ;
+                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty dc:title ;
+                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ;
+                       rdfs:comment "La entidad cuya propiedad está siendo estimada o calculada en el curso de una Observation como parte de una recogida de datos"@es ,
+                                    "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling"@en ;
+                       rdfs:label "Característica de interés"@es ,
+                                  "Feature of Interest"@en .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :comment ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ;
+                 rdfs:comment "Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with"@en ,
+                              "Acto de llevar a cabo una observación. Procedimiento para estimar o calcular el valor de una propiedad de un FeatureOfInterest. Enlaza con un Sensor para describir que hizo la Observación y cómo, enlaza con una ObservableProperty para describir de que estimación es el resultado y con un FeatureOfInterest para detallar con que propiedad estaba asociada"@es ;
+                 rdfs:label "Observación"@es ,
+                            "Observation"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class ;
+            rdfs:subClassOf owl:Thing ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty dc:identifier ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty bio:biography ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty foaf:mbox ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty foaf:phone ;
+                              owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            rdfs:comment "La clase Persona representa gente, con la condición de que sean personas, con independencia de que estén vivas o muertas, o reales o imaginarias. Es una subclase de Agent"@es ,
+                         "The Person class represents people. Something is a Person if it is a person. We don't nitpic about whether they're alive, dead, real, or imaginary. The Person class is a sub-class of the Agent class, since all people are considered agents in FOAF"@en ;
+            rdfs:label "Person"@en ,
+                       "Persona"@es .
+
+
+###  http://xmlns.com/foaf/0.1/Post
+foaf:Post rdf:type owl:Class ;
+          rdfs:subClassOf owl:Thing ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty dc:identifier ;
+                            owl:minCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty dc:identifier ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty time:hasBeginning ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty time:hasEnd ;
+                            owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                          ] ;
+          rdfs:comment "Post with the beginning and ending dates"@en ,
+                       "Puesto con las fechas de inicio y fin"@es ;
+          rdfs:label "Post"@en ,
+                     "Puesto"@es .
+
+
+###  https://www.w3.org/TR/vocab-dcat-2/Dataset
+dcat:Dataset rdf:type owl:Class ;
+             rdfs:subClassOf owl:Thing ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dcat:distribution ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dcat:landingPage ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dc:title ;
+                               owl:minCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dc:description ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty dc:title ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                             ] ;
+             rdfs:comment "A collection of data, published or curated by a single agent, and available for access or download in one or more representations (from CKAN)"@en ,
+                          "Una colección de datos, publicado o curado por un agente y disponible para ser accedio o descargado en una o más representaciones (de CKAN)"@es ;
+             rdfs:label "DCAT Dataset"@en ,
+                        "DCAT Dataset"@es .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://opendata.aragon.es/def/ei2av2
+<http://opendata.aragon.es/def/ei2av2> rdf:type owl:NamedIndividual ;
+                                       dc:description "La iniciativa Aragón Open Data se inició por Acuerdo de 17 de julio de 2012 del Gobierno de Aragón. En virtud del mismo se ordenó el inicio del proyecto de apertura de datos públicos y el 6 de febrero de 2013 se implantó a través del Portal opendata.aragon.es. Uno de los resultados de la iniciativa es el modelo ontológico EI2A, que se presenta en su versión 2, simplificando la versión anterior para facilitar su reutilización y mantenimiento. En este sentido, el nuevo modelo reutiliza vocabularios y ontologías de referencia, minimizado las soluciones particulares. Este modelo se ha desarrollado en el ámbito del Proyecto de Evolución de la infraestructura semántica de la Aragón Open Data (2020-21)"@es ,
+                                                      "https://github.com/aragonopendata/EI2A-ontologia/blob/master/docs/images/ei2a-diagrama.jpg"^^xsd:string .
+
+
+###  http://opendata.aragon.es/def/ei2av2#Concept
+:Concept rdf:type owl:NamedIndividual ,
+                  skos:Concept ;
+         rdfs:comment "Enlace con la categoría correspondiente"@es ;
+         rdfs:label "Categoría"@es .
+
+
+###  http://opendata.aragon.es/def/ei2av2#Thing_2
+:Thing_2 rdf:type owl:NamedIndividual ,
+                  owl:Thing .
+
+
+###  http://opendata.aragon.es/def/ei2av2#Thing_3
+:Thing_3 rdf:type owl:NamedIndividual ,
+                  owl:Thing ;
+         rdfs:comment ""^^xsd:string .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:comment owl:equivalentProperty ""^^xsd:string ;
+         rdfs:label "subpropiedad de rdfs:comment"@es ;
+         rdfs:comment "subpropiedad de rdfs:comment"@es .
+
+
+:label rdfs:label "Valor"@es ;
+       rdfs:comment "Valor"@es .
+
+
+skos:prefLabel rdfs:label "Etiqueta"@es ;
+               rdfs:comment "Etiqueta"@es .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

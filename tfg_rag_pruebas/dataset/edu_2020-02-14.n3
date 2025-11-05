@@ -1,0 +1,455 @@
+@prefix :      <https://schema.edu.ee/> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix adms:  <http://www.w3.org/ns/adms#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix org:   <http://www.w3.org/ns/org#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix status: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+<hhttps://schema.edu.ee/0.1/rdf>
+        dcterms:format  [ a             dcterms:MediaType ;
+                          rdf:value     "application/rdf+xml" ;
+                          rdfs:label    "RDF/XML"@en ;
+                          rdfs:seeAlso  <http://www.iana.org/assignments/media-types/application/rdf+xml>
+                        ] .
+
+:OppeasutuseOppekava  a   owl:Class ;
+        rdfs:comment      "Õppeasutuse õppekava on õppe- ja kasvatustegevuse alusdokument, milles kirjeldatakse õppe rõhuasetused ja tegevused õppekava täitmiseks."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õppeasutuse õppekava"@et ;
+        rdfs:subClassOf   :Oppekava ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+<https://schema.edu.ee/0.1/html>
+        dcterms:format  [ a             dcterms:MediaType ;
+                          rdf:value     "text/html" ;
+                          rdfs:label    "HTML"@en ;
+                          rdfs:seeAlso  <http://www.iana.org/assignments/media-types/text/html>
+                        ] .
+
+:Test   a                 owl:Class ;
+        rdfs:comment      "Hindamisvahend kokkulepitud eesmärgi hindamiseks. Nt ülesannete kogum; standardiseeritud ülesannete või küsimuste kogum, millega uuritakse ja hinnatakse inimese võimeid ja omadusi või teadmisi ja oskusi."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Test"@et , "Test"@en ;
+        rdfs:subClassOf   :Oppematerjal ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Haridusaste  a           owl:Class ;
+        rdfs:comment      "Hariduse omandamise järjestikune osa, selle iga (järgnev) osa (nt põhiharidus, keskharidus, kõrgharidus). NB alignmentType = educationalLevel."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Haridusaste"@et ;
+        rdfs:subClassOf   <https://schema.org/AlignmentObject> ;
+        dcterms:issued    "2020-02-20"^^xsd:date ;
+        dcterms:modified  "2020-02-20"^^xsd:date ;
+        skos:inScheme     : .
+
+:RiiklikOppekava  a       owl:Class ;
+        rdfs:comment      "Hariduse eesmärkide elluviimise riiklik plaan, mis annab ülevaate sellest, milleks, mida, kuidas ja millise aja jooksul õpitakse ning õpetatakse."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Riiklik õppekava"@et , "National curriculum"@en ;
+        rdfs:subClassOf   :Oppekava ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Kontrolltoo  a           owl:Class ;
+        rdfs:comment      "Õppepäevas võib läbi viia ühe kontrolltöö. Kontrolltöö toimumise ajast teatatakse õpilastele vähemalt viis õppepäeva enne kontrolltöö toimumist. Õppenädalas võib läbi viia kuni kolm kontrolltööd. Kontrolltöid ei planeerita esmaspäevale ja reedele, samuti õppepäeva esimesele ning viimasele õppetunnile, v.a juhul, kui õppeaine on tunniplaanis esmaspäeval ja reedel või ainult ühel neist päevadest või esimese või viimase tunnina."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Kontrolltöö"@et ;
+        rdfs:subClassOf   :Test ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Kusimus  a                  owl:Class ;
+        rdfs:comment         "Üksikküsimus testis."@et ;
+        rdfs:isDefinedBy     : ;
+        rdfs:label           "Küsimus"@et ;
+        dcterms:issued       "2020-02-14"^^xsd:date ;
+        dcterms:modified     "2020-02-14"^^xsd:date ;
+        owl:equivalentClass  <https://schema.org/Question> ;
+        skos:inScheme        : .
+
+:ulesanneKoosneb  a       owl:ObjectProperty ;
+        rdfs:comment      "Ülesanne koosneb vähemalt ühest üksikküsimusest."@et ;
+        rdfs:domain       :Ulesanne ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Ülesanne koosneb üksikküsimustest"@et ;
+        rdfs:range        :Kusimus ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:seotudHaridusaste  a       owl:ObjectProperty ;
+        rdfs:comment        "Õppematerjal on mõeldud või õpiväljund on planeeritud konkreetsele haridusastmele."@et ;
+        rdfs:domain         [ a            owl:Class ;
+                              owl:unionOf  ( <https://schema.edu.ee/#Opivaljund> <https://schema.edu.ee/#Oppematerjal> )
+                            ] ;
+        rdfs:isDefinedBy    : ;
+        rdfs:label          "Õppematerjali või õpiväljundiga seotud haridusaste"@et ;
+        rdfs:range          :Haridusaste ;
+        rdfs:subPropertyOf  <https://schema.org/educationalAlignment> ;
+        dcterms:issued      "2020-02-20"^^xsd:date ;
+        dcterms:modified    "2020-02-20"^^xsd:date ;
+        skos:inScheme       : .
+
+:Teema  a                 owl:Class ;
+        rdfs:comment      "Aine sisuühik, mida õpetatakse a'la \"2. maailmasõda ajaloos\" või \"Geomeetria\". Teemad on kasutusel õppematerjalide lõimimiseks. NB alignmentType = educationalSubject."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Topic"@en , "Teema"@et ;
+        rdfs:subClassOf   <https://schema.org/AlignmentObject> ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:seotudOppeaine  a        owl:ObjectProperty ;
+        rdfs:comment      "Õpiväljund ei pea olema seotud ühegi õppeainega ja võib olla seotud mitme õppeainega."@et ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( <https://schema.edu.ee/#Opivaljund> <https://schema.edu.ee/#Oppematerjal> )
+                          ] ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õppeaine, mille raames õpiväljundit või teemat käsitletekse"@et ;
+        rdfs:range        :Oppeaine ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:AinevaldkonnaPadevus
+        a                 owl:Class ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Ainevaldkonna pädevus"@et ;
+        rdfs:subClassOf   :Padevus ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Vastus  a                   owl:Class ;
+        rdfs:comment         "Üksikküsimuse vastus testis."@et ;
+        rdfs:isDefinedBy     : ;
+        rdfs:label           "Vastus"@et ;
+        dcterms:issued       "2020-02-14"^^xsd:date ;
+        dcterms:modified     "2020-02-14"^^xsd:date ;
+        owl:equivalentClass  <https://schema.org/Answer> ;
+        skos:inScheme        : .
+
+:Koolitus  a                 owl:Class ;
+        rdfs:comment         "Kavandatud süsteemne õpe, mille käigus antakse edasi kindlaid oskusi, teadmisi ja infot ning kujundatakse hoiakuid ja suhtumisi."@et ;
+        rdfs:isDefinedBy     : ;
+        rdfs:label           "Koolitus"@et ;
+        dcterms:issued       "2020-02-14"^^xsd:date ;
+        dcterms:modified     "2020-02-14"^^xsd:date ;
+        owl:equivalentClass  <https://schema.org/Course> ;
+        skos:inScheme        : .
+
+:Ainevaldkond  a          owl:Class ;
+        rdfs:comment      "Lähedase eesmärgiseade ja õppesisuga õppeained moodustavad ainevaldkonna. Ainevaldkonnad on järgmised:\n  1) keel ja kirjandus;\n  2) võõrkeeled;\n  3) matemaatika;\n  4) loodusained;\n  5) sotsiaalained;\n  6) kunstiained;\n  7) kehaline kasvatus.\n\nAinevaldkonna õppeainete õpetamise peamine eesmärk on vastava valdkonnapädevuse kujundamine. Valdkonnapädevuste kujunemist ning gümnaasiumi õppe- ja kasvatuseesmärkide saavutamist toetavad ainekavades esitatud õpitulemused, lõiming teiste ainevaldkondade õppeainetega ning tunni- ja kooliväline tegevus. NB alignmentType = educationalSubjectArea."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Subject area"@en , "Ainevaldkond"@et ;
+        rdfs:subClassOf   <https://schema.org/AlignmentObject> ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:onEelduseks  a           owl:ObjectProperty ;
+        rdfs:comment      "Õpiväljund on eelduseks teis(t)ele õpiväljundi(te)le."@et ;
+        rdfs:domain       :Opivaljund ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õpiväljund on eelduseks"@et ;
+        rdfs:range        :Opivaljund ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        owl:inverseOf     :opivaljundEeldab ;
+        skos:inScheme     : .
+
+:alateema  a              owl:ObjectProperty ;
+        rdfs:comment      "Teema alamosa, a'la \"Tasandilised kujundid\"."@et ;
+        rdfs:domain       :Teema ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Alateema"@et ;
+        rdfs:range        :Teema ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Opitulemus  a            owl:Class ;
+        rdfs:comment      "Kellegi teadmistele, oskustele, võimetele, töötulemustele antud hinnang, mida väljendatakse numbrites, tähtedes, punktides vm hindamisühikutes. Lihtsustatult, õpitulemus esitab õpiväljundi saavutatuse taset. Eksami või arvestuse sooritus."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õpitulemus"@et , "Learning assessment"@en ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Teadmine  a              owl:Class ;
+        rdfs:comment      "Õpingutega või kogemustest omandatud faktide, reeglite, seaduspärasuste jms tundmine."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Teadmine"@et , "Knowledge"@en ;
+        rdfs:subClassOf   :Opivaljund ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Opivaljund  a            owl:Class ;
+        rdfs:comment      "Õppimise tulemusena omandatavad teadmised, oskused ja hoiakud või nende kogumid (pädevused), mille olemasolu ja/või saavutatuse taset on võimalik tõendada ja hinnata. Nt \"oskab liita 10 piires\". NB alignmentType = teaches."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õpiväljund"@et , "Learning outcome"@en ;
+        rdfs:subClassOf   <https://schema.org/AlignmentObject> ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Ulesanne  a              owl:Class ;
+        rdfs:comment      "Kohustusena antud töö; harjutustöö koolis. Ülesanne koosneb tööjuhendist, (üksik)küsimustest ja vastustest. Kasutusel ka hindamisvahendina."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Ülesanne"@et ;
+        rdfs:subClassOf   :Oppematerjal ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:kooliaste  a             owl:DatatypeProperty ;
+        rdfs:comment      "Hariduse omandamise järjestikune alajaotus, selle iga (järgnev) osa.\n\nKooliastmed on:\n1) I kooliaste – 1.–3. klass;\n2) II kooliaste – 4.–6. klass;\n3) III kooliaste – 7.–9. klass;\n4) gümnaasium – 10.–12. klass.\n\nPõhikooli kooliastmed on:\n1) I kooliaste – 1.–3. klass;\n2) II kooliaste – 4.–6. klass;\n3) III kooliaste – 7.–9. klass."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Kooliaste"@et ;
+        rdfs:range        rdfs:Literal ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Padevus  a               owl:Class ;
+        rdfs:comment      "Teadmiste, oskuste ja hoiakute kogum, mis tagab suutlikkuse teatud tegevusalal või -valdkonnas loovalt, ettevõtlikult ja paindlikult toimida."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Pädevus"@et , "Competence"@en ;
+        rdfs:subClassOf   :Opivaljund ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Tasemetoo  a             owl:Class ;
+        rdfs:comment      "Kokkuvõttev test, kokkulepitud astme (kooliastme) lõpus saavutatud oskused ja teadmised; kooliastme lõpus teadmiste ja oskuste omandatust kontrolliv üleriigiline töö."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Tasemetöö"@et ;
+        rdfs:subClassOf   :Test ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Opirada  a               owl:Class ;
+        rdfs:comment      "Õppija poolt läbitud tee, mis sisaldab (e-)õppe tegevusi, mis võimaldavad teadmiste, oskuste ja pädevuste järjepidevat omandamist."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õpirada"@et ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:eeldab  a                owl:ObjectProperty ;
+        rdfs:comment      "Õpiväljundi omandamiseks on vajalik teine õpiväljund, nt oskuse jaoks on vajalik teadmine."@et ;
+        rdfs:domain       :Opivaljund ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õpiväljundi eeldus"@et ;
+        rdfs:range        :Opivaljund ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:seotudTeema  a           owl:ObjectProperty ;
+        rdfs:comment      "Õpiväljund ei pea olema ühegi teemaga, kuid teema raames käsitletakse vähemalt ühte õpiväljundit. Õppematerjal võib olla seotud teemadega."@et ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( <https://schema.edu.ee/#Opivaljund> <https://schema.edu.ee/#Oppematerjal> )
+                          ] ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Teema, mille raames õpiväljundit või teemat käsitletakse"@et ;
+        rdfs:range        :Teema ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:hindabOpitulemust  a     owl:ObjectProperty ;
+        rdfs:comment      "Ülesanne hindab mil määral on õpitulemus omandatud. Küsimus hindab kas konkreetse küsimusega seotud õpitulemus on saavutatud või mitte."@et ;
+        rdfs:domain       :Test ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Hindab õpitulemuse saavutatust"@et ;
+        rdfs:range        :Opitulemus ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Oppeaine  a              owl:Class ;
+        rdfs:comment      "Õppeasutuses õpetatav teadus-, tehnika-, kunsti- vm ala."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õppeaine"@et , "Subject"@en ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:testKoosneb  a           owl:ObjectProperty ;
+        rdfs:comment      "Test koosneb vähemalt ühest ülesandest."@et ;
+        rdfs:domain       :Test ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Test koosneb ülesannetest"@et ;
+        rdfs:range        :Ulesanne ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+<https://schema.edu.ee/#Oppematerjal>
+        a       owl:Class .
+
+:IndividuaalneOppekava
+        a                 owl:Class ;
+        rdfs:comment      "Individuaalne õppekava on Individuaalse õppekava järgi õppimise korra kohaselt hariduslike erivajadustega õpilase jaoks koostatud õppekava, mis loob õpilasele tingimused võimetekohaseks õppimiseks ja arenemiseks. Individuaalne õppekava koostatakse õpilasele, kellel on raskusi oma klassikaaslastega samal ajal samas ruumis või vastavale klassile koostatud töökava alusel töötada. Hariduslikeks erivajadusteks võivad olla õpilase eriline andekus, õpi- ja käitumisraskused, terviserikked, puuded või pikemaaegne õpikeskkonnast eemal viibimine."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Individuaalne õppekava"@et ;
+        rdfs:subClassOf   :Ainekava ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Ainekava  a              owl:Class ;
+        rdfs:comment      "Dokument, mis hõlmab ühe aine õppe-eesmärgid, õppesisu, metoodika ja hindamise põhimõtted."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Ainekava"@et ;
+        rdfs:subClassOf   :Oppekava ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:ainevaldkondKoosneb  a   owl:ObjectProperty ;
+        rdfs:comment      "Ainevaldkond sisaldab vähemalt ühte, kuid enamasti rohkemat, õppeainet."@et ;
+        rdfs:domain       :Ainevaldkond ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Includes subject"@en , "Ainevaldkond sisaldab õppeainet"@et ;
+        rdfs:range        :Oppeaine ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Hoiak  a                 owl:Class ;
+        rdfs:comment      "Inimese kalduvus hinnata objektide (näit. isikute, sündmuste, nähtuste) olemust teatud määral soosival või mittesoosival viisil. See hinnang väljendub tavaliselt tunnetusliku (kognitiivse), emotsionaalse (afektiivse) või käitumusliku (konatiivse) reageeringuna."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Hoiak"@et , "Attitude"@en ;
+        rdfs:subClassOf   :Opivaljund ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Oppematerjal  a          owl:Class ;
+        rdfs:comment      "Nii digitaalsel kui muul kujul õppematerjal. Digitaalsel kujul avaldatud õppematerjal on nt: e-õpik, õpiotstarbeline veebivideo ja mobiilirakendus, õpimäng, e-tööleht, veebipõhine test, õpiobjekt."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õppematerjal"@et , "Learning material"@en ;
+        rdfs:subClassOf   <https://schema.org/CreativeWork> ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:vanuseaste  a                  owl:DatatypeProperty ;
+        rdfs:comment            "Vanuse teatav alajaotus; selles vanuses inimesed."@et ;
+        rdfs:isDefinedBy        : ;
+        rdfs:label              "Vanuseaste"@et ;
+        dcterms:issued          "2020-02-14"^^xsd:date ;
+        dcterms:modified        "2020-02-14"^^xsd:date ;
+        owl:equivalentProperty  <https://schema.org/typicalAgeRange> ;
+        skos:inScheme           : .
+
+:Oskus  a                 owl:Class ;
+        rdfs:comment      "Võime rakendada teadmisi ja kasutada neid ülesannete täitmisel ja probleemide lahendamisel."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Skill"@en , "Oskus"@et ;
+        rdfs:subClassOf   :Opivaljund ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:seotudOpivaljund  a      owl:ObjectProperty ;
+        rdfs:comment      "Õpiväljundit võidakse kasutada erinevates ainevaldkondades riikliku õppekava kontekstis. Õpiväljund ei pea olema seotud ainevaldkonnaga. Õppematerjal on seotud konkreetsete õpiväljundite saavutamisega. Minimaalselt on õppematerjaliga seotud üks õpiväljund."@et ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( <https://schema.edu.ee/#Opivaljund> <https://schema.edu.ee/#Oppematerjal> )
+                          ] ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Teemaga või õppematerjaliga seotud õpiväljund"@et ;
+        rdfs:range        :Opivaljund ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Oppekava  a              owl:Class ;
+        rdfs:comment      "Õppe ja kasvatuse alusdokument, mis määrab õppe- ja kasvatuseesmärgid, õppe sisu ja mahu, metoodika põhimõtted ning hindamise alused, nõuded õppekeskkonnale vms."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õppekava"@et , "Curriculum"@en ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:seotudAinevaldkond  a    owl:ObjectProperty ;
+        rdfs:comment      "Õpiväljundit võidakse kasutada erinevates ainevaldkondades riikliku õppekava kontekstis. Õpiväljund ei pea olema seotud ainevaldkonnaga. Õppematerjal võib olla seotud ainevaldkondadega."@et ;
+        rdfs:domain       [ a            owl:Class ;
+                            owl:unionOf  ( <https://schema.edu.ee/#Opivaljund> <https://schema.edu.ee/#Oppematerjal> )
+                          ] ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Ainevaldkond, mille raames õpiväljundit või õppematerjali käsitletakse"@et ;
+        rdfs:range        :Ainevaldkond ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:Sihtgrupp  a                owl:Class ;
+        rdfs:comment         "Elanikkonna rühm, mille vajadusi silmas pidades on õppematerjal loodud."@et ;
+        rdfs:isDefinedBy     : ;
+        rdfs:label           "Sihtgrupp"@et , "Educational audience"@en ;
+        dcterms:issued       "2020-02-14"^^xsd:date ;
+        dcterms:modified     "2020-02-14"^^xsd:date ;
+        owl:equivalentClass  <https://schema.org/EducationalAudience> ;
+        skos:inScheme        : .
+
+:OpetajaTookava  a        owl:Class ;
+        rdfs:comment      "Töökava on õpetajale igapäevane abivahend, mis võimaldab tal õppeprotsessi kavandada ja analüüsida ning iseennast hinnata. Töökava on dokument, mille alusel toimub õppetöö tundides."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Õpetaja töökava"@et ;
+        rdfs:subClassOf   :Oppekava ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+<https://schema.edu.ee/#Opivaljund>
+        a       owl:Class .
+
+:Tunnikontroll  a         owl:Class ;
+        rdfs:comment      "Väikesemahuline kirjalik töö tunnis õpitu kontrollimiseks ja hindamiseks."@et ;
+        rdfs:isDefinedBy  : ;
+        rdfs:label        "Tunnikontroll"@et ;
+        rdfs:subClassOf   :Test ;
+        dcterms:issued    "2020-02-14"^^xsd:date ;
+        dcterms:modified  "2020-02-14"^^xsd:date ;
+        skos:inScheme     : .
+
+:0.1    a                              owl:Ontology ;
+        rdfs:comment                   "Ontoloogia kirjeldab hariduse valdkonna peamised mõisted ja seosed nende vahel. Praeguses versioonis on rõhk pandud õppematerjali, õpiväljundite ja õppekavaga seotud detailidele."@et ;
+        rdfs:title                     "Hariduse valdkonna ontoloogia"@et , "Ontology for education"@en ;
+        cc:license                     <http://creativecommons.org/licenses/by/4.0/> ;
+        dcterms:creator                <https://www.linkedin.com/in/peepkungas> ;
+        dcterms:description            "Ontoloogia kirjeldab hariduse valdkonna peamised mõisted ja seosed nende vahel. Praeguses versioonis on rõhk pandud õppematerjali, õpiväljundite ja õppekavaga seotud detailidele."@et ;
+        dcterms:hasFormat              <https://schema.edu.ee/0.1/html> , <hhttps://schema.edu.ee/0.1/rdf> ;
+        dcterms:identifier             :0.1 ;
+        dcterms:isVersionOf            : ;
+        dcterms:issued                 "2020-02-14"^^<xsd:date> ;
+        dcterms:modified               "2020-02-14"^^<xsd:date> ;
+        dcterms:rights                 "Copyright (c) 2020 Hariduse Infotehnoloogia SA (HITSA)."@en ;
+        dcterms:title                  "Hariduse ontoloogia"@et , "Education Ontology"@en ;
+        dcterms:type                   <http://purl.org/adms/assettype/Ontology> ;
+        vann:preferredNamespacePrefix  "haridus" ;
+        vann:preferredNamespaceUri     "https://schema.edu.ee/0.1/" ;
+        owl:imports                    <https://schema.org/> ;
+        owl:versionIRI                 <https://schema.edu.ee/0.1/> ;
+        owl:versionInfo                "0.1" ;
+        adms:status                    <http://purl.org/adms/status/UnderDevelopment> ;
+        foaf:maker                     <https://www.linkedin.com/in/peepkungas> .

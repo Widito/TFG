@@ -1,0 +1,189 @@
+@prefix :      <http://kgc.knowledge-graph.jp/ontology/kgc.owl#> .
+@prefix cc:    <http://creativecommons.org/ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix kgc:   <http://kgc.knowledge-graph.jp/ontology/kgc.owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+kgc:orTarget  a             owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:TargetObjProperty .
+
+kgc:AbstractTime  a  owl:Class .
+
+kgc:RelationBetweenScene
+        a       owl:ObjectProperty .
+
+kgc:right  a                owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:subject  a              owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneProperty .
+
+kgc:CanNotAction  a      owl:Class ;
+        rdfs:subClassOf  kgc:NotAction .
+
+kgc:opposite  a             owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:Object  a   owl:Class .
+
+kgc:time  a         owl:DatatypeProperty , owl:ObjectProperty ;
+        rdfs:range  xsd:DateTime .
+
+kgc:to  a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:hasPredicate  a         owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:TargetObjProperty .
+
+kgc:then  a                 owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:RelationBetweenScene .
+
+kgc:hasProperty  a          owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:TargetObjProperty .
+
+kgc:where  a                owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:how  a                  owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneObjectProperty .
+
+kgc:because  a              owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:RelationBetweenScene .
+
+kgc:around  a               owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:NotAction  a         owl:Class ;
+        rdfs:subClassOf  kgc:Action .
+
+dc:description  a  owl:AnnotationProperty .
+
+kgc:Animal  a            owl:Class ;
+        rdfs:subClassOf  kgc:Object .
+
+kgc:therefore  a            owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:RelationBetweenScene .
+
+<http://kgc.knowledge-graph.jp/ontology/kgc.owl>
+        a               owl:Ontology ;
+        rdfs:seeAlso    <https://github.com/KnowledgeGraphJapan/KGRC-RDF> ;
+        dc:description  "This vocabulary set can represent 5W1H (Who, What, When, Where, Why, How) in event (scene) descriptions. This file is also provided in Knowledge Graph Reasoning Challenge." ;
+        dc:title        "KGRC Ontology" ;
+        owl:versionIRI  kgc:1.0.0 .
+
+kgc:Thought  a           owl:Class ;
+        rdfs:subClassOf  kgc:Scene .
+
+kgc:left  a                 owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:hasPart  a              owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:TargetObjProperty .
+
+kgc:ofPart  a               owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:TargetObjProperty .
+
+kgc:Scene  a    owl:Class .
+
+kgc:infoReceiver  a         owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneProperty .
+
+kgc:ORobj  a             owl:Class ;
+        rdfs:subClassOf  kgc:Object .
+
+kgc:why  a                  owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneObjectProperty .
+
+kgc:whom  a                 owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneObjectProperty .
+
+kgc:Person  a            owl:Class ;
+        rdfs:subClassOf  kgc:Animal .
+
+kgc:Property  a  owl:Class .
+
+kgc:OFobj  a             owl:Class ;
+        rdfs:subClassOf  kgc:Object .
+
+kgc:SceneProperty  a  owl:ObjectProperty .
+
+kgc:next_to  a              owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:middle  a               owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:infoSource  a           owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneProperty .
+
+kgc:otherwise  a            owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:RelationBetweenScene .
+
+kgc:what  a                 owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneObjectProperty .
+
+kgc:on  a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:at_the_same_time  a     owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:RelationBetweenScene .
+
+kgc:SceneObjectProperty
+        a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneProperty .
+
+kgc:ActionOption  a  owl:ObjectProperty .
+
+kgc:Not  a                  owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:ActionOption .
+
+kgc:Action  a   owl:Class .
+
+kgc:TargetObjProperty
+        a       owl:ObjectProperty .
+
+xsd:DateTime  a  owl:Class .
+
+kgc:when_during  a          owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:RelationBetweenScene .
+
+kgc:if  a                   owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:RelationBetweenScene .
+
+kgc:from  a                 owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:near  a                 owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+kgc:Talk  a              owl:Class ;
+        rdfs:subClassOf  kgc:Scene .
+
+kgc:canNot  a               owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:ActionOption .
+
+kgc:when  a                 owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneObjectProperty , kgc:RelationBetweenScene .
+
+kgc:Place  a             owl:Class ;
+        rdfs:subClassOf  kgc:Object .
+
+kgc:LocationProperty  a     owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:SceneObjectProperty .
+
+kgc:ofWhole  a              owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:TargetObjProperty .
+
+kgc:Situation  a         owl:Class ;
+        rdfs:subClassOf  kgc:Scene .
+
+kgc:adjunct  a              owl:ObjectProperty ;
+        rdfs:subPropertyOf  kgc:LocationProperty .
+
+dc:title  a     owl:AnnotationProperty .
+
+kgc:Statement  a         owl:Class ;
+        rdfs:subClassOf  kgc:Scene .
