@@ -11,6 +11,8 @@ from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
 # MEJORA: Se importa el divisor de texto
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+# MEJORA: Se importan nuevos retrievers
+from langchain_community.retrievers import BM25Retriever
 
 print("Librerías importadas.")
 print("-" * 30)
@@ -122,11 +124,74 @@ print("Creando la base de datos vectorial con Chroma...")
 # MEJORA: Se usa .from_documents() en lugar de .from_texts()
 vectorstore = Chroma.from_documents(documents=document_splits, embedding=embeddings)
 
-# 3.3 - Retriever: El componente que busca en la base de datos vectorial.
-# Dado un texto, encontrará los documentos (vectores) más similares.
-# MEJORA: Se aumenta K a 10 para obtener más contexto.
-retriever = vectorstore.as_retriever(search_kwargs={"k": 10}) 
-print("Retriever configurado.")
+
+# DEFINICIÓN PERSONALIZADA DE ENSEMBLERETRIEVER
+from typing import List, Optional
+from langchain_core.documents import Document
+
+class EnsembleRetriever:
+    """
+    Implementación personalizada del EnsembleRetriever de LangChain.
+    Combina los resultados de varios retrievers ponderando sus puntuaciones.
+    """
+    def __init__(self, retrievers: List, weights: Optional[List[float]] = None):
+        self.retrievers = retrievers
+        # Si no se especifican pesos, se reparten equitativamente
+        self.weights = weights or [1.0 / len(retrievers)] * len(retrievers)
+
+    def invoke(self, query: str) -> List[Document]:
+        """
+        Recupera documentos combinando los resultados de todos los retrievers.
+        """
+        all_docs = []
+        for retriever, weight in zip(self.retrievers, self.weights):
+            results = retriever.invoke(query) if hasattr(retriever, "invoke") else retriever.get_relevant_documents(query)
+            # Guardamos (documento, peso)
+            for doc in results:
+                all_docs.append((doc, weight))
+        
+        # Fusionamos resultados similares según el contenido
+        combined = {}
+        for doc, weight in all_docs:
+            key = doc.page_content.strip()
+            combined[key] = combined.get(key, 0) + weight
+        
+        # Ordenamos por peso acumulado
+        sorted_docs = sorted(combined.items(), key=lambda x: x[1], reverse=True)
+        final_docs = [Document(page_content=content) for content, _ in sorted_docs]
+        return final_docs
+
+    # Compatibilidad con el pipeline de LangChain
+    def __call__(self, query: str):
+        return self.invoke(query)
+
+    def batch(self, queries: List[str]):
+        """Procesa múltiples consultas a la vez."""
+        return [self.invoke(q) for q in queries]
+
+
+# MEJORA: nuevo retriever híbrido: Combinamos dos tipos de búsqueda
+# 3.3 - Retriever Híbrido
+# Combinamos búsqueda por palabra clave (BM25) y búsqueda semántica (Chroma).
+print("Configurando el retriever híbrido...")
+# BUSCADOR 1: Búsqueda por palabra clave (BM25)
+print("Configurando el retriever de palabras clave (BM25)...")
+bm25_retriever = BM25Retriever.from_documents(document_splits)
+bm25_retriever.k = 5  # Traerá los 5 mejores resultados por palabra clave
+
+# BUSCADOR 2: Búsqueda semántica 
+print("Configurando el retriever semántico (Chroma)...")
+semantic_retriever = vectorstore.as_retriever(search_kwargs={"k": 5}) # Traerá los 5 mejores resultados semánticos
+
+# ENSAMBLADOR
+# Podemos ajustar estos pesos para optimizar los resultados
+print("Creando el Ensemble Retriever (Búsqueda Híbrida)...")
+retriever = EnsembleRetriever(
+    retrievers=[bm25_retriever, semantic_retriever], 
+    weights=[0.7, 0.3]  # Más peso a BM25
+)
+
+print("Retriever Híbrido configurado.")
 
 # 3.4 - LLM: El modelo de lenguaje que generará las respuestas.
 # MODIFICACION: Se utiliza Ollama con el modelo deepseek-r1:8b.
