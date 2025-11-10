@@ -194,8 +194,9 @@ retriever = EnsembleRetriever(
 print("Retriever Híbrido configurado.")
 
 # 3.4 - LLM: El modelo de lenguaje que generará las respuestas.
-# MODIFICACION: Se utiliza Ollama con el modelo deepseek-r1:8b.
-llm = ChatOllama(model="deepseek-r1:8b")
+# MODIFICACION: Se utiliza 'phi3' para asegurar fidelidad estricta al prompt.
+# Se añade temperature=0.0 para eliminar la aleatoriedad, como sugirió la investigación.
+llm = ChatOllama(model="phi3", temperature=0.0)
 
 # 3.5 - Prompt Template
 template = """
@@ -203,19 +204,21 @@ Actúa como un experto en modelado semántico y RDF. Tu objetivo es ayudar al us
 
 La petición del usuario es: **{question}**
 
-He buscado en la base de datos de Clases y Propiedades y este es el CONTEXTO relevante que he encontrado:
+Has buscado en la base de datos y este es el ÚNICO CONTEXTO relevante que has encontrado:
 ---
 {context}
 ---
 
-Por favor, basándote ÚNICAMENTE en este contexto:
-1.  Identifica las Clases y Propiedades más adecuadas (incluyendo su prefijo).
-2.  Nombra y describe las tripletas (sujeto, predicado, objeto) que el usuario debería crear para modelar su petición.
-3.  Si el contexto no es suficiente para responder, simplemente di que no tienes la información necesaria.
+Por favor, sigue estas reglas ESTRICTAMENTE:
+1.  Basa tu respuesta SOLAMENTE en las Clases y Propiedades (incluyendo sus prefijos y URIs) que aparecen en el CONTEXTO de arriba.
+2.  NO inventes, adivines ni añadas ninguna clase o propiedad que no esté explícitamente listada en el CONTEXTO.
+3.  Si las Clases o Propiedades en el CONTEXTO no son suficientes para responder a la petición del usuario, di únicamente que no tienes la información necesaria.
+4.  Nombra y describe las tripletas (sujeto, predicado, objeto) que el usuario debería crear.
 
 RESPUESTA:
 """
 prompt = ChatPromptTemplate.from_template(template)
+
 print("Plantilla de prompt (Asistente de Modelado) creada.")
 
 # 3.6 - Cadena RAG (RAG Chain)
