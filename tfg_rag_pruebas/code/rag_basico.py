@@ -110,19 +110,20 @@ print("Embeddings listos.")
 print("Dividiendo los documentos en fragmentos (chunks)...")
 # MEJORA: Se optimiza el tamaño de los fragmentos ---
 # Se crean chunks más pequeños (500) para que sean más específicos.
-text_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=500,  # Tamaño de cada fragmento (más pequeño)
-    chunk_overlap=100, # Solapamiento (un poco menos)
-    length_function=len
-)
-document_splits = text_splitter.create_documents(documents)
-print(f"Se han creado {len(document_splits)} fragmentos (chunks) para la base de datos.")
+# Se desactiva temporalmente el codigo para realizar pruebas con documentos completos.
+#text_splitter = RecursiveCharacterTextSplitter(
+    #chunk_size=500,  # Tamaño de cada fragmento (más pequeño)
+    #chunk_overlap=100, # Solapamiento (un poco menos)
+    #length_function=len
+#)
+#document_splits = text_splitter.create_documents(documents)
+#print(f"Se han creado {len(document_splits)} fragmentos (chunks) para la base de datos.")
 
 
 # 3.2 - Vector Store: La base de datos que almacena los vectores.
-print("Creando la base de datos vectorial con Chroma...")
+print("Creando la base de datos vectorial con Chroma (usando textos atomicos)...")
 # MEJORA: Se usa .from_documents() en lugar de .from_texts()
-vectorstore = Chroma.from_documents(documents=document_splits, embedding=embeddings)
+vectorstore = Chroma.from_texts(texts=documents, embedding=embeddings)
 
 
 # DEFINICIÓN PERSONALIZADA DE ENSEMBLERETRIEVER
@@ -176,7 +177,7 @@ class EnsembleRetriever:
 print("Configurando el retriever híbrido...")
 # BUSCADOR 1: Búsqueda por palabra clave (BM25)
 print("Configurando el retriever de palabras clave (BM25)...")
-bm25_retriever = BM25Retriever.from_documents(document_splits)
+bm25_retriever = BM25Retriever.from_texts(documents)
 bm25_retriever.k = 5  # Traerá los 5 mejores resultados por palabra clave
 
 # BUSCADOR 2: Búsqueda semántica 
