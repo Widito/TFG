@@ -102,9 +102,10 @@ print("Paso 3: Construyendo la cadena RAG con LangChain...")
 
 # 3.1 - Embeddings: Convertir texto a vectores.
 print("Configurando embeddings con Sentence Transformers...")
-model_name = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
+# MEJORA: Se cambia a un modelo SOTA (BAAI/bge-m3) optimizado para RETRIEVAL (no requiere autenticación)
+model_name = "BAAI/bge-m3"
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
-print("Embeddings listos.")
+print(f"Embeddings ({model_name}) listos.")
 
 # MEJORA: Se añade el Divisor de Texto (Text Splitter)
 print("Dividiendo los documentos en fragmentos (chunks)...")
