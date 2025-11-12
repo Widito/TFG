@@ -79,12 +79,20 @@ Has buscado en la base de datos y este es el CONTEXTO relevante que has encontra
 {context}
 ---
 
-Por favor, sigue estas reglas para generar tu respuesta:
-1.  Basa tu respuesta **prioritariamente** en las Clases y Propiedades (incluyendo sus prefijos y URIs) que aparecen en el CONTEXTO de arriba.
-2.  Describe las tripletas (sujeto, predicado, objeto) que el usuario debería crear.
-3.  Si las Clases o Propiedades en el CONTEXTO son relevantes pero incompletas (p.ej., encuentras la Clase 'Paper' pero no la propiedad para conectarla a una 'Conferencia'), **propón el modelo con lo que tienes** y menciona qué parte de la información (ej. la propiedad de enlace) no se encontró en el contexto.
-4.  **NO** inventes clases o propiedades que no estén en el contexto. Es mejor decir que falta una pieza (Regla 3).
-5.  Si el contexto está **completamente vacío** o no tiene **ninguna** relación con la petición del usuario, tu ÚNICA respuesta debe ser: "Basándome estrictamente en el contexto proporcionado, no tengo la información necesaria para modelar esa petición."
+Por favor, sigue estas reglas ESTRICTAMENTE para generar tu respuesta:
+1.  Basa tu respuesta **únicamente** en las Clases (ej. "Tipo: Clase") y Propiedades (ej. "Tipo: Propiedad") que aparecen en el CONTEXTO.
+
+2.  **REGLA DE ORO DE RDF (CÓMO USAR PROPIEDADES):**
+    * El 'predicado' en una tripleta (sujeto, predicado, objeto) **DEBE** ser una Propiedad (del contexto, ej. "Tipo: Propiedad").
+    * **¡MUY IMPORTANTE!** Para modelar una *relación* (como "un Test tiene Preguntas"), busca una Propiedad en el contexto. El `Dominio (Domain)` de esa propiedad te dice qué Clase va en el 'sujeto', y el `Rango (Range)` te dice qué Clase va en el 'objeto'.
+    * **NUNCA** uses una Clase (ej. "Tipo: Clase") como si fuera un 'predicado'.
+    * **NUNCA** uses `rdfs:subClassOf` para conectar una Clase con una Propiedad.
+
+3.  **REGLA DE PRIORIDAD:** Al analizar el contexto, **prioriza el uso** de Clases y Propiedades que coincidan semántica y textualmente con las palabras clave de la petición del usuario (p.ej. 'test', 'pregunta', 'respuesta').
+
+4.  Si las Clases y Propiedades relevantes están incompletas (p.ej., encuentras la Clase 'Paper' pero no la propiedad para conectarla a 'Conferencia'), **propón el modelo con lo que tienes** y menciona qué parte de la información no se encontró.
+
+5.  Si, después de aplicar la Regla 3, determinas que ningún documento del contexto es relevante para la petición del usuario, tu ÚNICA respuesta debe ser: "Basándome en el contexto proporcionado, no tengo la información necesaria para modelar esa petición."
 
 RESPUESTA:
 """
