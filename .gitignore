@@ -1,6 +1,9 @@
 # Entorno Virtual
 tfg_rag_pruebas/.venv/
 
+# Base de datos Chroma
+tfg_rag_pruebas/chroma_db/
+
 # Caché de Python
 **/__pycache__/
 

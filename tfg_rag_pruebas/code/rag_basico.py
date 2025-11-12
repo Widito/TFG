@@ -66,18 +66,37 @@ except Exception as e:
 # MEJORA: Consulta SPARQL mejorada (con UNION) 
 # Ahora se buscan descripciones en rdfs:comment Y TAMBIÉN en dc:description
 # También se carga dc:title si rdfs:label no existe.
+# MEJORA: Consulta SPARQL genérica para cubrir más ontologías de LOV
 query_text = """
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX dc: <http://purl.org/dc/elements/1.1/>
+    PREFIX dcterms: <http://purl.org/dc/terms/>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX obo: <http://purl.obolibrary.org/obo/>
 
     SELECT ?subject ?label ?description
     WHERE {
+        # Propiedades de descripción principales
         { ?subject rdfs:comment ?description . }
         UNION
         { ?subject dc:description ?description . }
+        UNION
+        { ?subject dcterms:description ?description . } # (Alternativa común de Dublin Core)
+        UNION
+        { ?subject skos:definition ?description . }     # (Estándar para vocabularios SKOS)
+        UNION
+        { ?subject obo:IAO_0000115 ?description . }   # (Estándar en OBO y ontologías biomédicas)
         
-        OPTIONAL { ?subject rdfs:label ?label . }
-        OPTIONAL { ?subject dc:title ?label . }
+        # Asegurarse de que la descripción es texto
+        FILTER(isLiteral(?description))
+        
+        # --- Obtener Etiquetas (Labels) de forma opcional ---
+        OPTIONAL { ?subject rdfs:label ?label_rdfs . }
+        OPTIONAL { ?subject dc:title ?label_dc . }
+        OPTIONAL { ?subject skos:prefLabel ?label_skos . }
+        
+        # Usar la primera etiqueta que encuentre
+        BIND(COALESCE(?label_rdfs, ?label_dc, ?label_skos, "") AS ?label)
     }
 """
 results = g.query(query_text)
@@ -123,8 +142,28 @@ print("Dividiendo los documentos en fragmentos (chunks)...")
 
 # 3.2 - Vector Store: La base de datos que almacena los vectores.
 print("Creando la base de datos vectorial con Chroma (usando textos atomicos)...")
-# MEJORA: Se usa .from_documents() en lugar de .from_texts()
-vectorstore = Chroma.from_texts(texts=documents, embedding=embeddings)
+# MEJORA: Se usa .from_documents() en lugar de .from_texts().
+# MEJORA: Se hace la base de datos PERSISTENTE para no recalcular embeddings.
+persist_directory = "tfg_rag_pruebas/chroma_db"
+
+if os.path.exists(persist_directory):
+    print("Cargando la base de datos vectorial existente desde el disco...")
+    vectorstore = Chroma(
+        persist_directory=persist_directory, 
+        embedding_function=embeddings
+    )
+    print("Base de datos cargada.")
+else:
+    print(f"Creando la base de datos vectorial en '{persist_directory}'...")
+    print("ESTO TARDARÁ MUCHO TIEMPO (solo la primera vez).")
+    
+    # Creamos la BD y la guardamos en disco
+    vectorstore = Chroma.from_texts(
+        texts=documents, 
+        embedding=embeddings, 
+        persist_directory=persist_directory
+    )
+    print("Base de datos creada y guardada en disco.")
 
 ##CODIGO COMENTADO PARA PRUEBAS SIN ENSEMBLERETRIEVER
 #print("Base de datos vectorial creada.")
@@ -179,11 +218,11 @@ vectorstore = Chroma.from_texts(texts=documents, embedding=embeddings)
 # para reducir el ruido.
 print("Configurando el retriever semántico (Chroma)...")
 
-# Aumentamos 'k' a 10 para proporcionar un contexto más amplio
+# Reducimos 'k' a 5 para proporcionar un contexto más amplio
 # al LLM, permitiéndole desambiguar entre conceptos.
-retriever = vectorstore.as_retriever(search_kwargs={"k": 10})
+retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
 
-print("Retriever semántico configurado (k=10).")
+print("Retriever semántico configurado (k=5).")
 
 ## CODIGO COMENTADO DEL ENSEMBLERETRIEVER PARA PRUEBAS SIN ÉL
 
@@ -217,11 +256,11 @@ Has buscado en la base de datos y este es el ÚNICO CONTEXTO relevante que has e
 {context}
 ---
 
-Por favor, sigue estas reglas ESTRICTAMENTE:
+Por favor, sigue estas reglas ESTRICTAMENTE antes de generar tu respuesta:
 1.  Basa tu respuesta SOLAMENTE en las Clases y Propiedades (incluyendo sus prefijos y URIs) que aparecen en el CONTEXTO de arriba.
 2.  NO inventes, adivines ni añadas ninguna clase o propiedad que no esté explícitamente listada en el CONTEXTO.
-3.  Si las Clases o Propiedades en el CONTEXTO no son suficientes para responder a la petición del usuario, di únicamente que no tienes la información necesaria.
-4.  Nombra y describe las tripletas (sujeto, predicado, objeto) que el usuario debería crear.
+3.  Si las Clases o Propiedades en el CONTEXTO no son suficientes para responder a la petición del usuario, tu ÚNICA respuesta debe ser: "Basándome estrictamente en el contexto proporcionado, no tengo la información necesaria para modelar esa petición." NO añadas nada más.
+4.  Si SÍ tienes información, nombra y describe las tripletas (sujeto, predicado, objeto) que el usuario debería crear.
 
 RESPUESTA:
 """
