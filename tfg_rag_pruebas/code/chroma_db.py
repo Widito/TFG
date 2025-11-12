@@ -125,7 +125,7 @@ try:
     # Añadimos una comprobación final
     count = vectorstore._collection.count()
     print(f"Comprobación: La base de datos contiene {count} documentos indexados.")
-    print("Ya puedes ejecutar '2_rag_persistente.py' para hacer consultas.")
+    print("Ya puedes ejecutar 'rag_basico.py' para hacer consultas.")
 
 except Exception as e:
     print("\n\n--- ERROR CRÍTICO DURANTE LA INDEXACIÓN ---")
