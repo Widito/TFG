@@ -2,7 +2,7 @@
 print("Paso 1: Importando librerías...")
 
 import os
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
@@ -57,13 +57,16 @@ except Exception as e:
 
 
 # 3.3 - Retriever
-print("Configurando el retriever semántico (Chroma)...")
-retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-print("Retriever semántico configurado (k=5).")
+print("Configurando el retriever semántico (MMR - Chroma)...")
+retriever = vectorstore.as_retriever(
+    search_type="mmr",
+    search_kwargs={'k': 10, 'fetch_k': 50} # Pide 50 docs, re-ordena y devuelve los 10 mejores
+)
+print("Retriever MMR configurado (k=10, fetch_k=50).")
 
 
 # 3.4 - LLM:
-llm = ChatOllama(model="phi3", temperature=0.0)
+llm = ChatOllama(model="llama3", temperature=0.0)
 
 # 3.5 - Prompt Template
 template = """
@@ -71,16 +74,17 @@ Actúa como un experto en modelado semántico y RDF. Tu objetivo es ayudar al us
 
 La petición del usuario es: **{question}**
 
-Has buscado en la base de datos y este es el ÚNICO CONTEXTO relevante que has encontrado:
+Has buscado en la base de datos y este es el CONTEXTO relevante que has encontrado:
 ---
 {context}
 ---
 
-Por favor, sigue estas reglas ESTRICTAMENTE antes de generar tu respuesta:
-1.  Basa tu respuesta SOLAMENTE en las Clases y Propiedades (incluyendo sus prefijos y URIs) que aparecen en el CONTEXTO de arriba.
-2.  NO inventes, adivines ni añadas ninguna clase o propiedad que no esté explícitamente listada en el CONTEXTO.
-3.  Si las Clases o Propiedades en el CONTEXTO no son suficientes para responder a la petición del usuario, tu ÚNICA respuesta debe ser: "Basándome estrictamente en el contexto proporcionado, no tengo la información necesaria para modelar esa petición." NO añadas nada más.
-4.  Si SÍ tienes información, nombra y describe las tripletas (sujeto, predicado, objeto) que el usuario debería crear.
+Por favor, sigue estas reglas para generar tu respuesta:
+1.  Basa tu respuesta **prioritariamente** en las Clases y Propiedades (incluyendo sus prefijos y URIs) que aparecen en el CONTEXTO de arriba.
+2.  Describe las tripletas (sujeto, predicado, objeto) que el usuario debería crear.
+3.  Si las Clases o Propiedades en el CONTEXTO son relevantes pero incompletas (p.ej., encuentras la Clase 'Paper' pero no la propiedad para conectarla a una 'Conferencia'), **propón el modelo con lo que tienes** y menciona qué parte de la información (ej. la propiedad de enlace) no se encontró en el contexto.
+4.  **NO** inventes clases o propiedades que no estén en el contexto. Es mejor decir que falta una pieza (Regla 3).
+5.  Si el contexto está **completamente vacío** o no tiene **ninguna** relación con la petición del usuario, tu ÚNICA respuesta debe ser: "Basándome estrictamente en el contexto proporcionado, no tengo la información necesaria para modelar esa petición."
 
 RESPUESTA:
 """
@@ -107,7 +111,31 @@ while True:
     if user_question.lower() == 'salir':
         break
     
-    print("\n Pensando...")
+    print("\n Buscando contexto...")
+    
+    # --- PASO DE DEBUG ---
+    # Vamos a ver qué encuentra el retriever ANTES de pasarlo al LLM
+    try:
+        retrieved_docs = retriever.invoke(user_question)
+        
+        print("--- INICIO: Contexto Recuperado (DEBUG) ---")
+        if not retrieved_docs:
+            print("¡ERROR DE DEBUG: El retriever NO ha devuelto NADA!")
+        else:
+            print(f"El retriever ha encontrado {len(retrieved_docs)} documentos:")
+            for i, doc in enumerate(retrieved_docs):
+                print(f"\n--- Documento {i+1} (de {len(retrieved_docs)}) ---")
+                # Imprime solo los primeros 400 caracteres
+                print(doc.page_content[:400] + "...") 
+        print("--- FIN: Contexto Recuperado (DEBUG) ---")
+    
+    except Exception as e:
+        print(f"ERROR DE DEBUG al invocar el retriever: {e}")
+    # --- FIN DE DEBUG ---
+
+
+    print("\n Pensando... (Enviando al LLM)")
+    # Ahora, invocamos la cadena completa como antes
     response = rag_chain.invoke(user_question)
 
     print("\n Respuesta del LLM:")

@@ -3,7 +3,7 @@ print("Iniciando el proceso de indexación (esto puede tardar varios minutos)...
 
 import rdflib
 import os
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 import traceback # Para mostrar errores detallados
 
@@ -53,50 +53,89 @@ try:
     print(f"Ontologías cargadas. El grafo total contiene {total_tripletas} tripletas.")
     print("-" * 30)
 
-    # PASO 3: EXTRAER DOCUMENTOS CON SPARQL
-    print("Paso 3: Ejecutando consulta SPARQL genérica...")
-    query_text = """
+# PASO 3: EXTRAER DOCUMENTOS CON SPARQL
+    print("Paso 3: Ejecutando consultas SPARQL para Clases y Propiedades...")
+    
+    # Query 1: Extraer Clases (rdfs:Class y owl:Class)
+    query_classes = """
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-        PREFIX dc: <http://purl.org/dc/elements/1.1/>
-        PREFIX dcterms: <http://purl.org/dc/terms/>
-        PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-        PREFIX obo: <http://purl.obolibrary.org/obo/>
-
-        SELECT ?subject ?label ?description
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        SELECT ?uri ?label ?comment
         WHERE {
-            { ?subject rdfs:comment ?description . }
+            { ?uri a rdfs:Class . }
             UNION
-            { ?subject dc:description ?description . }
-            UNION
-            { ?subject dcterms:description ?description . }
-            UNION
-            { ?subject skos:definition ?description . }
-            UNION
-            { ?subject obo:IAO_0000115 ?description . }
+            { ?uri a owl:Class . }
             
-            FILTER(isLiteral(?description))
+            FILTER(!isblank(?uri))
+
+            OPTIONAL { ?uri rdfs:label ?label_rdfs . }
+            OPTIONAL { ?uri rdfs:comment ?comment_rdfs . }
             
-            OPTIONAL { ?subject rdfs:label ?label_rdfs . }
-            OPTIONAL { ?subject dc:title ?label_dc . }
-            OPTIONAL { ?subject skos:prefLabel ?label_skos . }
-            
-            BIND(COALESCE(?label_rdfs, ?label_dc, ?label_skos, "") AS ?label)
+            # Coalesce para obtener al menos un label o el URI
+            BIND(COALESCE(?label_rdfs, "") AS ?label)
+            BIND(COALESCE(?comment_rdfs, "") AS ?comment)
         }
     """
-    results = g.query(query_text)
+
+    # Query 2: Extraer Propiedades (rdf:Property, owl:ObjectProperty, owl:DatatypeProperty)
+    query_properties = """
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX owl: <http://www.w3.org/2002/07/owl#>
+        SELECT ?uri ?label ?comment ?domain ?range
+        WHERE {
+            { ?uri a rdf:Property . }
+            UNION
+            { ?uri a owl:ObjectProperty . }
+            UNION
+            { ?uri a owl:DatatypeProperty . }
+            
+            FILTER(!isblank(?uri))
+
+            OPTIONAL { ?uri rdfs:label ?label_rdfs . }
+            OPTIONAL { ?uri rdfs:comment ?comment_rdfs . }
+            OPTIONAL { ?uri rdfs:domain ?domain_rdfs . }
+            OPTIONAL { ?uri rdfs:range ?range_rdfs . }
+            
+            BIND(COALESCE(?label_rdfs, "") AS ?label)
+            BIND(COALESCE(?comment_rdfs, "") AS ?comment)
+            BIND(COALESCE(STR(?domain_rdfs), "") AS ?domain)
+            BIND(COALESCE(STR(?range_rdfs), "") AS ?range)
+        }
+    """
 
     documents = []
-    for row in results:
-        if len(row.description) > 5:
-            doc_text = f"Concepto URI: {row.subject}\nEtiqueta: {str(row.label)}\nDescripción: {row.description}"
+
+    # Procesar Clases
+    print("Procesando Clases...")
+    results_classes = g.query(query_classes)
+    for row in results_classes:
+        # Solo añadimos si tiene al menos un label o comentario
+        if row.label or row.comment:
+            doc_text = f"Tipo: Clase\nURI: {row.uri}\nEtiqueta: {row.label}\nDescripción: {row.comment}"
             documents.append(doc_text)
 
+    print(f"  ... {len(documents)} documentos de Clases creados.")
+
+    # Procesar Propiedades
+    print("Procesando Propiedades...")
+    results_properties = g.query(query_properties)
+    count_props = 0
+    for row in results_properties:
+        # Solo añadimos si tiene al menos un label o comentario
+        if row.label or row.comment:
+            doc_text = f"Tipo: Propiedad\nURI: {row.uri}\nEtiqueta: {row.label}\nDescripción: {row.comment}\nDominio (Domain): {row.domain}\nRango (Range): {row.range}"
+            documents.append(doc_text)
+            count_props += 1
+
+    print(f"  ... {count_props} documentos de Propiedades creados.")
+
     if len(documents) == 0:
-        print("ADVERTENCIA: La consulta SPARQL no devolvió ningún documento.")
-        print("Esto podría deberse a que las ontologías no usan las propiedades de descripción esperadas.")
+        print("ADVERTENCIA: No se extrajo ningún documento (0 Clases, 0 Propiedades).")
+        print("Revisa los archivos .n3. ¿Contienen definiciones de rdfs:Class o rdf:Property?")
         exit()
         
-    print(f"Consulta SPARQL completada. Se han extraído {len(documents)} descripciones.")
+    print(f"Extracción completada. Se han extraído {len(documents)} documentos en total.")
     print("-" * 30)
 
     # PASO 4: CONFIGURAR EMBEDDINGS Y CREAR DB
