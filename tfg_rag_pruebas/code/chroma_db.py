@@ -1,5 +1,5 @@
 # (Versión DEBUG)
-print("Iniciando el proceso de indexación (esto puede tardar varios minutos)...")
+print("Iniciando el proceso de indexación")
 
 import rdflib
 import os
@@ -12,17 +12,6 @@ print("-" * 30)
 
 # --- Define el directorio de la base de datos primero ---
 persist_directory = "tfg_rag_pruebas/chroma_db"
-
-# --- PASO 0: Limpieza (Opcional pero recomendado) ---
-# Si el directorio ya existe, bórralo para empezar de cero.
-# (Necesitas 'import shutil' al principio del script)
-# try:
-#     if os.path.exists(persist_directory):
-#         print(f"Eliminando base de datos antigua en '{persist_directory}'...")
-#         shutil.rmtree(persist_directory)
-#         print("Base de datos antigua eliminada.")
-# except Exception as e:
-#     print(f"No se pudo eliminar el directorio antiguo: {e}")
 
 try:
     # PASO 2: CARGAR TODAS LAS ONTOLOGÍAS
@@ -132,7 +121,6 @@ try:
 
     if len(documents) == 0:
         print("ADVERTENCIA: No se extrajo ningún documento (0 Clases, 0 Propiedades).")
-        print("Revisa los archivos .n3. ¿Contienen definiciones de rdfs:Class o rdf:Property?")
         exit()
         
     print(f"Extracción completada. Se han extraído {len(documents)} documentos en total.")
@@ -147,7 +135,6 @@ try:
     print("Modelo de embeddings cargado.")
 
     print(f"Creando la base de datos vectorial en '{persist_directory}'...")
-    print("Este es el paso lento. Por favor, espera...")
 
     # Crear la base de datos.
     vectorstore = Chroma.from_texts(

@@ -28,7 +28,6 @@ print(f"Cargando la base de datos vectorial desde '{persist_directory}'...")
 if not os.path.exists(persist_directory):
     print(f"\n--- ERROR ---")
     print(f"No se encuentra el directorio de la base de datos: '{persist_directory}'")
-    print("¡Debes ejecutar 'chroma_db.py' primero!")
     exit()
 
 try:
@@ -88,9 +87,9 @@ Por favor, sigue estas reglas ESTRICTAMENTE para generar tu respuesta:
     * **NUNCA** uses una Clase (ej. "Tipo: Clase") como si fuera un 'predicado'.
     * **NUNCA** uses `rdfs:subClassOf` para conectar una Clase con una Propiedad.
 
-3.  **REGLA DE PRIORIDAD:** Al analizar el contexto, **prioriza el uso** de Clases y Propiedades que coincidan semántica y textualmente con las palabras clave de la petición del usuario (p.ej. 'test', 'pregunta', 'respuesta').
+3.  **REGLA DE PRIORIDAD:** Al analizar el contexto, **prioriza el uso** de Clases y Propiedades que coincidan semántica y textualmente con las palabras clave de la petición del usuario.
 
-4.  Si las Clases y Propiedades relevantes están incompletas (p.ej., encuentras la Clase 'Paper' pero no la propiedad para conectarla a 'Conferencia'), **propón el modelo con lo que tienes** y menciona qué parte de la información no se encontró.
+4.  Si las Clases y Propiedades relevantes están incompletas, **propón el modelo con lo que tienes** y menciona qué parte de la información no se encontró.
 
 5.  Si, después de aplicar la Regla 3, determinas que ningún documento del contexto es relevante para la petición del usuario, tu ÚNICA respuesta debe ser: "Basándome en el contexto proporcionado, no tengo la información necesaria para modelar esa petición."
 
@@ -122,13 +121,12 @@ while True:
     print("\n Buscando contexto...")
     
     # --- PASO DE DEBUG ---
-    # Vamos a ver qué encuentra el retriever ANTES de pasarlo al LLM
     try:
         retrieved_docs = retriever.invoke(user_question)
         
         print("--- INICIO: Contexto Recuperado (DEBUG) ---")
         if not retrieved_docs:
-            print("¡ERROR DE DEBUG: El retriever NO ha devuelto NADA!")
+            print("ERROR DE DEBUG: El retriever NO ha devuelto NADA.")
         else:
             print(f"El retriever ha encontrado {len(retrieved_docs)} documentos:")
             for i, doc in enumerate(retrieved_docs):
@@ -143,7 +141,7 @@ while True:
 
 
     print("\n Pensando... (Enviando al LLM)")
-    # Ahora, invocamos la cadena completa como antes
+    # Ahora, invocamos la cadena completa
     response = rag_chain.invoke(user_question)
 
     print("\n Respuesta del LLM:")
