@@ -1,11 +1,11 @@
-# (Versión DEBUG)
+# (Versión REFACTORIZADA - Procesamiento Individual con Metadatos)
 print("Iniciando el proceso de indexación")
 
 import rdflib
 import os
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
-import traceback # Para mostrar errores detallados
+import traceback
 
 print("Paso 1: Librerías importadas.")
 print("-" * 30)
@@ -13,39 +13,29 @@ print("-" * 30)
 # --- Define el directorio de la base de datos primero ---
 persist_directory = "tfg_rag_pruebas/chroma_db"
 
-try:
-    # PASO 2: CARGAR TODAS LAS ONTOLOGÍAS
-    print("Paso 2: Cargando todas las ontologías .n3 desde 'dataset'...")
-    g = rdflib.Graph()
-    ontologies_dir = "tfg_rag_pruebas/dataset" 
-    files_loaded = 0
+# Mapeo de extensiones a formatos de rdflib
+FORMAT_MAP = {
+    '.ttl': 'turtle',
+    '.n3': 'n3',
+    '.owl': 'xml',
+    '.rdf': 'xml',
+    '.nt': 'nt'
+}
 
+try:
+    # PASO 2: PROCESAR ONTOLOGÍAS UNA A UNA
+    print("Paso 2: Procesando ontologías individualmente desde 'dataset'...")
+    ontologies_dir = "tfg_rag_pruebas/dataset"
+    
     if not os.path.exists(ontologies_dir):
         print(f"ERROR: El directorio 'dataset' no se encuentra en: {os.path.abspath(ontologies_dir)}")
         exit()
-
-    for filename in os.listdir(ontologies_dir):
-        if filename.endswith(".n3"):
-            filepath = os.path.join(ontologies_dir, filename)
-            try:
-                print(f"  Cargando {filename}...")
-                g.parse(filepath, format="n3")
-                files_loaded += 1
-            except Exception as e:
-                print(f"    -> ERROR al parsear {filename}. Saltando archivo. Motivo: {e}")
-
-    total_tripletas = len(g)
-    if total_tripletas == 0:
-        print("ADVERTENCIA: No se cargaron tripletas. ¿Está el directorio 'dataset' vacío o la ruta es incorrecta?")
-        exit()
-        
-    print(f"Ontologías cargadas. El grafo total contiene {total_tripletas} tripletas.")
-    print("-" * 30)
-
-# PASO 3: EXTRAER DOCUMENTOS CON SPARQL
-    print("Paso 3: Ejecutando consultas SPARQL para Clases y Propiedades...")
     
-    # Query 1: Extraer Clases (rdfs:Class y owl:Class)
+    # Listas acumuladoras para todos los documentos y metadatos
+    all_documents = []
+    all_metadatas = []
+    
+    # Queries SPARQL (definidas fuera del bucle para reutilizarlas)
     query_classes = """
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -60,13 +50,11 @@ try:
             OPTIONAL { ?uri rdfs:label ?label_rdfs . }
             OPTIONAL { ?uri rdfs:comment ?comment_rdfs . }
             
-            # Coalesce para obtener al menos un label o el URI
             BIND(COALESCE(?label_rdfs, "") AS ?label)
             BIND(COALESCE(?comment_rdfs, "") AS ?comment)
         }
     """
-
-    # Query 2: Extraer Propiedades (rdf:Property, owl:ObjectProperty, owl:DatatypeProperty)
+    
     query_properties = """
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -92,42 +80,93 @@ try:
             BIND(COALESCE(STR(?range_rdfs), "") AS ?range)
         }
     """
-
-    documents = []
-
-    # Procesar Clases
-    print("Procesando Clases...")
-    results_classes = g.query(query_classes)
-    for row in results_classes:
-        # Solo añadimos si tiene al menos un label o comentario
-        if row.label or row.comment:
-            doc_text = f"Tipo: Clase\nURI: {row.uri}\nEtiqueta: {row.label}\nDescripción: {row.comment}"
-            documents.append(doc_text)
-
-    print(f"  ... {len(documents)} documentos de Clases creados.")
-
-    # Procesar Propiedades
-    print("Procesando Propiedades...")
-    results_properties = g.query(query_properties)
-    count_props = 0
-    for row in results_properties:
-        # Solo añadimos si tiene al menos un label o comentario
-        if row.label or row.comment:
-            doc_text = f"Tipo: Propiedad\nURI: {row.uri}\nEtiqueta: {row.label}\nDescripción: {row.comment}\nDominio (Domain): {row.domain}\nRango (Range): {row.range}"
-            documents.append(doc_text)
-            count_props += 1
-
-    print(f"  ... {count_props} documentos de Propiedades creados.")
-
-    if len(documents) == 0:
-        print("ADVERTENCIA: No se extrajo ningún documento (0 Clases, 0 Propiedades).")
-        exit()
+    
+    files_processed = 0
+    files_skipped = 0
+    
+    # Iterar sobre cada archivo en el directorio
+    for filename in os.listdir(ontologies_dir):
+        # Verificar si la extensión está soportada
+        file_ext = os.path.splitext(filename)[1].lower()
+        if file_ext not in FORMAT_MAP:
+            continue
         
-    print(f"Extracción completada. Se han extraído {len(documents)} documentos en total.")
+        filepath = os.path.join(ontologies_dir, filename)
+        print(f"\n--- Procesando: {filename} ---")
+        
+        try:
+            # Crear un grafo nuevo para ESTE archivo
+            g = rdflib.Graph()
+            
+            # Cargar el archivo con el formato apropiado
+            file_format = FORMAT_MAP[file_ext]
+            print(f"  Cargando como formato '{file_format}'...")
+            g.parse(filepath, format=file_format)
+            
+            tripletas_count = len(g)
+            print(f"  Archivo cargado: {tripletas_count} tripletas")
+            
+            if tripletas_count == 0:
+                print(f"  ADVERTENCIA: {filename} está vacío. Saltando...")
+                files_skipped += 1
+                continue
+            
+            # Ejecutar consultas SPARQL para ESTE grafo
+            file_documents = []
+            
+            # Procesar Clases
+            print("  Extrayendo Clases...")
+            results_classes = g.query(query_classes)
+            classes_count = 0
+            for row in results_classes:
+                if row.label or row.comment:
+                    doc_text = f"Tipo: Clase\nURI: {row.uri}\nEtiqueta: {row.label}\nDescripción: {row.comment}"
+                    file_documents.append(doc_text)
+                    classes_count += 1
+            print(f"    ... {classes_count} clases extraídas")
+            
+            # Procesar Propiedades
+            print("  Extrayendo Propiedades...")
+            results_properties = g.query(query_properties)
+            props_count = 0
+            for row in results_properties:
+                if row.label or row.comment:
+                    doc_text = f"Tipo: Propiedad\nURI: {row.uri}\nEtiqueta: {row.label}\nDescripción: {row.comment}\nDominio (Domain): {row.domain}\nRango (Range): {row.range}"
+                    file_documents.append(doc_text)
+                    props_count += 1
+            print(f"    ... {props_count} propiedades extraídas")
+            
+            # Generar metadatos para TODOS los documentos de este archivo
+            file_metadatas = [{"source": filename} for _ in file_documents]
+            
+            # Acumular en las listas globales
+            all_documents.extend(file_documents)
+            all_metadatas.extend(file_metadatas)
+            
+            files_processed += 1
+            print(f"  ✓ {filename} completado: {len(file_documents)} documentos generados")
+            
+        except Exception as e:
+            print(f"  ✗ ERROR al procesar {filename}: {e}")
+            print("  Detalles:")
+            traceback.print_exc()
+            files_skipped += 1
+            continue
+    
+    print("\n" + "-" * 30)
+    print(f"Resumen de carga:")
+    print(f"  - Archivos procesados exitosamente: {files_processed}")
+    print(f"  - Archivos saltados/con error: {files_skipped}")
+    print(f"  - Total de documentos extraídos: {len(all_documents)}")
+    
+    if len(all_documents) == 0:
+        print("\nERROR: No se extrajo ningún documento. Verifica el contenido del directorio 'dataset'.")
+        exit()
+    
     print("-" * 30)
 
-    # PASO 4: CONFIGURAR EMBEDDINGS Y CREAR DB
-    print("Paso 4: Configurando embeddings y creando la base de datos persistente...")
+    # PASO 3: CONFIGURAR EMBEDDINGS Y CREAR DB CON METADATOS
+    print("\nPaso 3: Configurando embeddings y creando la base de datos persistente...")
     
     print("Cargando modelo de embeddings (BAAI/bge-m3)...")
     model_name = "BAAI/bge-m3"
@@ -136,19 +175,21 @@ try:
 
     print(f"Creando la base de datos vectorial en '{persist_directory}'...")
 
-    # Crear la base de datos.
+    # Crear la base de datos CON METADATOS
     vectorstore = Chroma.from_texts(
-        texts=documents, 
-        embedding=embeddings, 
+        texts=all_documents,
+        embedding=embeddings,
+        metadatas=all_metadatas,  # ← METADATOS AÑADIDOS
         persist_directory=persist_directory
     )
     
-    # ¡Forzar el guardado en disco!
-    vectorstore.persist()
+    # Forzar el guardado en disco
+    # vectorstore.persist()
 
     print("\n--- ¡ÉXITO! ---")
     print(f"Base de datos vectorial creada y guardada en '{persist_directory}'.")
-    # Añadimos una comprobación final
+    
+    # Comprobación final
     count = vectorstore._collection.count()
     print(f"Comprobación: La base de datos contiene {count} documentos indexados.")
     print("Ya puedes ejecutar 'rag_basico.py' para hacer consultas.")
