@@ -1,0 +1,291 @@
+@prefix dt:    <https://w3id.org/dt#> .
+@prefix schema: <https://schema.org/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix isoprops: <https://w3id.org/isoprops#> .
+@prefix loin:  <https://w3id.org/loin#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix vs:    <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix dc:    <http://purl.org/dc/terms/> .
+
+dt:isDataTemplateFor  a     owl:ObjectProperty ;
+        rdfs:domain         dt:DataTemplate ;
+        rdfs:label          "is data template for" ;
+        rdfs:range          loin:SpecificationPerObjectType ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+dt:publisher  a             owl:DatatypeProperty ;
+        rdfs:label          "publisher" ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+dt:PredefinedValuesList
+        a                owl:Class ;
+        rdfs:comment     "list of predefined values"@en ;
+        rdfs:label       "Predefined value list"@en-GB ;
+        rdfs:subClassOf  owl:Thing ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      dt:hasPredefinedValueItem
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      isoprops:hasUnit
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      isoprops:hasUnit
+                         ] .
+
+dt:dateOfPublication  a     owl:DatatypeProperty ;
+        rdfs:label          "date of publication"@en-GB ;
+        rdfs:range          xsd:dateTime ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+dt:PredefinedValueItem
+        a                owl:Class ;
+        rdfs:comment     "the physical quantity of a library component"@en ;
+        rdfs:label       "Predefined value item"@en-GB ;
+        rdfs:subClassOf  schema:PropertyValue , owl:Thing ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty   dt:hasIndex
+                         ] ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  1 ;
+                           owl:onProperty   schema:value
+                         ] .
+
+dt:hasExternalDictionary
+        a                   owl:ObjectProperty ;
+        rdfs:domain         dt:LibraryComponent ;
+        rdfs:label          "has external dictionary"@en-GB ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+dt:hasPredefinedValueItem
+        a                   owl:ObjectProperty ;
+        rdfs:label          "has predefinded value item"@en-GB ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+dt:SetOfProperties  a    rdfs:Class ;
+        rdfs:comment     "a set of properties that can be applied to a data template" ;
+        rdfs:label       "Set of properties" ;
+        rdfs:subClassOf  dt:LibraryComponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      dt:hasSetOfProperties ;
+                           owl:someValuesFrom  dt:SetOfProperties
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      dt:hasProperty ;
+                           owl:someValuesFrom  isoprops:Property
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      dt:hasSetOfProperties
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      dt:hasProperty
+                         ] .
+
+dt:ConstructionObject
+        a                rdfs:Class ;
+        rdfs:comment     "object of interest in the context of a construction process"@en ;
+        rdfs:label       "Construction object"@en ;
+        rdfs:subClassOf  dt:LibraryComponent .
+
+dt:Property  a               rdfs:Class ;
+        rdfs:comment         "inherent or acquired feature of an item"@en ;
+        rdfs:label           "Property"@en-GB ;
+        rdfs:subClassOf      dt:LibraryComponent ;
+        rdfs:subClassOf      [ a                   owl:Restriction ;
+                               owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                               owl:onProperty      dt:hasPredefinedValues
+                             ] ;
+        owl:equivalentClass  isoprops:Property .
+
+dt:author  a                owl:DatatypeProperty ;
+        rdfs:label          "author"@en-GB ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+dt:Unit  a                   rdfs:Class ;
+        rdfs:comment         "real scalar quantity, defined and adopted by convention, with which any other quantity of the same kind can be compared to express the ratio of the second quantity to the first one as a number" ;
+        rdfs:label           "Unit"@en-GB ;
+        rdfs:subClassOf      dt:LibraryComponent ;
+        owl:equivalentClass  <http://qudt.org/schema/qudt/Unit> .
+
+dt:hasSetOfProperties
+        a                   owl:ObjectProperty ;
+        rdfs:domain         dt:SetOfProperties , dt:DataTemplate ;
+        rdfs:label          "has set of properties" ;
+        rdfs:range          dt:SetOfProperties ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+dt:ExternalDictionaryReference
+        a                    rdfs:Class ;
+        rdfs:comment         "reference to an external dictionary, which is a centralized repository of information about data such as meaning, relationships to other data, origin, usage and format"@en ;
+        rdfs:label           "External dictionary" ;
+        rdfs:subClassOf      owl:Thing ;
+        rdfs:subClassOf      [ a                owl:Restriction ;
+                               owl:cardinality  "1"^^xsd:nonNegativeInteger ;
+                               owl:onProperty   dt:hasExternalDictionaryProperty
+                             ] ;
+        rdfs:subClassOf      [ a                owl:Restriction ;
+                               owl:cardinality  "1"^^xsd:nonNegativeInteger ;
+                               owl:onProperty   dt:hasExternalDictionary
+                             ] ;
+        owl:equivalentClass  isoprops:ExternalDictionaryReference .
+
+dt:DataTemplate  a       rdfs:Class ;
+        rdfs:comment     "data structure used to describe the characteristics of construction objects"@en ;
+        rdfs:label       "Data template"@en ;
+        rdfs:subClassOf  dt:LibraryComponent ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      dt:isDataTemplateFor ;
+                           owl:someValuesFrom  loin:AlphanumericalInformation
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      dt:hasSetOfProperties ;
+                           owl:someValuesFrom  dt:SetOfProperties
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      dt:hasProperty ;
+                           owl:someValuesFrom  isoprops:Property
+                         ] .
+
+dt:hasExternalDictionaryProperty
+        a                   owl:ObjectProperty ;
+        rdfs:domain         dt:ExternalDictionaryReference ;
+        rdfs:label          "has external property reference"@en-GB ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+dt:hasProperty  a           owl:ObjectProperty ;
+        rdfs:domain         dt:DataTemplate ;
+        rdfs:label          "has property" ;
+        rdfs:range          isoprops:Property ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+dt:PhysicalQuantity  a       rdfs:Class ;
+        rdfs:comment         "the physical quantity of a library component"@en ;
+        rdfs:label           "Physical quantity" ;
+        rdfs:subClassOf      dt:LibraryComponent ;
+        owl:equivalentClass  <http://qudt.org/schema/qudt/QuantityKind> .
+
+dt:ISBN  a                  owl:DatatypeProperty ;
+        rdfs:label          "ISBN" ;
+        rdfs:range          xsd:string ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+dt:uri  a                   owl:DatatypeProperty ;
+        rdfs:label          "uri" ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+dt:LibraryComponent  a   rdfs:Class ;
+        rdfs:comment     "named and individually scheduled physical item and feature that might require management, such as inspection, maintenance, servicing or replacement, during the in-use phase"@en ;
+        rdfs:label       "Library component"@en ;
+        rdfs:subClassOf  owl:Thing ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      dt:hasReferenceDocument ;
+                           owl:someValuesFrom  dt:ReferenceDocument
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      dt:hasExternalDictionary ;
+                           owl:someValuesFrom  dt:ExternalDictionaryReference
+                         ] .
+
+dt:ReferenceDocument  a      rdfs:Class ;
+        rdfs:comment         "publication that is consulted to find specific information, particularly in a technical or scientific domain"@en ;
+        rdfs:label           "Reference document"@en ;
+        rdfs:subClassOf      dt:LibraryComponent ;
+        rdfs:subClassOf      [ a                   owl:Restriction ;
+                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                               owl:onProperty      dt:publisher
+                             ] ;
+        rdfs:subClassOf      [ a                   owl:Restriction ;
+                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                               owl:onProperty      dt:ISBN
+                             ] ;
+        rdfs:subClassOf      [ a                   owl:Restriction ;
+                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                               owl:onProperty      dt:uri
+                             ] ;
+        rdfs:subClassOf      [ a                   owl:Restriction ;
+                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                               owl:onProperty      dt:dateOfPublication
+                             ] ;
+        rdfs:subClassOf      [ a                   owl:Restriction ;
+                               owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                               owl:onProperty      dt:author
+                             ] ;
+        owl:equivalentClass  isoprops:DictionaryReferenceDocument .
+
+dt:hasExternalDictionaryReference
+        a                   owl:ObjectProperty ;
+        rdfs:domain         dt:LibraryComponent ;
+        rdfs:label          "referenced external dictionary"@en-GB ;
+        rdfs:range          dt:ExternalDictionaryReference ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+<http://w3id.org/dt>  a                owl:Ontology ;
+        dc:created                     "2023-12-23"^^xsd:date ;
+        dc:creator                     [ a                  schema:Person ;
+                                         schema:email       <mailto:martina.mellenthin.filardo@uni-weimar.de> ;
+                                         schema:identifier  <https://orcid.org/0000-0001-7759-7579> ;
+                                         schema:memberOf    [ schema:identifier  <https://www.uni-weimar.de/en/civil-engineering/chairs/construction-engineering-and-management/people/martina-mellenthin-filardo-msc/> ;
+                                                              schema:name        "Bauhaus-Universitaet Weimar"
+                                                            ] ;
+                                         schema:name        "Marthina Mellenthin-Filardo"
+                                       ] ;
+        dc:creator                     [ a                  schema:Person ;
+                                         schema:email       <mailto:sven.zentgraf@rub.de> ;
+                                         schema:identifier  <https://orcid.org/0000-0001-6058-7614> ;
+                                         schema:memberOf    [ schema:identifier  <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+                                                              schema:name        "Ruhr University Bochum"
+                                                            ] ;
+                                         schema:name        "Sven Zentgraf"
+                                       ] ;
+        dc:creator                     [ a                  schema:Person ;
+                                         schema:email       <mailto:philipp.hagedorn-n6v@rub.de> ;
+                                         schema:identifier  <https://orcid.org/0000-0002-6249-243X> ;
+                                         schema:memberOf    [ schema:identifier  <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en> ;
+                                                              schema:name        "Ruhr University Bochum"
+                                                            ] ;
+                                         schema:name        "Philipp Hagedorn"
+                                       ] ;
+        dc:creator                     [ a                  schema:Person ;
+                                         schema:email       <mailto:liu.liu-m6r@rub.de> ;
+                                         schema:identifier  <https://orcid.org/0000-0001-5907-7609> ;
+                                         schema:memberOf    [ schema:identifier  <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/liu_liu.html.en> ;
+                                                              schema:name        "Ruhr University Bochum"
+                                                            ] ;
+                                         schema:name        "Liu Liu"
+                                       ] ;
+        dc:description                 "The Data Template (DT) Ontology is based on concepts and principles for creating templates from ISO 23387 and the associated XML data schema, which is currently under development. "@en ;
+        dc:license                     <https://creativecommons.org/licenses/by/4.0/> ;
+        dc:rights                      "Copyright 2024 by Chair of Computing in Engineering, Ruhr University Bochum and Chair of Construction Management, Bauhaus Universitaet Weimar" ;
+        dc:source                      <https://linkedbuildingdata.net/ldac2024/files/papers/LDAC2024_Camera_8.pdf> ;
+        dc:title                       "Data Template (DT) Ontology"@en ;
+        vann:preferredNamespacePrefix  "dt" ;
+        vann:preferredNamespaceUri     <http://w3id.org/dt#> ;
+        owl:imports                    <https://w3id.org/loin> , <https://w3id.org/isoprops> ;
+        owl:versionInfo                "1.0" , "Created with TopBraid Composer" .
+
+dt:hasReferenceDocument
+        a                   owl:ObjectProperty ;
+        rdfs:domain         dt:LibraryComponent ;
+        rdfs:label          "has reference document" ;
+        rdfs:range          dt:ReferenceDocument ;
+        rdfs:subPropertyOf  owl:topObjectProperty .
+
+dt:hasIndex  a              owl:DatatypeProperty ;
+        rdfs:label          "Index of the element in the enumeration"@en-GB ;
+        rdfs:subPropertyOf  owl:topDataProperty .
+
+dt:hasPredefinedValues
+        a                       owl:ObjectProperty ;
+        rdfs:label              "has predefined values"@en-GB ;
+        rdfs:subPropertyOf      owl:topObjectProperty ;
+        owl:equivalentProperty  isoprops:hasPossibleValues .

@@ -1,0 +1,812 @@
+@prefix bot: <https://w3id.org/bot#> .
+@prefix bpo: <https://w3id.org/bpo#> .
+@prefix omg: <https://w3id.org/omg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sbim: <http://www.semanticbim.com/ontologies/residentialBuilding.owl#> .
+@prefix seas: <https://w3id.org/seas/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@base <http://www.semanticbim.com/ontologies/residentialBuilding.owl> .
+
+<http://www.semanticbim.com/ontologies/residentialBuilding.owl> rdf:type owl:Ontology ;
+                                                                 owl:versionIRI <http://www.semanticbim.com/ontologies/residentialBuilding.owl/1.0> ;
+                                                                 owl:imports <https://w3id.org/bot/0.3.1> ,
+                                                                             <https://w3id.org/bpo/1-2> ,
+                                                                             <https://w3id.org/omg/0-3> ;
+                                                                 terms:creator "Bimal Kumar"^^rdfs:Literal ,
+                                                                               "Farhad Sadeghineko"^^rdfs:Literal ;
+                                                                 terms:issued "2020-04-23T12:00:00"^^xsd:dateTime ;
+                                                                 vann:preferredNamespacePrefix "sbim:" ;
+                                                                 rdfs:comment "The sbim ontology represents data about a two storey building generated through the process of translating of RDF data into the IFC data model."@en ;
+                                                                 rdfs:isDefinedBy "SemanticBIM (sbim)" ;
+                                                                 rdfs:seeAlso "https://doi.org/10.1061/(ASCE)CP.1943-5487.0000919" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/description
+<http://purl.org/dc/elements/1.1/description> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://qudt.org/schema/qudt/unit
+qudt:unit rdf:type owl:ObjectProperty ;
+          <http://purl.org/dc/elements/1.1/description> "A reference to the unit of measure of a quantity (variable or constant) of interest."@en ;
+          rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ,
+                           <http://qudt.org/schema/qudt> ;
+          rdfs:label "unit" .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasMaterial
+sbim:hasMaterial rdf:type owl:ObjectProperty ;
+                 rdfs:domain bot:Element ,
+                             bpo:Component ,
+                             bpo:Entity .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasPhase
+sbim:hasPhase rdf:type owl:ObjectProperty ;
+              rdfs:domain sbim:Project ;
+              rdfs:range sbim:Project .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/maxValue
+schema:maxValue rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/minValue
+schema:minValue rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#HasColourRGB
+sbim:HasColourRGB rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#HasContactPerson
+sbim:HasContactPerson rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#HasImageReference
+sbim:HasImageReference rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasAcousticRating
+sbim:hasAcousticRating rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasAddresses
+sbim:hasAddresses rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasCategory
+sbim:hasCategory rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasCodePerformance
+sbim:hasCodePerformance rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasDrawingReference
+sbim:hasDrawingReference rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasEditionYear
+sbim:hasEditionYear rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasElevation
+sbim:hasElevation rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasFireRating
+sbim:hasFireRating rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasFunction
+sbim:hasFunction rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasId
+sbim:hasId rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasIdNumber
+sbim:hasIdNumber rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasLastServicedDate
+sbim:hasLastServicedDate rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasLength
+sbim:hasLength rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf omg:hasSimpleGeometryDescription ;
+               rdfs:domain omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasLink
+sbim:hasLink rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasLiteralValue
+sbim:hasLiteralValue rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasMaterialDescription
+sbim:hasMaterialDescription rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasName
+sbim:hasName rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasNonGeometryDescription
+sbim:hasNonGeometryDescription rdf:type owl:DatatypeProperty .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasObjectType
+sbim:hasObjectType rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasPcdReference
+sbim:hasPcdReference rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasRisks
+sbim:hasRisks rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasSustainabilityPerformance
+sbim:hasSustainabilityPerformance rdf:type owl:DatatypeProperty ;
+                                  rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hasTagNumber
+sbim:hasTagNumber rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#isLoadBearingCapacity
+sbim:isLoadBearingCapacity rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf sbim:hasNonGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasBaseArea
+sbim:sbim:hasBaseArea rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasDirection
+sbim:sbim:hasDirection rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasHeight
+sbim:sbim:hasHeight rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasLocation
+sbim:sbim:hasLocation rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasLocationCoordinate
+sbim:sbim:hasLocationCoordinate rdf:type owl:DatatypeProperty ;
+                                rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasSideArea
+sbim:sbim:hasSideArea rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasSillHeight
+sbim:sbim:hasSillHeight rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasThickness
+sbim:sbim:hasThickness rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf omg:hasSimpleGeometryDescription ;
+                       rdfs:domain omg:Geometry ,
+                                   omg:GeometryState .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasVolume
+sbim:sbim:hasVolume rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sbim:hasWidth
+sbim:sbim:hasWidth rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf omg:hasSimpleGeometryDescription .
+
+
+###  https://w3id.org/omg#hasSimpleGeometryDescription
+omg:hasSimpleGeometryDescription rdfs:domain omg:Geometry ,
+                                             omg:GeometryState .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#NonGeometry
+sbim:NonGeometry rdf:type owl:Class .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#Project
+sbim:Project rdf:type owl:Class .
+
+
+###  https://w3id.org/bpo#RangedAttribute
+bpo:RangedAttribute rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty qudt:unit ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:maxValue ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty schema:minValue ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty bpo:permittedStepSize ;
+                                      owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                    ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#
+sbim: rdf:type owl:NamedIndividual ,
+               voaf:Vocabulary .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#Building_G1
+sbim:Building_G1 rdf:type owl:NamedIndividual ,
+                          bot:Building ;
+                 bot:hasElement sbim:slab_101 ,
+                                sbim:slab_102 ,
+                                sbim:slab_103 ,
+                                sbim:slab_104 ,
+                                sbim:slab_105 ,
+                                sbim:wall_101 ,
+                                sbim:wall_102 ,
+                                sbim:wall_103 ,
+                                sbim:wall_104 ,
+                                sbim:wall_105 ,
+                                sbim:wall_106 ,
+                                sbim:wall_107 ,
+                                sbim:wall_108 ,
+                                sbim:wall_109 ,
+                                sbim:wall_110 ,
+                                sbim:wall_111 ,
+                                sbim:wall_112 ,
+                                sbim:wall_113 ,
+                                sbim:wall_114 ,
+                                sbim:wall_115 ,
+                                sbim:wall_116 ,
+                                sbim:wall_117 ,
+                                sbim:wall_118 ,
+                                sbim:wall_119 ,
+                                sbim:wall_120 ,
+                                sbim:wall_121 ,
+                                sbim:wall_122 ,
+                                sbim:wall_123 ,
+                                sbim:wall_124 ,
+                                sbim:wall_125 ,
+                                sbim:wall_126 ,
+                                sbim:wall_127 ,
+                                sbim:wall_128 ,
+                                sbim:wall_129 ,
+                                sbim:wall_130 ;
+                 bot:hasStorey sbim:Level_0 ,
+                               sbim:Level_1 ,
+                               sbim:Level_2 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#Level_0
+sbim:Level_0 rdf:type owl:NamedIndividual ,
+                      bot:Storey .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#Level_1
+sbim:Level_1 rdf:type owl:NamedIndividual ,
+                      bot:Storey ;
+             sbim:hasElevation "3000.00" .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#Level_2
+sbim:Level_2 rdf:type owl:NamedIndividual ,
+                      bot:Storey .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#Site_G1
+sbim:Site_G1 rdf:type owl:NamedIndividual ,
+                      bot:Site ;
+             bot:hasBuilding sbim:Building_G1 ;
+             sbim:hasAddresses "Glasgow, UK, G4 0BA"^^rdfs:Literal ;
+             sbim:hasId "RB04072015"^^rdfs:Literal ;
+             sbim:hasName "Glasgow Region"^^rdfs:Literal .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#area
+sbim:area rdf:type owl:NamedIndividual ,
+                   omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#baseArea
+sbim:baseArea rdf:type owl:NamedIndividual ,
+                       omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#direction
+sbim:direction rdf:type owl:NamedIndividual ,
+                        omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_101
+sbim:door_101 rdf:type owl:NamedIndividual ,
+                       bpo:Assembly ,
+                       bpo:Product ;
+              bpo:consistsOf sbim:frame ,
+                             sbim:hinge ,
+                             sbim:lockSet ,
+                             sbim:panel .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_101
+sbim:door_opening_101 rdf:type owl:NamedIndividual ,
+                               bot:Element ;
+                      bot:containsElement sbim:door_101 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_102
+sbim:door_opening_102 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_103
+sbim:door_opening_103 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_104
+sbim:door_opening_104 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_105
+sbim:door_opening_105 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_106
+sbim:door_opening_106 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_107
+sbim:door_opening_107 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_108
+sbim:door_opening_108 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_109
+sbim:door_opening_109 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_110
+sbim:door_opening_110 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_111
+sbim:door_opening_111 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#door_opening_112
+sbim:door_opening_112 rdf:type owl:NamedIndividual ,
+                               bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#elevation
+sbim:elevation rdf:type owl:NamedIndividual ,
+                        omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#frame
+sbim:frame rdf:type owl:NamedIndividual ,
+                    bpo:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#height
+sbim:height rdf:type owl:NamedIndividual ,
+                     omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#hinge
+sbim:hinge rdf:type owl:NamedIndividual ,
+                    bpo:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#length
+sbim:length rdf:type owl:NamedIndividual ,
+                     omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#locationCoordinate
+sbim:locationCoordinate rdf:type owl:NamedIndividual ,
+                                 omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#lockSet
+sbim:lockSet rdf:type owl:NamedIndividual ,
+                      bpo:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#material
+sbim:material rdf:type owl:NamedIndividual ,
+                       sbim:NonGeometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#originCoordinate
+sbim:originCoordinate rdf:type owl:NamedIndividual ,
+                               omg:Geometry ;
+                      omg:hasSimpleGeometryDescription "(0.0,0.0,0.0)" .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#panel
+sbim:panel rdf:type owl:NamedIndividual ,
+                    bpo:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#projectPhase
+sbim:projectPhase rdf:type owl:NamedIndividual ,
+                           sbim:Project ;
+                  sbim:hasLiteralValue "Existing Building"^^rdfs:Literal .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#project_RB05102015
+sbim:project_RB05102015 rdf:type owl:NamedIndividual ,
+                                 sbim:Project ;
+                        sbim:hasPhase sbim:projectPhase ;
+                        omg:hasGeometry sbim:originCoordinate ,
+                                        sbim:spatialDimensions .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sideArea
+sbim:sideArea rdf:type owl:NamedIndividual ,
+                       omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#sillHeight
+sbim:sillHeight rdf:type owl:NamedIndividual ,
+                         omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#slab_101
+sbim:slab_101 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#slab_102
+sbim:slab_102 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#slab_103
+sbim:slab_103 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#slab_104
+sbim:slab_104 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#slab_105
+sbim:slab_105 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#spatialDimensions
+sbim:spatialDimensions rdf:type owl:NamedIndividual ,
+                                omg:Geometry ;
+                       omg:hasSimpleGeometryDescription "3" .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#thickness
+sbim:thickness rdf:type owl:NamedIndividual ,
+                        omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#volume
+sbim:volume rdf:type owl:NamedIndividual ,
+                     omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_101
+sbim:wall_101 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_102
+sbim:wall_102 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_101 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_103
+sbim:wall_103 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_109 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_104
+sbim:wall_104 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_110 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_105
+sbim:wall_105 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_107 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_106
+sbim:wall_106 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_108 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_107
+sbim:wall_107 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_101 ,
+                                  sbim:window_opening_111 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_108
+sbim:wall_108 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_102 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_109
+sbim:wall_109 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_103 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_110
+sbim:wall_110 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_102 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_111
+sbim:wall_111 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_103 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_112
+sbim:wall_112 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_104 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_113
+sbim:wall_113 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_105 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_114
+sbim:wall_114 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:window_opening_106 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_115
+sbim:wall_115 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_104 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_116
+sbim:wall_116 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_105 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_117
+sbim:wall_117 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_106 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_118
+sbim:wall_118 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_119
+sbim:wall_119 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_120
+sbim:wall_120 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_121
+sbim:wall_121 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_107 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_122
+sbim:wall_122 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_108 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_123
+sbim:wall_123 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_110 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_124
+sbim:wall_124 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_125
+sbim:wall_125 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_126
+sbim:wall_126 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_127
+sbim:wall_127 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_109 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_128
+sbim:wall_128 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_112 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_129
+sbim:wall_129 rdf:type owl:NamedIndividual ,
+                       bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#wall_130
+sbim:wall_130 rdf:type owl:NamedIndividual ,
+                       bot:Element ;
+              bot:containsElement sbim:door_opening_111 .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#width
+sbim:width rdf:type owl:NamedIndividual ,
+                    omg:Geometry .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_101
+sbim:window_opening_101 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_102
+sbim:window_opening_102 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_103
+sbim:window_opening_103 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_104
+sbim:window_opening_104 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_105
+sbim:window_opening_105 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_106
+sbim:window_opening_106 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_107
+sbim:window_opening_107 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_108
+sbim:window_opening_108 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_109
+sbim:window_opening_109 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_110
+sbim:window_opening_110 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  http://www.semanticbim.com/ontologies/residentialBuilding.owl#window_opening_111
+sbim:window_opening_111 rdf:type owl:NamedIndividual ,
+                                 bot:Element .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
