@@ -130,12 +130,12 @@ while True:
     
     try:
         # ETAPA 1: Extraer palabras clave con el LLM
-        print("🔍 Analizando tu petición para extraer conceptos clave...")
+        print(" Analizando tu petición para extraer conceptos clave...")
         search_query = extraction_chain.invoke({"user_request": user_request})
-        print(f"\n✅ Palabras clave extraídas:\n   {search_query}")
+        print(f"\n Palabras clave extraídas:\n   {search_query}")
         
     except Exception as e:
-        print(f"\n❌ ERROR en la extracción de conceptos: {e}")
+        print(f"\n ERROR en la extracción de conceptos: {e}")
         continue
     
     print("\n" + "=" * 60)
@@ -144,14 +144,14 @@ while True:
     
     try:
         # ETAPA 2: Buscar en el vectorstore usando las palabras clave
-        print(f"🔎 Buscando conceptos relacionados con: '{search_query}'...")
+        print(f" Buscando conceptos relacionados con: '{search_query}'...")
         retrieved_docs = vectorstore.similarity_search(search_query, k=15)
         
         if not retrieved_docs:
-            print("\n⚠️ No se encontraron resultados relevantes.")
+            print("\n No se encontraron resultados relevantes.")
             continue
         
-        print(f"✅ Se encontraron {len(retrieved_docs)} documentos relevantes.")
+        print(f" Se encontraron {len(retrieved_docs)} documentos relevantes.")
         
         # Construir contexto con fuentes
         context_with_sources = []
@@ -171,12 +171,12 @@ while True:
         context_str = "\n".join(context_with_sources)
         
         # Mostrar estadísticas de fuentes
-        print("\n📊 Distribución de resultados por ontología:")
+        print("\n Distribución de resultados por ontología:")
         for source, count in sorted(source_count.items(), key=lambda x: x[1], reverse=True):
             print(f"   • {source}: {count} documentos")
         
     except Exception as e:
-        print(f"\n❌ ERROR en la búsqueda: {e}")
+        print(f"\n ERROR en la búsqueda: {e}")
         continue
     
     print("\n" + "=" * 60)
@@ -185,7 +185,7 @@ while True:
     
     try:
         # ETAPA 3: Analizar y seleccionar la mejor ontología
-        print("🤔 Analizando resultados para seleccionar la mejor ontología...")
+        print(" Analizando resultados para seleccionar la mejor ontología...")
         
         recommendation = selection_chain.invoke({
             "user_request": user_request,
@@ -197,7 +197,7 @@ while True:
         print("🎯" * 30)
         
     except Exception as e:
-        print(f"\n❌ ERROR en la selección: {e}")
+        print(f"\n ERROR en la selección: {e}")
         continue
 
-print("\n¡Hasta luego! 👋")
+print("\n¡Hasta luego! ")
