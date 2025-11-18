@@ -145,7 +145,7 @@ while True:
     try:
         # ETAPA 2: Buscar en el vectorstore usando las palabras clave
         print(f" Buscando conceptos relacionados con: '{search_query}'...")
-        retrieved_docs = vectorstore.similarity_search(search_query, k=15)
+        retrieved_docs = vectorstore.max_marginal_relevance_search(search_query, k=15, fetch_k=50)
         
         if not retrieved_docs:
             print("\n No se encontraron resultados relevantes.")
