@@ -1,9 +1,8 @@
-# rag_basico.py (Versión con Verificación)
+# rag_basico.py (Versión con Arquitectura RAG de 3 Etapas - Selección de Ontologías)
 print("Paso 1: Importando librerías...")
 
 import os
 from langchain_chroma import Chroma
-from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
@@ -12,16 +11,16 @@ from langchain_huggingface import HuggingFaceEmbeddings
 print("Librerías importadas.")
 print("-" * 30)
 
-# PASO 3: CONSTRUIR LA CADENA RAG 
-print("Paso 3: Construyendo la cadena RAG con LangChain...")
+# PASO 2: CONFIGURACIÓN INICIAL
+print("Paso 2: Configurando componentes...")
 
-# 3.1 - Embeddings:
+# 2.1 - Embeddings
 print("Configurando embeddings con Sentence Transformers...")
 model_name = "BAAI/bge-m3"
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
 print(f"Embeddings ({model_name}) listos.")
 
-# 3.2 - Vector Store:
+# 2.2 - Vector Store
 persist_directory = "tfg_rag_pruebas/chroma_db"
 print(f"Cargando la base de datos vectorial desde '{persist_directory}'...")
 
@@ -36,17 +35,15 @@ try:
         embedding_function=embeddings
     )
     
-    # --- ¡COMPROBACIÓN DE VERIFICACIÓN! ---
+    # Verificación
     db_count = vectorstore._collection.count()
     if db_count == 0:
         print(f"\n--- ERROR ---")
         print("La base de datos se ha cargado pero está VACÍA (0 documentos).")
-        print("Esto significa que 'chroma_db.py' falló.")
-        print("Por favor, borra el directorio 'chroma_db' y vuelve a ejecutar el script 1.")
+        print("Por favor, ejecuta 'chroma_db.py' primero.")
         exit()
         
     print(f"Base de datos vectorial cargada con éxito. Contiene {db_count} documentos.")
-    # --- FIN DE LA COMPROBACIÓN ---
 
 except Exception as e:
     print(f"\n--- ERROR ---")
@@ -54,97 +51,153 @@ except Exception as e:
     print(f"Detalle del error: {e}")
     exit()
 
-
-# 3.3 - Retriever
-print("Configurando el retriever semántico (MMR - Chroma)...")
-retriever = vectorstore.as_retriever(
-    search_type="mmr",
-    search_kwargs={'k': 10, 'fetch_k': 50} # Pide 50 docs, re-ordena y devuelve los 10 mejores
-)
-print("Retriever MMR configurado (k=10, fetch_k=50).")
-
-
-# 3.4 - LLM:
+# 2.3 - LLM
+print("Configurando LLM (Llama3 vía Ollama)...")
 llm = ChatOllama(model="llama3", temperature=0.0)
+print("LLM configurado.")
 
-# 3.5 - Prompt Template
-template = """
-Actúa como un experto en modelado semántico y RDF. Tu objetivo es ayudar al usuario a modelar sus datos usando las ontologías de LOV.
-
-La petición del usuario es: **{question}**
-
-Has buscado en la base de datos y este es el CONTEXTO relevante que has encontrado:
----
-{context}
----
-
-Por favor, sigue estas reglas ESTRICTAMENTE para generar tu respuesta:
-1.  Basa tu respuesta **únicamente** en las Clases (ej. "Tipo: Clase") y Propiedades (ej. "Tipo: Propiedad") que aparecen en el CONTEXTO.
-
-2.  **REGLA DE ORO DE RDF (CÓMO USAR PROPIEDADES):**
-    * El 'predicado' en una tripleta (sujeto, predicado, objeto) **DEBE** ser una Propiedad (del contexto, ej. "Tipo: Propiedad").
-    * **¡MUY IMPORTANTE!** Para modelar una *relación* (como "un Test tiene Preguntas"), busca una Propiedad en el contexto. El `Dominio (Domain)` de esa propiedad te dice qué Clase va en el 'sujeto', y el `Rango (Range)` te dice qué Clase va en el 'objeto'.
-    * **NUNCA** uses una Clase (ej. "Tipo: Clase") como si fuera un 'predicado'.
-    * **NUNCA** uses `rdfs:subClassOf` para conectar una Clase con una Propiedad.
-
-3.  **REGLA DE PRIORIDAD:** Al analizar el contexto, **prioriza el uso** de Clases y Propiedades que coincidan semántica y textualmente con las palabras clave de la petición del usuario.
-
-4.  Si las Clases y Propiedades relevantes están incompletas, **propón el modelo con lo que tienes** y menciona qué parte de la información no se encontró.
-
-5.  Si, después de aplicar la Regla 3, determinas que ningún documento del contexto es relevante para la petición del usuario, tu ÚNICA respuesta debe ser: "Basándome en el contexto proporcionado, no tengo la información necesaria para modelar esa petición."
-
-RESPUESTA:
-"""
-prompt = ChatPromptTemplate.from_template(template)
-
-print("Plantilla de prompt (Asistente de Modelado) creada.")
-
-# 3.6 - Cadena RAG (RAG Chain)
-rag_chain = (
-    {"context": retriever, "question": RunnablePassthrough()}
-    | prompt
-    | llm
-    | StrOutputParser()
-)
-
-print("Cadena RAG construida y lista para usarse.")
 print("-" * 30)
 
-# PASO 4: HACER PREGUNTAS AL SISTEMA 
-print("Paso 4: ¡Haciendo preguntas! (Escribe 'salir' para terminar)")
+# PASO 3: DEFINIR PROMPTS PARA LAS 3 ETAPAS
+
+# ETAPA 1: Extracción de Conceptos
+extraction_template = """
+Eres un experto en análisis semántico. Tu tarea es extraer únicamente las palabras clave de búsqueda de la petición del usuario.
+
+Petición del usuario: **{user_request}**
+
+Instrucciones:
+1. Identifica los conceptos principales (Clases) y las relaciones (Propiedades) que el usuario necesita modelar.
+2. Extrae SOLO las palabras clave relevantes para buscar en una base de datos de ontologías.
+3. Responde con una lista concisa de términos de búsqueda separados por comas.
+4. NO proporciones explicaciones, solo las palabras clave.
+
+Ejemplo de respuesta: "Author, Paper, Person, Publication, writes, hasAuthor"
+
+Palabras clave de búsqueda:
+"""
+
+extraction_prompt = ChatPromptTemplate.from_template(extraction_template)
+extraction_chain = extraction_prompt | llm | StrOutputParser()
+
+# ETAPA 3: Selección y Decisión
+selection_template = """
+Eres un experto en selección de ontologías. Tu tarea es analizar los resultados de búsqueda y recomendar UNA única ontología.
+
+Petición original del usuario: **{user_request}**
+
+Resultados de búsqueda con sus fuentes:
+---
+{context_with_sources}
+---
+
+Instrucciones:
+1. Analiza qué ontología (Fuente) contiene MÁS conceptos relevantes para la petición del usuario.
+2. Cuenta el número de conceptos útiles por cada ontología.
+3. Evalúa la calidad y completitud de los conceptos encontrados.
+4. Recomienda UNA única ontología que mejor cubra los requisitos del usuario.
+5. Explica brevemente por qué esa ontología es la mejor opción (menciona qué conceptos clave contiene).
+
+Tu respuesta debe tener este formato:
+**ONTOLOGÍA RECOMENDADA:** [nombre_del_archivo]
+**RAZÓN:** [explicación breve de 2-3 líneas]
+**CONCEPTOS CLAVE ENCONTRADOS:** [lista de 3-5 conceptos principales]
+
+Respuesta:
+"""
+
+selection_prompt = ChatPromptTemplate.from_template(selection_template)
+selection_chain = selection_prompt | llm | StrOutputParser()
+
+print("Prompts de las 3 etapas configurados.")
+print("-" * 30)
+
+# PASO 4: BUCLE PRINCIPAL DE CONSULTAS
+print("Paso 4: Sistema de Selección de Ontologías listo.")
+print("\n¡Bienvenido al Sistema de Selección de Ontologías!")
+print("Describe qué datos necesitas modelar y te recomendaré la mejor ontología.")
+print("-" * 60)
 
 while True:
-    user_question = input("\n¿Qué petición de datos quieres modelar? (o 'salir'): ")
-    if user_question.lower() == 'salir':
+    user_request = input("\n¿Qué necesitas modelar? (o 'salir' para terminar): ")
+    
+    if user_request.lower() == 'salir':
         break
     
-    print("\n Buscando contexto...")
+    print("\n" + "=" * 60)
+    print("ETAPA 1: EXTRACCIÓN DE CONCEPTOS")
+    print("=" * 60)
     
-    # --- PASO DE DEBUG ---
     try:
-        retrieved_docs = retriever.invoke(user_question)
+        # ETAPA 1: Extraer palabras clave con el LLM
+        print("🔍 Analizando tu petición para extraer conceptos clave...")
+        search_query = extraction_chain.invoke({"user_request": user_request})
+        print(f"\n✅ Palabras clave extraídas:\n   {search_query}")
         
-        print("--- INICIO: Contexto Recuperado (DEBUG) ---")
-        if not retrieved_docs:
-            print("ERROR DE DEBUG: El retriever NO ha devuelto NADA.")
-        else:
-            print(f"El retriever ha encontrado {len(retrieved_docs)} documentos:")
-            for i, doc in enumerate(retrieved_docs):
-                print(f"\n--- Documento {i+1} (de {len(retrieved_docs)}) ---")
-                # Imprime solo los primeros 400 caracteres
-                print(doc.page_content[:400] + "...") 
-        print("--- FIN: Contexto Recuperado (DEBUG) ---")
-    
     except Exception as e:
-        print(f"ERROR DE DEBUG al invocar el retriever: {e}")
-    # --- FIN DE DEBUG ---
+        print(f"\n❌ ERROR en la extracción de conceptos: {e}")
+        continue
+    
+    print("\n" + "=" * 60)
+    print("ETAPA 2: BÚSQUEDA EN BASE DE DATOS")
+    print("=" * 60)
+    
+    try:
+        # ETAPA 2: Buscar en el vectorstore usando las palabras clave
+        print(f"🔎 Buscando conceptos relacionados con: '{search_query}'...")
+        retrieved_docs = vectorstore.similarity_search(search_query, k=15)
+        
+        if not retrieved_docs:
+            print("\n⚠️ No se encontraron resultados relevantes.")
+            continue
+        
+        print(f"✅ Se encontraron {len(retrieved_docs)} documentos relevantes.")
+        
+        # Construir contexto con fuentes
+        context_with_sources = []
+        source_count = {}
+        
+        for i, doc in enumerate(retrieved_docs):
+            source = doc.metadata.get('source', 'Fuente desconocida')
+            
+            # Contar documentos por fuente
+            source_count[source] = source_count.get(source, 0) + 1
+            
+            # Formatear el documento con su fuente
+            content_preview = doc.page_content[:200].replace('\n', ' ')
+            formatted_doc = f"- [Fuente: {source}] {content_preview}..."
+            context_with_sources.append(formatted_doc)
+        
+        context_str = "\n".join(context_with_sources)
+        
+        # Mostrar estadísticas de fuentes
+        print("\n📊 Distribución de resultados por ontología:")
+        for source, count in sorted(source_count.items(), key=lambda x: x[1], reverse=True):
+            print(f"   • {source}: {count} documentos")
+        
+    except Exception as e:
+        print(f"\n❌ ERROR en la búsqueda: {e}")
+        continue
+    
+    print("\n" + "=" * 60)
+    print("ETAPA 3: SELECCIÓN DE ONTOLOGÍA")
+    print("=" * 60)
+    
+    try:
+        # ETAPA 3: Analizar y seleccionar la mejor ontología
+        print("🤔 Analizando resultados para seleccionar la mejor ontología...")
+        
+        recommendation = selection_chain.invoke({
+            "user_request": user_request,
+            "context_with_sources": context_str
+        })
+        
+        print("\n" + "🎯" * 30)
+        print(recommendation)
+        print("🎯" * 30)
+        
+    except Exception as e:
+        print(f"\n❌ ERROR en la selección: {e}")
+        continue
 
-
-    print("\n Pensando... (Enviando al LLM)")
-    # Ahora, invocamos la cadena completa
-    response = rag_chain.invoke(user_question)
-
-    print("\n Respuesta del LLM:")
-    print(response)
-
-print("\n ¡Hasta luego!")
+print("\n¡Hasta luego! 👋")
