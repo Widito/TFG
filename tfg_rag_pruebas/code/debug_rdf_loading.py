@@ -39,7 +39,7 @@ def debug_ontology(filename):
     if file_ext not in FORMAT_MAP:
         return
     
-    print(f"\n🔎 Analizando: {filename}")
+    print(f"\n Analizando: {filename}")
     g = rdflib.Graph()
     start_time = time.time()
     
@@ -51,7 +51,7 @@ def debug_ontology(filename):
         except Exception as e_primary:
             # Intento 2: Fallback (especialmente para .owl que a veces es Turtle)
             if fmt == 'xml':
-                print(f"   ⚠ Falló carga XML ({e_primary}). Probando Turtle...")
+                print(f" Falló carga XML ({e_primary}). Probando Turtle...")
                 g.parse(filepath, format='turtle')
             else:
                 raise e_primary
@@ -64,14 +64,14 @@ def debug_ontology(filename):
         duration = time.time() - start_time
         
         # ANÁLISIS DE SALUD
-        status = "✅ OK"
-        if triplets == 0: status = "❌ VACÍO"
-        elif classes == 0 and props == 0: status = "⚠️ SIN DATOS ESTRUCTURALES (¿Faltan prefijos?)"
+        status = "OK"
+        if triplets == 0: status = "VACÍO"
+        elif classes == 0 and props == 0: status = "SIN DATOS ESTRUCTURALES (¿Faltan prefijos?)"
         
         print(f"   {status} | Tripletas: {triplets} | Clases: {classes} | Props: {props} | Tiempo: {duration:.2f}s")
 
     except Exception as e:
-        print(f"   ❌ ERROR CRÍTICO: {e}")
+        print(f"   ERROR CRÍTICO: {e}")
 
 # Ejecución
 print(f"--- INICIANDO DEBUG RÁPIDO en '{ontologies_dir}' ---")

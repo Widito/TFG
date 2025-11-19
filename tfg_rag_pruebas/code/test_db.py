@@ -24,9 +24,9 @@ if docs:
     print("-" * 20)
     
     if "source" in docs[0].metadata:
-        print("✅ PRUEBA SUPERADA: El campo 'source' existe en los metadatos.")
+        print(" PRUEBA SUPERADA: El campo 'source' existe en los metadatos.")
         print(f"   Origen detectado: {docs[0].metadata['source']}")
     else:
-        print("❌ ERROR: No veo el campo 'source' en los metadatos. Algo falló en la indexación.")
+        print(" ERROR: No veo el campo 'source' en los metadatos. Algo falló en la indexación.")
 else:
-    print("❌ ERROR: La base de datos parece estar vacía.")
+    print(" ERROR: La base de datos parece estar vacía.")
