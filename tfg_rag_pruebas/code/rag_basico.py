@@ -15,7 +15,7 @@ print("-" * 30)
 print("Paso 2: Configurando componentes...")
 
 # 2.1 - Embeddings
-print("Configurando embeddings con Sentence Transformers...")
+print("Configurando embeddings con bge-m3...")
 model_name = "BAAI/bge-m3"
 embeddings = HuggingFaceEmbeddings(model_name=model_name)
 print(f"Embeddings ({model_name}) listos.")
@@ -192,9 +192,9 @@ while True:
             "context_with_sources": context_str
         })
         
-        print("\n" + "🎯" * 30)
+        print("\n" + "*" * 30)
         print(recommendation)
-        print("🎯" * 30)
+        print("*" * 30)
         
     except Exception as e:
         print(f"\n ERROR en la selección: {e}")

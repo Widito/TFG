@@ -1,4 +1,3 @@
-# (Versión DEFINITIVA - Robusta y Multiformato)
 print("Iniciando el proceso de indexación (Versión Mejorada)")
 
 import rdflib
@@ -12,7 +11,7 @@ print("-" * 30)
 
 persist_directory = "tfg_rag_pruebas/chroma_db"
 
-# Mapeo inicial (pero haremos intentos inteligentes)
+# Mapeo inicial de formatos
 FORMAT_MAP = {
     '.ttl': 'turtle',
     '.n3': 'n3',
@@ -101,18 +100,18 @@ try:
             g.parse(filepath, format=file_format)
             loaded = True
         except Exception as e:
-            # INTENTO 2: Si falla XML, probar Turtle (común en archivos .owl mal nombrados)
+            # INTENTO 2: Si falla XML, probar Turtle 
             if file_format == 'xml':
                 try:
-                    print(f"  ⚠ Falló carga XML. Reintentando como Turtle...")
+                    print(f"  Falló carga XML. Reintentando como Turtle...")
                     g.parse(filepath, format='turtle')
                     loaded = True
-                    print(f"  ✓ Recuperado exitosamente como Turtle.")
+                    print(f"  Recuperado exitosamente como Turtle.")
                 except:
                     pass # Falló el reintento
             
             if not loaded:
-                print(f"  ✗ ERROR CRÍTICO al parsear {filename}: {e}")
+                print(f"  ERROR CRÍTICO al parsear {filename}: {e}")
                 files_skipped += 1
                 continue
 
@@ -120,7 +119,7 @@ try:
         print(f"  Archivo cargado: {len(g)} tripletas")
         file_documents = []
         
-        # --- CLASES ---
+            # CLASES
         try:
             results_classes = g.query(query_classes)
             count_cls = 0
@@ -141,7 +140,7 @@ try:
         except Exception as e:
              print(f"    Error en query de Clases: {e}")
 
-        # --- PROPIEDADES ---
+        # PROPIEDADES 
         try:
             results_props = g.query(query_properties)
             count_prop = 0
@@ -167,9 +166,9 @@ try:
             all_documents.extend(file_documents)
             all_metadatas.extend(file_metadatas)
             files_processed += 1
-            print(f"  ✓ {filename}: {len(file_documents)} docs generados")
+            print(f"  {filename}: {len(file_documents)} docs generados")
         else:
-            print(f"  ⚠ ADVERTENCIA: {filename} procesado pero 0 documentos generados.")
+            print(f"  ADVERTENCIA: {filename} procesado pero 0 documentos generados.")
 
     print("\n" + "-" * 30)
     print(f"Resumen Final: {len(all_documents)} documentos totales listos para indexar.")
@@ -182,7 +181,7 @@ try:
     model_name = "BAAI/bge-m3"
     embeddings = HuggingFaceEmbeddings(model_name=model_name)
     
-    # Limpiar DB anterior si quieres (opcional, aquí asumo sobreescritura o append)
+    # Limpiar DB anterior (opcional, aquí asumo sobreescritura o append)
     # shutil.rmtree(persist_directory) 
     
     vectorstore = Chroma.from_texts(
@@ -191,7 +190,7 @@ try:
         metadatas=all_metadatas,
         persist_directory=persist_directory
     )
-    print("¡ÉXITO! Base de datos actualizada.")
+    print("Base de datos actualizada.")
 
 except Exception as e:
     traceback.print_exc()
