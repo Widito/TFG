@@ -29,7 +29,7 @@ class OntologyRecommender:
         print("Sistema RAG listo.")
 
     def _setup_chains(self):
-        # ETAPA 1: Extracción
+        # ETAPA 1: Extracción (Sin cambios)
         extract_tmpl = """
         Eres un experto en análisis semántico. Extrae palabras clave de búsqueda.
         Petición: {user_request}
@@ -38,16 +38,22 @@ class OntologyRecommender:
         """
         self.extraction_chain = ChatPromptTemplate.from_template(extract_tmpl) | self.llm | StrOutputParser()
 
-        # ETAPA 3: Decisión
+        # ETAPA 3: Decisión (REFORZADA)
         selection_tmpl = """
-        Analiza los resultados y recomienda UNA ontología.
-        Petición: {user_request}
-        Resultados:
+        Eres un sistema RAG estricto. Tu trabajo es seleccionar el documento más relevante de la lista proporcionada a continuación.
+        
+        ADVERTENCIAS CRÍTICAS:
+        1. Basa tu respuesta ÚNICAMENTE en el contexto proporcionado. NO uses conocimiento externo ni menciones ontologías que no estén en la lista (como SUMO, DOLCE, etc.).
+        2. Para el nombre de la ontología, DEBES copiar exactamente el texto que aparece después de "Fuente: " en el contexto. NO uses URIs (http://...).
+        
+        Petición del usuario: {user_request}
+        
+        Contexto (Resultados de búsqueda):
         {context_with_sources}
         
         Tu respuesta debe tener este formato EXACTO:
-        **ONTOLOGÍA RECOMENDADA:** [nombre_archivo]
-        **RAZÓN:** [explicación]
+        **ONTOLOGÍA RECOMENDADA:** [nombre_exacto_del_archivo_fuente]
+        **RAZÓN:** [explicación breve basada SOLO en el texto recuperado]
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
 
