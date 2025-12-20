@@ -1,22 +1,30 @@
 import csv
+import os  
 import pandas as pd
 from rag_basico import OntologyRecommender
 
-# Configuración
-CSV_PATH = "../dataset_bot_test.csv" # Asegúrate de la ruta correcta
-OUTPUT_CSV = "../resultados_evaluacion.csv"
+# 1. Obtenemos la ruta de la carpeta donde está ESTE archivo (evaluate_rag.py)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 2. Construimos las rutas relativas a este archivo, no a la consola
+# El CSV está una carpeta arriba (..)
+CSV_PATH = os.path.join(current_dir, "..", "dataset_bot_test.csv")
+OUTPUT_CSV = os.path.join(current_dir, "..", "resultados_evaluacion.csv")
 
 def evaluate():
     print("--- INICIANDO EVALUACIÓN AUTOMATIZADA ---")
+    print(f"Leyendo dataset desde: {os.path.abspath(CSV_PATH)}") # Debug para que veas la ruta real
     
     # 1. Cargar el sistema
     rag = OntologyRecommender()
     
     # 2. Leer dataset
     try:
+        # Usamos la ruta absoluta construida
         df = pd.read_csv(CSV_PATH, sep=";")
     except Exception as e:
         print(f"Error leyendo CSV: {e}")
+        print(f"Verifica que el archivo existe en: {CSV_PATH}")
         return
 
     results = []

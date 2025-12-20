@@ -1,0 +1,8 @@
+id;query;expected;retrieved_sources;hit_retrieval;hit_generation;llm_output_snippet
+1;Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.;bot.ttl;['th_building.owl', 'bot.ttl', 'building.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es bot.ttl debido a que conti
+2;Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.;bot.ttl;['bot.ttl', 'building.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#  **RAZÓN:** La ontología recomendada es la de bot, 
+3;Zones may intersect, or be adjacent to other zones.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#intersectsZone y https://w3id.org/bot#adjacentZone  
+4;There are building elements, which may have sub elements.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** SUMO  **RAZÓN:** La ontología SUMO (Suggested Upper Merged Ontology) es u
+5;Zones may have elements, either contained, adjacent, or intersecting it.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** DOLCE (Descriptive Ontology for Linguistic and Cognitive Engineering)  **
+6;A adjacent zones and/or elements share some interface.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#hasElement  **RAZÓN:** La ontología recomendada es l
+7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;['bot.ttl', 'building.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** SUMO  **RAZÓN:** La ontología SUMO (Suggested Upper Merged Ontology) es u
