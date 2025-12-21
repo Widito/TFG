@@ -1,8 +1,8 @@
 id;query;expected;retrieved_sources;hit_retrieval;hit_generation;llm_output_snippet
-1;Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.;bot.ttl;['th_building.owl', 'bot.ttl', 'building.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** th_building.owl **RAZÓN:** La ontología th_building.owl se refiere explíc
-2;Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.;bot.ttl;['building.ttl', 'bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología bot.ttl es la más relevante porque contie
+1;Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.;bot.ttl;['bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es bot.ttl porque contiene la
+2;Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.;bot.ttl;['building.ttl', 'brick.ttl', 's4inma_2019-04-30.n3', 's4agri_2020-06-05.n3', 'dbo.rdf'];0;0;"**ONTOLOGÍA RECOMENDADA:** brick.ttl **RAZÓN:** La ontología ""brick.ttl"" es la más relevante porque "
 3;Zones may intersect, or be adjacent to other zones.;bot.ttl;['bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es bot.ttl porque contiene do
-4;There are building elements, which may have sub elements.;bot.ttl;['bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** Todos los documentos recuperados tienen la misma infor
+4;There are building elements, which may have sub elements.;bot.ttl;['brick.ttl', 'bot.ttl', 'beo.ttl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** Todos los documentos recuperados son de la ontología """
 5;Zones may have elements, either contained, adjacent, or intersecting it.;bot.ttl;['bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es bot.ttl porque contiene va
-6;A adjacent zones and/or elements share some interface.;bot.ttl;['bot.ttl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es ""bot.ttl"" porque contiene "
-7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;['building.ttl', 'bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** Todos los documentos recuperados tienen la misma ontol
+6;A adjacent zones and/or elements share some interface.;bot.ttl;['bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es bot.ttl porque contiene va
+7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;['bot.ttl', 'building.ttl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es ""bot.ttl"" porque contiene "
