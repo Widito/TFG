@@ -87,10 +87,10 @@ try:
     # --- BUCLE PRINCIPAL (ITERANDO POR CARPETAS) ---
     for ontologies_dir in folders_to_process:
         if not os.path.exists(ontologies_dir):
-            print(f"⚠️ ADVERTENCIA: La carpeta '{ontologies_dir}' no existe. Saltando...")
+            print(f" ADVERTENCIA: La carpeta '{ontologies_dir}' no existe. Saltando...")
             continue
             
-        print(f"\n📂 Procesando carpeta: {ontologies_dir}")
+        print(f"\n Procesando carpeta: {ontologies_dir}")
         
         files_processed = 0
         
@@ -120,7 +120,7 @@ try:
                         pass 
                 
                 if not loaded:
-                    print(f"   ❌ ERROR parseando {filename}: {e}")
+                    print(f"   ERROR parseando {filename}: {e}")
                     continue
 
             # Procesamiento (Lógica original)
@@ -192,7 +192,7 @@ try:
             persist_directory=persist_directory
         )
         
-    print("🎉 Base de datos actualizada con éxito (Inyección de Ruido Completada).")
+    print("Base de datos actualizada con éxito.")
 
 except Exception as e:
     traceback.print_exc()
