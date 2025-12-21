@@ -1,0 +1,1078 @@
+@prefix s4ehaw: <https://saref.etsi.org/saref4ehaw/> .
+@prefix s4envi: <https://saref.etsi.org/saref4envi/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix voaf:  <http://purl.org/vocommons/voaf#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann:  <http://purl.org/vocab/vann/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+
+s4ehaw:ChronicDisease
+        a             owl:Class ;
+        rdfs:comment  "For chronic disease modelling, e.g. diabetes, asthma..."@en ;
+        rdfs:label    "Chronic disease"@en .
+
+s4ehaw:latency  a     owl:DatatypeProperty ;
+        rdfs:comment  "The latency is the time interval between the stimulation and response of a measurement function (in ms)."@en ;
+        rdfs:domain   s4ehaw:MeasurementFunction ;
+        rdfs:label    "latency"@en ;
+        rdfs:range    xsd:float .
+
+s4ehaw:maximumValue  a  owl:DatatypeProperty ;
+        rdfs:comment  "The maximum allowable value of a measurement."@en ;
+        rdfs:domain   s4ehaw:ValidityConstraint ;
+        rdfs:label    "maximum value"@en ;
+        rdfs:range    xsd:decimal .
+
+s4ehaw:Activity  a    owl:Class ;
+        rdfs:comment  "The activity of a patient/user, i.e. daily and nocturnal activities."@en ;
+        rdfs:label    "Activity"@en .
+
+s4ehaw:Prevention  a  s4ehaw:BanApplicationDomain , owl:NamedIndividual ;
+        rdfs:comment  "Prevention sub-domain (e.g. preventive health) for BAN application."@en ;
+        rdfs:label    "Prevention"@en .
+
+s4ehaw:PowerSource  a  owl:Class ;
+        rdfs:comment  "The power sources of a health device, mainly describing energy source and battery related capabilities of the health device (number of power source, source type, rechargeable or not...)."@en ;
+        rdfs:label    "Power source"@en .
+
+s4ehaw:interfaceProtocol
+        a             owl:ObjectProperty ;
+        rdfs:comment  "The interface communication protocol can be e.g. BLE, serial, Ethernet..."@en ;
+        rdfs:domain   s4ehaw:Interface ;
+        rdfs:label    "interface protocol"@en ;
+        rdfs:range    s4ehaw:CommunicationProtocol .
+
+s4ehaw:sendingFrequency
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Defines the sending frequency (in ms), at an health device level, in case of pariodic BAN communication type."@en ;
+        rdfs:domain   s4ehaw:PeriodicBanCommunicationType ;
+        rdfs:label    "sending frequency"@en ;
+        rdfs:range    xsd:float .
+
+s4ehaw:hasInput  a    owl:DatatypeProperty ;
+        rdfs:comment  "The service process has data input like e.g. the patient ID, the timestamp, the read value from a sensor..."@en ;
+        rdfs:domain   s4ehaw:ServiceProcess ;
+        rdfs:label    "has input"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:Contact  a            owl:Class ;
+        rdfs:comment         "A BAN has one or multiple contacts, i.e. some health actors, e.g. the patient or user that is monitored through this BAN, the caregiver that is using this BAN for monitoring purposes..."@en ;
+        rdfs:label           "Contact"@en ;
+        owl:equivalentClass  s4ehaw:HealthActor .
+
+s4ehaw:Exercising  a  s4ehaw:Posture , owl:NamedIndividual ;
+        rdfs:comment  "Posture of user doing exercises."@en ;
+        rdfs:label    "Exercising"@en .
+
+s4ehaw:faultTolerence
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "Defines the error rate tolerated for a measurement function."@en ;
+        rdfs:domain   s4ehaw:MeasurementFunction ;
+        rdfs:label    "fault tolerence"@en ;
+        rdfs:range    xsd:double .
+
+s4ehaw:Walking  a     s4ehaw:Posture , owl:NamedIndividual ;
+        rdfs:comment  "Posture of a walking user."@en ;
+        rdfs:label    "Walking"@en .
+
+s4ehaw:HealthWearable
+        a                owl:Class ;
+        rdfs:comment     "Health-related Wearable, equivalent to SAREF4WEAR Wearable."@en ;
+        rdfs:label       "Health wereable"@en ;
+        rdfs:subClassOf  s4ehaw:HealthDevice .
+
+s4ehaw:remainingBatteryLevel
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The level of remaining battery (if any : in percent) for a health device. It is a dynamic attribute."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "remaining battery level"@en ;
+        rdfs:range    xsd:long .
+
+s4ehaw:Interface  a   owl:Class ;
+        rdfs:comment  "Used for modelling the interfaces of a health device (e.g. Bluetooth, UWB, IEEE 802.15.6, serial interface...)."@en ;
+        rdfs:label    "Interface"@en .
+
+s4ehaw:groundingProtocol
+        a             owl:ObjectProperty ;
+        rdfs:comment  "The grounding protocol is the protocol used to transmit the message by the service, e.g. BLE."@en ;
+        rdfs:domain   s4ehaw:ServiceGrounding ;
+        rdfs:label    "grounding protocol"@en ;
+        rdfs:range    s4ehaw:CommunicationProtocol .
+
+s4ehaw:PeriodicBanCommunicationType
+        a                owl:Class ;
+        rdfs:comment     "BAN communication function way of working of the type periodic."@en ;
+        rdfs:label       "Periodic BAN communication type"@en ;
+        rdfs:subClassOf  s4ehaw:BanCommunicationType .
+
+s4ehaw:hasInterface  a  owl:ObjectProperty ;
+        rdfs:comment  "A health device has one or multiple interfaces (Bluetooth, UWB, IEEE 802.15.6, serial interface...)."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "has interface"@en ;
+        rdfs:range    s4ehaw:Interface .
+
+ssn-system:Precision  a  owl:Class .
+
+s4ehaw:deviceCharacteristicName
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The commercial name of a device."@en ;
+        rdfs:domain   s4ehaw:DeviceCharacteristic ;
+        rdfs:label    "device characteristic name"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:precision  a   owl:ObjectProperty ;
+        rdfs:comment  "Precision refers to the degree of reproducibility of a measured quantity (when the same quantity is measured several times how close are the measurements from each other)."@en ;
+        rdfs:domain   s4ehaw:MeasurementFunction ;
+        rdfs:label    "precision"@en ;
+        rdfs:range    ssn-system:Precision .
+
+s4ehaw:velocity  a    owl:DatatypeProperty ;
+        rdfs:comment  "The velocity of a moving device (in m/s)."@en ;
+        rdfs:domain   s4ehaw:DeviceCharacteristic ;
+        rdfs:label    "velocity"@en ;
+        rdfs:range    xsd:float .
+
+s4ehaw:Mode  a        owl:Class ;
+        rdfs:comment  "The dynamic characteristics of a eHealth Device that vary during its lifetime or its BAN lifetime."@en ;
+        rdfs:label    "Mode"@en .
+
+s4ehaw:isDescribedBy  a  owl:ObjectProperty ;
+        rdfs:comment  "A service is described by a service process (how the service works)."@en ;
+        rdfs:domain   saref:Service ;
+        rdfs:label    "is described by"@en ;
+        rdfs:range    s4ehaw:ServiceProcess .
+
+s4ehaw:ServiceGrounding
+        a             owl:Class ;
+        rdfs:comment  "How to access the service."@en ;
+        rdfs:label    "Service grounding"@en .
+
+s4ehaw:serialNb  a    owl:DatatypeProperty ;
+        rdfs:comment  "The serial number of a health device."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "serial number"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:AgeCategory  a  owl:Class ;
+        rdfs:comment  "The age group of a health actor, e.g. old or young."@en ;
+        rdfs:label    "Age category"@en .
+
+s4ehaw:portNumber  a  owl:DatatypeProperty ;
+        rdfs:comment  "The port number used to offer the service."@en ;
+        rdfs:domain   s4ehaw:ServiceGrounding ;
+        rdfs:label    "port number"@en ;
+        rdfs:range    xsd:positiveInteger .
+
+s4ehaw:Young  a       s4ehaw:AgeCategory , owl:NamedIndividual ;
+        rdfs:comment  "Young, one user age category."@en ;
+        rdfs:label    "Young"@en .
+
+s4ehaw:BanHub  a         owl:Class ;
+        rdfs:comment     "Hub of the BAN, mainly playing the role of both a data concentrator and a network gateway."@en ;
+        rdfs:label       "BAN hub"@en ;
+        rdfs:subClassOf  s4ehaw:HealthDevice .
+
+s4ehaw:frequency  a   owl:DatatypeProperty ;
+        rdfs:comment  "The frequency is the number of instructions an embedded processor - within a health device - can perform per second (MIPS)."@en ;
+        rdfs:domain   s4ehaw:ComputingPower ;
+        rdfs:label    "frequency"@en ;
+        rdfs:range    xsd:float .
+
+s4ehaw:FunctionalDevice
+        a                owl:Class ;
+        rdfs:comment     "Functional Devices are non-purely eHealth/ageing-well devices that can be used for modelling/detecting activities or behaviours of patients/users, like for example beacons that can detect indoor positioning of a patient in a house."@en ;
+        rdfs:label       "Functional device"@en ;
+        rdfs:subClassOf  saref:Device .
+
+s4ehaw:postalAddress  a  owl:DatatypeProperty ;
+        rdfs:comment  "Defines the postal address."@en ;
+        rdfs:domain   s4ehaw:PhysicalLocation ;
+        rdfs:label    "postal address"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:ComputingPower
+        a             owl:Class ;
+        rdfs:comment  "The computing power capabilities of a Health device."@en ;
+        rdfs:label    "Computing power"@en .
+
+dcterms:license  a  owl:AnnotationProperty .
+
+saref:Service  a  owl:Class .
+
+s4ehaw:Undereating  a  s4ehaw:Habit , owl:NamedIndividual ;
+        rdfs:comment  "Undereating habit (User level)."@en ;
+        rdfs:label    "Undereating"@en .
+
+s4ehaw:lifetime  a    owl:DatatypeProperty ;
+        rdfs:comment  "The BAN lifetime (in month), e.g. BAN for entertainment purposes should have a lifetime of weeks or few years whereas BAN dedicated for assisted living or anomaly monitoring should last for many years."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "lifetime"@en ;
+        rdfs:range    xsd:float .
+
+s4ehaw:AuralImpairment
+        a             s4ehaw:Impairment , owl:NamedIndividual ;
+        rdfs:comment  "Aural impairment (User level), i.e. impairments of auditory sensitivity."@en ;
+        rdfs:label    "Aural impairment"@en .
+
+s4ehaw:HealthSensor  a   owl:Class ;
+        rdfs:comment     "Health-related Sensor, equivalent to SAREF Sensor."@en ;
+        rdfs:label       "Health sensor"@en ;
+        rdfs:subClassOf  s4ehaw:HealthDevice .
+
+s4ehaw:hasHub  a      owl:ObjectProperty ;
+        rdfs:comment  "A Body Area Network or BAN elects one hub that mainly plays the role of both a data concentrator and a network gateway."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "has hub"@en ;
+        rdfs:range    s4ehaw:BanHub .
+
+s4ehaw:MobilityImpairment
+        a             s4ehaw:Impairment , owl:NamedIndividual ;
+        rdfs:comment  "Mobility impairment (User level)."@en ;
+        rdfs:label    "Mobility impairment"@en .
+
+s4ehaw:banTopology  a  owl:DatatypeProperty ;
+        rdfs:comment  "The BAN physical topology type, i.e Adhoc or Star or Mesh or Others."@ne ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "BAN topology"@en ;
+        rdfs:range    [ a          rdfs:Datatype ;
+                        owl:oneOf  [ a          rdf:List ;
+                                     rdf:first  "Adhoc" ;
+                                     rdf:rest   [ a          rdf:List ;
+                                                  rdf:first  "Mesh" ;
+                                                  rdf:rest   [ a          rdf:List ;
+                                                               rdf:first  "Star" ;
+                                                               rdf:rest   ()
+                                                             
+                                                             ]
+                                                ]
+                                   ]
+                      ] .
+
+s4ehaw:Posture  a        owl:Class ;
+        rdfs:comment     "The posture of a health actor (mainly a patient or a user), e.g. exercising, lying, running, sitting, walking..."@en ;
+        rdfs:label       "Posture"@en ;
+        rdfs:subClassOf  saref:Property .
+
+s4ehaw:hasActivity  a  owl:ObjectProperty ;
+        rdfs:comment  "A health actor may have one or multiple activities."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "has activity"@en ;
+        rdfs:range    s4ehaw:Activity .
+
+s4ehaw:usesBan  a     owl:ObjectProperty ;
+        rdfs:comment  "A health actor (e.g. a caregiver, a patient or a helper) uses a BAN for collecting, aggregating and relaying vital parameters."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "uses ban"@en ;
+        rdfs:range    s4ehaw:Ban .
+
+s4ehaw:hasData  a     owl:ObjectProperty ;
+        rdfs:comment  "A function has one or many data, for example a tracking function shall include latitude, longitude and speed data."@en ;
+        rdfs:domain   saref:Function ;
+        rdfs:label    "has data"@en ;
+        rdfs:range    s4ehaw:Data .
+
+s4ehaw:hasContact  a  owl:ObjectProperty ;
+        rdfs:comment  "A BAN has one or multiple contacts (e.g. the patient or user that is monitored through this BAN, the caregiver that is using this BAN for monitoring purposes)."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "has contact"@en ;
+        rdfs:range    s4ehaw:Contact .
+
+s4ehaw:availableFlash
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The available flash memory (in byte) of a health device. It is a dynamic attribute."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "available flash"@en ;
+        rdfs:range    xsd:long .
+
+s4ehaw:IntellectualImpairment
+        a             s4ehaw:Impairment , owl:NamedIndividual ;
+        rdfs:comment  "Skeletal impairment (User level), e.g. ..."@en ;
+        rdfs:label    "Intellectual impairment"@en .
+
+s4ehaw:hasBanCommunicationType
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A BAN has a BAN communication type that is the type of communication carried out between BAN devices and BAN Hub."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "has BAN communication type"@en ;
+        rdfs:range    s4ehaw:BanCommunicationType .
+
+s4ehaw:sampleTime  a  owl:DatatypeProperty ;
+        rdfs:comment  "The sample time of a measurement function (a discrete integer)."@en ;
+        rdfs:domain   s4ehaw:MeasurementFunction ;
+        rdfs:label    "sample time"@en ;
+        rdfs:range    xsd:int .
+
+s4ehaw:hasChronicDisease
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A patient can suffer from one or more chronic disease like Diabetes, azma, etc."@en ;
+        rdfs:domain   s4ehaw:Patient ;
+        rdfs:label    "has chronic disease"@en ;
+        rdfs:range    s4ehaw:ChronicDisease .
+
+s4ehaw:  a                             owl:Ontology ;
+        dcterms:contributor            <https://www.linkedin.com/in/lina-nachabe-2b292457/> , <https://pdi.fbk.eu/people/profile/dragoni> , <http://www.maxime-lefrancois.info/> , <https://research.utwente.nl/en/persons/jo%C3%A3o-luiz-moreira> ;
+        dcterms:creator                <http://www-public.imtbs-tsp.eu/~girodgen/> ;
+        dcterms:description            "The objective of SAREF4EHAW is to extend SAREF ontology for the eHealth/Ageing-well (EHAW) vertical. Clause 4.1 of the present document shortly introduces a high level view of the envisioned SAREF4EHAW semantic model and modular ontology, with the retained concepts (i.e. classes) and their relations. \nSAREF4EHAW extension has been specified and formalised by investigating EHAW domain related resources, as reported in ETSI TR 103 509, such as: potential stakeholders, standardization initiatives, alliances/associations, European projects, EC directives, existing ontologies, and data repositories. Therefore, SAREF4EHAW modular ontology shall both:\n - Allow the implementation of a limited set of typical EHAW related use cases already identified in ETSI TR 103 509, i.e.\n - Use case 1 “elderly at home monitoring and support”,\n - Use case 2 “monitoring and support of healthy lifestyles for citizens”,\n - Use case 3 “Early Warning System (EWS) and Cardiovascular Accidents detection”.\n - Fulfil the eHealth Ageing Well related requirements provided in ETSI TR 103 509, mainly the ontological ones that were mostly taken as input for the ontology specification.\n\nSAREF4EHAW mainly reuses the following existing ontologies: SAREF, ETSI SmartBAN reference model, SAREF 4 Environment extension and W3C SSN System module. The following figure presents the high level view of SAREF4EHAW ontology.\n![SAREF4SYST overview](diagrams/SAREF4EHAW_Model.jpg)\nFor semantic interoperability handling purposes, an ontology based solution, combined with sensing-as-a-service and WoT strategies, is retained for SAREF4EHAW. Therefore, an upper level ontology, at service level, shall also behas been fully modelled (Service class and sub-classes depicted in the previous figure).\nFor embedded semantic analytics purposes, SAREF4EHAW shall behas been designed using the modularity principle (see ETSI TR 103 509) and can thus be mainly described by the following self-contained knowledge sub-ontologies (or modules): HealthActor, Ban, HealthDevice, Function (measured data related concepts included) and Service."^^<https://www.iana.org/assignments/media-types/text/markdown> ;
+        dcterms:issued                 "2020-02-01"^^xsd:date ;
+        dcterms:license                <https://forge.etsi.org/etsi-software-license> ;
+        dcterms:modified               "2020-05-01"^^xsd:date ;
+        dcterms:publisher              <https://www.etsi.org/> ;
+        dcterms:source                 <https://saref.etsi.org/sources/saref4ehaw/> ;
+        dcterms:title                  "SAREF4EHAW: an extension of SAREF for eHealth Ageing Well domain"@en ;
+        vann:preferredNamespacePrefix  "s4ehaw" ;
+        vann:preferredNamespaceUri     "https://saref.etsi.org/saref4ehaw/" ;
+        owl:imports                    <https://saref.etsi.org/core/v3.1.1/> ;
+        owl:versionIRI                 <https://saref.etsi.org/saref4ehaw/v1.1.1/> ;
+        owl:versionInfo                "v1.1.1" .
+
+s4envi:hasFrequencyMeasurement
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A measurement fucntion, in case of complex measurement like time series, has frequency measurement, i.e. the frequency in which it makes measurements."@en ;
+        rdfs:domain   s4ehaw:MeasurementFunction ;
+        rdfs:label    "has frequency measurement"@en ;
+        rdfs:range    s4envi:FrequencyMeasurement .
+
+s4ehaw:ImplantLocation
+        a                owl:Class ;
+        rdfs:comment     "Implant Device (i.e. in body health device) position."@en ;
+        rdfs:label       "Implant location"@en ;
+        rdfs:subClassOf  s4ehaw:Location .
+
+s4ehaw:activityKind  a  owl:DatatypeProperty ;
+        rdfs:comment  "The kind of atcivities that a patient or a user can have, i.e. e.g. sleeping in bed, sitting on a chair, using the shower, etc."@en ;
+        rdfs:domain   s4ehaw:Activity ;
+        rdfs:label    "activity kind"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:ReminderCommand
+        a                owl:Class ;
+        rdfs:comment     "Command used for sending reminder notifications to health actors, e.g. patients, users or Caregivers."@en ;
+        rdfs:label       "Reminder command"@en ;
+        rdfs:subClassOf  saref:NotifyCommand .
+
+s4ehaw:Patient  a        owl:Class ;
+        rdfs:comment     "A user of the type patient, i.e. a cared-for person by one or multiple caregivers."@en ;
+        rdfs:label       "Patient"@en ;
+        rdfs:subClassOf  s4ehaw:User .
+
+s4ehaw:Overeating  a  s4ehaw:Habit , owl:NamedIndividual ;
+        rdfs:comment  "Overeating habit (User level)."@en ;
+        rdfs:label    "Overeating"@en .
+
+s4ehaw:MeasurementFunction
+        a                owl:Class ;
+        rdfs:comment     "The functionality necessary to accomplish the measurement task for which a measurement-related health Device (e.g. Sensor, Wearable, ECG Device...) is designed for, e.g. a heart rate measurement function."@en ;
+        rdfs:label       "Measurement function"@en ;
+        rdfs:subClassOf  saref:Function .
+
+s4ehaw:banGeolocation
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The geolocation of the BAN, when available and needed, shall be given relatively to the current location - geolocation as standardized ISO 6709, e.g. +40.75-074.00/  - of the patient wearing the BAN."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "BAN geolocation"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:serviceDescription
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The service description should describe the offered service like e.g. heart rate measurement."@en ;
+        rdfs:domain   s4ehaw:ServiceProfile ;
+        rdfs:label    "service description"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:dimension  a   owl:DatatypeProperty ;
+        rdfs:comment  "The dimension of the device i.e. height*weight*length string."@en ;
+        rdfs:domain   s4ehaw:DeviceCharacteristic ;
+        rdfs:label    "dimension"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:interfaceDescription
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The interface type description."@en ;
+        rdfs:domain   s4ehaw:Interface ;
+        rdfs:label    "interface description"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:DailyActivity  a  owl:Class ;
+        rdfs:comment     "The patient/user activities that occur during daytime."@en ;
+        rdfs:label       "Daily activity"@en ;
+        rdfs:subClassOf  s4ehaw:Activity .
+
+s4ehaw:Healthcare  a  s4ehaw:BanApplicationDomain , owl:NamedIndividual ;
+        rdfs:comment  "Healthcare domain for BAN application."@en ;
+        rdfs:label    "Healthcare"@en .
+
+s4ehaw:HealthActuator
+        a                owl:Class ;
+        rdfs:comment     "Health-related Actuator, equivalent to SAREF Actuator."@en ;
+        rdfs:label       "Health actuator"@en ;
+        rdfs:subClassOf  s4ehaw:HealthDevice .
+
+s4ehaw:inCurrentMode  a  owl:ObjectProperty ;
+        rdfs:comment  "Each eHealth device has modes of operations that model its dynamic characteristic varying during its lifetime, e.g. active, hold, beacon..."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "in current mode"@en ;
+        rdfs:range    s4ehaw:Mode .
+
+s4ehaw:Running  a     s4ehaw:Posture , owl:NamedIndividual ;
+        rdfs:comment  "Posture of a running user."@en ;
+        rdfs:label    "Running"@en .
+
+vann:preferredNamespacePrefix
+        a       owl:AnnotationProperty .
+
+saref:Property  a  owl:Class .
+
+s4ehaw:OperatingConstraint
+        a             owl:Class ;
+        rdfs:comment  "An empty container for describing the operating constraints of a device, e.g. recommended humidity and temperature range..."@en ;
+        rdfs:label    "Operating constraint"@en .
+
+s4ehaw:Lying  a       s4ehaw:Posture , owl:NamedIndividual ;
+        rdfs:comment  "Posture of a lying user."@en ;
+        rdfs:label    "Lying"@en .
+
+s4ehaw:activityDuration
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The duration of an activity, in second."@en ;
+        rdfs:domain   s4ehaw:Activity ;
+        rdfs:label    "activity duration"@en ;
+        rdfs:range    xsd:float .
+
+s4ehaw:Data  a        owl:Class ;
+        rdfs:comment  "A function has one or many data, for example a tracking function shall include latitude, longitude and speed data."@en ;
+        rdfs:label    "Data"@en .
+
+s4ehaw:ValidityConstraint
+        a                owl:Class ;
+        rdfs:comment     "Data may have validity constraint such as allowable value range."@en ;
+        rdfs:label       "Validity constraint"@en ;
+        rdfs:subClassOf  s4ehaw:DataConstraint .
+
+s4ehaw:hasBanApplicationDomain
+        a             owl:ObjectProperty ;
+        rdfs:comment  "The BAN application domain - healthcare, telemedicine, assisted living, sport training, pervasive computing, safety and emergency... -."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "has BAN application domain"@en ;
+        rdfs:range    s4ehaw:BanApplicationDomain .
+
+s4ehaw:isGateway  a   owl:DatatypeProperty ;
+        rdfs:comment  "This boolean variable indicates if the interface is a gateway or not."@en ;
+        rdfs:domain   s4ehaw:Interface ;
+        rdfs:label    "is gateway"@en ;
+        rdfs:range    xsd:boolean .
+
+s4ehaw:availableRam  a  owl:DatatypeProperty ;
+        rdfs:comment  "Indicates the available volatile memory space (in byte) of a health device. It is a dynamic attribute."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "available ram"@en ;
+        rdfs:range    xsd:long .
+
+saref:hasManufacturer
+        a                 owl:DatatypeProperty ;
+        rdfs:comment      "A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag."@en ;
+        rdfs:isDefinedBy  saref: ;
+        rdfs:label        "has manufacturer"@en .
+
+s4ehaw:hasComputingPower
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A health device characteristic describing the processing power or capabilities of the device (e.g. processor ID and manufacturer, duty cycle, available flash/RM memory, maximum flash/RAM memory...)."@en ;
+        rdfs:domain   s4ehaw:DeviceCharacteristic ;
+        rdfs:label    "has computing power"@en ;
+        rdfs:range    s4ehaw:ComputingPower .
+
+s4ehaw:OcularImpairment
+        a             s4ehaw:Impairment , owl:NamedIndividual ;
+        rdfs:comment  "Ocular impairment (User level)."@en , "Ocular impairment (User level), i.e. impamnents of visual acuity."@en ;
+        rdfs:label    "Ocular impairment"@en .
+
+s4ehaw:phenomena  a   owl:DatatypeProperty ;
+        rdfs:comment  "The BAN monitors a specific phenomenon (burned calories during exercises, glucose level...)."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "phenomena"@en ;
+        rdfs:range    xsd:string .
+
+saref:consistsOf  a       owl:ObjectProperty ;
+        rdfs:comment      "A relationship indicating a composite entity that consists of other entities (e.g., a temperature/humidity sensor that consists of a temperature sensor and a humidity sensor)"@en ;
+        rdfs:isDefinedBy  saref: ;
+        rdfs:label        "consists of"@en .
+
+s4ehaw:Impairment  a  owl:Class ;
+        rdfs:comment  "Defined for users (that can in particular be patients) impairments modelling, e.g. aural impairment, skeletal impairment, ocular impairment, mobility impairment, intellectual impairment. Those non exhaustive impairments are compatible with the World Health Organization classification."@en ;
+        rdfs:label    "Impairment"@en .
+
+s4envi:Frequency  a  owl:Class .
+
+s4ehaw:ArmpitLocation
+        a             s4ehaw:BodySurfaceLocation , owl:NamedIndividual ;
+        rdfs:comment  "Armpit location, a user body surface location."@en ;
+        rdfs:label    "Armpit location"@en .
+
+s4ehaw:hasResult  a   owl:DatatypeProperty ;
+        rdfs:comment  "The process can have many results for the same output. Those results may include a message that should be displayed, an alert..."@en ;
+        rdfs:domain   s4ehaw:ServiceProcess ;
+        rdfs:label    "has result"@en ;
+        rdfs:range    xsd:string .
+
+vann:preferredNamespaceUri
+        a       owl:AnnotationProperty .
+
+dcterms:source  a  owl:AnnotationProperty .
+
+s4ehaw:lastName  a    owl:DatatypeProperty ;
+        rdfs:comment  "The familly name of a health actor."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "last name"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:phone  a       owl:DatatypeProperty ;
+        rdfs:comment  "The phone number of a health actor, in international format."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "phone"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:modeName  a    owl:DatatypeProperty ;
+        rdfs:comment  "The mode name of a device, e.g. sleeping."@en ;
+        rdfs:domain   s4ehaw:Mode ;
+        rdfs:label    "mode name"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:Caregiver  a      owl:Class ;
+        rdfs:comment     "For caregivers modelling."@en ;
+        rdfs:label       "Caregiver"@en ;
+        rdfs:subClassOf  s4ehaw:HealthActor .
+
+s4ehaw:hasPowerSource
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A health device characteristic is its  power sources, mainly describing energy source and battery related capabilities of the health device (number of power source, source type, rechargeable or not, available power level...)."@en ;
+        rdfs:domain   s4ehaw:DeviceCharacteristic ;
+        rdfs:label    "has power source"@en ;
+        rdfs:range    s4ehaw:PowerSource .
+
+s4ehaw:rechargeable  a  owl:DatatypeProperty ;
+        rdfs:comment  "This boolean variable indicates if the power source is rechargeable or not, e.g. a rechargeable battery."@en ;
+        rdfs:domain   s4ehaw:PowerSource ;
+        rdfs:label    "rechargeable"@en ;
+        rdfs:range    xsd:boolean .
+
+s4ehaw:BanApplicationDomain
+        a             owl:Class ;
+        rdfs:comment  "The BAN application domain, e.g. healthcare, telemedicine, assisted living, sport training, safety and emergency..."@en ;
+        rdfs:label    "BAN application domain"@en .
+
+s4ehaw:hasDataConstraint
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Data has data constraints (validity, legal...)."@en ;
+        rdfs:domain   s4ehaw:Data ;
+        rdfs:label    "has data constraint"@en ;
+        rdfs:range    s4ehaw:DataConstraint .
+
+s4ehaw:MeasurementCollectionSession
+        a                owl:Class ;
+        rdfs:comment     "Task in which a health actor (mainly a patient or a user) is subject of measurement collection (recording) by both some measurement-related health Device (e.g. Sensor, Wearable, ECG Device...) and a health actor (mainly a caregiver)."@en ;
+        rdfs:label       "Measurement collection session"@en ;
+        rdfs:subClassOf  saref:Task .
+
+s4ehaw:Helper  a         owl:Class ;
+        rdfs:comment     "Helper of patients/users, e.g. a patient's relative."@en ;
+        rdfs:label       "Helper"@en ;
+        rdfs:subClassOf  s4ehaw:HealthActor .
+
+dcterms:title  a  owl:AnnotationProperty .
+
+s4ehaw:hasOperatingConstraint
+        a             owl:ObjectProperty ;
+        rdfs:comment  "The operating constraints of a health device, e.g. recommended humidity and temperature range..."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "has operating constraint"@en ;
+        rdfs:range    s4ehaw:OperatingConstraint .
+
+s4ehaw:firstName  a   owl:DatatypeProperty ;
+        rdfs:comment  "The first name of a health actor."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "first name"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:uom  a         owl:ObjectProperty ;
+        rdfs:comment  "Defines the unit of measure of a measurement function."@en ;
+        rdfs:domain   s4ehaw:MeasurementFunction ;
+        rdfs:label    "unit of measurement"@en ;
+        rdfs:range    saref:UnitOfMeasure .
+
+s4ehaw:presents  a    owl:ObjectProperty ;
+        rdfs:comment  "A service presents a service profile (what the service does)."@en ;
+        rdfs:domain   saref:Service ;
+        rdfs:label    "presents"@en ;
+        rdfs:range    s4ehaw:ServiceProfile .
+
+s4ehaw:Ban  a         owl:Class ;
+        rdfs:comment  "Body Area Network."@en ;
+        rdfs:label    "BAN"@en .
+
+s4ehaw:hasPrecondition
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The conditions that are imposed over the inputs of the process and the process must hold to be successufully invoked."@en ;
+        rdfs:domain   s4ehaw:ServiceProcess ;
+        rdfs:label    "has precondition"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:isAttachedTo  a  owl:ObjectProperty ;
+        rdfs:comment  "A health Device is attached to a health actor such as a patient, a user and or a caregiver."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "is attached to"@en ;
+        rdfs:range    s4ehaw:HealthActor .
+
+s4ehaw:minimumValue  a  owl:DatatypeProperty ;
+        rdfs:comment  "The minimum allowable value  of a measurement."@en ;
+        rdfs:domain   s4ehaw:ValidityConstraint ;
+        rdfs:label    "minimum value"@en ;
+        rdfs:range    xsd:decimal .
+
+s4ehaw:hasAgeCategory
+        a             owl:ObjectProperty ;
+        rdfs:comment  "The age group of a health actor, e.g. old or young."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "has age category"@en ;
+        rdfs:range    s4ehaw:AgeCategory .
+
+s4ehaw:contains  a    owl:ObjectProperty ;
+        rdfs:comment  "A Body Area Network or BAN contains one or multiple health devices"@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "contains"@en ;
+        rdfs:range    s4ehaw:HealthDevice .
+
+s4ehaw:serviceName  a  owl:DatatypeProperty ;
+        rdfs:comment  "The service name identify the offered service, e.g heart rate."@en ;
+        rdfs:domain   s4ehaw:ServiceProfile ;
+        rdfs:label    "service name"@en ;
+        rdfs:range    xsd:string .
+
+s4envi:FrequencyUnit  a  owl:Class .
+
+saref:Command  a  owl:Class .
+
+dcterms:modified  a  owl:AnnotationProperty .
+
+s4ehaw:Safety  a      s4ehaw:BanApplicationDomain , owl:NamedIndividual ;
+        rdfs:comment  "Safety sub-domain for BAN application."@en ;
+        rdfs:label    "Safety"@en .
+
+s4ehaw:User  a           owl:Class ;
+        rdfs:comment     "A health actor (patient included) that can be equiped with BANs or health devices for monitoring, control, care (specific case of patients) or support purposes."@en ;
+        rdfs:label       "User"@en ;
+        rdfs:subClassOf  s4ehaw:HealthActor .
+
+s4ehaw:ServiceProcess
+        a             owl:Class ;
+        rdfs:comment  "How the service works."@en ;
+        rdfs:label    "Service process"@en .
+
+s4ehaw:PhysicalLocation
+        a                owl:Class ;
+        rdfs:comment     "The physical location, i.e. a postal address and a geolocation when available."@en ;
+        rdfs:label       "Physical location"@en ;
+        rdfs:subClassOf  s4ehaw:Location .
+
+s4ehaw:hasTimeSeriesMesurement
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Data has time series measurements, a sequence taken at successive equally spaced points in time."@en ;
+        rdfs:domain   s4ehaw:Data ;
+        rdfs:label    "has time series measurement"@en ;
+        rdfs:range    s4ehaw:TimeSeriesMeasurement .
+
+saref:NotifyCommand  a  owl:Class .
+
+dcterms:creator  a  owl:AnnotationProperty .
+
+s4ehaw:hasPhysicalLocation
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Defines the physical location of the patient, i.e. its postal address and/or its geolocation (when available)."@en ;
+        rdfs:domain   s4ehaw:Patient ;
+        rdfs:label    "has physical location"@en ;
+        rdfs:range    s4ehaw:PhysicalLocation .
+
+s4envi:FrequencyMeasurement
+        a                 owl:Class ;
+        rdfs:comment      "Represents the measured value made over a frequency property. It is also linked to the frequency unit of measure in which the value is expressed and the timestamp of the measurement."@en ;
+        rdfs:isDefinedBy  s4envi: ;
+        rdfs:label        "Frequency measurement"@en .
+
+saref:Function  a  owl:Class .
+
+s4ehaw:ServiceProfile
+        a             owl:Class ;
+        rdfs:comment  "What the service does."@en ;
+        rdfs:label    "Service profile"@en .
+
+s4ehaw:dutyCycle  a   owl:DatatypeProperty ;
+        rdfs:comment  "The duty cycle for each health device embedded processor, in percent."@en ;
+        rdfs:domain   s4ehaw:ComputingPower ;
+        rdfs:label    "duty cycle"@en ;
+        rdfs:range    xsd:int .
+
+s4ehaw:hasValues  a   owl:DatatypeProperty ;
+        rdfs:comment  "A relationship defining the set of values (an ordered array of numbers) of a certain property, e.g., heart rate. Attention: to assure ordering in the serialization format, it is necessary to use either rdf:Seq (RDF/XML) or @list (JSON-LD)."@en ;
+        rdfs:domain   s4ehaw:TimeSeriesMeasurement ;
+        rdfs:label    "has values"@en ;
+        rdfs:range    xsd:decimal .
+
+s4ehaw:HealthActor  a    owl:Class ;
+        rdfs:comment     "The eHealth actors like e.g. caregivers, patients, users, helpers..."@en ;
+        rdfs:label       "Health actor"@en ;
+        rdfs:subClassOf  foaf:Agent .
+
+s4ehaw:hasDeviceCharacteristic
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A health device has device characteristic describing the physical characteristics of the health device, e.g. its dimensions."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "has device characteristic"@en ;
+        rdfs:range    s4ehaw:DeviceCharacteristic .
+
+s4ehaw:Emergency  a   s4ehaw:BanApplicationDomain , owl:NamedIndividual ;
+        rdfs:comment  "Emergency sub-domain for BAN application."@en ;
+        rdfs:label    "Emergency"@en .
+
+s4ehaw:CommunicationProtocol
+        a             owl:Class ;
+        rdfs:comment  "The communication protocol, e.g. BLE, serial, Ethernet..."@en ;
+        rdfs:label    "Communication protocol"@en .
+
+foaf:Agent  a   owl:Class .
+
+saref:Device  a  owl:Class .
+
+s4ehaw:geolocation  a  owl:DatatypeProperty ;
+        rdfs:comment  "The geolocation, when available, shall be given relatively to the current location - geolocation as standardized ISO 6709, e.g. +40.75-074.00/ -."@en ;
+        rdfs:domain   s4ehaw:PhysicalLocation ;
+        rdfs:label    "geolocation"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:Smoking  a     s4ehaw:Habit , owl:NamedIndividual ;
+        rdfs:comment  "Smoking habit (User level)."@en ;
+        rdfs:label    "Smoking"@en .
+
+s4ehaw:DataConstraint
+        a             owl:Class ;
+        rdfs:comment  "The Data constraints, e.g. validity, legal..."@en ;
+        rdfs:label    "Data constraint"@en .
+
+s4ehaw:hasImpairment  a  owl:ObjectProperty ;
+        rdfs:comment  "The impairment type of a user and a patient (as sub-class of user it also inherits impairment), e.g. aural, skeletal, ocular, mobility, intellectual..."@en ;
+        rdfs:domain   s4ehaw:User ;
+        rdfs:label    "has impairment"@en ;
+        rdfs:range    s4ehaw:Impairment .
+
+s4ehaw:WristLocation  a  s4ehaw:BodySurfaceLocation , owl:NamedIndividual ;
+        rdfs:comment  "Wrist, a user body surface location."@en ;
+        rdfs:label    "Wrist location"@en .
+
+s4ehaw:powerSourceType
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The type of power source of a health device. It can be solar, battery, electricity..."@en ;
+        rdfs:domain   s4ehaw:PowerSource ;
+        rdfs:label    "power source type"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:Location  a    owl:Class ;
+        rdfs:comment  "The location, i.e. a position against the body (on - body surface – or in the body – implant –) and a physical location (i.e. a postal address and/or a current geolocation when available)."@en ;
+        rdfs:label    "Location"@en .
+
+s4ehaw:TimeSeriesMeasurement
+        a                owl:Class ;
+        rdfs:comment     "A sequence of data in a successive equally spaced points in time. The O&M ontology (ISO 19156) defines Time Series Observation  as an “observation whose result is a time-series”, while both Hl7 aECG and DICOM standards define the Series element as a sequence of data sharing a common frame of reference. In SAREF4health this concept is termed as Time Series Measurements since this sequence of data refers to time series measured by a health device."@en ;
+        rdfs:label       "Time series measurement"@en ;
+        rdfs:subClassOf  saref:Measurement ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:decimal ;
+                           owl:onProperty     s4ehaw:hasValues
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  s4envi:FrequencyMeasurement ;
+                           owl:onProperty     s4envi:hasFrequencyMeasurement
+                         ] .
+
+s4ehaw:format  a      owl:DatatypeProperty ;
+        rdfs:comment  "The format is a URI for a standard format like e.g. integer."@en ;
+        rdfs:domain   s4ehaw:Data ;
+        rdfs:label    "format"@en ;
+        rdfs:range    xsd:anyURI .
+
+s4ehaw:hasCalculationMethod
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The service process has a calculation method to get the output or result, e.g. the calculation formula to determine the posture of a patient."@en ;
+        rdfs:domain   s4ehaw:ServiceProcess ;
+        rdfs:label    "has calculation method"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:Telemedicine  a  s4ehaw:BanApplicationDomain , owl:NamedIndividual ;
+        rdfs:comment  "Telemedicine sub-domain for BAN application."@en ;
+        rdfs:label    "Telemedicine"@en .
+
+s4ehaw:hasOutput  a   owl:DatatypeProperty ;
+        rdfs:comment  "The output is e.g. the calculated value returned by the process, e.g the posture of a patient."@en ;
+        rdfs:domain   s4ehaw:ServiceProcess ;
+        rdfs:label    "has output"@en ;
+        rdfs:range    xsd:string .
+
+dcterms:description  a  owl:AnnotationProperty .
+
+s4ehaw:transmissionRate
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The transmission rate of the interface, i.e. the number of bits transmitted per second (usually expressed in kbps or Mbps)."@en ;
+        rdfs:domain   s4ehaw:Interface ;
+        rdfs:label    "transmission rate"@en ;
+        rdfs:range    xsd:float .
+
+s4ehaw:hasGender  a   owl:DatatypeProperty ;
+        rdfs:comment  "The gender of a health actor."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "has gender"@en ;
+        rdfs:range    [ a          rdfs:Datatype ;
+                        owl:oneOf  [ a          rdf:List ;
+                                     rdf:first  "female" ;
+                                     rdf:rest   [ a          rdf:List ;
+                                                  rdf:first  "male" ;
+                                                  rdf:rest   [ a          rdf:List ;
+                                                               rdf:first  "undetermined" ;
+                                                               rdf:rest   ()
+                                                             
+                                                             ]
+                                                ]
+                                   ]
+                      ] .
+
+s4ehaw:AssistedLiving
+        a             s4ehaw:BanApplicationDomain , owl:NamedIndividual ;
+        rdfs:comment  "Assisted living sub-domain for BAN application."@en ;
+        rdfs:label    "Assisted living"@en .
+
+s4ehaw:NocturnalActivity
+        a                owl:Class ;
+        rdfs:comment     "The patient/user activities that occur during the night."@en ;
+        rdfs:label       "Nocturnal activity"@en ;
+        rdfs:subClassOf  s4ehaw:Activity .
+
+s4ehaw:SkeletalImpairment
+        a             s4ehaw:Impairment , owl:NamedIndividual ;
+        rdfs:comment  "Skeletal impairment (User level), e.g. of head and trunk regions, limbs..."@en ;
+        rdfs:label    "Skeletal impairment"@en .
+
+s4ehaw:Asthma  a      s4ehaw:ChronicDisease , owl:NamedIndividual ;
+        rdfs:comment  "Asthma, a chronical disease that some users can have."@en ;
+        rdfs:label    "Asthma"@en .
+
+s4ehaw:BodySurfaceLocation
+        a                owl:Class ;
+        rdfs:comment     "Defines a health device location in terms of a body surface position (i.e. on body health device)."@en ;
+        rdfs:label       "Body surface location"@en ;
+        rdfs:subClassOf  s4ehaw:Location .
+
+saref:Task  a   owl:Class .
+
+s4ehaw:ResponsibleParty
+        a                owl:Class ;
+        rdfs:comment     "The legal entity responsible for a BAN, i.e. to contact in case of problem."@en ;
+        rdfs:label       "Responsible party"@en ;
+        rdfs:subClassOf  s4ehaw:HealthActor .
+
+s4ehaw:hasResponsibleParty
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A BAN that has a responsible party which plays the role of the legal entity responsible for this BAN (e.g. to contact in case of problem). It should be an organization or a person."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "has responsible party"@en ;
+        rdfs:range    s4ehaw:ResponsibleParty .
+
+s4ehaw:Diabetes  a    s4ehaw:ChronicDisease , owl:NamedIndividual ;
+        rdfs:comment  "Diabetes, a chronical disease that some users can have."@en ;
+        rdfs:label    "Diabetes"@en .
+
+s4ehaw:BanCommunicationType
+        a             owl:Class ;
+        rdfs:comment  "The BAN communication function type, i.e. periodic, event driven or on request."@en ;
+        rdfs:label    "BAN Communication type"@en .
+
+s4ehaw:banDensity  a  owl:DatatypeProperty ;
+        rdfs:comment  "The BAN density, i.e. its number of node."@en ;
+        rdfs:domain   s4ehaw:Ban ;
+        rdfs:label    "BAN density"@en ;
+        rdfs:range    xsd:long .
+
+saref:Measurement  a  owl:Class .
+
+s4ehaw:Habit  a       owl:Class ;
+        rdfs:comment  "Defined for users (that can in particular be patients) habits modelling, e.g. smoking, alcohol drinking, overeating, undereating..."@en ;
+        rdfs:label    "Habit"@en .
+
+s4ehaw:hasMbox  a     owl:DatatypeProperty ;
+        rdfs:comment  "An email address (or mail box) of an health actor: a URI with the 'mailto' scheme as defined by RFC 6068."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "has mbox"@en ;
+        rdfs:range    xsd:anyURI .
+
+s4ehaw:AlcoholDrinking
+        a             s4ehaw:Habit , owl:NamedIndividual ;
+        rdfs:comment  "Alcohol drinking habit (User level)."@en ;
+        rdfs:label    "Alcohol drinking"@en .
+
+s4ehaw:AlarmCommand  a   owl:Class ;
+        rdfs:comment     "A command corresponding to alarm sending."@en ;
+        rdfs:label       "Alarm command"@en ;
+        rdfs:subClassOf  saref:Command .
+
+s4ehaw:dataSize  a    owl:DatatypeProperty ;
+        rdfs:comment  "The data size represents the size of the data in bytes"@en ;
+        rdfs:domain   s4ehaw:Data ;
+        rdfs:label    "data size"@en ;
+        rdfs:range    xsd:positiveInteger .
+
+s4ehaw:DeviceCharacteristic
+        a             owl:Class ;
+        rdfs:comment  "A health device has device characteristic describing the physical characteristics of the health device."@en ;
+        rdfs:label    "Device characteristic"@en .
+
+s4ehaw:maximumFlash  a  owl:DatatypeProperty ;
+        rdfs:comment  "Indicates the maximum flash memory space (in byte) of a health device."@en ;
+        rdfs:domain   s4ehaw:ComputingPower ;
+        rdfs:label    "maximum flash"@en ;
+        rdfs:range    xsd:long .
+
+s4ehaw:Sitting  a     s4ehaw:Posture , owl:NamedIndividual ;
+        rdfs:comment  "Posture of a sitting user."@en ;
+        rdfs:label    "Sitting"@en .
+
+voaf:Vocabulary  a  owl:Class .
+
+s4ehaw:SportTraining  a  s4ehaw:BanApplicationDomain , owl:NamedIndividual ;
+        rdfs:comment  "Sport training sub-domain for BAN application."@en ;
+        rdfs:label    "Sport Training"@en .
+
+s4ehaw:EventDrivenBanCommunicationType
+        a                owl:Class ;
+        rdfs:comment     "BAN communication function way of working of the type event driven."@en ;
+        rdfs:label       "Event driven BAN communication type"@en ;
+        rdfs:subClassOf  s4ehaw:BanCommunicationType .
+
+dcterms:publisher  a  owl:AnnotationProperty .
+
+s4ehaw:supports  a    owl:ObjectProperty ;
+        rdfs:comment  "A service supports a service grounding (how to access the service)." ;
+        rdfs:domain   saref:Service ;
+        rdfs:label    "supports"@en ;
+        rdfs:range    s4ehaw:ServiceGrounding .
+
+saref:UnitOfMeasure  a  owl:Class .
+
+s4ehaw:hasEffect  a   owl:DatatypeProperty ;
+        rdfs:comment  "The effect of a service can be an alert, nothing, an activation of another process..."@en ;
+        rdfs:domain   s4ehaw:ServiceProcess ;
+        rdfs:label    "has effect"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:interfaceAddress
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "The interface address. The interface may have many addresses like MAC address, IP address or others."@en ;
+        rdfs:domain   s4ehaw:Interface ;
+        rdfs:label    "interface address"@en ;
+        rdfs:range    xsd:string .
+
+s4ehaw:Old  a         s4ehaw:AgeCategory , owl:NamedIndividual ;
+        rdfs:comment  "Old, one user age category."@en ;
+        rdfs:label    "Old"@en .
+
+s4ehaw:hasMeasurement
+        a             owl:ObjectProperty ;
+        rdfs:comment  "Defines the relationship between data that has measurement."@en ;
+        rdfs:domain   s4ehaw:Data ;
+        rdfs:label    "has measurement"@en ;
+        rdfs:range    saref:Measurement .
+
+s4ehaw:hasPosture  a  owl:ObjectProperty ;
+        rdfs:comment  "The posture of a user and a patient (as sub-class of user it also inherits habit), e.g. exercising, lying, running, sitting, walking..."@en ;
+        rdfs:domain   s4ehaw:User ;
+        rdfs:label    "has posture"@en ;
+        rdfs:range    s4ehaw:Posture .
+
+s4ehaw:HealthDevice  a   owl:Class ;
+        rdfs:comment     "Health devices, e.g. BAN hub, health sensor/actuator/Wereable."@en ;
+        rdfs:label       "Health Device"@en ;
+        rdfs:subClassOf  saref:Device .
+
+s4ehaw:LegalConstraint
+        a                owl:Class ;
+        rdfs:comment     "An empty container for describing the legal constraints a data can be submitted to, like e.g. anonymization."@en ;
+        rdfs:label       "Legal constraint"@en ;
+        rdfs:subClassOf  s4ehaw:DataConstraint .
+
+s4ehaw:hasLocation  a  owl:ObjectProperty ;
+        rdfs:comment  "The location of an eHealth device, i.e. its position against the body (on body surface or in the body - implant -) and its physical location (i.e. its postal address and/or its current geolocation geolocation when available)."@en ;
+        rdfs:domain   s4ehaw:HealthDevice ;
+        rdfs:label    "has location"@en ;
+        rdfs:range    s4ehaw:Location .
+
+dcterms:contributor  a  owl:AnnotationProperty .
+
+s4ehaw:isDerivedData  a  owl:DatatypeProperty ;
+        rdfs:comment  "Is derived data is a Boolean property to indicate if the data is a row data or a calculated/derived data from other one."@en ;
+        rdfs:domain   s4ehaw:Data ;
+        rdfs:label    "is derived data"@en ;
+        rdfs:range    xsd:boolean .
+
+s4ehaw:PervasiveComputing
+        a             s4ehaw:BanApplicationDomain , owl:NamedIndividual ;
+        rdfs:comment  "Pervasive computing sub-domain for BAN application."@en ;
+        rdfs:label    "Pervasive computing"@en .
+
+s4ehaw:followsUser  a  owl:ObjectProperty ;
+        rdfs:comment  "A helper may follow one or multiple users that can in particular be patients."@en ;
+        rdfs:domain   s4ehaw:Helper ;
+        rdfs:label    "follows user"@en ;
+        rdfs:range    s4ehaw:User .
+
+s4ehaw:OnRequestBanCommunicationType
+        a                owl:Class ;
+        rdfs:comment     "BAN communication function way of working of the type on request."@en ;
+        rdfs:label       "On request BAN communication type"@en ;
+        rdfs:subClassOf  s4ehaw:BanCommunicationType .
+
+dcterms:issued  a  owl:AnnotationProperty .
+
+s4ehaw:hasParticipant
+        a             owl:ObjectProperty ;
+        rdfs:comment  "A measurement session has health actors as participants (caregiver controling the session, patient monitored during the session)."@en ;
+        rdfs:domain   s4ehaw:MeasurementCollectionSession ;
+        rdfs:label    "has participant"@en ;
+        rdfs:range    s4ehaw:HealthActor .
+
+s4ehaw:hasHabit  a    owl:ObjectProperty ;
+        rdfs:comment  "The habits of a user and a patient (as sub-class of user it also inherits habit), e.g. smoking or overeating."@en ;
+        rdfs:domain   s4ehaw:User ;
+        rdfs:label    "has habit"@en ;
+        rdfs:range    s4ehaw:Habit .
+
+s4ehaw:hasPatient  a  owl:ObjectProperty ;
+        rdfs:comment  "A caregiver may have one or multiple patients."@en ;
+        rdfs:domain   s4ehaw:Caregiver ;
+        rdfs:label    "has patient"@en ;
+        rdfs:range    s4ehaw:Patient .
+
+s4ehaw:maximumRam  a  owl:DatatypeProperty ;
+        rdfs:comment  "Indicates the maximum volatile memory space (in byte) of a health device."@en ;
+        rdfs:domain   s4ehaw:ComputingPower ;
+        rdfs:label    "maximum ram"@en ;
+        rdfs:range    xsd:long .
+
+s4ehaw:hasMode  a     owl:ObjectProperty ;
+        rdfs:comment  "Each device has modes of operations that model its dynamic characteristic varying during its lifetime, e.g. active, hold, beacon..."@en ;
+        rdfs:domain   s4ehaw:DeviceCharacteristic ;
+        rdfs:label    "has mode"@en ;
+        rdfs:range    s4ehaw:Mode .
+
+s4ehaw:dob  a         owl:DatatypeProperty ;
+        rdfs:comment  "The date of birth of a health actor."@en ;
+        rdfs:domain   s4ehaw:HealthActor ;
+        rdfs:label    "date of birth"@en ;
+        rdfs:range    xsd:dateTime .
