@@ -1,7 +1,9 @@
 import os
 import time
+import json
+import re  # IMPORTANTE: Para arreglar el JSON sucio
 from langchain_chroma import Chroma
-from langchain_core.output_parsers import StrOutputParser, JsonOutputParser
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -13,7 +15,7 @@ LLM_MODEL = "llama3"
 
 class OntologyRecommender:
     def __init__(self):
-        print("Iniciando sistema RAG (Modo: Broad Retrieval + Re-ranking Agnóstico)...")
+        print("Iniciando sistema RAG (Modo: Robust Re-ranking)...")
         self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         
         if not os.path.exists(PERSIST_DIRECTORY):
@@ -29,139 +31,127 @@ class OntologyRecommender:
         print("Sistema RAG listo.")
 
     def _setup_chains(self):
-        # 1. CHAIN DE EXTRACCIÓN (Keywords)
+        # 1. EXTRACCIÓN
         extract_tmpl = """
-        Analiza la petición del usuario para buscar ontologías.
+        Analiza la petición del usuario. Extrae 3-5 palabras clave técnicas en inglés.
         Petición: {user_request}
-        Extrae 3-5 palabras clave o conceptos técnicos principales (en inglés si es posible).
         Responde SOLO con las palabras separadas por comas.
         """
         self.extraction_chain = ChatPromptTemplate.from_template(extract_tmpl) | self.llm | StrOutputParser()
 
-        # 2. CHAIN DE FILTRADO/RE-RANKING (El Juez Imparcial)
-        # Lógica semántica que se adapta a la intención del usuario
+        # 2. FILTRADO (Prompt más estricto)
         filter_tmpl = """
-        Tienes una petición de usuario y una lista de fragmentos de ontologías candidatas recuperadas de una base de datos.
-        Tu trabajo es actuar como un FILTRO INTELIGENTE para eliminar el "ruido" semántico.
+        Eres un filtro de metadatos JSON. TU ÚNICA SALIDA DEBE SER UN JSON VÁLIDO.
+        NO escribas introducciones, ni explicaciones, ni "Here is the JSON". SOLO EL JSON.
 
-        Petición del Usuario: "{user_request}"
-
-        Instrucciones de Filtrado:
-        1. Analiza la INTENCIÓN del usuario (¿Busca construcción? ¿Industria? ¿Sensores? ¿Gobierno?).
-        2. Revisa la lista de candidatos.
-        3. SI la petición es específica (ej. "Edificios"), DESCARTA candidatos de otros dominios (ej. "Agricultura", "Manufactura") aunque usen palabras similares.
-        4. SI la petición es genérica, sé más permisivo.
-        5. El objetivo es quedarse SOLO con los archivos que realmente ayudan a responder la petición.
-
-        Lista de Candidatos:
+        Objetivo: Analiza la lista de candidatos y selecciona los archivos que responden a la intención del usuario: "{user_request}".
+        
+        Reglas:
+        - Intención específica (ej. "Buildings") -> Descarta otros dominios (ej. "Agriculture").
+        - Intención genérica -> Sé permisivo.
+        
+        Candidatos:
         {context_list}
 
-        Responde con un JSON válido que contenga la lista de nombres de archivo ("source") que SÍ son relevantes.
-        Formato JSON:
+        Formato de Salida OBLIGATORIO:
         {{
-            "relevant_sources": ["archivo_valido_1.ttl", "archivo_valido_2.owl"]
+            "relevant_sources": ["archivo1.ttl", "archivo2.owl"]
         }}
         """
-        self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | JsonOutputParser()
+        # Nota: Quitamos JsonOutputParser y usaremos StrOutputParser + Regex manual
+        self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
-        # 3. CHAIN DE DECISIÓN FINAL
+        # 3. DECISIÓN FINAL (Prohibiendo URIs)
         selection_tmpl = """
-        Eres un Experto en Web Semántica y Ontologías.
-        Tu tarea es recomendar la MEJOR ontología basándote únicamente en los candidatos filtrados que se te presentan.
+        Eres un Experto en Ontologías. Recomienda el MEJOR archivo de la lista.
         
-        Petición del usuario: {user_request}
-        
-        Candidatos Relevantes (Filtrados):
+        Petición: {user_request}
+        Contexto (Candidatos Filtrados):
         {filtered_context}
         
-        Instrucciones:
-        1. Si hay varias opciones, elige la más específica y estándar para el dominio.
-        2. Justifica tu respuesta técnicamente basándote en las clases/propiedades que ves en los fragmentos.
-        3. Ignora cualquier conocimiento externo; usa solo el contexto.
+        INSTRUCCIÓN CRÍTICA:
+        En el campo "ONTOLOGÍA RECOMENDADA", debes poner EXACTAMENTE el nombre del archivo (el texto que aparece después de 'Fuente:').
+        PROHIBIDO poner URIs (http://...) o nombres de clases. SOLO el nombre del archivo (ej. bot.ttl).
         
-        Tu respuesta debe tener este formato EXACTO:
-        **ONTOLOGÍA RECOMENDADA:** [nombre_exacto_del_archivo]
+        Respuesta:
+        **ONTOLOGÍA RECOMENDADA:** [NOMBRE_DEL_ARCHIVO]
         **RAZÓN:** [Justificación breve]
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
 
+    def _extract_json_from_text(self, text):
+        """Función auxiliar para limpiar la basura conversacional del LLM"""
+        try:
+            # Intenta encontrar algo que parezca un JSON {...}
+            match = re.search(r'\{.*\}', text, re.DOTALL)
+            if match:
+                json_str = match.group(0)
+                return json.loads(json_str)
+            return json.loads(text) # Intento directo
+        except:
+            return None
+
     def run_pipeline(self, user_request, initial_k=40):
         start_time = time.time()
         
-        # PASO 1: Extracción de Keywords
+        # 1. Extracción
         try:
             keywords = self.extraction_chain.invoke({"user_request": user_request})
-        except Exception:
-            keywords = user_request # Fallback
-            
-        # PASO 2: Broad Retrieval (Recuperación Amplia)
-        # Aumentamos k a 40 para asegurar que la respuesta correcta entre en la red, aunque haya ruido.
+        except: keywords = user_request
+
+        # 2. Broad Retrieval
         raw_docs = self.vectorstore.max_marginal_relevance_search(keywords, k=initial_k, fetch_k=100)
         
-        # Preparar resumen para el Re-ranker
+        # Preparar contexto para filtro
         doc_summaries = []
         for d in raw_docs:
             src = d.metadata.get('source', 'unknown')
-            # Usamos un snippet corto para que el LLM pueda procesar los 40 docs rápido
-            content_preview = d.page_content[:150].replace('\n', ' ') 
-            doc_summaries.append(f"- SOURCE: {src} | CONTENT: {content_preview}...")
-        
+            content = d.page_content[:150].replace('\n', ' ')
+            doc_summaries.append(f"- FILE: {src} | CONTENT: {content}...")
         doc_list_str = "\n".join(doc_summaries)
         
-        # PASO 3: Re-ranking Semántico (El Filtro)
+        # 3. Re-ranking con Regex Parsing
         relevant_files = []
         try:
-            # Invocamos al LLM para que filtre
-            filter_result = self.filter_chain.invoke({
+            # Obtenemos texto crudo del LLM
+            raw_filter_output = self.filter_chain.invoke({
                 "user_request": user_request,
                 "context_list": doc_list_str
             })
             
-            if isinstance(filter_result, dict):
-                relevant_files = filter_result.get("relevant_sources", [])
-            elif isinstance(filter_result, list): # A veces los LLMs devuelven lista directa
-                relevant_files = filter_result
+            # Limpiamos con Regex
+            parsed_json = self._extract_json_from_text(raw_filter_output)
+            
+            if parsed_json and "relevant_sources" in parsed_json:
+                relevant_files = parsed_json["relevant_sources"]
+            else:
+                # Si falla el regex, fallback silencioso
+                relevant_files = [d.metadata.get('source') for d in raw_docs[:5]]
                 
         except Exception as e:
-            print(f"⚠️ Error en Re-ranking (JSON malformado o fallo LLM): {e}")
-            # Fallback inteligente: Si falla el filtro, usamos los top 5 originales de Chroma
+            print(f"⚠️ Fallback filtro: {e}")
             relevant_files = [d.metadata.get('source') for d in raw_docs[:5]]
 
-        # Asegurar que relevant_files es una lista de strings
-        if not isinstance(relevant_files, list):
-            relevant_files = []
+        # Asegurar tipo lista
+        if not isinstance(relevant_files, list): relevant_files = []
 
-        # PASO 4: Reconstrucción del Contexto
-        # Filtramos los documentos raw dejando solo los aprobados por el LLM
+        # 4. Reconstrucción Contexto
         final_docs = [d for d in raw_docs if d.metadata.get('source') in relevant_files]
-        
-        # SAFETY NET: Si el filtro fue demasiado agresivo y no dejó nada, 
-        # volvemos a los Top 3 de la búsqueda vectorial original para no dar respuesta vacía.
-        if not final_docs:
-            print("⚠️ El filtro descartó todo. Usando Top 3 original como fallback.")
-            final_docs = raw_docs[:3]
-            
-        # Preparamos el contexto final detallado para la generación
-        context_lines = []
-        for d in final_docs:
-            src = d.metadata.get('source', 'unknown')
-            snippet = d.page_content[:300].replace('\n', ' ')
-            context_lines.append(f"- [Fuente: {src}] {snippet}...")
+        if not final_docs: final_docs = raw_docs[:3] # Safety net final
+
+        context_lines = [f"- [Fuente: {d.metadata.get('source')}] {d.page_content[:300]}..." for d in final_docs]
         context_str = "\n".join(context_lines)
 
-        # PASO 5: Generación Final
+        # 5. Generación
         decision_text = self.selection_chain.invoke({
             "user_request": user_request,
             "filtered_context": context_str
         })
 
-        # Retornamos estructura compatible con evaluate_rag.py
-        # Nota: 'unique_retrieved_sources' ahora refleja lo que pasó el filtro (Reranked)
         return {
             "query": user_request,
             "keywords": keywords,
-            "retrieved_sources": [d.metadata.get('source') for d in raw_docs], # Debug: Lo que vio Chroma
-            "unique_retrieved_sources": list(set([d.metadata.get('source') for d in final_docs])), # Lo que usó el LLM
+            "unique_retrieved_sources": list(set([d.metadata.get('source') for d in final_docs])),
             "llm_response": decision_text,
             "execution_time": time.time() - start_time
         }
@@ -172,5 +162,5 @@ if __name__ == "__main__":
         q = input("\nConsulta ('salir'): ")
         if q == 'salir': break
         res = rag.run_pipeline(q)
-        print(f"Fuentes Filtradas: {res['unique_retrieved_sources']}")
-        print(f"Respuesta: {res['llm_response']}")
+        print(f"Filtrados: {res['unique_retrieved_sources']}")
+        print(f"Respuesta:\n{res['llm_response']}")

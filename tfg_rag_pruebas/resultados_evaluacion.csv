@@ -1,8 +1,8 @@
 id;query;expected;retrieved_sources;hit_retrieval;hit_generation;llm_output_snippet
-1;Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#Site **RAZÓN:** La ontología recomendada es `https:/
-2;Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.;bot.ttl;['bot.ttl', 'th_building.owl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología bot.ttl es la más específica y estándar p
-3;Zones may intersect, or be adjacent to other zones.;bot.ttl;['bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#adjacentZone **RAZÓN:** La ontología recomendada es 
-4;There are building elements, which may have sub elements.;bot.ttl;['bot.ttl', 'th_sharedvocalulary.owl', 'building.ttl', 'beo.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntolo
-5;Zones may have elements, either contained, adjacent, or intersecting it.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#intersectsZone  **RAZÓN:** La ontología recomendada 
-6;A adjacent zones and/or elements share some interface.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#adjacentElement **RAZÓN:** La ontología recomendada 
-7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#hasElement  **RAZÓN:** La ontología recomendada es `
+1;Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.;bot.ttl;['bot.ttl', 'th_building.owl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es el archivo ""bot.ttl"" porqu"
+2;Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.;bot.ttl;['bot.ttl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es el archivo ""bot.ttl"" porqu"
+3;Zones may intersect, or be adjacent to other zones.;bot.ttl;['bot.ttl'];1;1;"La instrucción crítica es clara: debemos poner exactamente el nombre del archivo después de ""ONTOLOG"
+4;There are building elements, which may have sub elements.;bot.ttl;['bot.ttl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es el archivo ""bot.ttl"" porqu"
+5;Zones may have elements, either contained, adjacent, or intersecting it.;bot.ttl;['bot.ttl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** Como experto en ontologías, recomiendo el archivo ""bot"
+6;A adjacent zones and/or elements share some interface.;bot.ttl;['bot.ttl'];1;1;La ontología recomendada es:  **ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La razón por la que se r
+7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;['brick.ttl', 'omg.ttl', 'modsci_2022-12-18.n3', 'dstv.ttl', 'th_building.owl'];0;0;"**ONTOLOGÍA RECOMENDADA:** brick.ttl **RAZÓN:** El archivo ""brick.ttl"" es el mejor candidato porque "
