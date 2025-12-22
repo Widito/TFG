@@ -3,28 +3,33 @@ import os
 import pandas as pd
 from rag_basico import OntologyRecommender
 
-# 1. Obtenemos la ruta de la carpeta donde está ESTE archivo (evaluate_rag.py)
+# 1. Obtenemos la ruta de la carpeta donde está ESTE archivo
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
-# 2. Construimos las rutas relativas a este archivo, no a la consola
-# El CSV está una carpeta arriba (..)
+# 2. Construimos las rutas relativas (dataset_bot_test.csv está una carpeta arriba)
 CSV_PATH = os.path.join(current_dir, "..", "dataset_bot_test.csv")
 OUTPUT_CSV = os.path.join(current_dir, "..", "resultados_evaluacion.csv")
 
 def evaluate():
     print("--- INICIANDO EVALUACIÓN AUTOMATIZADA ---")
-    print(f"Leyendo dataset desde: {os.path.abspath(CSV_PATH)}") # Debug para que veas la ruta real
+    print(f"Leyendo dataset desde: {os.path.abspath(CSV_PATH)}")
     
     # 1. Cargar el sistema
-    rag = OntologyRecommender()
+    try:
+        rag = OntologyRecommender()
+    except Exception as e:
+        print(f"Error iniciando RAG: {e}")
+        return
     
     # 2. Leer dataset
+    if not os.path.exists(CSV_PATH):
+        print(f" ERROR: No se encuentra el dataset en: {CSV_PATH}")
+        return
+
     try:
-        # Usamos la ruta absoluta construida
         df = pd.read_csv(CSV_PATH, sep=";")
     except Exception as e:
         print(f"Error leyendo CSV: {e}")
-        print(f"Verifica que el archivo existe en: {CSV_PATH}")
         return
 
     results = []
@@ -37,42 +42,60 @@ def evaluate():
         
         print(f"Prueba {index+1}/{len(df)}: '{query[:40]}...' -> Esperado: {target}")
         
-        # Ejecutar RAG
-        response = rag.run_pipeline(query, top_k=15)
-        
-        # --- CÁLCULO DE MÉTRICAS ---
-        
-        # 1. Retrieval Recall (¿Estaba el archivo en los 15 documentos?)
-        retrieved_list = response['unique_retrieved_sources']
-        hit_retrieval = target in retrieved_list
-        
-        # 2. Generación Accuracy (¿El LLM recomendó el archivo correcto?)
-        # Buscamos el nombre del archivo en la respuesta de texto del LLM
-        llm_text = response['llm_response'].lower()
-        hit_generation = target.lower() in llm_text
-        
-        # Guardar métricas
-        results.append({
-            "id": row['id'],
-            "query": query,
-            "expected": target,
-            "retrieved_sources": retrieved_list,
-            "hit_retrieval": 1 if hit_retrieval else 0,
-            "hit_generation": 1 if hit_generation else 0,
-            "llm_output_snippet": response['llm_response'][:100].replace('\n', ' ')
-        })
+        # --- EJECUCIÓN DEL RAG (CORREGIDO) ---
+        # Usamos initial_k=40 para permitir que el Broad Retrieval capture candidatos
+        # antes de que el Re-ranker los filtre.
+        try:
+            response = rag.run_pipeline(query, initial_k=40)
+            
+            # --- CÁLCULO DE MÉTRICAS ---
+            
+            # 1. Retrieval Recall (¿Sobrevivió el archivo correcto al filtrado?)
+            # 'unique_retrieved_sources' ahora contiene la lista FILTRADA por el LLM
+            retrieved_list = response.get('unique_retrieved_sources', [])
+            hit_retrieval = target in retrieved_list
+            
+            # 2. Generación Accuracy (¿El LLM recomendó el archivo correcto?)
+            llm_text = response.get('llm_response', '').lower()
+            hit_generation = target.lower() in llm_text
+            
+            # Guardar métricas
+            results.append({
+                "id": row['id'],
+                "query": query,
+                "expected": target,
+                "retrieved_sources": retrieved_list,
+                "hit_retrieval": 1 if hit_retrieval else 0,
+                "hit_generation": 1 if hit_generation else 0,
+                "llm_output_snippet": response.get('llm_response', '')[:100].replace('\n', ' ')
+            })
+            
+        except Exception as e:
+            print(f"⚠️ Error en prueba {index+1}: {e}")
+            results.append({
+                "id": row['id'],
+                "query": query,
+                "expected": target,
+                "retrieved_sources": [],
+                "hit_retrieval": 0,
+                "hit_generation": 0,
+                "llm_output_snippet": f"ERROR: {str(e)}"
+            })
 
     # 3. Guardar y Mostrar Resumen
     results_df = pd.DataFrame(results)
     results_df.to_csv(OUTPUT_CSV, index=False, sep=";")
     
     print("\n" + "="*40)
-    print("RESULTADOS FINALES")
+    print("RESULTADOS FINALES (POST RE-RANKING)")
     print("="*40)
-    print(f"Total pruebas: {len(df)}")
-    print(f"Precisión Recuperación (MMR): {results_df['hit_retrieval'].mean()*100:.1f}%")
-    print(f"Precisión Generación (LLM):   {results_df['hit_generation'].mean()*100:.1f}%")
-    print(f"\nDetalle guardado en: {OUTPUT_CSV}")
+    if not results_df.empty:
+        print(f"Total pruebas: {len(df)}")
+        print(f"Precisión Recuperación (Filter Recall): {results_df['hit_retrieval'].mean()*100:.1f}%")
+        print(f"Precisión Generación (Final Choice):    {results_df['hit_generation'].mean()*100:.1f}%")
+        print(f"\nDetalle guardado en: {OUTPUT_CSV}")
+    else:
+        print("No se generaron resultados.")
 
 if __name__ == "__main__":
     evaluate()
