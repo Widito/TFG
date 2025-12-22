@@ -1,7 +1,7 @@
 import os
 import time
 import json
-import re  # IMPORTANTE: Para arreglar el JSON sucio
+import re
 from langchain_chroma import Chroma
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
@@ -15,7 +15,7 @@ LLM_MODEL = "llama3"
 
 class OntologyRecommender:
     def __init__(self):
-        print("Iniciando sistema RAG (Modo: Robust Re-ranking)...")
+        print("Iniciando sistema RAG (Modo: Robust Re-ranking v2 - Extended Context)...")
         self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         
         if not os.path.exists(PERSIST_DIRECTORY):
@@ -58,7 +58,6 @@ class OntologyRecommender:
             "relevant_sources": ["archivo1.ttl", "archivo2.owl"]
         }}
         """
-        # Nota: Quitamos JsonOutputParser y usaremos StrOutputParser + Regex manual
         self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
         # 3. DECISIÓN FINAL (Prohibiendo URIs)
@@ -82,12 +81,11 @@ class OntologyRecommender:
     def _extract_json_from_text(self, text):
         """Función auxiliar para limpiar la basura conversacional del LLM"""
         try:
-            # Intenta encontrar algo que parezca un JSON {...}
             match = re.search(r'\{.*\}', text, re.DOTALL)
             if match:
                 json_str = match.group(0)
                 return json.loads(json_str)
-            return json.loads(text) # Intento directo
+            return json.loads(text)
         except:
             return None
 
@@ -106,40 +104,37 @@ class OntologyRecommender:
         doc_summaries = []
         for d in raw_docs:
             src = d.metadata.get('source', 'unknown')
-            content = d.page_content[:150].replace('\n', ' ')
+            # AUMENTADO A 450 CARACTERES PARA LEER DESCRIPCIONES COMPLETAS
+            content = d.page_content[:450].replace('\n', ' ')
             doc_summaries.append(f"- FILE: {src} | CONTENT: {content}...")
         doc_list_str = "\n".join(doc_summaries)
         
         # 3. Re-ranking con Regex Parsing
         relevant_files = []
         try:
-            # Obtenemos texto crudo del LLM
             raw_filter_output = self.filter_chain.invoke({
                 "user_request": user_request,
                 "context_list": doc_list_str
             })
             
-            # Limpiamos con Regex
             parsed_json = self._extract_json_from_text(raw_filter_output)
             
             if parsed_json and "relevant_sources" in parsed_json:
                 relevant_files = parsed_json["relevant_sources"]
             else:
-                # Si falla el regex, fallback silencioso
                 relevant_files = [d.metadata.get('source') for d in raw_docs[:5]]
                 
         except Exception as e:
             print(f"⚠️ Fallback filtro: {e}")
             relevant_files = [d.metadata.get('source') for d in raw_docs[:5]]
 
-        # Asegurar tipo lista
         if not isinstance(relevant_files, list): relevant_files = []
 
         # 4. Reconstrucción Contexto
         final_docs = [d for d in raw_docs if d.metadata.get('source') in relevant_files]
-        if not final_docs: final_docs = raw_docs[:3] # Safety net final
+        if not final_docs: final_docs = raw_docs[:3]
 
-        context_lines = [f"- [Fuente: {d.metadata.get('source')}] {d.page_content[:300]}..." for d in final_docs]
+        context_lines = [f"- [Fuente: {d.metadata.get('source')}] {d.page_content[:450]}..." for d in final_docs]
         context_str = "\n".join(context_lines)
 
         # 5. Generación
