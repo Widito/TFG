@@ -15,7 +15,7 @@ LLM_MODEL = "llama3"
 
 class OntologyRecommender:
     def __init__(self):
-        print("Iniciando sistema RAG (Modo: Robust Re-ranking v2 - Extended Context)...")
+        print("Iniciando sistema RAG (Modo: Agnóstico y Multilingüe)...")
         self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         
         if not os.path.exists(PERSIST_DIRECTORY):
@@ -31,60 +31,69 @@ class OntologyRecommender:
         print("Sistema RAG listo.")
 
     def _setup_chains(self):
-        # 1. EXTRACCIÓN
+        # 1. EXTRACCIÓN (Flexible y Multilingüe)
         extract_tmpl = """
-        Analiza la petición del usuario. Extrae 3-5 palabras clave técnicas en inglés.
+        Analiza la petición del usuario para buscar ontologías.
         Petición: {user_request}
-        Responde SOLO con las palabras separadas por comas.
+        
+        Tarea: Extrae las palabras clave técnicas o conceptos principales necesarios para realizar la búsqueda.
+        - NO hay límite de palabras: extrae todas las necesarias.
+        - Mantén el idioma original si es relevante, o usa terminología técnica estándar.
+        
+        Responde SOLO con las palabras clave separadas por comas.
         """
         self.extraction_chain = ChatPromptTemplate.from_template(extract_tmpl) | self.llm | StrOutputParser()
 
-        # 2. FILTRADO (Prompt más estricto)
+        # 2. FILTRADO (LÓGICA PURA, SIN SESGOS DE NOMBRES)
         filter_tmpl = """
-        Eres un filtro de metadatos JSON. TU ÚNICA SALIDA DEBE SER UN JSON VÁLIDO.
-        NO escribas introducciones, ni explicaciones, ni "Here is the JSON". SOLO EL JSON.
+        Eres un filtro de relevancia semántica para un motor de búsqueda de ontologías.
+        
+        INPUT:
+        - Query del usuario: "{user_request}"
+        - Lista de fragmentos recuperados (Candidatos).
 
-        Objetivo: Analiza la lista de candidatos y selecciona los archivos que responden a la intención del usuario: "{user_request}".
-        
-        Reglas:
-        - Intención específica (ej. "Buildings") -> Descarta otros dominios (ej. "Agriculture").
-        - Intención genérica -> Sé permisivo.
-        
+        TAREA:
+        Identifica qué archivos son RELEVANTES para responder a la query basándote en su CONTENIDO.
+
+        CRITERIOS DE SELECCIÓN (LÓGICOS):
+        1. **Coincidencia Conceptual:** Si un fragmento define una Clase o Propiedad que se busca (ej. Query: "Sensor", Fragmento: "Class: Sensor"), es relevante.
+        2. **Cobertura Parcial:** Si la query es compleja (ej. "Zonas y Sensores"), mantén cualquier archivo que cubra AL MENOS UNO de los conceptos. NO descartes un archivo porque le falte una parte; otro archivo puede completarla.
+        3. **Dominio:** Descarta archivos cuyo dominio sea claramente incompatible (ej. si buscan "biología", descarta "finanzas"). Si hay duda, MANTÉN el archivo.
+
         Candidatos:
         {context_list}
 
-        Formato de Salida OBLIGATORIO:
+        FORMATO DE RESPUESTA (JSON PURO):
         {{
-            "relevant_sources": ["archivo1.ttl", "archivo2.owl"]
+            "relevant_sources": ["archivo1.ttl", "archivo2.n3"]
         }}
         """
         self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
-        # 3. DECISIÓN FINAL (Prohibiendo URIs)
+        # 3. DECISIÓN FINAL (Neutral)
         selection_tmpl = """
-        Eres un Experto en Ontologías. Recomienda el MEJOR archivo de la lista.
+        Eres un Experto en Web Semántica. Selecciona la ontología más adecuada de la lista proporcionada.
         
         Petición: {user_request}
-        Contexto (Candidatos Filtrados):
+        Candidatos Filtrados:
         {filtered_context}
         
-        INSTRUCCIÓN CRÍTICA:
-        En el campo "ONTOLOGÍA RECOMENDADA", debes poner EXACTAMENTE el nombre del archivo (el texto que aparece después de 'Fuente:').
-        PROHIBIDO poner URIs (http://...) o nombres de clases. SOLO el nombre del archivo (ej. bot.ttl).
+        Instrucciones:
+        1. Analiza qué ontología define mejor los conceptos centrales de la petición.
+        2. Prioriza la especialización: Si una ontología parece diseñada específicamente para el problema del usuario, elígela sobre una genérica.
+        3. Justifica tu decisión basándote ÚNICAMENTE en la evidencia visible en los fragmentos (Clases, Propiedades, Descripciones).
         
-        Respuesta:
-        **ONTOLOGÍA RECOMENDADA:** [NOMBRE_DEL_ARCHIVO]
-        **RAZÓN:** [Justificación breve]
+        Respuesta OBLIGATORIA:
+        **ONTOLOGÍA RECOMENDADA:** [NOMBRE_EXACTO_DEL_ARCHIVO]
+        **RAZÓN:** [Justificación técnica breve]
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
 
     def _extract_json_from_text(self, text):
-        """Función auxiliar para limpiar la basura conversacional del LLM"""
         try:
             match = re.search(r'\{.*\}', text, re.DOTALL)
             if match:
-                json_str = match.group(0)
-                return json.loads(json_str)
+                return json.loads(match.group(0))
             return json.loads(text)
         except:
             return None
@@ -93,44 +102,41 @@ class OntologyRecommender:
         start_time = time.time()
         
         # 1. Extracción
-        try:
-            keywords = self.extraction_chain.invoke({"user_request": user_request})
+        try: keywords = self.extraction_chain.invoke({"user_request": user_request})
         except: keywords = user_request
 
         # 2. Broad Retrieval
         raw_docs = self.vectorstore.max_marginal_relevance_search(keywords, k=initial_k, fetch_k=100)
         
-        # Preparar contexto para filtro
+        # Preparar contexto (Mantenemos 450 chars para ver descripciones completas)
         doc_summaries = []
         for d in raw_docs:
             src = d.metadata.get('source', 'unknown')
-            # AUMENTADO A 450 CARACTERES PARA LEER DESCRIPCIONES COMPLETAS
             content = d.page_content[:450].replace('\n', ' ')
             doc_summaries.append(f"- FILE: {src} | CONTENT: {content}...")
         doc_list_str = "\n".join(doc_summaries)
         
-        # 3. Re-ranking con Regex Parsing
+        # 3. Re-ranking Semántico
         relevant_files = []
         try:
             raw_filter_output = self.filter_chain.invoke({
                 "user_request": user_request,
                 "context_list": doc_list_str
             })
-            
             parsed_json = self._extract_json_from_text(raw_filter_output)
             
             if parsed_json and "relevant_sources" in parsed_json:
                 relevant_files = parsed_json["relevant_sources"]
             else:
+                # Fallback neutro: Top 5 de Chroma
                 relevant_files = [d.metadata.get('source') for d in raw_docs[:5]]
-                
         except Exception as e:
             print(f"⚠️ Fallback filtro: {e}")
             relevant_files = [d.metadata.get('source') for d in raw_docs[:5]]
 
         if not isinstance(relevant_files, list): relevant_files = []
 
-        # 4. Reconstrucción Contexto
+        # 4. Contexto Final
         final_docs = [d for d in raw_docs if d.metadata.get('source') in relevant_files]
         if not final_docs: final_docs = raw_docs[:3]
 
