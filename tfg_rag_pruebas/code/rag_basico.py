@@ -15,7 +15,7 @@ LLM_MODEL = "llama3"
 
 class OntologyRecommender:
     def __init__(self):
-        print("Iniciando sistema RAG (Modo: Agnóstico y Multilingüe)...")
+        print("Iniciando sistema RAG (Modo: Neutral Logic + Strict Formatting)...")
         self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         
         if not os.path.exists(PERSIST_DIRECTORY):
@@ -31,61 +31,69 @@ class OntologyRecommender:
         print("Sistema RAG listo.")
 
     def _setup_chains(self):
-        # 1. EXTRACCIÓN (Flexible y Multilingüe)
+        # 1. EXTRACCIÓN (Multilingüe y Flexible)
         extract_tmpl = """
-        Analiza la petición del usuario para buscar ontologías.
+        Analiza la petición del usuario.
         Petición: {user_request}
         
-        Tarea: Extrae las palabras clave técnicas o conceptos principales necesarios para realizar la búsqueda.
-        - NO hay límite de palabras: extrae todas las necesarias.
-        - Mantén el idioma original si es relevante, o usa terminología técnica estándar.
+        Tarea: Genera una lista de palabras clave técnicas y conceptos principales para buscar en una base de datos vectorial.
+        - Usa terminología técnica (preferiblemente en inglés, ya que es el estándar en ontologías).
+        - No limites la cantidad de palabras.
         
-        Responde SOLO con las palabras clave separadas por comas.
+        Respuesta: Solo las palabras clave separadas por comas.
         """
         self.extraction_chain = ChatPromptTemplate.from_template(extract_tmpl) | self.llm | StrOutputParser()
 
-        # 2. FILTRADO (LÓGICA PURA, SIN SESGOS DE NOMBRES)
+        # 2. FILTRADO (Lógica Inclusiva)
+        # CORRECCIÓN: Quitamos el sesgo de "especialización" para evitar borrar ontologías base como BOT.
         filter_tmpl = """
-        Eres un filtro de relevancia semántica para un motor de búsqueda de ontologías.
+        Eres un filtro de relevancia para un motor de búsqueda de ontologías.
         
         INPUT:
-        - Query del usuario: "{user_request}"
-        - Lista de fragmentos recuperados (Candidatos).
+        - Query: "{user_request}"
+        - Candidatos: Lista de fragmentos de texto.
 
         TAREA:
-        Identifica qué archivos son RELEVANTES para responder a la query basándote en su CONTENIDO.
+        Selecciona TODOS los archivos que contengan definiciones relevantes para la query.
 
-        CRITERIOS DE SELECCIÓN (LÓGICOS):
-        1. **Coincidencia Conceptual:** Si un fragmento define una Clase o Propiedad que se busca (ej. Query: "Sensor", Fragmento: "Class: Sensor"), es relevante.
-        2. **Cobertura Parcial:** Si la query es compleja (ej. "Zonas y Sensores"), mantén cualquier archivo que cubra AL MENOS UNO de los conceptos. NO descartes un archivo porque le falte una parte; otro archivo puede completarla.
-        3. **Dominio:** Descarta archivos cuyo dominio sea claramente incompatible (ej. si buscan "biología", descarta "finanzas"). Si hay duda, MANTÉN el archivo.
+        CRITERIOS (STRICT):
+        1. **Relevancia Temática:** Si el archivo habla del tema de la query (ej. Construcción, Sensores), MANTENLO.
+        2. **Cobertura Parcial:** Si el archivo define SOLO UNA PARTE de lo que pide el usuario (ej. define "Zona" pero no "Sensor"), MANTENLO. No busques la perfección, busca utilidad.
+        3. **No seas Excluyente:** No descartes una ontología general (Core) solo porque haya una más específica. A menudo se necesitan ambas. Solo descarta lo que sea RUIDO evidente (temas totalmente distintos).
 
         Candidatos:
         {context_list}
 
-        FORMATO DE RESPUESTA (JSON PURO):
+        SALIDA (JSON VÁLIDO):
         {{
             "relevant_sources": ["archivo1.ttl", "archivo2.n3"]
         }}
         """
         self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
-        # 3. DECISIÓN FINAL (Neutral)
+        # 3. DECISIÓN FINAL (Formato Estricto)
+        # CORRECCIÓN: Reintroducimos la prohibición de URIs y conocimiento externo.
         selection_tmpl = """
-        Eres un Experto en Web Semántica. Selecciona la ontología más adecuada de la lista proporcionada.
+        Eres un Sistema Recomendador de Ontologías.
+        Tu misión es elegir la MEJOR ontología de la lista de candidatos proporcionada.
         
-        Petición: {user_request}
-        Candidatos Filtrados:
+        Petición del Usuario: {user_request}
+        
+        Contexto (Candidatos Filtrados):
         {filtered_context}
         
-        Instrucciones:
-        1. Analiza qué ontología define mejor los conceptos centrales de la petición.
-        2. Prioriza la especialización: Si una ontología parece diseñada específicamente para el problema del usuario, elígela sobre una genérica.
-        3. Justifica tu decisión basándote ÚNICAMENTE en la evidencia visible en los fragmentos (Clases, Propiedades, Descripciones).
+        REGLAS DE ORO (A CUMPLIR BAJO PENA DE ERROR):
+        1. **GROUNDING TOTAL:** Solo puedes recomendar un archivo que esté en la lista de "Candidatos Filtrados". NO inventes ontologías externas (como CIDOC CRM o Schema.org) si no están en la lista.
+        2. **FORMATO DE NOMBRE:** En el campo "ONTOLOGÍA RECOMENDADA", debes escribir EXACTAMENTE el nombre del archivo fuente (ej: 'bot.ttl', 'saref.ttl').
+        3. **PROHIBIDO URIs:** NUNCA respondas con una URL o URI (ej: http://w3id.org/bot#...). El usuario necesita el nombre del archivo.
         
-        Respuesta OBLIGATORIA:
-        **ONTOLOGÍA RECOMENDADA:** [NOMBRE_EXACTO_DEL_ARCHIVO]
-        **RAZÓN:** [Justificación técnica breve]
+        Instrucciones de Decisión:
+        - Si la query es sobre topología de edificios (zonas, espacios, plantas), busca ontologías que definan 'Zone', 'Space', 'Storey'.
+        - Si hay varias opciones, elige la que tenga definiciones más directas de los términos buscados.
+        
+        Respuesta:
+        **ONTOLOGÍA RECOMENDADA:** [NOMBRE_DEL_ARCHIVO]
+        **RAZÓN:** [Justificación breve basada en el contenido del archivo]
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
 
@@ -105,10 +113,10 @@ class OntologyRecommender:
         try: keywords = self.extraction_chain.invoke({"user_request": user_request})
         except: keywords = user_request
 
-        # 2. Broad Retrieval
+        # 2. Retrieval Amplio
         raw_docs = self.vectorstore.max_marginal_relevance_search(keywords, k=initial_k, fetch_k=100)
         
-        # Preparar contexto (Mantenemos 450 chars para ver descripciones completas)
+        # Preparar contexto (450 caracteres para ver descripciones)
         doc_summaries = []
         for d in raw_docs:
             src = d.metadata.get('source', 'unknown')
@@ -116,7 +124,7 @@ class OntologyRecommender:
             doc_summaries.append(f"- FILE: {src} | CONTENT: {content}...")
         doc_list_str = "\n".join(doc_summaries)
         
-        # 3. Re-ranking Semántico
+        # 3. Re-ranking (Filtrado)
         relevant_files = []
         try:
             raw_filter_output = self.filter_chain.invoke({
@@ -128,17 +136,17 @@ class OntologyRecommender:
             if parsed_json and "relevant_sources" in parsed_json:
                 relevant_files = parsed_json["relevant_sources"]
             else:
-                # Fallback neutro: Top 5 de Chroma
-                relevant_files = [d.metadata.get('source') for d in raw_docs[:5]]
+                # Fallback: Top 10 para asegurar variedad si falla el JSON
+                relevant_files = [d.metadata.get('source') for d in raw_docs[:10]]
         except Exception as e:
             print(f"⚠️ Fallback filtro: {e}")
-            relevant_files = [d.metadata.get('source') for d in raw_docs[:5]]
+            relevant_files = [d.metadata.get('source') for d in raw_docs[:10]]
 
         if not isinstance(relevant_files, list): relevant_files = []
 
-        # 4. Contexto Final
+        # 4. Reconstrucción Contexto
         final_docs = [d for d in raw_docs if d.metadata.get('source') in relevant_files]
-        if not final_docs: final_docs = raw_docs[:3]
+        if not final_docs: final_docs = raw_docs[:5] # Safety net
 
         context_lines = [f"- [Fuente: {d.metadata.get('source')}] {d.page_content[:450]}..." for d in final_docs]
         context_str = "\n".join(context_lines)

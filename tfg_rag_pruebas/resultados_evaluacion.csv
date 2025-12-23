@@ -1,8 +1,8 @@
 id;query;expected;retrieved_sources;hit_retrieval;hit_generation;llm_output_snippet
-1;Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.;bot.ttl;['dbo.rdf', 'bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#Space (o más específicamente, la versión con la etiq
-2;Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.;bot.ttl;['building.ttl', 'bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** CIDOC CRM (Conceptual Reference Model)  **RAZÓN:** La ontología CIDOC CRM
-3;Zones may intersect, or be adjacent to other zones.;bot.ttl;['bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#Zone  **RAZÓN:** La ontología recomendada es la mism
-4;There are building elements, which may have sub elements.;bot.ttl;['th_building.owl'];0;0;**ONTOLOGÍA RECOMENDADA:** BuildingOntology.owl **RAZÓN:** La ontología BuildingOntology.owl parece 
-5;Zones may have elements, either contained, adjacent, or intersecting it.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#  **RAZÓN:** La ontología bot# define mejor los conc
-6;A adjacent zones and/or elements share some interface.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#adjacentElement  **RAZÓN:** La ontología recomendada
-7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;['building.ttl', 'bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#  **RAZÓN:** La ontología recomendada es la que defi
+1;Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.;bot.ttl;['bot.ttl', 'brick.ttl', 'th_building.owl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología bot.ttl es la más adecuada para esta quer
+2;Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.;bot.ttl;['bot.ttl', 'building.ttl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología ""bot.ttl"" define conceptos relevantes par"
+3;Zones may intersect, or be adjacent to other zones.;bot.ttl;['bot.ttl'];1;1;"**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología ""bot.ttl"" define conceptos como 'Zone', '"
+4;There are building elements, which may have sub elements.;bot.ttl;['bot.ttl', 'beo.ttl', 'building.ttl', 'dogont_2015-01-11.n3'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología bot.ttl es la más adecuada para esta peti
+5;Zones may have elements, either contained, adjacent, or intersecting it.;bot.ttl;['bot.ttl'];1;1;**ONTOLOGÍA RECOMENDADA:** bot.ttl **RAZÓN:** La ontología recomendada es la que define la propiedad
+6;A adjacent zones and/or elements share some interface.;bot.ttl;['bot.ttl'];1;0;**ONTOLOGÍA RECOMENDADA:** https://w3id.org/bot#adjacentZone **RAZÓN:** La ontología recomendada es 
+7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;['omg.ttl', 'th_sharedvocalulary.owl', 'th_building.owl', 'brick.ttl'];0;0;**ONTOLOGÍA RECOMENDADA:** th_building.owl  **RAZÓN:** La ontología th_building.owl es la más releva
