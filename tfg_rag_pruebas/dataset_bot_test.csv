@@ -6,3 +6,10 @@ id;query_natural;expected_ontology;difficulty
 5;Zones may have elements, either contained, adjacent, or intersecting it.;bot.ttl;hard
 6;A adjacent zones and/or elements share some interface.;bot.ttl;hard
 7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;easy
+8;A device performs one or more functions;saref_2020-05-29.n3;easy
+9;A building space is a geographical point characterized by acertain altitude, latitude and longitude;saref_2020-05-29.n3;hard
+10;A device shall have a model property;saref_2020-05-29.n3;easy
+11;A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room;saref_2020-05-29.n3;hard
+12;The devices can belong to several categories;saref_2020-05-29.n3;medium
+13;A switch is a device that has category Actuator;saref_2020-05-29.n3;easy
+14;A function represents the functionality necessary toaccomplish the task for which a device is designed;saref_2020-05-29.n3;easy
