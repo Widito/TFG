@@ -7,10 +7,10 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
-# NUEVOS IMPORTS PARA BÚSQUEDA HÍBRIDA
 from langchain_community.retrievers import BM25Retriever
-from langchain.retrievers import EnsembleRetriever
 from langchain_core.documents import Document
+
+
 
 # CONFIGURACIÓN
 PERSIST_DIRECTORY = "tfg_rag_pruebas/chroma_db"
@@ -73,13 +73,33 @@ class OntologyRecommender:
             search_kwargs={"k": 40}
         )
 
-        # D. Ensemble (Híbrido)
-        # weights=[0.7, 0.3] -> 70% peso al vector (significado), 30% a la palabra exacta.
-        # Esto ayuda a que si "Switch" aparece exacto en SAREF, suba en el ranking.
-        self.ensemble_retriever = EnsembleRetriever(
-            retrievers=[self.chroma_retriever, self.bm25_retriever],
-            weights=[0.7, 0.3]
-        )
+
+    def _hybrid_retrieve(self, query, k=40):
+        """
+        Recuperación híbrida: Dense (Chroma) + Sparse (BM25)
+        Combina resultados priorizando semántica pero manteniendo keywords exactas.
+        """
+        # Recuperación
+        dense_docs = self.chroma_retriever.invoke(query)
+        sparse_docs = self.bm25_retriever.invoke(query)
+
+        # Limitar a k resultados
+        dense_docs = dense_docs[:k]
+        sparse_docs = sparse_docs[:k]
+
+        seen = set()
+        combined = []
+
+        for d in dense_docs + sparse_docs:
+            uid = (d.page_content, str(d.metadata))
+            if uid not in seen:
+                seen.add(uid)
+                combined.append(d)
+            if len(combined) >= k:
+                break
+
+        return combined
+
 
     def _setup_chains(self):
         # 1. EXTRACCIÓN 
@@ -163,9 +183,9 @@ class OntologyRecommender:
         except: keywords = user_request
 
         # 2. Retrieval HÍBRIDO (Ensemble)
-        # Nota: EnsembleRetriever no acepta 'k' dinámico fácilmente en invoke, 
+        # Recuperación híbrida manual (Dense + Sparse)
         # usa el configurado en __init__ (que pusimos a 40).
-        raw_docs = self.ensemble_retriever.invoke(keywords)
+        raw_docs = self._hybrid_retrieve(keywords, k=40)
         
         # Preparar contexto
         doc_summaries = []
