@@ -105,7 +105,7 @@ class OntologyRecommender:
 
 
     def _setup_chains(self):
-        # 1. EXTRACCIÓN 
+        # 1. EXTRACCIÓN (Sin cambios, ya era genérica)
         extract_tmpl = """
         Analiza la petición del usuario.
         Petición: {user_request}
@@ -118,54 +118,59 @@ class OntologyRecommender:
         """
         self.extraction_chain = ChatPromptTemplate.from_template(extract_tmpl) | self.llm | StrOutputParser()
 
-        # 2. FILTRADO (Sin cambios mayores, solo robustez)
+        # 2. FILTRADO (Hacemos el filtro agnóstico también)
         filter_tmpl = """
-        Eres un filtro de relevancia experto.
+        Eres un filtro de relevancia semántica para ontologías.
         
         INPUT:
         - Query: "{user_request}"
-        - Candidatos: Lista de fragmentos de texto.
+        - Candidatos: Lista de fragmentos de texto (RDF/OWL).
 
         TAREA:
-        Selecciona TODOS los archivos que contengan definiciones útiles para la query.
+        Identifica qué archivos contienen definiciones ontológicas (Clases, Propiedades) relacionadas con los conceptos de la query.
         
-        CRITERIOS CRÍTICOS:
-        1. **Mención Explícita:** Si un archivo contiene la PALABRA EXACTA buscada (ej: "Switch", "Device"), DEBE ser seleccionado, incluso si parece de otro dominio.
-        2. **Coherencia de Dominio:** - Si la query es de Construcción -> Busca 'Building', 'Zone', 'Space'.
-           - Si la query es de IoT/Dispositivos -> Busca 'Device', 'Sensor', 'Function', 'Command'.
-           - SAREF es clave para IoT. BOT es clave para Construcción.
+        CRITERIOS DE SELECCIÓN (AGNÓSTICOS):
+        1. **Presencia de Definiciones:** Busca si el término aparece como sujeto de definición (ej: "X a owl:Class", "X a rdf:Property") y no solo como comentario.
+        2. **Coincidencia Semántica:** Si la query pide "X" y el archivo define "X" o un sinónimo técnico directo, selecciónalo.
+        3. **Ignora el dominio:** No importa si es medicina, construcción o leyes. Si define el término, es relevante.
 
         SALIDA (JSON VÁLIDO):
         {{
-            "relevant_sources": ["archivo1.ttl", "archivo2.n3"]
+            "relevant_sources": ["archivo1.ext", "archivo2.ext"]
         }}
         """
         self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
-        # 3. DECISIÓN FINAL 
+        # 3. DECISIÓN FINAL (TOTALMENTE GENERAL / SIN EJEMPLOS DE DOMINIO)
         selection_tmpl = """
-        Eres un Sistema Recomendador de Ontologías Experto en IoT y Construcción.
-        
-        Petición del Usuario: {user_request}
-        
-        Contexto (Candidatos Filtrados):
+        Actúa como un Arquitecto de Conocimiento experto en Linked Open Data.
+        Tu objetivo es seleccionar la MEJOR ontología (archivo fuente) para cubrir las necesidades de modelado del usuario, sea cual sea el dominio.
+
+        PETICIÓN DEL USUARIO: "{user_request}"
+
+        CANDIDATOS RECUPERADOS (Fragmentos de código RDF/OWL):
         {filtered_context}
-        
-        INSTRUCCIONES DE SELECCIÓN:
-        1. **IoT vs Construcción:**
-           - Si el usuario define "Device", "Sensor", "Actuator", "Command", "Function" -> RECOMIENDA ontologías IoT (prioridad: saref, sosa, ssn).
-           - Si el usuario define "Zone", "Building", "Storey", "Space" (topología) -> RECOMIENDA ontologías de Construcción (prioridad: bot).
-        
-        2. **Jerarquía SAREF:**
-           - Si la definición parece genérica de un dispositivo (ej: "perform a function"), prefiere el NÚCLEO (saref_xxx.n3) antes que extensiones específicas (s4agri, s4city), a menos que el contexto sea explícitamente agrícola o urbano.
 
-        3. **Formato:**
-           - Responde SOLO con el nombre del archivo y la razón.
-           - PROHIBIDO URIs.
+        ALGORITMO DE RAZONAMIENTO (Ejecuta estos pasos mentalmente):
 
-        Respuesta:
-        **ONTOLOGÍA RECOMENDADA:** [NOMBRE_DEL_ARCHIVO]
-        **RAZÓN:** [Justificación técnica]
+        1. **Análisis de Densidad de Definición:**
+           - Revisa cada candidato. ¿El archivo *define* los conceptos clave de la query (usando `owl:Class`, `rdf:Property`) o solo los *menciona* (en comentarios o rangos)?
+           - Prioriza siempre el archivo que contiene la definición formal (el "Dueño" del concepto).
+
+        2. **Evaluación de Especificidad (Principio de Parsimonia):**
+           - Compara los candidatos que pasaron el paso 1.
+           - Si un candidato parece ser una **Ontología Núcleo/Core** (definiciones generales, fundamentales) y otro es una **Extensión/Vertical** (importa otras, nombres muy largos o específicos de un nicho):
+             -> **REGLA:** Elige la Ontología Núcleo SI la petición del usuario es general.
+             -> **REGLA:** Elige la Extensión SOLO SI la petición del usuario incluye detalles específicos de ese nicho (ej: métricas específicas, restricciones de dominio).
+
+        3. **Desambiguación por Contexto:**
+           - Si dos ontologías definen el mismo término (homónimos), lee las propiedades (`rdfs:comment`, `rdfs:label`) en los fragmentos. Elige la que semánticamente se alinee mejor con la intención de la query.
+
+        SALIDA REQUERIDA (JSON):
+        {{
+            "ONTOLOGÍA_RECOMENDADA": "nombre_exacto_del_archivo",
+            "RAZÓN": "Justificación técnica basada en la densidad de definición y nivel de abstracción (Core vs Extensión)."
+        }}
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
 
