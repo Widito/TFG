@@ -11,7 +11,7 @@ CSV_PATH = os.path.join(current_dir, "..", "dataset_bot_test.csv")
 OUTPUT_CSV = os.path.join(current_dir, "..", "resultados_evaluacion.csv")
 
 def evaluate():
-    print("--- INICIANDO EVALUACIÓN AUTOMATIZADA ---")
+    print("INICIANDO EVALUACIÓN AUTOMATIZADA ")
     print(f"Leyendo dataset desde: {os.path.abspath(CSV_PATH)}")
     
     # 1. Cargar el sistema
@@ -42,15 +42,14 @@ def evaluate():
         
         print(f"Prueba {index+1}/{len(df)}: '{query[:40]}...' -> Esperado: {target}")
         
-        # --- EJECUCIÓN DEL RAG (CORREGIDO) ---
-        # Usamos initial_k=40 para permitir que el Broad Retrieval capture candidatos
-        # antes de que el Re-ranker los filtre.
+        # EJECUCIÓN DEL RAG
+        # Usamos initial_k=40 para permitir que el Broad Retrieval capture candidatos antes de que el Re-ranker los filtre.
         try:
             response = rag.run_pipeline(query, initial_k=40)
             
-            # --- CÁLCULO DE MÉTRICAS ---
+            # CÁLCULO DE MÉTRICAS 
             
-            # 1. Retrieval Recall (¿Sobrevivió el archivo correcto al filtrado?)
+            # 1. Retrieval Recall (¿Sobrevivió el archivo correcto al re-rankeo?)
             # 'unique_retrieved_sources' ahora contiene la lista FILTRADA por el LLM
             retrieved_list = response.get('unique_retrieved_sources', [])
             hit_retrieval = target in retrieved_list
@@ -71,7 +70,7 @@ def evaluate():
             })
             
         except Exception as e:
-            print(f"⚠️ Error en prueba {index+1}: {e}")
+            print(f"Error en prueba {index+1}: {e}")
             results.append({
                 "id": row['id'],
                 "query": query,

@@ -8,14 +8,14 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
 
-# Configuración global
+# CONFIGURACIÓN
 PERSIST_DIRECTORY = "tfg_rag_pruebas/chroma_db"
 EMBEDDING_MODEL = "BAAI/bge-m3"
 LLM_MODEL = "llama3"
 
 class OntologyRecommender:
     def __init__(self):
-        print("Iniciando sistema RAG (Modo: Neutral Logic + Strict Formatting)...")
+        print("Iniciando sistema RAG")
         self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         
         if not os.path.exists(PERSIST_DIRECTORY):
@@ -31,7 +31,7 @@ class OntologyRecommender:
         print("Sistema RAG listo.")
 
     def _setup_chains(self):
-        # 1. EXTRACCIÓN (Multilingüe y Flexible)
+        # 1. EXTRACCIÓN 
         extract_tmpl = """
         Analiza la petición del usuario.
         Petición: {user_request}
@@ -44,7 +44,7 @@ class OntologyRecommender:
         """
         self.extraction_chain = ChatPromptTemplate.from_template(extract_tmpl) | self.llm | StrOutputParser()
 
-        # 2. FILTRADO (Lógica Inclusiva)
+        # 2. FILTRADO 
         # CORRECCIÓN: Quitamos el sesgo de "especialización" para evitar borrar ontologías base como BOT.
         filter_tmpl = """
         Eres un filtro de relevancia para un motor de búsqueda de ontologías.
@@ -71,7 +71,7 @@ class OntologyRecommender:
         """
         self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
-        # 3. DECISIÓN FINAL (Formato Estricto)
+        # 3. DECISIÓN FINAL 
         # CORRECCIÓN: Reintroducimos la prohibición de URIs y conocimiento externo.
         selection_tmpl = """
         Eres un Sistema Recomendador de Ontologías.
@@ -139,14 +139,14 @@ class OntologyRecommender:
                 # Fallback: Top 10 para asegurar variedad si falla el JSON
                 relevant_files = [d.metadata.get('source') for d in raw_docs[:10]]
         except Exception as e:
-            print(f"⚠️ Fallback filtro: {e}")
+            print(f"Fallback filtro: {e}")
             relevant_files = [d.metadata.get('source') for d in raw_docs[:10]]
 
         if not isinstance(relevant_files, list): relevant_files = []
 
         # 4. Reconstrucción Contexto
         final_docs = [d for d in raw_docs if d.metadata.get('source') in relevant_files]
-        if not final_docs: final_docs = raw_docs[:5] # Safety net
+        if not final_docs: final_docs = raw_docs[:5] 
 
         context_lines = [f"- [Fuente: {d.metadata.get('source')}] {d.page_content[:450]}..." for d in final_docs]
         context_str = "\n".join(context_lines)

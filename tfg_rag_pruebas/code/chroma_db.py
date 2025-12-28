@@ -7,13 +7,10 @@ import traceback
 
 print("Iniciando el proceso de indexación (Multi-Folder)")
 
-# --- CONFIGURACIÓN ---
+# CONFIGURACIÓN 
 persist_directory = "tfg_rag_pruebas/chroma_db"
 
 # LISTA DE CARPETAS A PROCESAR
-# 1. Dataset Objetivo (Tus ontologías buenas)
-# 2. Ruido 1 (Gobierno/Academia)
-# 3. Ruido 2 (Industria - Hard Negatives)
 folders_to_process = [
     "tfg_rag_pruebas/dataset",
     "tfg_rag_pruebas/gov_acad_dataset",
@@ -42,7 +39,7 @@ try:
     all_documents = []
     all_metadatas = []
     
-    # Consultas SPARQL (INTACTAS)
+    # Consultas SPARQL
     query_classes = """
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -84,7 +81,7 @@ try:
         }
     """
     
-    # --- BUCLE PRINCIPAL (ITERANDO POR CARPETAS) ---
+    # BUCLE PRINCIPAL 
     for ontologies_dir in folders_to_process:
         if not os.path.exists(ontologies_dir):
             print(f" ADVERTENCIA: La carpeta '{ontologies_dir}' no existe. Saltando...")
@@ -105,13 +102,13 @@ try:
             g = rdflib.Graph()
             loaded = False
             
-            # INTENTO 1: Formato por extensión (Lógica original)
+            # INTENTO 1: Formato por extensión 
             try:
                 file_format = FORMAT_MAP[file_ext]
                 g.parse(filepath, format=file_format)
                 loaded = True
             except Exception as e:
-                # INTENTO 2: Fallback a Turtle (Lógica original)
+                # INTENTO 2: Fallback a Turtle
                 if file_format == 'xml':
                     try:
                         g.parse(filepath, format='turtle')
@@ -123,7 +120,7 @@ try:
                     print(f"   ERROR parseando {filename}: {e}")
                     continue
 
-            # Procesamiento (Lógica original)
+            # PROCESAMIENTO DEL GRAFO
             file_documents = []
             
             # CLASES
@@ -152,7 +149,7 @@ try:
                     file_documents.append(doc_text)
             except Exception: pass
 
-            # Guardar en acumulador global
+            # GUARDADO EN LISTAS GLOBALES
             if file_documents:
                 # AÑADIDO: 'origin_folder' en metadatos para trazabilidad
                 file_metadatas = [{"source": filename, "origin_folder": ontologies_dir} for _ in file_documents]
@@ -169,19 +166,19 @@ try:
         print("Error: No se extrajeron documentos.")
         exit()
 
-    # PASO 3: DB (Solo una vez al final)
+    # DB 
     print("\nPaso 3: Regenerando DB Vectorial Completa...")
     model_name = "BAAI/bge-m3"
     embeddings = HuggingFaceEmbeddings(model_name=model_name)
     
-    # Limpieza recomendada para Stress Test (evitar duplicados de pruebas anteriores)
+    # LIMPIEZA OPCIONAL DE DB ANTERIOR
     if os.path.exists(persist_directory):
         try:
             shutil.rmtree(persist_directory)
             print("   Base de datos anterior eliminada para inyección limpia.")
         except: pass
     
-    # Creación en batch para evitar Memory Errors con tantas ontologías
+    # INSERCIÓN EN BATCHES
     batch_size = 5000
     for i in range(0, len(all_documents), batch_size):
         print(f"   Insertando lote {i} a {i+batch_size}...")
