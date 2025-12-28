@@ -13,7 +13,10 @@ from langchain_core.documents import Document
 
 
 # CONFIGURACIÓN
-PERSIST_DIRECTORY = "tfg_rag_pruebas/chroma_db"
+# Construir ruta absoluta dinámica: carpeta 'chroma_db' hermana de la carpeta 'code'
+current_dir = os.path.dirname(os.path.abspath(__file__)) # .../tfg_rag_pruebas/code
+project_root = os.path.dirname(current_dir)              # .../tfg_rag_pruebas
+PERSIST_DIRECTORY = os.path.join(project_root, "chroma_db")
 EMBEDDING_MODEL = "BAAI/bge-m3"
 LLM_MODEL = "llama3"
 
