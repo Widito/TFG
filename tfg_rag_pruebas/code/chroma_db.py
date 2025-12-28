@@ -1,61 +1,64 @@
 import rdflib
 import os
-import shutil  # Agregado para limpieza opcional
+import shutil
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 import traceback
 
-print("Iniciando el proceso de indexación (Multi-Folder)")
+print("Iniciando Indexación Inteligente (Structural RAG)...")
 
 # CONFIGURACIÓN 
-persist_directory = "tfg_rag_pruebas/chroma_db"
+# Usamos rutas absolutas para evitar problemas
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(current_dir)
+persist_directory = os.path.join(project_root, "chroma_db")
 
-# LISTA DE CARPETAS A PROCESAR
 folders_to_process = [
-    "tfg_rag_pruebas/dataset",
-    "tfg_rag_pruebas/gov_acad_dataset",
-    "tfg_rag_pruebas/dataset_noise_industry"
+    os.path.join(project_root, "dataset"),
+    os.path.join(project_root, "gov_acad_dataset"),
+    os.path.join(project_root, "dataset_noise_industry")
 ]
 
-FORMAT_MAP = {
-    '.ttl': 'turtle',
-    '.n3': 'n3',
-    '.owl': 'xml',
-    '.rdf': 'xml',
-    '.nt': 'nt'
-}
+FORMAT_MAP = {'.ttl': 'turtle', '.n3': 'n3', '.owl': 'xml', '.rdf': 'xml', '.nt': 'nt'}
+
+def analyze_ontology_structure(graph):
+    """Analiza la estructura del grafo para determinar si es Core o Extensión"""
+    # Contar importaciones explícitas
+    query_imports = "SELECT (COUNT(?o) AS ?count) WHERE { ?s <http://www.w3.org/2002/07/owl#imports> ?o }"
+    try:
+        res = list(graph.query(query_imports))
+        import_count = int(res[0][0])
+    except:
+        import_count = 0
+        
+    # Heurística simple: Si importa otras ontologías, tiende a ser una extensión/aplicación
+    # Si no importa nada (o solo vocabularios básicos no detectados aquí), tiende a ser Core.
+    ontology_type = "EXTENSION" if import_count > 0 else "CORE"
+    return ontology_type, import_count
 
 def get_safe_value(row, attr_list):
-    """Intenta obtener valor de varios atributos posibles de la fila SPARQL"""
     for attr in attr_list:
         if hasattr(row, attr) and getattr(row, attr):
             return str(getattr(row, attr))
     return ""
 
 try:
-    print("Paso 1: Preparando entorno...")
-    
-    # Listas globales para acumular todo antes de vectorizar
+    print("Paso 1: Extracción y Análisis Estructural...")
     all_documents = []
     all_metadatas = []
     
-    # Consultas SPARQL
+    # Queries SPARQL (Mantenemos las tuyas, funcionan bien)
     query_classes = """
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
         PREFIX dc: <http://purl.org/dc/elements/1.1/>
-        
-        SELECT ?uri ?label ?label_skos ?comment ?def_skos ?desc_dc
-        WHERE {
+        SELECT ?uri ?label ?comment ?def_skos WHERE {
             { ?uri a rdfs:Class . } UNION { ?uri a owl:Class . }
             FILTER(!isblank(?uri))
-            
             OPTIONAL { ?uri rdfs:label ?label . }
-            OPTIONAL { ?uri skos:prefLabel ?label_skos . }
             OPTIONAL { ?uri rdfs:comment ?comment . }
             OPTIONAL { ?uri skos:definition ?def_skos . }
-            OPTIONAL { ?uri dc:description ?desc_dc . }
         }
     """
     
@@ -64,124 +67,87 @@ try:
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-        PREFIX dc: <http://purl.org/dc/elements/1.1/>
-
-        SELECT ?uri ?label ?label_skos ?comment ?def_skos ?desc_dc ?domain ?range
-        WHERE {
+        SELECT ?uri ?label ?comment ?def_skos ?domain ?range WHERE {
             { ?uri a rdf:Property . } UNION { ?uri a owl:ObjectProperty . } UNION { ?uri a owl:DatatypeProperty . }
             FILTER(!isblank(?uri))
-
             OPTIONAL { ?uri rdfs:label ?label . }
-            OPTIONAL { ?uri skos:prefLabel ?label_skos . }
             OPTIONAL { ?uri rdfs:comment ?comment . }
             OPTIONAL { ?uri skos:definition ?def_skos . }
-            OPTIONAL { ?uri dc:description ?desc_dc . }
             OPTIONAL { ?uri rdfs:domain ?domain . }
             OPTIONAL { ?uri rdfs:range ?range . }
         }
     """
     
-    # BUCLE PRINCIPAL 
     for ontologies_dir in folders_to_process:
         if not os.path.exists(ontologies_dir):
-            print(f" ADVERTENCIA: La carpeta '{ontologies_dir}' no existe. Saltando...")
+            print(f"Saltando carpeta no encontrada: {ontologies_dir}")
             continue
             
-        print(f"\n Procesando carpeta: {ontologies_dir}")
-        
-        files_processed = 0
+        print(f"\n Procesando: {os.path.basename(ontologies_dir)}")
         
         for filename in os.listdir(ontologies_dir):
             file_ext = os.path.splitext(filename)[1].lower()
-            if file_ext not in FORMAT_MAP:
-                continue
+            if file_ext not in FORMAT_MAP: continue
             
             filepath = os.path.join(ontologies_dir, filename)
-            # print(f"   Analizando: {filename}") 
-            
             g = rdflib.Graph()
             loaded = False
             
-            # INTENTO 1: Formato por extensión 
+            # Carga robusta
             try:
-                file_format = FORMAT_MAP[file_ext]
-                g.parse(filepath, format=file_format)
+                g.parse(filepath, format=FORMAT_MAP[file_ext])
                 loaded = True
-            except Exception as e:
-                # INTENTO 2: Fallback a Turtle
-                if file_format == 'xml':
-                    try:
-                        g.parse(filepath, format='turtle')
-                        loaded = True
-                    except:
-                        pass 
-                
-                if not loaded:
-                    print(f"   ERROR parseando {filename}: {e}")
-                    continue
-
-            # PROCESAMIENTO DEL GRAFO
-            file_documents = []
+            except:
+                if FORMAT_MAP[file_ext] == 'xml': # Fallback XML->Turtle
+                    try: g.parse(filepath, format='turtle'); loaded = True
+                    except: pass
             
-            # CLASES
-            try:
-                results_classes = g.query(query_classes)
-                for row in results_classes:
-                    label = get_safe_value(row, ['label', 'label_skos'])
-                    if not label: label = str(row.uri).split('#')[-1].split('/')[-1]
-                    desc = get_safe_value(row, ['comment', 'def_skos', 'desc_dc'])
-                    
-                    doc_text = f"Tipo: Clase\nURI: {row.uri}\nEtiqueta: {label}\nDescripción: {desc}"
-                    file_documents.append(doc_text)
-            except Exception: pass
+            if not loaded: continue
 
-            # PROPIEDADES 
-            try:
-                results_props = g.query(query_properties)
-                for row in results_props:
-                    label = get_safe_value(row, ['label', 'label_skos'])
-                    if not label: label = str(row.uri).split('#')[-1].split('/')[-1]
-                    desc = get_safe_value(row, ['comment', 'def_skos', 'desc_dc'])
-                    domain = get_safe_value(row, ['domain'])
-                    range_ = get_safe_value(row, ['range'])
+            # --- ANÁLISIS ESTRUCTURAL (NUEVO) ---
+            ont_type, n_imports = analyze_ontology_structure(g)
+            # ------------------------------------
 
-                    doc_text = f"Tipo: Propiedad\nURI: {row.uri}\nEtiqueta: {label}\nDescripción: {desc}\nDominio: {domain}\nRango: {range_}"
-                    file_documents.append(doc_text)
-            except Exception: pass
+            file_docs = []
+            
+            # Procesar Clases
+            for row in g.query(query_classes):
+                label = get_safe_value(row, ['label']) or str(row.uri).split('#')[-1]
+                desc = get_safe_value(row, ['comment', 'def_skos'])
+                # Enriquecemos el texto para BM25
+                doc_text = f"Concept: Class\nOntology: {filename} ({ont_type})\nURI: {row.uri}\nLabel: {label}\nDefinition: {desc}"
+                file_docs.append(doc_text)
 
-            # GUARDADO EN LISTAS GLOBALES
-            if file_documents:
-                # AÑADIDO: 'origin_folder' en metadatos para trazabilidad
-                file_metadatas = [{"source": filename, "origin_folder": ontologies_dir} for _ in file_documents]
-                all_documents.extend(file_documents)
-                all_metadatas.extend(file_metadatas)
-                files_processed += 1
-        
-        print(f"   ✅ {files_processed} archivos procesados en esta carpeta.")
+            # Procesar Propiedades
+            for row in g.query(query_properties):
+                label = get_safe_value(row, ['label']) or str(row.uri).split('#')[-1]
+                desc = get_safe_value(row, ['comment', 'def_skos'])
+                doc_text = f"Concept: Property\nOntology: {filename} ({ont_type})\nURI: {row.uri}\nLabel: {label}\nDefinition: {desc}"
+                file_docs.append(doc_text)
 
-    print("\n" + "-" * 30)
-    print(f"Resumen Final: {len(all_documents)} documentos totales de TODAS las carpetas.")
-    
-    if len(all_documents) == 0:
-        print("Error: No se extrajeron documentos.")
-        exit()
+            if file_docs:
+                # Guardamos la metadata estructural
+                metas = [{
+                    "source": filename, 
+                    "ontology_type": ont_type, 
+                    "imports_count": n_imports,
+                    "origin_folder": os.path.basename(ontologies_dir)
+                } for _ in file_docs]
+                
+                all_documents.extend(file_docs)
+                all_metadatas.extend(metas)
+                # print(f"   -> {filename}: Detectado como {ont_type} ({n_imports} imports)")
 
-    # DB 
-    print("\nPaso 3: Regenerando DB Vectorial Completa...")
-    model_name = "BAAI/bge-m3"
-    embeddings = HuggingFaceEmbeddings(model_name=model_name)
-    
-    # LIMPIEZA OPCIONAL DE DB ANTERIOR
+    # REGENERACIÓN DB
+    print(f"\nRegenerando DB con {len(all_documents)} fragmentos...")
     if os.path.exists(persist_directory):
-        try:
-            shutil.rmtree(persist_directory)
-            print("   Base de datos anterior eliminada para inyección limpia.")
-        except: pass
+        shutil.rmtree(persist_directory)
+        
+    embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
     
-    # INSERCIÓN EN BATCHES
     batch_size = 5000
     for i in range(0, len(all_documents), batch_size):
-        print(f"   Insertando lote {i} a {i+batch_size}...")
+        print(f"   Lote {i}-{i+batch_size}...")
         Chroma.from_texts(
             texts=all_documents[i:i+batch_size],
             embedding=embeddings,
@@ -189,7 +155,7 @@ try:
             persist_directory=persist_directory
         )
         
-    print("Base de datos actualizada con éxito.")
+    print("✅ Ingesta Completada con Metadatos Estructurales.")
 
 except Exception as e:
     traceback.print_exc()

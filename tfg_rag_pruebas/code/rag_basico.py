@@ -223,11 +223,19 @@ class OntologyRecommender:
 
         if not isinstance(relevant_files, list): relevant_files = []
 
-        # 4. Reconstrucción Contexto
+        
+        # 4. Reconstrucción Contexto (ENRIQUECIDO)
         final_docs = [d for d in raw_docs if d.metadata.get('source') in relevant_files]
         if not final_docs: final_docs = raw_docs[:5] 
 
-        context_lines = [f"- [Fuente: {d.metadata.get('source')}] {d.page_content[:450]}..." for d in final_docs]
+        context_lines = []
+        for d in final_docs:
+            src = d.metadata.get('source')
+            otype = d.metadata.get('ontology_type', 'UNKNOWN') # Nuevo campo
+            content = d.page_content[:450].replace('\n', ' ')
+            # Inyectamos el TIPO en el texto que lee el LLM
+            context_lines.append(f"- FILE: {src} [TYPE: {otype}] | CONTENT: {content}...")
+            
         context_str = "\n".join(context_lines)
 
         # 5. Generación
