@@ -7,6 +7,10 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
+# NUEVOS IMPORTS PARA BÚSQUEDA HÍBRIDA
+from langchain_community.retrievers import BM25Retriever
+from langchain.retrievers import EnsembleRetriever
+from langchain_core.documents import Document
 
 # CONFIGURACIÓN
 PERSIST_DIRECTORY = "tfg_rag_pruebas/chroma_db"
@@ -15,20 +19,67 @@ LLM_MODEL = "llama3"
 
 class OntologyRecommender:
     def __init__(self):
-        print("Iniciando sistema RAG")
+        print("Iniciando sistema RAG con Búsqueda Híbrida (Dense + Sparse)...")
         self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
         
         if not os.path.exists(PERSIST_DIRECTORY):
             raise FileNotFoundError(f"No se encuentra la BD en {PERSIST_DIRECTORY}")
             
+        # 1. Cargar Base Vectorial (Chroma)
         self.vectorstore = Chroma(
             persist_directory=PERSIST_DIRECTORY, 
             embedding_function=self.embeddings
         )
         
+        # 2. Inicializar Retrievers
+        self._setup_retrievers()
+        
+        # 3. Inicializar LLM y Cadenas
         self.llm = ChatOllama(model=LLM_MODEL, temperature=0.0)
         self._setup_chains()
-        print("Sistema RAG listo.")
+        print("Sistema RAG Híbrido listo.")
+
+    def _setup_retrievers(self):
+        """Configura el sistema de recuperación híbrida"""
+        print(" - Construyendo índice BM25 (esto puede tardar unos segundos)...")
+        
+        # A. Recuperar documentos crudos de Chroma para indexar con BM25
+        # NOTA: Chroma guarda los textos, necesitamos sacarlos para que BM25 los procese.
+        try:
+            # Obtenemos todos los documentos de la colección
+            collection_data = self.vectorstore.get() 
+            texts = collection_data['documents']
+            metadatas = collection_data['metadatas']
+            
+            # Reconstruimos objetos Document para LangChain
+            docs = [
+                Document(page_content=t, metadata=m) 
+                for t, m in zip(texts, metadatas)
+            ]
+        except Exception as e:
+            print(f"Error cargando docs para BM25: {e}")
+            docs = []
+
+        if not docs:
+            raise ValueError("La base de datos Chroma parece vacía o no se pudo leer para BM25.")
+
+        # B. Retriever disperso (Keyword Search - BM25)
+        self.bm25_retriever = BM25Retriever.from_documents(docs)
+        self.bm25_retriever.k = 40  # Coincidir con el k del vectorial
+
+        # C. Retriever denso (Semantic Search - Chroma)
+        self.chroma_retriever = self.vectorstore.as_retriever(
+            search_type="similarity",
+            search_kwargs={"k": 40}
+        )
+
+        # D. Ensemble (Híbrido)
+        # weights=[0.7, 0.3] -> 70% peso al vector (significado), 30% a la palabra exacta.
+        # Esto ayuda a que si "Switch" aparece exacto en SAREF, suba en el ranking.
+        self.ensemble_retriever = EnsembleRetriever(
+            retrievers=[self.chroma_retriever, self.bm25_retriever],
+            weights=[0.7, 0.3]
+        )
 
     def _setup_chains(self):
         # 1. EXTRACCIÓN 
@@ -36,33 +87,30 @@ class OntologyRecommender:
         Analiza la petición del usuario.
         Petición: {user_request}
         
-        Tarea: Genera una lista de palabras clave técnicas y conceptos principales para buscar en una base de datos vectorial.
-        - Usa terminología técnica (preferiblemente en inglés, ya que es el estándar en ontologías).
-        - No limites la cantidad de palabras.
+        Tarea: Genera una lista de palabras clave técnicas y conceptos principales para buscar.
+        - Usa terminología técnica en inglés.
+        - Incluye sinónimos si es necesario.
         
         Respuesta: Solo las palabras clave separadas por comas.
         """
         self.extraction_chain = ChatPromptTemplate.from_template(extract_tmpl) | self.llm | StrOutputParser()
 
-        # 2. FILTRADO 
-        # CORRECCIÓN: Quitamos el sesgo de "especialización" para evitar borrar ontologías base como BOT.
+        # 2. FILTRADO (Sin cambios mayores, solo robustez)
         filter_tmpl = """
-        Eres un filtro de relevancia para un motor de búsqueda de ontologías.
+        Eres un filtro de relevancia experto.
         
         INPUT:
         - Query: "{user_request}"
         - Candidatos: Lista de fragmentos de texto.
 
         TAREA:
-        Selecciona TODOS los archivos que contengan definiciones relevantes para la query.
-
-        CRITERIOS (STRICT):
-        1. **Relevancia Temática:** Si el archivo habla del tema de la query (ej. Construcción, Sensores), MANTENLO.
-        2. **Cobertura Parcial:** Si el archivo define SOLO UNA PARTE de lo que pide el usuario (ej. define "Zona" pero no "Sensor"), MANTENLO. No busques la perfección, busca utilidad.
-        3. **No seas Excluyente:** No descartes una ontología general (Core) solo porque haya una más específica. A menudo se necesitan ambas. Solo descarta lo que sea RUIDO evidente (temas totalmente distintos).
-
-        Candidatos:
-        {context_list}
+        Selecciona TODOS los archivos que contengan definiciones útiles para la query.
+        
+        CRITERIOS CRÍTICOS:
+        1. **Mención Explícita:** Si un archivo contiene la PALABRA EXACTA buscada (ej: "Switch", "Device"), DEBE ser seleccionado, incluso si parece de otro dominio.
+        2. **Coherencia de Dominio:** - Si la query es de Construcción -> Busca 'Building', 'Zone', 'Space'.
+           - Si la query es de IoT/Dispositivos -> Busca 'Device', 'Sensor', 'Function', 'Command'.
+           - SAREF es clave para IoT. BOT es clave para Construcción.
 
         SALIDA (JSON VÁLIDO):
         {{
@@ -72,28 +120,29 @@ class OntologyRecommender:
         self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
         # 3. DECISIÓN FINAL 
-        # CORRECCIÓN: Reintroducimos la prohibición de URIs y conocimiento externo.
         selection_tmpl = """
-        Eres un Sistema Recomendador de Ontologías.
-        Tu misión es elegir la MEJOR ontología de la lista de candidatos proporcionada.
+        Eres un Sistema Recomendador de Ontologías Experto en IoT y Construcción.
         
         Petición del Usuario: {user_request}
         
         Contexto (Candidatos Filtrados):
         {filtered_context}
         
-        REGLAS DE ORO (A CUMPLIR BAJO PENA DE ERROR):
-        1. **GROUNDING TOTAL:** Solo puedes recomendar un archivo que esté en la lista de "Candidatos Filtrados". NO inventes ontologías externas (como CIDOC CRM o Schema.org) si no están en la lista.
-        2. **FORMATO DE NOMBRE:** En el campo "ONTOLOGÍA RECOMENDADA", debes escribir EXACTAMENTE el nombre del archivo fuente (ej: 'bot.ttl', 'saref.ttl').
-        3. **PROHIBIDO URIs:** NUNCA respondas con una URL o URI (ej: http://w3id.org/bot#...). El usuario necesita el nombre del archivo.
+        INSTRUCCIONES DE SELECCIÓN:
+        1. **IoT vs Construcción:**
+           - Si el usuario define "Device", "Sensor", "Actuator", "Command", "Function" -> RECOMIENDA ontologías IoT (prioridad: saref, sosa, ssn).
+           - Si el usuario define "Zone", "Building", "Storey", "Space" (topología) -> RECOMIENDA ontologías de Construcción (prioridad: bot).
         
-        Instrucciones de Decisión:
-        - Si la query es sobre topología de edificios (zonas, espacios, plantas), busca ontologías que definan 'Zone', 'Space', 'Storey'.
-        - Si hay varias opciones, elige la que tenga definiciones más directas de los términos buscados.
-        
+        2. **Jerarquía SAREF:**
+           - Si la definición parece genérica de un dispositivo (ej: "perform a function"), prefiere el NÚCLEO (saref_xxx.n3) antes que extensiones específicas (s4agri, s4city), a menos que el contexto sea explícitamente agrícola o urbano.
+
+        3. **Formato:**
+           - Responde SOLO con el nombre del archivo y la razón.
+           - PROHIBIDO URIs.
+
         Respuesta:
         **ONTOLOGÍA RECOMENDADA:** [NOMBRE_DEL_ARCHIVO]
-        **RAZÓN:** [Justificación breve basada en el contenido del archivo]
+        **RAZÓN:** [Justificación técnica]
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
 
@@ -113,18 +162,21 @@ class OntologyRecommender:
         try: keywords = self.extraction_chain.invoke({"user_request": user_request})
         except: keywords = user_request
 
-        # 2. Retrieval Amplio
-        raw_docs = self.vectorstore.max_marginal_relevance_search(keywords, k=initial_k, fetch_k=100)
+        # 2. Retrieval HÍBRIDO (Ensemble)
+        # Nota: EnsembleRetriever no acepta 'k' dinámico fácilmente en invoke, 
+        # usa el configurado en __init__ (que pusimos a 40).
+        raw_docs = self.ensemble_retriever.invoke(keywords)
         
-        # Preparar contexto (450 caracteres para ver descripciones)
+        # Preparar contexto
         doc_summaries = []
         for d in raw_docs:
             src = d.metadata.get('source', 'unknown')
-            content = d.page_content[:450].replace('\n', ' ')
+            # Limpiamos saltos de línea para ahorrar tokens
+            content = d.page_content[:450].replace('\n', ' ') 
             doc_summaries.append(f"- FILE: {src} | CONTENT: {content}...")
         doc_list_str = "\n".join(doc_summaries)
         
-        # 3. Re-ranking (Filtrado)
+        # 3. Re-ranking (Filtrado con LLM)
         relevant_files = []
         try:
             raw_filter_output = self.filter_chain.invoke({
@@ -136,11 +188,10 @@ class OntologyRecommender:
             if parsed_json and "relevant_sources" in parsed_json:
                 relevant_files = parsed_json["relevant_sources"]
             else:
-                # Fallback: Top 10 para asegurar variedad si falla el JSON
-                relevant_files = [d.metadata.get('source') for d in raw_docs[:10]]
+                relevant_files = [d.metadata.get('source') for d in raw_docs[:15]]
         except Exception as e:
             print(f"Fallback filtro: {e}")
-            relevant_files = [d.metadata.get('source') for d in raw_docs[:10]]
+            relevant_files = [d.metadata.get('source') for d in raw_docs[:15]]
 
         if not isinstance(relevant_files, list): relevant_files = []
 
