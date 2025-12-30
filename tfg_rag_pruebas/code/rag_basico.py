@@ -174,6 +174,18 @@ class OntologyRecommender:
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
 
+    def _extract_json_from_text(self, text):
+        """Extrae y parsea el primer bloque JSON encontrado en un texto."""
+        try:
+            # Buscar el primer bloque { ... } (incluso multilinea)
+            match = re.search(r'\{.*\}', text, re.DOTALL)
+            if match:
+                return json.loads(match.group(0))
+            # Si no encuentra patrón, intenta parsear todo el texto
+            return json.loads(text)
+        except:
+            return None
+
     def run_pipeline(self, user_request, initial_k=25): # Default a 25
         start_time = time.time()
         print(f"--- Inicio Pipeline: {user_request[:50]}... ---")
