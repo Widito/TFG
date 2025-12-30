@@ -73,7 +73,7 @@ class OntologyRecommender:
         # C. Retriever denso (Semantic Search - Chroma)
         self.chroma_retriever = self.vectorstore.as_retriever(
             search_type="similarity",
-            search_kwargs={"k": 40}
+            search_kwargs={"k": 25}
         )
 
 
@@ -174,30 +174,36 @@ class OntologyRecommender:
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
 
-    def run_pipeline(self, user_request, initial_k=40):
+    def run_pipeline(self, user_request, initial_k=25): # Default a 25
         start_time = time.time()
+        print(f"--- Inicio Pipeline: {user_request[:50]}... ---")
         
         # 1. Extracción
         try: keywords = self.extraction_chain.invoke({"user_request": user_request})
         except: keywords = user_request
+        print(f"Keywords: {keywords}")
 
-        # 2. Retrieval HÍBRIDO (Ensemble)
-        # Recuperación híbrida manual (Dense + Sparse)
-        # usa el configurado en __init__ (que pusimos a 40).
-        raw_docs = self._hybrid_retrieve(keywords, k=40)
+        # 2. Retrieval HÍBRIDO
+        raw_docs = self._hybrid_retrieve(keywords, k=initial_k)
+        print(f"Retrieval: {len(raw_docs)} docs recuperados.")
         
-        # Preparar contexto
+        # 3. Preparar contexto para FILTRADO (OPTIMIZACIÓN CRÍTICA)
         doc_summaries = []
         for d in raw_docs:
             src = d.metadata.get('source', 'unknown')
-            # Limpiamos saltos de línea para ahorrar tokens
-            content = d.page_content[:450].replace('\n', ' ') 
-            doc_summaries.append(f"- FILE: {src} | CONTENT: {content}...")
+            otype = d.metadata.get('ontology_type', '?')
+            # REDUCCIÓN: 450 chars -> 180 chars. 
+            # Suficiente para ver la definición, ahorra 60% de cómputo.
+            content = d.page_content[:180].replace('\n', ' ') 
+            doc_summaries.append(f"- ID: {src} [{otype}] | TEXT: {content}...")
+        
         doc_list_str = "\n".join(doc_summaries)
         
         # 3. Re-ranking (Filtrado con LLM)
+        print("Ejecutando Filtro LLM (esto es lo que tardaba)...")
         relevant_files = []
         try:
+            # Ahora el prompt es mucho más ligero (~1.5k tokens vs 5k tokens)
             raw_filter_output = self.filter_chain.invoke({
                 "user_request": user_request,
                 "context_list": doc_list_str
@@ -207,40 +213,44 @@ class OntologyRecommender:
             if parsed_json and "relevant_sources" in parsed_json:
                 relevant_files = parsed_json["relevant_sources"]
             else:
-                relevant_files = [d.metadata.get('source') for d in raw_docs[:15]]
+                relevant_files = [d.metadata.get('source') for d in raw_docs[:10]]
         except Exception as e:
             print(f"Fallback filtro: {e}")
-            relevant_files = [d.metadata.get('source') for d in raw_docs[:15]]
+            relevant_files = [d.metadata.get('source') for d in raw_docs[:10]]
 
         if not isinstance(relevant_files, list): relevant_files = []
+        print(f"Docs tras filtro: {len(relevant_files)}")
 
-        
-        # 4. Reconstrucción Contexto (ENRIQUECIDO)
+        # 4. Reconstrucción Contexto (Para la decisión final SÍ damos más texto)
         final_docs = [d for d in raw_docs if d.metadata.get('source') in relevant_files]
         if not final_docs: final_docs = raw_docs[:5] 
 
         context_lines = []
         for d in final_docs:
             src = d.metadata.get('source')
-            otype = d.metadata.get('ontology_type', 'UNKNOWN') # Nuevo campo
-            content = d.page_content[:450].replace('\n', ' ')
-            # Inyectamos el TIPO en el texto que lee el LLM
+            otype = d.metadata.get('ontology_type', 'UNKNOWN')
+            # Aquí mantenemos 450 o incluso más, porque ya son pocos documentos (top 3-5)
+            content = d.page_content[:500].replace('\n', ' ')
             context_lines.append(f"- FILE: {src} [TYPE: {otype}] | CONTENT: {content}...")
             
         context_str = "\n".join(context_lines)
 
         # 5. Generación
+        print("Generando decisión final...")
         decision_text = self.selection_chain.invoke({
             "user_request": user_request,
             "filtered_context": context_str
         })
+
+        total_time = time.time() - start_time
+        print(f"--- Fin Pipeline ({total_time:.2f}s) ---")
 
         return {
             "query": user_request,
             "keywords": keywords,
             "unique_retrieved_sources": list(set([d.metadata.get('source') for d in final_docs])),
             "llm_response": decision_text,
-            "execution_time": time.time() - start_time
+            "execution_time": total_time
         }
 
 if __name__ == "__main__":
