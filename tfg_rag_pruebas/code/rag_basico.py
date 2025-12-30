@@ -105,20 +105,22 @@ class OntologyRecommender:
 
 
     def _setup_chains(self):
-        # 1. EXTRACCIÓN (Sin cambios, ya era genérica)
+        # 1. EXTRACCIÓN Y EXPANSIÓN (Query Expansion - AGNÓSTICO)
+        # Objetivo: Enriquecer vocabulario sin asumir el dominio.
         extract_tmpl = """
-        Analiza la petición del usuario.
-        Petición: {user_request}
+        Actúa como un terminólogo experto en Web Semántica (OWL/RDF).
+        Analiza la petición del usuario: "{user_request}"
         
-        Tarea: Genera una lista de palabras clave técnicas y conceptos principales para buscar.
-        - Usa terminología técnica en inglés.
-        - Incluye sinónimos si es necesario.
+        Genera una lista de búsqueda optimizada siguiendo estos pasos:
+        1. **Conceptos Nucleares:** Extrae los sustantivos y verbos técnicos principales.
+        2. **Normalización Ontológica:** Añade los equivalentes formales más probables en ontologías estándar (ej: si dice "tipo", añade "Category", "Class", "Type").
+        3. **Sinónimos Técnicos:** Incluye términos alternativos precisos, pero SOLO si son comunes en modelado de conocimiento.
         
-        Respuesta: Solo las palabras clave separadas por comas.
+        Respuesta: Solo la lista de términos separada por comas (en inglés).
         """
         self.extraction_chain = ChatPromptTemplate.from_template(extract_tmpl) | self.llm | StrOutputParser()
 
-        # 2. FILTRADO (Hacemos el filtro agnóstico también)
+        # 2. FILTRADO (Se mantiene igual de robusto)
         filter_tmpl = """
         Eres un filtro de relevancia semántica para ontologías.
         
@@ -141,47 +143,36 @@ class OntologyRecommender:
         """
         self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
-        # 3. DECISIÓN FINAL (TOTALMENTE GENERAL / SIN EJEMPLOS DE DOMINIO)
+        # 3. DECISIÓN FINAL (RAZONAMIENTO ESTRUCTURADO - SIN SESGOS)
         selection_tmpl = """
-        Actúa como un Arquitecto de Conocimiento experto en Linked Open Data.
-        Tu objetivo es seleccionar la MEJOR ontología (archivo fuente) para cubrir las necesidades de modelado del usuario, sea cual sea el dominio.
-
-        PETICIÓN DEL USUARIO: "{user_request}"
-
-        CANDIDATOS RECUPERADOS (Fragmentos de código RDF/OWL):
+        Actúa como un Arquitecto de Ontologías Senior. Tu decisión debe basarse puramente en la lógica de diseño de sistemas y la evidencia del texto.
+        
+        PETICIÓN USUARIO: "{user_request}"
+        CANDIDATOS RECUPERADOS (con metadatos de tipo):
         {filtered_context}
-
-        ALGORITMO DE RAZONAMIENTO (Ejecuta estos pasos mentalmente):
-
-        1. **Análisis de Densidad de Definición:**
-           - Revisa cada candidato. ¿El archivo *define* los conceptos clave de la query (usando `owl:Class`, `rdf:Property`) o solo los *menciona* (en comentarios o rangos)?
-           - Prioriza siempre el archivo que contiene la definición formal (el "Dueño" del concepto).
-
-        2. **Evaluación de Especificidad (Principio de Parsimonia):**
-           - Compara los candidatos que pasaron el paso 1.
-           - Si un candidato parece ser una **Ontología Núcleo/Core** (definiciones generales, fundamentales) y otro es una **Extensión/Vertical** (importa otras, nombres muy largos o específicos de un nicho):
-             -> **REGLA:** Elige la Ontología Núcleo SI la petición del usuario es general.
-             -> **REGLA:** Elige la Extensión SOLO SI la petición del usuario incluye detalles específicos de ese nicho (ej: métricas específicas, restricciones de dominio).
-
-        3. **Desambiguación por Contexto:**
-           - Si dos ontologías definen el mismo término (homónimos), lee las propiedades (`rdfs:comment`, `rdfs:label`) en los fragmentos. Elige la que semánticamente se alinee mejor con la intención de la query.
-
-        SALIDA REQUERIDA (JSON):
+        
+        ALGORITMO DE DECISIÓN (Ejecuta esto paso a paso):
+        
+        PASO 1: Análisis de Especificidad de la Query.
+        - ¿La query solicita conceptos fundamentales/genéricos (ej: "qué es un proceso", "definir espacio")? -> **Nivel: GENÉRICO**.
+        - ¿La query solicita conceptos aplicados a un nicho (ej: "sensores de riego agrícola", "vigas de acero reforzado")? -> **Nivel: ESPECÍFICO**.
+        
+        PASO 2: Evaluación de Cobertura y Definición.
+        - Revisa el contenido de texto de cada candidato. ¿Quién define el concepto principal de forma más clara y directa (usando `owl:Class`, `rdf:Property`)?
+        - Penaliza aquellos que solo mencionan el término como una propiedad externa (imports).
+        
+        PASO 3: Aplicación del Principio de Parsimonia (Desempate).
+        - Si tienes múltiples candidatos con buena cobertura:
+          - SI Nivel Query == GENÉRICO: **Debes** priorizar ontologías marcadas como **[TYPE: CORE]** o que parezcan ontologías base. Evita extensiones que añaden ruido innecesario.
+          - SI Nivel Query == ESPECÍFICO: Prioriza la ontología (Core o Extensión) que cubra el detalle específico del nicho solicitado.
+        
+        SALIDA (JSON estricto):
         {{
-            "ONTOLOGÍA_RECOMENDADA": "nombre_exacto_del_archivo",
-            "RAZÓN": "Justificación técnica basada en la densidad de definición y nivel de abstracción (Core vs Extensión)."
+            "RAZONAMIENTO": "Breve explicación de cómo el Nivel de la Query (Genérico/Específico) se alineó con el Tipo de Ontología (Core/Extensión) y su contenido.",
+            "ONTOLOGÍA_RECOMENDADA": "nombre_archivo.ext"
         }}
         """
         self.selection_chain = ChatPromptTemplate.from_template(selection_tmpl) | self.llm | StrOutputParser()
-
-    def _extract_json_from_text(self, text):
-        try:
-            match = re.search(r'\{.*\}', text, re.DOTALL)
-            if match:
-                return json.loads(match.group(0))
-            return json.loads(text)
-        except:
-            return None
 
     def run_pipeline(self, user_request, initial_k=40):
         start_time = time.time()
