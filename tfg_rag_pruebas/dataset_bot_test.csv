@@ -13,3 +13,15 @@ id;query_natural;expected_ontology;difficulty
 12;The devices can belong to several categories;saref_2020-05-29.n3;medium
 13;A switch is a device that has category Actuator;saref_2020-05-29.n3;easy
 14;A function represents the functionality necessary toaccomplish the task for which a device is designed;saref_2020-05-29.n3;easy
+15;A single option for applying a constraint to a party (of a specific role) should be defined.;odrl_2017-09-16.n3;medium
+16;It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets.;odrl_2017-09-16.n3;hard
+17;The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values.;odrl_2017-09-16.n3;hard
+18;In addition to the existing identifiers of a policy means for expressing a version of this policy should specified.;odrl_2017-09-16.n3;easy
+19;It should be possible to define the price for duty/duties of payment for all permissions of a policy in a global way.;odrl_2017-09-16.n3;medium
+20;Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time.;odrl_2017-09-16.n3;medium
+21;For a relativeTimePeriod constraint the rightOperand has to provide a time period as value.;odrl_2017-09-16.n3;medium
+22;Being able to tie Permission, Prohibition, Duty, and Constraint entities together with an AND, OR or XOR relationship.;odrl_2017-09-16.n3;hard
+23;Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified.;odrl_2017-09-16.n3;medium
+24;Ability to link from a Policy or a Permission to the original (text-based) license.;odrl_2017-09-16.n3;easy
+25;It should be possible to define policies of type Assertion.;odrl_2017-09-16.n3;easy
+26;An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have.;odrl_2017-09-16.n3;medium
