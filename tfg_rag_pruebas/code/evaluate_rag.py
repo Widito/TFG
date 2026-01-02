@@ -2,6 +2,29 @@ import csv
 import os  
 import pandas as pd
 from rag_basico import OntologyRecommender
+import sys
+import time
+
+# --- CLASE PARA REDIRIGIR SALIDA (LOGGING) ---
+class DualLogger(object):
+    def __init__(self, filename):
+        self.terminal = sys.stdout
+        self.log = open(filename, "w", encoding='utf-8')
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+        self.log.flush() # Asegura que se guarde en tiempo real
+
+    def flush(self):
+        self.terminal.flush()
+        self.log.flush()
+
+# Redirigir stdout al archivo y pantalla
+log_filename = "log_evaluacion_completa.txt"
+sys.stdout = DualLogger(log_filename)
+# ---------------------------------------------
+
 
 # 1. Obtenemos la ruta de la carpeta donde está ESTE archivo
 current_dir = os.path.dirname(os.path.abspath(__file__))

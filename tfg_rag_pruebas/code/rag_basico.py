@@ -21,6 +21,8 @@ EMBEDDING_MODEL = "BAAI/bge-m3"
 LLM_MODEL = "llama3"
 
 class OntologyRecommender:
+    # En rag_basico.py, dentro de la clase OntologyRecommender
+
     def __init__(self):
         print("Iniciando sistema RAG con Búsqueda Híbrida (Dense + Sparse)...")
         self.embeddings = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
@@ -40,7 +42,26 @@ class OntologyRecommender:
         # 3. Inicializar LLM y Cadenas
         self.llm = ChatOllama(model=LLM_MODEL, temperature=0.0)
         self._setup_chains()
-        print("Sistema RAG Híbrido listo.")
+        
+        # --- NUEVO: WARMUP AUTOMÁTICO ---
+        self._warmup_system()
+        # --------------------------------
+        
+        print("Sistema RAG Híbrido listo y caliente (Warmup completado).")
+
+    def _warmup_system(self):
+        """Ejecuta una inferencia dummy para cargar modelos en VRAM"""
+        print("   🔥 Ejecutando Warmup (Cargando modelos en GPU)...")
+        try:
+            # 1. Calentar Embeddings
+            self.embeddings.embed_query("warmup query")
+            
+            # 2. Calentar LLM (Forzamos una generación corta)
+            # Usamos una invoke directa simple para despertar a Ollama
+            self.llm.invoke("Hello, are you ready?")
+            print("   🔥 Modelos cargados.")
+        except Exception as e:
+            print(f"   ⚠️ Error en Warmup (no crítico): {e}")
 
     def _setup_retrievers(self):
         """Configura el sistema de recuperación híbrida"""
@@ -144,6 +165,7 @@ class OntologyRecommender:
         self.filter_chain = ChatPromptTemplate.from_template(filter_tmpl) | self.llm | StrOutputParser()
 
         # 3. DECISIÓN FINAL (RAZONAMIENTO ESTRUCTURADO - SIN SESGOS)
+        # ESTA ES LA VERSIÓN MEJORADA CON CRITERIO DE INTENCIONALIDAD FUNCIONAL
         selection_tmpl = """
         Actúa como un Arquitecto de Ontologías Senior. Tu decisión debe basarse puramente en la lógica de diseño de sistemas y la evidencia del texto.
         
@@ -157,18 +179,22 @@ class OntologyRecommender:
         - ¿La query solicita conceptos fundamentales/genéricos (ej: "qué es un proceso", "definir espacio")? -> **Nivel: GENÉRICO**.
         - ¿La query solicita conceptos aplicados a un nicho (ej: "sensores de riego agrícola", "vigas de acero reforzado")? -> **Nivel: ESPECÍFICO**.
         
-        PASO 2: Evaluación de Cobertura y Definición.
-        - Revisa el contenido de texto de cada candidato. ¿Quién define el concepto principal de forma más clara y directa (usando `owl:Class`, `rdf:Property`)?
-        - Penaliza aquellos que solo mencionan el término como una propiedad externa (imports).
+        PASO 2: Análisis de Carga Lógica e Intencionalidad (CRÍTICO).
+        - Analiza los verbos y sustantivos de la query para determinar la complejidad funcional:
+          A. **Intención Normativa/Lógica (Compleja):** ¿La query implica reglas, restricciones, obligaciones, permisos, lógica condicional o comportamiento dinámico? (Palabras clave agnósticas: "Constraint", "Rule", "Must", "Duty", "Function", "Process").
+          B. **Intención Descriptiva/Estática (Simple):** ¿La query solo busca etiquetar, anotar o describir atributos estáticos de un recurso? (Palabras clave agnósticas: "Title", "Label", "Tag", "Creator", "Metadata").
         
-        PASO 3: Aplicación del Principio de Parsimonia (Desempate).
-        - Si tienes múltiples candidatos con buena cobertura:
-          - SI Nivel Query == GENÉRICO: **Debes** priorizar ontologías marcadas como **[TYPE: CORE]** o que parezcan ontologías base. Evita extensiones que añaden ruido innecesario.
-          - SI Nivel Query == ESPECÍFICO: Prioriza la ontología (Core o Extensión) que cubra el detalle específico del nicho solicitado.
+        PASO 3: Evaluación de Cobertura y Definición.
+        - Revisa el contenido de texto de cada candidato.
+        - Si (A) Intención Normativa: Descarta vocabularios ligeros de anotación (aunque contengan la palabra clave) y busca ontologías que definan Clases para modelar la regla/acción.
+        - Si (B) Intención Descriptiva: Aplica el Principio de Parsimonia. Prefiere vocabularios ligeros y estándar sobre modelos complejos que matarían moscas a cañonazos.
+        
+        PASO 4: Selección Final.
+        - Elige el archivo que mejor se alinee con el Nivel (Genérico/Específico) y la Intención (Normativa/Descriptiva).
         
         SALIDA (JSON estricto):
         {{
-            "RAZONAMIENTO": "Breve explicación de cómo el Nivel de la Query (Genérico/Específico) se alineó con el Tipo de Ontología (Core/Extensión) y su contenido.",
+            "RAZONAMIENTO": "Explica brevemente la distinción entre Intención Normativa vs Descriptiva detectada y por qué el archivo elegido es el adecuado.",
             "ONTOLOGÍA_RECOMENDADA": "nombre_archivo.ext"
         }}
         """
