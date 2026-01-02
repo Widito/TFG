@@ -68,7 +68,7 @@ def evaluate():
         # EJECUCIÓN DEL RAG
         # Usamos initial_k=40 para permitir que el Broad Retrieval capture candidatos antes de que el Re-ranker los filtre.
         try:
-            response = rag.run_pipeline(query, initial_k=40)
+            response = rag.run_pipeline(query, initial_k=100)
             
             # CÁLCULO DE MÉTRICAS 
             
