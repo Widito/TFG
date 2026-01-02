@@ -103,22 +103,41 @@ class OntologyRecommender:
         Recuperación híbrida: Dense (Chroma) + Sparse (BM25)
         Combina resultados priorizando semántica pero manteniendo keywords exactas.
         """
-        # Recuperación
+        # 1. Configurar k dinámicamente para esta llamada
+        # Asignamos el mismo k a ambos para asegurar amplitud
+        self.bm25_retriever.k = k 
+        self.chroma_retriever.search_kwargs["k"] = k # Truco para actualizar Chroma en caliente
+
+        # 2. Recuperación
         dense_docs = self.chroma_retriever.invoke(query)
         sparse_docs = self.bm25_retriever.invoke(query)
 
-        # Limitar a k resultados
-        dense_docs = dense_docs[:k]
-        sparse_docs = sparse_docs[:k]
-
+        # 3. Combinación y Deduplicación (RRF simplificado o Union)
+        # Como ya hemos pedido 'k' a cada uno, no necesitamos recortar aquí inmediatamente
+        # si queremos asegurar diversidad.
+        
         seen = set()
         combined = []
 
-        for d in dense_docs + sparse_docs:
-            uid = (d.page_content, str(d.metadata))
-            if uid not in seen:
-                seen.add(uid)
-                combined.append(d)
+        # Intercalamos resultados: 1 dense, 1 sparse, 1 dense...
+        # Esto ayuda a que no dominen solo los semánticos si k es muy grande.
+        max_len = max(len(dense_docs), len(sparse_docs))
+        for i in range(max_len):
+            if i < len(dense_docs):
+                d = dense_docs[i]
+                uid = (d.page_content, str(d.metadata))
+                if uid not in seen:
+                    seen.add(uid)
+                    combined.append(d)
+            
+            if i < len(sparse_docs):
+                d = sparse_docs[i]
+                uid = (d.page_content, str(d.metadata))
+                if uid not in seen:
+                    seen.add(uid)
+                    combined.append(d)
+            
+            # Parar si ya tenemos k resultados totales
             if len(combined) >= k:
                 break
 
