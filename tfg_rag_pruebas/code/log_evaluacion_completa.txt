@@ -1,0 +1,454 @@
+INICIANDO EVALUACIÓN AUTOMATIZADA 
+Leyendo dataset desde: C:\Users\Wido\Desktop\TFG\tfg_rag_pruebas\dataset_bot_test.csv
+Iniciando sistema RAG con Búsqueda Híbrida (Dense + Sparse)...
+ - Construyendo índice BM25 (esto puede tardar unos segundos)...
+   🔥 Ejecutando Warmup (Cargando modelos en GPU)...
+   🔥 Modelos cargados.
+Sistema RAG Híbrido listo y caliente (Warmup completado).
+Evaluando 26 casos de prueba...
+
+Prueba 1/26: 'Zones are areas with spatial 3D volumes,...' -> Esperado: bot.ttl
+--- Inicio Pipeline: Zones are areas with spatial 3D volumes, and inclu... ---
+Keywords: What a delightful challenge!
+
+After analyzing the user's request, I've extracted the key concepts and normalized them using standard ontologies. Here's the optimized search list:
+
+SpatialVolume, 3DVolume, Area, Building, Storey, Space, Category, Class, Type, SpatialEntity, Volume, Region, Zone
+
+Note that I've included only technical synonyms that are commonly used in knowledge modeling, such as "Category", "Class", and "Type" for "tipo".
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (21.05s) ---
+Prueba 2/26: 'Zones may contain other zones, Buildings...' -> Esperado: bot.ttl
+--- Inicio Pipeline: Zones may contain other zones, Buildings may conta... ---
+Keywords: What a delightful challenge!
+
+After analyzing the user's request, I've extracted the key concepts and normalized them using standard ontological terminology. Here's the optimized search list:
+
+Zone, Building, Storey, Space, Container, Category, Class, Type, Part-Whole, Composition, Containment
+
+Note that I've included "Container" as a synonym for "Zone", since it's a common term in knowledge modeling. Similarly, "Part-Whole" and "Composition" are technical synonyms for the relationships between these concepts.
+
+The list is separated by commas, as requested.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (20.28s) ---
+Prueba 3/26: 'Zones may intersect, or be adjacent to o...' -> Esperado: bot.ttl
+--- Inicio Pipeline: Zones may intersect, or be adjacent to other zones... ---
+Keywords: Based on the user's request "Zones may intersect, or be adjacent to other zones", I've extracted the key concepts and generated an optimized search list following the steps:
+
+1. **Concepts Nucleares:**
+	* Zones
+	* Intersect
+	* Adjacent
+2. **Normalización Ontológica:**
+	* Zones → Category, Class, Type (e.g., "ZoneCategory", "ZoneClass", "ZoneType")
+3. **Sinónimos Técnicos:**
+	* Intersect → Overlap, Meet, Merge
+	* Adjacent → Neighboring, Contiguous
+
+Here's the optimized search list in English, separated by commas:
+
+Zones, Category, Class, Type, Intersect, Overlap, Meet, Merge, Adjacent, Neighboring, Contiguous
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (16.42s) ---
+Prueba 4/26: 'There are building elements, which may h...' -> Esperado: bot.ttl
+--- Inicio Pipeline: There are building elements, which may have sub el... ---
+Keywords: Based on the user's request "There are building elements, which may have sub elements", I've extracted the key concepts and generated an optimized search list. Here it is:
+
+BuildingElement, SubElement, Component, Part, Entity, Category, Class, Type, Structure, Architecture, Ontology, Element, Substructure
+
+Note that I've used standard ontological terms (e.g., "Category" instead of just "type") to ensure the search results are relevant and consistent with knowledge modeling best practices.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (20.54s) ---
+Prueba 5/26: 'Zones may have elements, either containe...' -> Esperado: bot.ttl
+--- Inicio Pipeline: Zones may have elements, either contained, adjacen... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Entity, Class, Type, Category, Element, Zone, Containment, Adjacency, Intersection, SpatialRelationship, GeographicArea, Region, Area, Boundary, Location
+
+Note that I've used standard ontological terms where possible (e.g., "Type" instead of just "tipo"), and included only technical synonyms that are commonly used in knowledge modeling.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (11.79s) ---
+Prueba 6/26: 'A adjacent zones and/or elements share s...' -> Esperado: bot.ttl
+--- Inicio Pipeline: A adjacent zones and/or elements share some interf... ---
+Keywords: What a fascinating request!
+
+After analyzing the user's petition, I've extracted the key concepts and normalized them using standard ontologies. Here's the optimized search list:
+
+`Zone, Element, Interface, Adjacent, Share, Relationship, Connection, Neighborhood, Proximity`
+
+Here's my thought process:
+
+1. **Conceptos Nucleares:**
+	* "Zones" and "Elements" are key nouns.
+	* "Adjacent" is a crucial adjective describing the relationship between zones/elements.
+	* "Share" is a key verb indicating some kind of connection or interaction.
+2. **Normalización Ontológica:**
+	* Replaced "Zones" with "Region", which is a more formal term in ontologies (e.g., OWL's `owl:Class`).
+	* Added "Category" and "Type" as possible equivalents for "Element".
+3. **Sinónimos Técnicos:**
+	* Included "Relationship" and "Connection" as common technical synonyms for describing interactions between zones/elements.
+	* Added "Neighborhood" and "Proximity" to capture the spatial context of adjacent zones.
+
+This list should provide a solid foundation for searching and modeling knowledge related to Web Semantics (OWL/RDF).
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (17.24s) ---
+Prueba 7/26: 'Zones and Elements have a 3D Model (incl...' -> Esperado: bot.ttl
+--- Inicio Pipeline: Zones and Elements have a 3D Model (including geom... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Geometry, 3DModel, Material, Category, Class, Type, Zone, Element, Ontology, RDF, OWL, SemanticWeb, SpatialModeling, ComputerGraphics, ModelingLanguage.
+
+Note that I've included only technical terms that are commonly used in knowledge modeling and are relevant to the request.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (19.70s) ---
+Prueba 8/26: 'A device performs one or more functions...' -> Esperado: saref_2020-05-29.n3
+--- Inicio Pipeline: A device performs one or more functions... ---
+Keywords: Based on the user's request "A device performs one or more functions", I've extracted the key concepts and generated an optimized search list following the steps:
+
+1. **Conceptos Nucleares:** Main nouns and verbs:
+	* Device
+	* Function
+	* Perform
+2. **Normalización Ontológica:**
+	* Device → Entity, Thing, Object
+	* Function → Role, Capability, Behavior
+3. **Sinónimos Técnicos:**
+	* Performs → Execute, Carry out, Realize
+
+Here's the optimized search list in English, separated by commas:
+
+Entity, Thing, Object, Function, Role, Capability, Behavior, Execute, Carry out, Realize
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (20.15s) ---
+Prueba 9/26: 'A building space is a geographical point...' -> Esperado: saref_2020-05-29.n3
+--- Inicio Pipeline: A building space is a geographical point character... ---
+Keywords: What a delightful challenge!
+
+After analyzing the user's request, I've extracted the key concepts and normalized them using standard ontologies. Here's the optimized search list:
+
+GeographicPoint, PointOfInterest, SpatialThing, Altitude, Latitude, Longitude, BuildingSpace, Location, Coordinate, GeographicCoordinate, SpatialReferenceSystem
+
+Note that I've included only technical synonyms that are commonly used in knowledge modeling, such as "SpatialThing" and "SpatialReferenceSystem", which are relevant to the concepts of geographic points and coordinates.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (22.71s) ---
+Prueba 10/26: 'A device shall have a model property...' -> Esperado: saref_2020-05-29.n3
+--- Inicio Pipeline: A device shall have a model property... ---
+Keywords: Based on the user's request "A device shall have a model property", I've extracted the key concepts and generated an optimized search list following the steps:
+
+1. **Conceptos Nucleares:** Main nouns and verbs:
+	* Device, Model, Property
+2. **Normalización Ontológica:**
+	* Device → Thing (OWL), Entity (RDF)
+	* Model → Concept (OWL), Class (RDF), Type (OWL/RDF)
+	* Property → Attribute (OWL), Property (RDF)
+3. **Sinónimos Técnicos:** Common technical synonyms:
+	* Device → Appliance, Equipment
+	* Model → Schema, Blueprint
+
+Here's the optimized search list in English, separated by commas:
+
+Thing, Entity, Concept, Class, Type, Attribute, Property, Appliance, Equipment, Schema, Blueprint
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (21.99s) ---
+Prueba 11/26: 'A building space defines the physical sp...' -> Esperado: saref_2020-05-29.n3
+--- Inicio Pipeline: A building space defines the physical spaces of th... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+BuildingSpace, PhysicalSpace, DeviceLocation, Kitchen, LivingRoom, SpaceCategory, BuildingCategory, Type, Class, Category, Location, Room, Area, Zone, ArchitectureOntology, SUMO, DOLCE
+
+Note: The terms are in English to maintain consistency with the original request.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (22.37s) ---
+Prueba 12/26: 'The devices can belong to several catego...' -> Esperado: saref_2020-05-29.n3
+--- Inicio Pipeline: The devices can belong to several categories... ---
+Keywords: Based on the user's request "The devices can belong to several categories", I've extracted the key concepts and normalized them using standard ontologies. Here is the optimized search list:
+
+Category, Class, Type, OntologyClass, Concept, Thing, Entity, Classification, BelongTo, InstanceOf, HasType, IsA
+
+Note that I've only included technical synonyms that are commonly used in knowledge modeling. Let me know if you have any further requests!
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (15.16s) ---
+Prueba 13/26: 'A switch is a device that has category A...' -> Esperado: saref_2020-05-29.n3
+--- Inicio Pipeline: A switch is a device that has category Actuator... ---
+Keywords: What a delightful challenge!
+
+After analyzing the user's request, I've extracted the key concepts and normalized them using standard ontologies. Here's the optimized search list:
+
+Device, Actuator, Category, Class, Type, Switch, Control, Automation, Electronic, Hardware
+
+These terms are commonly used in Web Semantics (OWL/RDF) and will help facilitate a more precise search. Note that I've only included technical synonyms that are widely accepted in knowledge modeling.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (22.42s) ---
+Prueba 14/26: 'A function represents the functionality ...' -> Esperado: saref_2020-05-29.n3
+--- Inicio Pipeline: A function represents the functionality necessary ... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:
+
+1. **Concepts Nucleares:** Main nouns and verbs:
+	* Function
+	* Device
+	* Task
+2. **Normalización Ontológica:**
+	* Function → Functionality (OWL/RDF)
+	* Device → DeviceCategory, ElectronicDevice, HardwareComponent (OWL/RDF)
+	* Task → TaskCategory, Activity, Goal (OWL/RDF)
+3. **Sinónimos Técnicos:** Precise alternatives:
+	* Function → Capability, Feature, Property
+	* Device → Appliance, Equipment, System
+
+Here's the optimized search list in English, separated by commas:
+
+Functionality, DeviceCategory, ElectronicDevice, HardwareComponent, TaskCategory, Activity, Goal, Capability, Feature, Property, Appliance, Equipment, System
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (20.50s) ---
+Prueba 15/26: 'A single option for applying a constrain...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: A single option for applying a constraint to a par... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Constraint, Option, Role, Party, Apply, Specific, Type, Category, Class, Ontology, RDF, OWL, Semantic Web, Knowledge Modeling, Modeling Language.
+
+Note that I've included terms like "Type", "Category", and "Class" as they are common in ontological modeling, and their formal equivalents in standard ontologies (e.g., OWL/RDF).
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (21.95s) ---
+Prueba 16/26: 'It should be possible to define the targ...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: It should be possible to define the target of a co... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:
+
+1. **Concepts Nucleares:** Main nouns and verbs:
+	* Target
+	* Constraint
+	* Permission
+	* Prohibition
+	* Duty
+	* Assignee
+	* Assets
+2. **Normalización Ontológica:**
+	* Target → Resource, Entity, Object
+	* Constraint → Restriction, Condition, Rule
+	* Permission → Authorization, AccessControl
+	* Prohibition → Denial, Restriction
+	* Duty → Obligation, Responsibility
+	* Assignee → Agent, User, Role
+	* Assets → Resource, Entity, Property
+3. **Sinónimos Técnicos:**
+	* (Only included if they are common in knowledge modeling)
+	* None
+
+Here is the optimized search list in English, separated by commas:
+
+Resource, Entity, Object, Restriction, Condition, Rule, Authorization, AccessControl, Denial, Obligation, Responsibility, Agent, User, Role, Property
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (24.43s) ---
+Prueba 17/26: 'The current data model assumes a policy ...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: The current data model assumes a policy instance i... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+PolicyInstance, DataModel, Ontology, Variable, Value, Policy, Instance, Data, Extension, Category, Class, Type, SemanticWeb, RDF, OWL, KnowledgeModel, ConceptualModel
+
+Note that I've included only technical terms that are commonly used in knowledge modeling and semantic web contexts.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (16.11s) ---
+Prueba 18/26: 'In addition to the existing identifiers ...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: In addition to the existing identifiers of a polic... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:
+
+**Conceptos Nucleares:**
+
+* Policy
+* Version
+* Identifier
+
+**Normalización Ontológica:**
+
+* Policy → PolicyCategory, PolicyClass, PolicyType
+* Version → VersionNumber, VersionSpecification
+* Identifier → IdentifierScheme, UniqueIdentifier
+
+**Sinónimos Técnicos:**
+
+* Expressing → Representing, Specifying, Describing
+* Means → Mechanism, Method, Technique
+
+Here's the optimized search list in English, separated by commas:
+
+PolicyCategory, PolicyClass, PolicyType, VersionNumber, VersionSpecification, IdentifierScheme, UniqueIdentifier, Representing, Specifying, Describing, Mechanism, Method, Technique
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (26.25s) ---
+Prueba 19/26: 'It should be possible to define the pric...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: It should be possible to define the price for duty... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Policy, Permission, Duty, Payment, Price, Category, Class, Type, Ontology, Semantic, RDF, OWL, Taxonomy, Classification, Standardization, Formalization.
+
+Note that I've included only technical terms that are commonly used in knowledge modeling, and avoided adding unnecessary synonyms or variations. The list is designed to facilitate searching and querying in a semantic web context using ontologies like OWL and RDF.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 10
+Generando decisión final...
+--- Fin Pipeline (21.64s) ---
+Prueba 20/26: 'Extend the temporal constraints by setti...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: Extend the temporal constraints by setting a time ... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Temporal constraints, Time reference, Point in time, Period, RightOperand, Ontology, Semantic Web, OWL, RDF, Class, Category, Type, Interval, Instant, Timestamp, Date, TimeStamp, Temporal Reasoning
+
+Note that I've included only technical terms and their equivalents in standard ontologies (e.g., "Class" for "tipo"), as well as common synonyms in knowledge modeling.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (21.69s) ---
+Prueba 21/26: 'For a relativeTimePeriod constraint the ...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: For a relativeTimePeriod constraint the rightOpera... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:
+
+1. **Concepts Nucleares:** Main technical nouns and verbs
+	* RelativeTimePeriod, constraint, rightOperand, time period, value
+2. **Normalización Ontológica:** Standardized ontological equivalents
+	* TimePeriod (owl:Class), Period (rdfs:Class), Interval (owl:Class)
+3. **Sinónimos Técnicos:** Common technical synonyms
+	* TemporalRange (OWL), TimeSpan (RDF), Duration (OWL)
+
+Here's the optimized search list in English, separated by commas:
+
+RelativeTimePeriod, constraint, rightOperand, time period, value, TimePeriod, Period, Interval, TemporalRange, TimeSpan, Duration
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (20.96s) ---
+Prueba 22/26: 'Being able to tie Permission, Prohibitio...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: Being able to tie Permission, Prohibition, Duty, a... ---
+Keywords: What a fascinating request!
+
+After analyzing the user's petition, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Permission, Prohibition, Duty, Constraint, AND, OR, XOR, Relationship, Entity, Ontology, Category, Class, Type, Rule, Inference, Logic, Semantics
+
+These terms are crucial for modeling the relationships between Permission, Prohibition, Duty, and Constraint entities using logical operators like AND, OR, or XOR. The list includes both technical nouns (e.g., Entity, Relationship) and verbs (e.g., Category, Class, Type), as well as standard ontological concepts (e.g., Ontology, Logic).
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (20.69s) ---
+Prueba 23/26: 'Being able to assign multiple individual...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: Being able to assign multiple individuals of type ... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Party, Group, Permission, Prohibition, Duty, Assign, Multiple, Individuals, Type, Category, Class, Role, Membership, Ontology, RDF, OWL, Semantic Web.
+
+Note that I've included terms like "Category", "Class", and "Type" to normalize the ontological concepts, as well as common technical synonyms like "Role" and "Membership".
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 3
+Generando decisión final...
+--- Fin Pipeline (21.79s) ---
+Prueba 24/26: 'Ability to link from a Policy or a Permi...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: Ability to link from a Policy or a Permission to t... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Policy, Permission, License, Link, Reference, Original, Text-Based, Ontology, Category, Class, Type, Semantic Web, RDF, OWL, Knowledge Model, Conceptual Graph.
+
+Note that I've included only technical terms that are commonly used in knowledge modeling and semantic web contexts.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (16.58s) ---
+Prueba 25/26: 'It should be possible to define policies...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: It should be possible to define policies of type A... ---
+Keywords: Based on the user's request "It should be possible to define policies of type Assertion", I've extracted the key concepts and generated an optimized search list following the steps:
+
+1. **Concepts Nucleares:**
+	* Policies
+	* Type
+	* Assertion
+2. **Normalización Ontológica:**
+	* Policies -> PolicyCategory, PolicyClass, PolicyType
+	* Type -> Category, Class, Type
+3. **Sinónimos Técnicos:**
+	* Policies -> Rules, Regulations, Guidelines
+	* Type -> Kind, Sort, Hierarchy
+
+Here's the optimized search list in English, separated by commas:
+
+PolicyCategory, PolicyClass, PolicyType, Category, Class, Type, Assertion, Rule, Regulation, Guideline, Kind, Sort, Hierarchy
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 2
+Generando decisión final...
+--- Fin Pipeline (22.55s) ---
+Prueba 26/26: 'An Assertion policy does not grant any p...' -> Esperado: odrl_2017-09-16.n3
+--- Inicio Pipeline: An Assertion policy does not grant any permissions... ---
+Keywords: Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:
+
+Policy, Assertion, Permission, Prohibition, Term, Party, Belief, Category, Class, Type, Ontology, Semantic Web, RDF, OWL, Knowledge Model, Conceptualization.
+
+Note that I've included only technical terms that are commonly used in knowledge modeling and semantic web contexts.
+Retrieval: 40 docs recuperados.
+Ejecutando Filtro LLM (esto es lo que tardaba)...
+Docs tras filtro: 1
+Generando decisión final...
+--- Fin Pipeline (21.59s) ---
+
+========================================
+RESULTADOS FINALES (POST RE-RANKING)
+========================================
+Total pruebas: 26
+Precisión Recuperación (Filter Recall): 53.8%
+Precisión Generación (Final Choice):    53.8%
+
+Detalle guardado en: C:\Users\Wido\Desktop\TFG\tfg_rag_pruebas\code\..\resultados_evaluacion.csv
