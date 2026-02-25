@@ -12,190 +12,188 @@ Prueba 1/26: 'Zones are areas with spatial 3D volumes,...' -> Esperado: bot.ttl
 --- Inicio Pipeline: Zones are areas with spatial 3D volumes, and inclu... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
-Top 10 seleccionados (Score máx: -0.1591)
+Top 10 seleccionados (Score máx: 2.4867)
 Generando decisión final con LLM...
---- Fin Pipeline (9.94s) ---
+--- Fin Pipeline (10.42s) ---
 Prueba 2/26: 'Zones may contain other zones, Buildings...' -> Esperado: bot.ttl
 --- Inicio Pipeline: Zones may contain other zones, Buildings may conta... ---
-Retrieval Broad: 100 docs candidatos.
+Retrieval Broad: 101 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 4.5291)
 Generando decisión final con LLM...
---- Fin Pipeline (8.75s) ---
+--- Fin Pipeline (8.23s) ---
 Prueba 3/26: 'Zones may intersect, or be adjacent to o...' -> Esperado: bot.ttl
 --- Inicio Pipeline: Zones may intersect, or be adjacent to other zones... ---
-Retrieval Broad: 100 docs candidatos.
+Retrieval Broad: 101 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 4.9981)
 Generando decisión final con LLM...
---- Fin Pipeline (8.87s) ---
+--- Fin Pipeline (8.68s) ---
 Prueba 4/26: 'There are building elements, which may h...' -> Esperado: bot.ttl
 --- Inicio Pipeline: There are building elements, which may have sub el... ---
-Retrieval Broad: 100 docs candidatos.
+Retrieval Broad: 101 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 1.9569)
 Generando decisión final con LLM...
---- Fin Pipeline (7.05s) ---
+--- Fin Pipeline (6.99s) ---
 Prueba 5/26: 'Zones may have elements, either containe...' -> Esperado: bot.ttl
 --- Inicio Pipeline: Zones may have elements, either contained, adjacen... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 6.5486)
 Generando decisión final con LLM...
---- Fin Pipeline (8.64s) ---
+--- Fin Pipeline (8.47s) ---
 Prueba 6/26: 'A adjacent zones and/or elements share s...' -> Esperado: bot.ttl
 --- Inicio Pipeline: A adjacent zones and/or elements share some interf... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 5.6834)
 Generando decisión final con LLM...
---- Fin Pipeline (7.32s) ---
+--- Fin Pipeline (7.43s) ---
 Prueba 7/26: 'Zones and Elements have a 3D Model (incl...' -> Esperado: bot.ttl
 --- Inicio Pipeline: Zones and Elements have a 3D Model (including geom... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 2.0221)
 Generando decisión final con LLM...
---- Fin Pipeline (10.62s) ---
+--- Fin Pipeline (10.55s) ---
 Prueba 8/26: 'A device performs one or more functions...' -> Esperado: saref_2020-05-29.n3
 --- Inicio Pipeline: A device performs one or more functions... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 8.6168)
 Generando decisión final con LLM...
---- Fin Pipeline (9.89s) ---
+--- Fin Pipeline (9.74s) ---
 Prueba 9/26: 'A building space is a geographical point...' -> Esperado: saref_2020-05-29.n3
 --- Inicio Pipeline: A building space is a geographical point character... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -3.5826)
 Generando decisión final con LLM...
---- Fin Pipeline (9.24s) ---
+--- Fin Pipeline (8.94s) ---
 Prueba 10/26: 'A device shall have a model property...' -> Esperado: saref_2020-05-29.n3
 --- Inicio Pipeline: A device shall have a model property... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 0.9351)
 Generando decisión final con LLM...
---- Fin Pipeline (9.90s) ---
+--- Fin Pipeline (9.73s) ---
 Prueba 11/26: 'A building space defines the physical sp...' -> Esperado: saref_2020-05-29.n3
 --- Inicio Pipeline: A building space defines the physical spaces of th... ---
-Retrieval Broad: 100 docs candidatos.
+Retrieval Broad: 101 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
-Top 10 seleccionados (Score máx: 4.5073)
+Top 10 seleccionados (Score máx: -2.7890)
 Generando decisión final con LLM...
---- Fin Pipeline (10.03s) ---
+--- Fin Pipeline (9.55s) ---
 Prueba 12/26: 'The devices can belong to several catego...' -> Esperado: saref_2020-05-29.n3
 --- Inicio Pipeline: The devices can belong to several categories... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -0.0304)
 Generando decisión final con LLM...
---- Fin Pipeline (9.32s) ---
+--- Fin Pipeline (8.81s) ---
 Prueba 13/26: 'A switch is a device that has category A...' -> Esperado: saref_2020-05-29.n3
 --- Inicio Pipeline: A switch is a device that has category Actuator... ---
 Retrieval Broad: 101 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 7.1974)
 Generando decisión final con LLM...
---- Fin Pipeline (11.01s) ---
+--- Fin Pipeline (10.05s) ---
 Prueba 14/26: 'A function represents the functionality ...' -> Esperado: saref_2020-05-29.n3
 --- Inicio Pipeline: A function represents the functionality necessary ... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 6.1052)
 Generando decisión final con LLM...
---- Fin Pipeline (10.97s) ---
+--- Fin Pipeline (7.92s) ---
 Prueba 15/26: 'A single option for applying a constrain...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: A single option for applying a constraint to a par... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -3.8759)
 Generando decisión final con LLM...
---- Fin Pipeline (9.85s) ---
+--- Fin Pipeline (9.51s) ---
 Prueba 16/26: 'It should be possible to define the targ...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: It should be possible to define the target of a co... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -5.1561)
 Generando decisión final con LLM...
---- Fin Pipeline (8.66s) ---
+--- Fin Pipeline (8.42s) ---
 Prueba 17/26: 'The current data model assumes a policy ...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: The current data model assumes a policy instance i... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
-Top 10 seleccionados (Score máx: -6.6735)
+Top 10 seleccionados (Score máx: -6.2878)
 Generando decisión final con LLM...
---- Fin Pipeline (9.65s) ---
+--- Fin Pipeline (9.29s) ---
 Prueba 18/26: 'In addition to the existing identifiers ...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: In addition to the existing identifiers of a polic... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -7.2423)
 Generando decisión final con LLM...
---- Fin Pipeline (8.76s) ---
+--- Fin Pipeline (8.43s) ---
 Prueba 19/26: 'It should be possible to define the pric...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: It should be possible to define the price for duty... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -8.7027)
 Generando decisión final con LLM...
---- Fin Pipeline (8.07s) ---
+--- Fin Pipeline (7.10s) ---
 Prueba 20/26: 'Extend the temporal constraints by setti...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: Extend the temporal constraints by setting a time ... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -4.5713)
 Generando decisión final con LLM...
---- Fin Pipeline (10.33s) ---
+--- Fin Pipeline (9.09s) ---
 Prueba 21/26: 'For a relativeTimePeriod constraint the ...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: For a relativeTimePeriod constraint the rightOpera... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
-Top 10 seleccionados (Score máx: -7.7324)
+Top 10 seleccionados (Score máx: -2.0711)
 Generando decisión final con LLM...
---- Fin Pipeline (8.47s) ---
+--- Fin Pipeline (8.52s) ---
 Prueba 22/26: 'Being able to tie Permission, Prohibitio...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: Being able to tie Permission, Prohibition, Duty, a... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -5.0913)
 Generando decisión final con LLM...
---- Fin Pipeline (7.72s) ---
+--- Fin Pipeline (8.59s) ---
 Prueba 23/26: 'Being able to assign multiple individual...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: Being able to assign multiple individuals of type ... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -5.5342)
 Generando decisión final con LLM...
---- Fin Pipeline (9.87s) ---
+--- Fin Pipeline (9.85s) ---
 Prueba 24/26: 'Ability to link from a Policy or a Permi...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: Ability to link from a Policy or a Permission to t... ---
 Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -5.1674)
 Generando decisión final con LLM...
---- Fin Pipeline (8.94s) ---
+--- Fin Pipeline (9.27s) ---
 Prueba 25/26: 'It should be possible to define policies...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: It should be possible to define policies of type A... ---
-Retrieval Broad: 101 docs candidatos.
+Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: 0.1557)
 Generando decisión final con LLM...
---- Fin Pipeline (7.51s) ---
+--- Fin Pipeline (7.97s) ---
 Prueba 26/26: 'An Assertion policy does not grant any p...' -> Esperado: odrl_2017-09-16.n3
 --- Inicio Pipeline: An Assertion policy does not grant any permissions... ---
-Retrieval Broad: 101 docs candidatos.
+Retrieval Broad: 100 docs candidatos.
 Ejecutando Cross-Encoder Re-ranking...
 Top 10 seleccionados (Score máx: -3.2823)
 Generando decisión final con LLM...
---- Fin Pipeline (8.56s) ---
+--- Fin Pipeline (8.55s) ---
 
 ========================================
 RESULTADOS FINALES (POST RE-RANKING)
 ========================================
 Total pruebas: 26
-Precisión Recuperación (Filter Recall): 84.6%
-Precisión Generación (Final Choice):    76.9%
-
-Detalle guardado en: C:\Users\Wido\Desktop\TFG\tfg_rag_pruebas\code\..\resultados_evaluacion.csv
+Precisión Recuperación (Filter Recall): 88.5%
+Precisión Generación (Final Choice):    80.8%
