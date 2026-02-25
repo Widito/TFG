@@ -1,0 +1,260 @@
+--- INICIANDO DEBUG GLOBAL DE ONTOLOGÍAS ---
+
+==================================================
+ ESCANEANDO CARPETA: dataset
+==================================================
+
+ Analizando: aoi.ttl
+   OK | Tripletas: 100 | Clases: 14 | Props: 4 | Tiempo: 0.10s
+
+ Analizando: beo.ttl
+   OK | Tripletas: 1530 | Clases: 186 | Props: 1 | Tiempo: 0.05s
+
+ Analizando: bot.ttl
+   OK | Tripletas: 957 | Clases: 8 | Props: 17 | Tiempo: 0.03s
+
+ Analizando: bpo.ttl
+   OK | Tripletas: 382 | Clases: 14 | Props: 23 | Tiempo: 0.03s
+
+ Analizando: brick.ttl
+   OK | Tripletas: 53960 | Clases: 1786 | Props: 206 | Tiempo: 0.93s
+
+ Analizando: building.ttl
+   OK | Tripletas: 683 | Clases: 45 | Props: 34 | Tiempo: 0.03s
+
+ Analizando: ccrel.rdf
+   OK | Tripletas: 115 | Clases: 6 | Props: 11 | Tiempo: 0.02s
+
+ Analizando: contax.ttl
+   OK | Tripletas: 224 | Clases: 28 | Props: 15 | Tiempo: 0.02s
+
+ Analizando: dbo.rdf
+   OK | Tripletas: 32557 | Clases: 1329 | Props: 7 | Tiempo: 0.90s
+
+ Analizando: dcterms_2012-06-14.n3
+   OK | Tripletas: 866 | Clases: 22 | Props: 55 | Tiempo: 0.03s
+
+ Analizando: dpv_2025-08-01.n3
+   OK | Tripletas: 14767 | Clases: 963 | Props: 150 | Tiempo: 0.42s
+
+ Analizando: dstv.ttl
+   OK | Tripletas: 657 | Clases: 70 | Props: 54 | Tiempo: 0.03s
+
+ Analizando: dt.n3
+   OK | Tripletas: 246 | Clases: 11 | Props: 15 | Tiempo: 0.02s
+
+ Analizando: facility.ttl
+   OK | Tripletas: 182 | Clases: 24 | Props: 18 | Tiempo: 0.02s
+
+ Analizando: ifc4.ttl
+   OK | Tripletas: 34158 | Clases: 1286 | Props: 1585 | Tiempo: 0.72s
+
+ Analizando: mep.ttl
+   OK | Tripletas: 3541 | Clases: 484 | Props: 1 | Tiempo: 0.15s
+
+ Analizando: odrl_2017-09-16.n3
+   OK | Tripletas: 2158 | Clases: 55 | Props: 108 | Tiempo: 0.06s
+
+ Analizando: omg.ttl
+   OK | Tripletas: 152 | Clases: 7 | Props: 19 | Tiempo: 0.01s
+
+ Analizando: ppo_2013-11-13.n3
+   OK | Tripletas: 179 | Clases: 20 | Props: 22 | Tiempo: 0.02s
+
+ Analizando: prov_2015-01-11.n3
+   OK | Tripletas: 1662 | Clases: 51 | Props: 69 | Tiempo: 0.05s
+
+ Analizando: sbim.owl
+ Falló carga XML (file:///C:/Users/Wido/Desktop/TFG/tfg_rag_pruebas/dataset/sbim.owl:1:0: not well-formed (invalid token)). Probando Turtle...
+   OK | Tripletas: 373 | Clases: 2 | Props: 42 | Tiempo: 0.02s
+
+ Analizando: stg.ttl
+   OK | Tripletas: 161 | Clases: 12 | Props: 13 | Tiempo: 0.02s
+
+ Analizando: th_building.owl
+   OK | Tripletas: 15768 | Clases: 232 | Props: 439 | Tiempo: 0.44s
+
+ Analizando: th_sharedvocalulary.owl
+   OK | Tripletas: 227 | Clases: 31 | Props: 5 | Tiempo: 0.02s
+
+==================================================
+ ESCANEANDO CARPETA: gov_acad_dataset
+==================================================
+
+ Analizando: agr_2017-10-09.n3
+   OK | Tripletas: 127 | Clases: 4 | Props: 7 | Tiempo: 0.01s
+
+ Analizando: aiiso_2008-09-25.n3
+   OK | Tripletas: 306 | Clases: 17 | Props: 10 | Tiempo: 0.04s
+
+ Analizando: apco_2022-08-31.n3
+   OK | Tripletas: 325 | Clases: 29 | Props: 31 | Tiempo: 0.02s
+
+ Analizando: cgov_2012-08-28.n3
+   OK | Tripletas: 726 | Clases: 46 | Props: 91 | Tiempo: 0.03s
+
+ Analizando: cis_2016-03-30.n3
+   OK | Tripletas: 2338 | Clases: 58 | Props: 90 | Tiempo: 0.07s
+
+ Analizando: crsw_2006-05-03.n3
+   OK | Tripletas: 186 | Clases: 4 | Props: 25 | Tiempo: 0.02s
+
+ Analizando: ctorg_2013-04-24.n3
+   OK | Tripletas: 167 | Clases: 9 | Props: 19 | Tiempo: 0.02s
+
+ Analizando: datex_2016-06-13.n3
+   OK | Tripletas: 21434 | Clases: 391 | Props: 1767 | Tiempo: 0.47s
+
+ Analizando: donto_2015-06-19.n3
+   OK | Tripletas: 1668 | Clases: 60 | Props: 79 | Tiempo: 0.06s
+
+ Analizando: edu_2020-02-14.n3
+   OK | Tripletas: 426 | Clases: 30 | Props: 14 | Tiempo: 0.02s
+
+ Analizando: edupro_2016-09-13.n3
+   OK | Tripletas: 114 | Clases: 7 | Props: 8 | Tiempo: 0.01s
+
+ Analizando: ei2a_2021-10-21.n3
+   OK | Tripletas: 1700 | Clases: 41 | Props: 136 | Tiempo: 0.05s
+
+ Analizando: elec_2013-01-17.n3
+   OK | Tripletas: 232 | Clases: 8 | Props: 20 | Tiempo: 0.02s
+
+ Analizando: eurio_2023-09-28.n3
+   OK | Tripletas: 1382 | Clases: 39 | Props: 111 | Tiempo: 0.08s
+
+ Analizando: fea_2015-06-26.n3
+   OK | Tripletas: 278 | Clases: 68 | Props: 18 | Tiempo: 0.02s
+
+ Analizando: frapo_2014-01-31.n3
+   OK | Tripletas: 1086 | Clases: 92 | Props: 117 | Tiempo: 0.04s
+
+ Analizando: gc_2009-08-24.n3
+   OK | Tripletas: 280 | Clases: 17 | Props: 43 | Tiempo: 0.02s
+
+ Analizando: gd_2011-11-21.n3
+   OK | Tripletas: 87 | Clases: 16 | Props: 11 | Tiempo: 0.01s
+
+ Analizando: istex_2018-12-17.n3
+   OK | Tripletas: 224 | Clases: 17 | Props: 29 | Tiempo: 0.02s
+
+ Analizando: kgc_2023-02-01.n3
+   OK | Tripletas: 117 | Clases: 17 | Props: 43 | Tiempo: 0.02s
+
+ Analizando: m4i_2025-03-10.n3
+   OK | Tripletas: 1617 | Clases: 43 | Props: 100 | Tiempo: 0.06s
+
+ Analizando: meb_2013-03-26.n3
+   OK | Tripletas: 738 | Clases: 28 | Props: 75 | Tiempo: 0.03s
+
+ Analizando: modsci_2022-12-18.n3
+   OK | Tripletas: 1828 | Clases: 370 | Props: 49 | Tiempo: 0.07s
+
+ Analizando: oan_2012-04-25.n3
+   OK | Tripletas: 877 | Clases: 38 | Props: 120 | Tiempo: 0.03s
+
+ Analizando: ocd_2013-05-02.n3
+   OK | Tripletas: 1226 | Clases: 67 | Props: 87 | Tiempo: 0.05s
+
+ Analizando: orges_2015-02-19.n3
+   OK | Tripletas: 228 | Clases: 4 | Props: 12 | Tiempo: 0.02s
+
+ Analizando: parl_2010-06-17.n3
+   OK | Tripletas: 166 | Clases: 7 | Props: 26 | Tiempo: 0.02s
+
+ Analizando: roh_2022-01-01.n3
+   OK | Tripletas: 6864 | Clases: 292 | Props: 248 | Tiempo: 0.17s
+
+ Analizando: s4city_2020-06-05.n3
+   OK | Tripletas: 461 | Clases: 35 | Props: 40 | Tiempo: 0.02s
+
+ Analizando: scip_2012-07-03.n3
+   OK | Tripletas: 295 | Clases: 30 | Props: 74 | Tiempo: 0.02s
+
+ Analizando: scoro_2017-09-04.n3
+   OK | Tripletas: 725 | Clases: 20 | Props: 18 | Tiempo: 0.03s
+
+ Analizando: seo_2019-04-10.n3
+   OK | Tripletas: 1426 | Clases: 112 | Props: 89 | Tiempo: 0.05s
+
+ Analizando: swc_2009-05-11.n3
+   OK | Tripletas: 863 | Clases: 46 | Props: 42 | Tiempo: 0.03s
+
+ Analizando: swrc_2007-06-22.n3
+   OK | Tripletas: 1168 | Clases: 70 | Props: 94 | Tiempo: 0.04s
+
+ Analizando: teach_2013-04-25.n3
+   OK | Tripletas: 237 | Clases: 11 | Props: 28 | Tiempo: 0.02s
+
+ Analizando: tsn_2017-01-31.n3
+   OK | Tripletas: 256 | Clases: 11 | Props: 26 | Tiempo: 0.02s
+
+ Analizando: tsnc_2017-05-15.n3
+   OK | Tripletas: 358 | Clases: 38 | Props: 28 | Tiempo: 0.04s
+
+ Analizando: vivo_2014-07-12.n3
+   OK | Tripletas: 8901 | Clases: 410 | Props: 407 | Tiempo: 0.22s
+
+==================================================
+ ESCANEANDO CARPETA: dataset_noise_industry
+==================================================
+
+ Analizando: cerif_2013-04-23.n3
+   OK | Tripletas: 519 | Clases: 52 | Props: 60 | Tiempo: 0.02s
+
+ Analizando: dogont_2015-01-11.n3
+   OK | Tripletas: 12016 | Clases: 896 | Props: 77 | Tiempo: 0.26s
+
+ Analizando: iot-lite_2015-06-01.n3
+   OK | Tripletas: 142 | Clases: 20 | Props: 21 | Tiempo: 0.01s
+
+ Analizando: m3lite_2017-07-29.n3
+   OK | Tripletas: 2254 | Clases: 427 | Props: 5 | Tiempo: 0.09s
+
+ Analizando: oum_2020-06-06.n3
+   OK | Tripletas: 27917 | Clases: 791 | Props: 34 | Tiempo: 0.53s
+
+ Analizando: p-plan_2014-03-12.n3
+   OK | Tripletas: 154 | Clases: 11 | Props: 14 | Tiempo: 0.01s
+
+ Analizando: qudt_2020-04-20.n3
+   OK | Tripletas: 2641 | Clases: 83 | Props: 172 | Tiempo: 0.11s
+
+ Analizando: s4agri_2020-06-05.n3
+   OK | Tripletas: 762 | Clases: 55 | Props: 60 | Tiempo: 0.03s
+
+ Analizando: s4ehaw_2020-05-01.n3
+   OK | Tripletas: 827 | Clases: 65 | Props: 92 | Tiempo: 0.03s
+
+ Analizando: s4ener_2020-06-04.n3
+   OK | Tripletas: 1167 | Clases: 65 | Props: 57 | Tiempo: 0.04s
+
+ Analizando: s4inma_2019-04-30.n3
+   OK | Tripletas: 459 | Clases: 34 | Props: 35 | Tiempo: 0.02s
+
+ Analizando: s4watr_2020-06-03.n3
+   OK | Tripletas: 999 | Clases: 72 | Props: 62 | Tiempo: 0.04s
+
+ Analizando: saref_2020-05-29.n3
+   OK | Tripletas: 908 | Clases: 81 | Props: 40 | Tiempo: 0.03s
+
+ Analizando: seas_2016-05-25.n3
+   OK | Tripletas: 82 | Clases: 2 | Props: 1 | Tiempo: 0.03s
+
+ Analizando: sosa_2017-04-17.n3
+   OK | Tripletas: 355 | Clases: 29 | Props: 25 | Tiempo: 0.02s
+
+ Analizando: ssno_2017-04-17.n3
+   OK | Tripletas: 520 | Clases: 11 | Props: 15 | Tiempo: 0.02s
+
+==================================================
+ RESUMEN FINAL DE CLASIFICACIÓN
+==================================================
+Total de ontologías analizadas: 78
+
+  OK                       : 78 archivos (100.0%)
+  VACÍO                    : 0 archivos (0.0%)
+  SIN DATOS ESTRUCTURALES  : 0 archivos (0.0%)
+  ERROR CRÍTICO            : 0 archivos (0.0%)
+
+--- FIN DEL DEBUG ---

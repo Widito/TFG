@@ -155,7 +155,7 @@ try:
             persist_directory=persist_directory
         )
         
-    print("✅ Ingesta Completada con Metadatos Estructurales.")
+    print(" Ingesta Completada con Metadatos Estructurales.")
 
 except Exception as e:
     traceback.print_exc()
