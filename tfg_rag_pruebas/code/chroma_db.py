@@ -106,7 +106,6 @@ try:
 
             # --- ANÁLISIS ESTRUCTURAL (NUEVO) ---
             ont_type, n_imports = analyze_ontology_structure(g)
-            # ------------------------------------
 
             file_docs = []
             
