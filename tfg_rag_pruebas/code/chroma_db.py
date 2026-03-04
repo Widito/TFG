@@ -43,11 +43,11 @@ def get_safe_value(row, attr_list):
     return ""
 
 try:
-    print("Paso 1: Extracción y Análisis Estructural...")
+    print("Paso 1: Extracción y Análisis Estructural")
     all_documents = []
     all_metadatas = []
     
-    # Queries SPARQL (Mantenemos)
+    # Queries SPARQL
     query_classes = """
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -104,7 +104,7 @@ try:
             
             if not loaded: continue
 
-            # --- ANÁLISIS ESTRUCTURAL (NUEVO) ---
+            # ANÁLISIS ESTRUCTURAL 
             ont_type, n_imports = analyze_ontology_structure(g)
 
             file_docs = []
