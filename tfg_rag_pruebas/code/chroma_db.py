@@ -5,7 +5,7 @@ from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 import traceback
 
-print("Iniciando Indexación Inteligente (Structural RAG)...")
+print("Iniciando...")
 
 # CONFIGURACIÓN 
 # Usamos rutas absolutas para evitar problemas
@@ -47,7 +47,7 @@ try:
     all_documents = []
     all_metadatas = []
     
-    # Queries SPARQL (Mantenemos las tuyas, funcionan bien)
+    # Queries SPARQL (Mantenemos)
     query_classes = """
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -106,7 +106,6 @@ try:
 
             # --- ANÁLISIS ESTRUCTURAL (NUEVO) ---
             ont_type, n_imports = analyze_ontology_structure(g)
-            # ------------------------------------
 
             file_docs = []
             

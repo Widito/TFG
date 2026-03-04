@@ -9,18 +9,18 @@ from langchain_ollama import ChatOllama
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
-from sentence_transformers import CrossEncoder  # <--- NUEVA IMPORTACIÓN
+from sentence_transformers import CrossEncoder  # NUEVA IMPORTACIÓN
 
 # CONFIGURACIÓN
-# Construir ruta absoluta dinámica: carpeta 'chroma_db' hermana de la carpeta 'code'
-current_dir = os.path.dirname(os.path.abspath(__file__)) # .../tfg_rag_pruebas/code
-project_root = os.path.dirname(current_dir)              # .../tfg_rag_pruebas
+# Construir ruta absoluta dinámica
+current_dir = os.path.dirname(os.path.abspath(__file__)) 
+project_root = os.path.dirname(current_dir)              
 PERSIST_DIRECTORY = os.path.join(project_root, "chroma_db")
 EMBEDDING_MODEL = "BAAI/bge-m3"
 LLM_MODEL = "llama3"
-RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2" # <--- MODELO RERANKER
+RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2" # MODELO RERANKER
 
-# EN rag_basico.py (Sustituye la clase OntologyRecommender completa o los métodos indicados)
+
 
 class OntologyRecommender:
     def __init__(self):
@@ -52,19 +52,17 @@ class OntologyRecommender:
         self._warmup_system()
         print("Sistema RAG Híbrido listo y optimizado.")
 
-    # ... (MANTENER _warmup_system, _setup_retrievers, _hybrid_retrieve, _setup_chains IGUALES) ...
-    # Solo asegúrate de que _setup_chains sea la versión sin filter_chain que hicimos antes.
     
     def _warmup_system(self):
         """Ejecuta una inferencia dummy para cargar modelos en VRAM"""
-        print("   🔥 Ejecutando Warmup (Cargando modelos en GPU)...")
+        print("   Ejecutando Warmup (Cargando modelos en GPU)...")
         try:
             self.embeddings.embed_query("warmup query")
             self.reranker.predict([["test query", "test document content"]])
             self.llm.invoke("Ready?")
-            print("   🔥 Modelos cargados.")
+            print("   Modelos cargados.")
         except Exception as e:
-            print(f"   ⚠️ Error en Warmup (no crítico): {e}")
+            print(f"   Error en Warmup (no crítico): {e}")
 
     def _setup_retrievers(self):
         print(" - Construyendo índice BM25...")

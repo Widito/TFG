@@ -22,7 +22,7 @@ class DualLogger(object):
 current_dir = os.path.dirname(os.path.abspath(__file__))
 log_filename = os.path.join(current_dir, "log_debug_ontologias.txt")
 sys.stdout = DualLogger(log_filename)
-# ---------------------------------------------
+
 
 
 # Configuración de carpetas (Rutas dinámicas)
