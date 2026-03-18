@@ -244,19 +244,67 @@ class EvaluadorRequisitos:
 
         return cobertura
 
+    def redactar_veredicto_final(self, matriz_cobertura: Dict[str, List[str]]) -> str:
+        """
+        Genera un veredicto final argumentado recomendando una red de ontologias.
+
+        El LLM recibe la matriz de cobertura en JSON y redacta una recomendacion
+        en formato Markdown profesional (no JSON), combinando como maximo 3 ontologias.
+        """
+        from langchain_core.prompts import ChatPromptTemplate
+
+        matriz_json = json.dumps(matriz_cobertura, indent=2, ensure_ascii=False)
+
+        system_prompt = (
+            "Actua como un Consultor Experto en Web Semantica y Ontologias. "
+            "Tu tarea es analizar la matriz de cobertura de requisitos por ontologia y proponer "
+            "una red de ontologias recomendada. "
+            "Debes recomendar un conjunto de maximo 3 ontologias que, juntas, maximicen la cobertura. "
+            "Justifica brevemente por que eliges cada ontologia, citando los requisitos que cubre. "
+            "La respuesta debe estar en Markdown limpio, claro y profesional. "
+            "No devuelvas JSON en esta etapa."
+        )
+
+        human_prompt = (
+            "MATRIZ DE COBERTURA (JSON):\n{matriz_cobertura_json}\n\n"
+            "Redacta el veredicto final con:\n"
+            "1) Recomendacion de red (maximo 3 ontologias).\n"
+            "2) Justificacion breve por ontologia.\n"
+            "3) Observaciones de cobertura y posibles huecos."
+        )
+
+        prompt_template = ChatPromptTemplate.from_messages(
+            [
+                ("system", system_prompt),
+                ("human", human_prompt),
+            ]
+        )
+
+        prompt_generado = prompt_template.format_messages(
+            matriz_cobertura_json=matriz_json,
+        )
+
+        try:
+            respuesta = self.rag.llm.invoke(prompt_generado)
+            veredicto = respuesta.content if hasattr(respuesta, "content") else str(respuesta)
+            return str(veredicto).strip()
+        except Exception as exc:
+            return f"No fue posible generar el veredicto final en este momento: {exc}"
+
     def orquestar_evaluacion(self, ruta_csv: str, max_requirements: int = 5) -> Dict[str, object]:
         """
         Flujo principal Bottom-Up:
         1) Carga requisitos.
         2) Recupera entidades candidatas por requisito.
-        3) Filtra entidades con el juez LLM (mock).
+        3) Filtra entidades con el juez LLM.
         4) Construye TAD requisito->entidades validas.
         5) Genera y muestra matriz de cobertura ontologia->requisitos.
+        6) Redacta veredicto final con recomendacion de red de ontologias.
         """
         requisitos = self.cargar_requisitos(ruta_csv, max_requirements=max_requirements)
         if not requisitos:
             print("[INFO] No hay requisitos para evaluar.")
-            return {"tad_requisitos": {}, "matriz_cobertura": {}}
+            return {"tad_requisitos": {}, "matriz_cobertura": {}, "veredicto_final": ""}
 
         tad_requisitos: Dict[str, List[Dict[str, str]]] = {}
 
@@ -273,9 +321,14 @@ class EvaluadorRequisitos:
         print("\n=== Matriz de Cobertura (Ontologia -> Requisitos) ===")
         print(json.dumps(matriz_cobertura, indent=2, ensure_ascii=False))
 
+        veredicto_final = self.redactar_veredicto_final(matriz_cobertura)
+        print("\n=== Veredicto Final Recomendado ===")
+        print(veredicto_final)
+
         return {
             "tad_requisitos": tad_requisitos,
             "matriz_cobertura": matriz_cobertura,
+            "veredicto_final": veredicto_final,
         }
 
     @staticmethod
