@@ -137,30 +137,96 @@ class EvaluadorRequisitos:
 
     def juez_llm(self, requisito: str, entidades_recuperadas: List[Dict[str, str]]) -> List[Dict[str, str]]:
         """
-        Mock de juez LLM.
-
-        Entrada esperada:
-        - requisito: texto funcional.
-        - entidades_recuperadas: lista de dicts con uri/texto/ontologia.
-
-        Salida esperada:
-        - lista filtrada de dicts con la misma estructura.
-
-        Nota: por ahora devuelve todas las entidades sin filtrar para simular el comportamiento.
+        Evalua con LLM si cada entidad candidata satisface el requisito funcional.
+        Devuelve solo las entidades cuyas URI hayan sido aprobadas por el modelo.
         """
-        payload_entrada = {
-            "requisito": requisito,
-            "entidades_candidatas": entidades_recuperadas,
-        }
+        from langchain_core.prompts import ChatPromptTemplate
 
-        print("[MOCK juez_llm] Enviando payload al LLM (simulado)")
-        print(f"[MOCK juez_llm] Requisito: {payload_entrada['requisito'][:120]}")
-        print(f"[MOCK juez_llm] Numero de entidades candidatas: {len(payload_entrada['entidades_candidatas'])}")
-
-        # Simulacion: el juez acepta todas las entidades recuperadas.
-        entidades_validadas = list(entidades_recuperadas)
-        return entidades_validadas
-
+        if not requisito or not requisito.strip() or not entidades_recuperadas:
+            return []
+        
+        # 1) Construimos un bloque legible con ID, URI, Ontologia y fragmento textual.
+        entidades_formateadas = []
+        for idx, entidad in enumerate(entidades_recuperadas):
+            uri = str(entidad.get("uri", "")).strip()
+            ontologia = str(entidad.get("ontologia", "unknown")).strip()
+            texto = str(entidad.get("texto", "")).strip()
+            fragmento = re.sub(r"\s+", " ", texto)[:280]
+        
+            entidades_formateadas.append(
+                f"ID: {idx}\nURI: {uri}\nOntologia: {ontologia}\nFragmento: {fragmento}"
+            )
+        
+        bloque_entidades = "\n\n".join(entidades_formateadas)
+        
+        # 2) Prompt estricto: salida unicamente JSON valido con la clave uris_aprobadas.
+        system_prompt = (
+            "Eres un Arquitecto de Datos Semanticos experto en ontologias RDF/OWL. "
+            "Evalua cada entidad candidata y decide si satisface el requisito funcional del usuario. "
+            "Responde unica y exclusivamente con JSON valido. "
+            "Prohibido usar markdown, bloques de codigo, saludos o explicaciones adicionales. "
+            "Debes devolver exactamente este esquema: "
+            '{"uris_aprobadas": ["http://ejemplo/uri1", "http://ejemplo/uri2"]}. '
+            "Si ninguna entidad aplica, devuelve: "
+            '{"uris_aprobadas": []}.'
+        )
+        
+        human_prompt = (
+            "REQUISITO FUNCIONAL:\n{requisito}\n\n"
+            "ENTIDADES CANDIDATAS:\n{entidades}\n\n"
+            "Devuelve solo el JSON con uris_aprobadas."
+        )
+        
+        prompt_template = ChatPromptTemplate.from_messages(
+            [
+                ("system", system_prompt),
+                ("human", human_prompt),
+            ]
+        )
+        
+        prompt_generado = prompt_template.format_messages(
+            requisito=requisito.strip(),
+            entidades=bloque_entidades,
+        )
+        
+        try:
+            # 3) Invocacion real al LLM.
+            respuesta = self.rag.llm.invoke(prompt_generado)
+            raw_text = respuesta.content if hasattr(respuesta, "content") else str(respuesta)
+            raw_text = str(raw_text).strip()
+        
+            # 4) Limpieza robusta del JSON:
+            # - Elimina fences ```json ... ``` si el modelo los incluye indebidamente.
+            # - Si hay texto extra antes/despues, extrae el primer bloque {...} parseable.
+            cleaned = re.sub(r"^\s*```(?:json)?\s*", "", raw_text, flags=re.IGNORECASE)
+            cleaned = re.sub(r"\s*```\s*$", "", cleaned, flags=re.IGNORECASE)
+            cleaned = cleaned.strip()
+        
+            json_candidate = cleaned
+            if not (json_candidate.startswith("{") and json_candidate.endswith("}")):
+                match = re.search(r"\{[\s\S]*\}", cleaned)
+                if not match:
+                    return []
+                json_candidate = match.group(0).strip()
+        
+            parsed = json.loads(json_candidate)
+            uris_aprobadas = parsed.get("uris_aprobadas", [])
+            if not isinstance(uris_aprobadas, list):
+                return []
+        
+            uris_aprobadas_set = {str(uri).strip() for uri in uris_aprobadas if str(uri).strip()}
+        
+        except Exception:
+            # Fallback estricto si falla invocacion o parseo critico.
+            return []
+        
+        # 5) Filtrado final: solo mantenemos entidades cuya URI este aprobada.
+        return [
+            entidad
+            for entidad in entidades_recuperadas
+            if str(entidad.get("uri", "")).strip() in uris_aprobadas_set
+        ]
+    
     def generar_matriz_cobertura(self, tad_requisitos: Dict[str, List[Dict[str, str]]]) -> Dict[str, List[str]]:
         """
         Pivota el TAD requisito->entidades hacia ontologia->requisitos cubiertos.
