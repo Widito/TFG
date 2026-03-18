@@ -166,9 +166,9 @@ class EvaluadorRequisitos:
             "Responde unica y exclusivamente con JSON valido. "
             "Prohibido usar markdown, bloques de codigo, saludos o explicaciones adicionales. "
             "Debes devolver exactamente este esquema: "
-            '{"uris_aprobadas": ["http://ejemplo/uri1", "http://ejemplo/uri2"]}. '
+            '{{"uris_aprobadas": ["http://ejemplo/uri1", "http://ejemplo/uri2"]}}. '
             "Si ninguna entidad aplica, devuelve: "
-            '{"uris_aprobadas": []}.'
+            '{{"uris_aprobadas": []}}.'
         )
         
         human_prompt = (
@@ -350,4 +350,4 @@ if __name__ == "__main__":
     ruta_default = os.path.join(project_root, "dataset_bot_test.csv")
 
     evaluador = EvaluadorRequisitos()
-    evaluador.orquestar_evaluacion(ruta_default, max_requirements=5)
+    evaluador.orquestar_evaluacion(ruta_default, max_requirements=7)
