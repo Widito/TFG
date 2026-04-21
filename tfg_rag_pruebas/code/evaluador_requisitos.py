@@ -2,7 +2,7 @@ import csv
 import json
 import os
 import re
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 
 from rag_basico import OntologyRecommender as RAGBasico
 
@@ -13,6 +13,41 @@ class EvaluadorRequisitos:
     def __init__(self, rag: Optional[RAGBasico] = None):
         # Permite inyectar una instancia existente para pruebas o reutilizacion.
         self.rag = rag if rag is not None else RAGBasico()
+
+    @staticmethod
+    def _normalizar_requisito(texto: str) -> str:
+        """
+        Normaliza un requisito:
+        - elimina prefijos numericos (ej: "1;", "2. ", "3) ")
+        - limpia espacios multiples
+        - recorta espacios extremos
+        """
+        if texto is None:
+            return ""
+
+        requisito = str(texto).strip()
+        requisito = re.sub(r"^\s*\d+\s*[\.;:\-\)]\s*", "", requisito)
+        requisito = re.sub(r"\s+", " ", requisito).strip()
+        return requisito
+
+    @staticmethod
+    def _extraer_json_objeto(texto_llm: str) -> Dict[str, Any]:
+        """
+        Extrae un objeto JSON desde texto libre, usando el primer '{' y el ultimo '}'.
+        """
+        if not texto_llm:
+            raise ValueError("Respuesta vacia del LLM")
+
+        cleaned = re.sub(r"^\s*```(?:json)?\s*", "", str(texto_llm).strip(), flags=re.IGNORECASE)
+        cleaned = re.sub(r"\s*```\s*$", "", cleaned, flags=re.IGNORECASE).strip()
+
+        first_curly = cleaned.find("{")
+        last_curly = cleaned.rfind("}")
+        if first_curly == -1 or last_curly == -1 or last_curly <= first_curly:
+            raise ValueError("No se encontro bloque JSON delimitado por llaves")
+
+        json_candidate = cleaned[first_curly:last_curly + 1].strip()
+        return json.loads(json_candidate)
 
     def cargar_requisitos(self, ruta_csv: str, max_requirements: Optional[int] = None) -> List[str]:
         """
@@ -28,7 +63,7 @@ class EvaluadorRequisitos:
             return []
 
         requisitos: List[str] = []
-        candidate_columns = {
+        candidate_columns = [
             "requisito",
             "requerimiento",
             "requirement",
@@ -38,21 +73,32 @@ class EvaluadorRequisitos:
             "query",
             "consulta",
             "pregunta",
-        }
+        ]
 
         try:
             with open(ruta_csv, "r", encoding="utf-8-sig", newline="") as f:
-                reader = csv.DictReader(f)
+                sample = f.read(1024)
+                f.seek(0)
+
+                try:
+                    dialect = csv.Sniffer().sniff(f.read(1024))
+                    f.seek(0)
+                except csv.Error:
+                    f.seek(0)
+                    dialect = csv.excel
+                    dialect.delimiter = ";" if ";" in sample else ","
+
+                reader = csv.DictReader(f, dialect=dialect)
 
                 # Si no hay cabeceras validas, hacemos fallback con csv.reader.
                 if not reader.fieldnames:
                     f.seek(0)
-                    plain_reader = csv.reader(f)
+                    plain_reader = csv.reader(f, dialect=dialect)
                     for row in plain_reader:
                         if not row:
                             continue
-                        value = str(row[0]).strip()
-                        if value:
+                        value = self._normalizar_requisito(str(row[0]).strip())
+                        if len(value) >= 10:
                             requisitos.append(value)
                     return requisitos[:max_requirements] if max_requirements else requisitos
 
@@ -75,7 +121,8 @@ class EvaluadorRequisitos:
                                 value = str(raw).strip()
                                 break
 
-                    if value:
+                    value = self._normalizar_requisito(value)
+                    if len(value) >= 10:
                         requisitos.append(value)
 
         except Exception as exc:
@@ -86,7 +133,7 @@ class EvaluadorRequisitos:
             return requisitos[:max_requirements]
         return requisitos
 
-    def evaluar_requisito(self, requisito: str, top_k: int = 5) -> List[Dict[str, str]]:
+    def evaluar_requisito(self, requisito: str, top_k: int = 5, return_trace: bool = False):
         """
         Recupera candidatos para un requisito usando:
         - Extraccion de keywords con el LLM de RAGBasico.
@@ -96,7 +143,7 @@ class EvaluadorRequisitos:
         Devuelve una lista de entidades con URI, texto y ontologia fuente.
         """
         if not requisito or not requisito.strip():
-            return []
+            return {"keywords": "", "entidades_recuperadas": []} if return_trace else []
 
         query = requisito.strip()
 
@@ -110,7 +157,8 @@ class EvaluadorRequisitos:
         broad_k = max(top_k * 5, top_k)
         raw_docs = self.rag._hybrid_retrieve(keywords, k=broad_k)
         if not raw_docs:
-            return []
+            empty = {"keywords": str(keywords), "entidades_recuperadas": []}
+            return empty if return_trace else []
 
         # 3) Re-ranking con cross-encoder usando pares (requisito, documento).
         pairs = [[query, d.page_content[:500]] for d in raw_docs]
@@ -133,6 +181,8 @@ class EvaluadorRequisitos:
                 }
             )
 
+        if return_trace:
+            return {"keywords": str(keywords), "entidades_recuperadas": entidades}
         return entidades
 
     def juez_llm(self, requisito: str, entidades_recuperadas: List[Dict[str, str]]) -> List[Dict[str, str]]:
@@ -188,37 +238,43 @@ class EvaluadorRequisitos:
             requisito=requisito.strip(),
             entidades=bloque_entidades,
         )
-        
-        try:
-            # 3) Invocacion real al LLM.
-            respuesta = self.rag.llm.invoke(prompt_generado)
-            raw_text = respuesta.content if hasattr(respuesta, "content") else str(respuesta)
-            raw_text = str(raw_text).strip()
-        
-            # 4) Limpieza robusta del JSON:
-            # - Elimina fences ```json ... ``` si el modelo los incluye indebidamente.
-            # - Si hay texto extra antes/despues, extrae el primer bloque {...} parseable.
-            cleaned = re.sub(r"^\s*```(?:json)?\s*", "", raw_text, flags=re.IGNORECASE)
-            cleaned = re.sub(r"\s*```\s*$", "", cleaned, flags=re.IGNORECASE)
-            cleaned = cleaned.strip()
-        
-            json_candidate = cleaned
-            if not (json_candidate.startswith("{") and json_candidate.endswith("}")):
-                match = re.search(r"\{[\s\S]*\}", cleaned)
-                if not match:
+
+        uris_aprobadas_set = set()
+        max_attempts = 2
+        last_error = ""
+        last_raw_output = ""
+
+        for attempt in range(1, max_attempts + 1):
+            try:
+                if attempt == 1:
+                    respuesta = self.rag.llm.invoke(prompt_generado)
+                else:
+                    correction_prompt = (
+                        "Tu salida anterior no fue parseable como JSON valido. "
+                        f"Error detectado: {last_error}. "
+                        "Devuelve exclusivamente un objeto JSON valido con este esquema: "
+                        '{"uris_aprobadas": ["http://ejemplo/uri1", "http://ejemplo/uri2"]}. '
+                        "Si ninguna aplica, devuelve {'uris_aprobadas': []}. "
+                        "No incluyas markdown, comentarios ni texto adicional. "
+                        f"Salida anterior: {last_raw_output}"
+                    )
+                    respuesta = self.rag.llm.invoke(correction_prompt)
+
+                raw_text = respuesta.content if hasattr(respuesta, "content") else str(respuesta)
+                last_raw_output = str(raw_text).strip()
+
+                parsed = self._extraer_json_objeto(last_raw_output)
+                uris_aprobadas = parsed.get("uris_aprobadas", [])
+                if not isinstance(uris_aprobadas, list):
+                    raise ValueError("La clave 'uris_aprobadas' no es una lista")
+
+                uris_aprobadas_set = {str(uri).strip() for uri in uris_aprobadas if str(uri).strip()}
+                break
+
+            except Exception as exc:
+                last_error = str(exc)
+                if attempt == max_attempts:
                     return []
-                json_candidate = match.group(0).strip()
-        
-            parsed = json.loads(json_candidate)
-            uris_aprobadas = parsed.get("uris_aprobadas", [])
-            if not isinstance(uris_aprobadas, list):
-                return []
-        
-            uris_aprobadas_set = {str(uri).strip() for uri in uris_aprobadas if str(uri).strip()}
-        
-        except Exception:
-            # Fallback estricto si falla invocacion o parseo critico.
-            return []
         
         # 5) Filtrado final: solo mantenemos entidades cuya URI este aprobada.
         return [
@@ -262,7 +318,9 @@ class EvaluadorRequisitos:
             "Debes recomendar un conjunto de maximo 3 ontologias que, juntas, maximicen la cobertura. "
             "Justifica brevemente por que eliges cada ontologia, citando los requisitos que cubre. "
             "La respuesta debe estar en Markdown limpio, claro y profesional. "
-            "No devuelvas JSON en esta etapa."
+            "No devuelvas JSON en esta etapa. "
+            "Restriccion de grounding estricta: Solo puedes recomendar ontologias que tengan al menos "
+            "un requisito asociado en la matriz JSON. Esta prohibido alucinar o sugerir ontologias externas."
         )
 
         human_prompt = (
@@ -307,14 +365,22 @@ class EvaluadorRequisitos:
             return {"tad_requisitos": {}, "matriz_cobertura": {}, "veredicto_final": ""}
 
         tad_requisitos: Dict[str, List[Dict[str, str]]] = {}
+        tad_detallado: Dict[str, Dict[str, Any]] = {}
 
         for idx, requisito in enumerate(requisitos, start=1):
             print(f"\n[{idx}/{len(requisitos)}] Evaluando requisito: {requisito[:120]}")
 
-            entidades_recuperadas = self.evaluar_requisito(requisito, top_k=5)
+            eval_trace = self.evaluar_requisito(requisito, top_k=5, return_trace=True)
+            keywords_usadas = eval_trace.get("keywords", "")
+            entidades_recuperadas = eval_trace.get("entidades_recuperadas", [])
             entidades_validadas = self.juez_llm(requisito, entidades_recuperadas)
 
             tad_requisitos[requisito] = entidades_validadas
+            tad_detallado[requisito] = {
+                "keywords_usadas": keywords_usadas,
+                "entidades_recuperadas": entidades_recuperadas,
+                "entidades_aprobadas": entidades_validadas,
+            }
 
         matriz_cobertura = self.generar_matriz_cobertura(tad_requisitos)
 
@@ -325,8 +391,26 @@ class EvaluadorRequisitos:
         print("\n=== Veredicto Final Recomendado ===")
         print(veredicto_final)
 
+        # Trazas de auditoria
+        trace_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "trazas_ejecucion.json")
+        trace_payload = {
+            "ruta_csv": os.path.abspath(ruta_csv),
+            "max_requirements": max_requirements,
+            "total_requisitos": len(requisitos),
+            "tad_requisitos": tad_detallado,
+            "matriz_cobertura": matriz_cobertura,
+            "veredicto_final": veredicto_final,
+        }
+        try:
+            with open(trace_path, "w", encoding="utf-8") as f:
+                json.dump(trace_payload, f, ensure_ascii=False, indent=2)
+            print(f"\n[INFO] Trazas guardadas en: {trace_path}")
+        except Exception as exc:
+            print(f"\n[WARN] No se pudo guardar trazas_ejecucion.json: {exc}")
+
         return {
             "tad_requisitos": tad_requisitos,
+            "tad_requisitos_detallado": tad_detallado,
             "matriz_cobertura": matriz_cobertura,
             "veredicto_final": veredicto_final,
         }
