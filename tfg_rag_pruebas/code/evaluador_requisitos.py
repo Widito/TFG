@@ -64,6 +64,7 @@ class EvaluadorRequisitos:
 
         requisitos: List[str] = []
         candidate_columns = [
+            "query_natural",
             "requisito",
             "requerimiento",
             "requirement",
@@ -110,13 +111,18 @@ class EvaluadorRequisitos:
                         selected_column = normalized[key]
                         break
 
+                excluded_fallback_cols = {"id", "expected_ontology", "difficulty"}
+
                 for row in reader:
                     value = ""
                     if selected_column:
                         value = str(row.get(selected_column, "")).strip()
                     else:
-                        # Fallback: primera celda no vacia en la fila.
-                        for raw in row.values():
+                        # Fallback robusto: evita columnas tecnicas no funcionales.
+                        for col_name, raw in row.items():
+                            col_norm = str(col_name).strip().lower() if col_name else ""
+                            if col_norm in excluded_fallback_cols:
+                                continue
                             if raw is not None and str(raw).strip():
                                 value = str(raw).strip()
                                 break
