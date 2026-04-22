@@ -1,261 +1,594 @@
 {
   "ruta_csv": "C:\\Users\\Wido\\Desktop\\TFG\\tfg_rag_pruebas\\dataset_bot_test.csv",
-  "max_requirements": 5,
-  "total_requisitos": 5,
+  "max_requirements": null,
+  "total_requisitos": 12,
   "tad_requisitos": {
-    "A device performs one or more functions": {
-      "keywords_usadas": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nDevice, FunctionalEntity, EntityWithFunctionality, Performer, Functionary, Actor, DeviceFunctionality, Capability, Functionality, Action, Operation\n\nNote: The terms are in English, as per your request.",
+    "A single option for applying a constraint to a party (of a specific role) should be defined.": {
+      "keywords_usadas": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Option, Constraint, Party, Role\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Concept, Entity, Instance, Type\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Specification, Restriction, Condition, Requirement\n\nHere's the optimized search list in English, separated by commas:\n\nOption, Constraint, Party, Role, Concept, Entity, Instance, Type, Specification, Restriction, Condition, Requirement",
       "entidades_recuperadas": [
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
-          "ontologia": "saref_2020-05-29.n3"
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
-          "ontologia": "saref_2020-05-29.n3"
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
-          "ontologia": "s4inma_2019-04-30.n3"
+          "uri": "https://w3id.org/dpv#ConsumerStandardFormContract",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#ConsumerStandardFormContract\nLabel: ConsumerStandardFormContract\nDefinition: A contract where the terms and conditions are determined by parties in the role of a 'consumer' - whether an entity or an individual, and the other parties have negligible or no ability to negotiate the terms and conditions",
+          "ontologia": "dpv_2025-08-01.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
-          "ontologia": "s4inma_2019-04-30.n3"
+          "uri": "https://w3id.org/dpv#ThirdPartyDataSource",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#ThirdPartyDataSource\nLabel: ThirdPartyDataSource\nDefinition: Data Sourced from a Third Party, e.g. when data is collected from an entity that is neither the Controller nor the Data Subject",
+          "ontologia": "dpv_2025-08-01.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: s4city_2020-06-05.n3 (EXTENSION)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended.",
-          "ontologia": "s4city_2020-06-05.n3"
+          "uri": "http://promsns.org/def/agr#satisfies",
+          "texto": "Concept: Property\nOntology: agr_2017-10-09.n3 (EXTENSION)\nURI: http://promsns.org/def/agr#satisfies\nLabel: satisfies\nDefinition: a Requirement Resolution satisfies a Requirement",
+          "ontologia": "agr_2017-10-09.n3"
         }
       ],
       "entidades_aprobadas": [
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
-          "ontologia": "saref_2020-05-29.n3"
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
-          "ontologia": "saref_2020-05-29.n3"
-        },
-        {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
-          "ontologia": "s4inma_2019-04-30.n3"
-        },
-        {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
-          "ontologia": "s4inma_2019-04-30.n3"
-        },
-        {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: s4city_2020-06-05.n3 (EXTENSION)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended.",
-          "ontologia": "s4city_2020-06-05.n3"
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
         }
       ]
     },
-    "A building space is a geographical point characterized by acertain altitude, latitude and longitude": {
-      "keywords_usadas": "What a great request!\n\nAfter analyzing the user's petition, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicPoint, BuildingSpace, Altitude, Latitude, Longitude, PointOfInterest, SpatialLocation, GeographicCoordinate, CoordinateSystem, GeospatialData, SpatialReferenceSystem\n\nThis list includes the main nouns (BuildingSpace, GeographicPoint) and verbs (characterized by) from the original petition. I've also added formal equivalents (Category: GeographicPoint, Class: BuildingSpace), as well as technical synonyms (e.g., PointOfInterest, SpatialLocation).\n\nNote that some of these terms might be more specific or general than others, but they all relate to the concept of a building space with geographical coordinates.",
+    "It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nConstraint, Permission, Prohibition, Duty, Target, Assignee, Assets, Age, Time, Class, Type, Category, Ontology, Semantic Web, RDF, OWL",
       "entidades_recuperadas": [
         {
-          "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#lat",
-          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://www.w3.org/2003/01/geo/wgs84_pos#lat\nLabel: latitude\nDefinition: Latitude geo location coordinate.",
-          "ontologia": "building.ttl"
+          "uri": "http://www.w3.org/ns/odrl/2/constraint",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/constraint\nLabel: Has Constraint\nDefinition: Constraint applied to a Rule",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#alt",
-          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://www.w3.org/2003/01/geo/wgs84_pos#alt\nLabel: altitude\nDefinition: Altitude geo location coordinate.",
-          "ontologia": "building.ttl"
+          "uri": "http://www.w3.org/ns/odrl/2/constraint",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/constraint\nLabel: Has Constraint\nDefinition: Constraint applied to a Rule",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "https://w3id.org/bot#hasZeroPoint",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasZeroPoint\nLabel: heeft nulpunt\nDefinition: Links a bot:Site to an instance that encodes the latitude and longitude of the Zero Point of the building site. This could be an instance of a wgs84:Point. The definition of GIS and geometry is not within the scope of BOT and an appropriate ontology needs to be selected here by the user. The use of this property is potentially ambiguous and it might be removed or revised in future editions of the ontology.",
-          "ontologia": "bot.ttl"
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "https://w3id.org/bot#hasZeroPoint",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasZeroPoint\nLabel: tiene punto cero\nDefinition: Links a bot:Site to an instance that encodes the latitude and longitude of the Zero Point of the building site. This could be an instance of a wgs84:Point. The definition of GIS and geometry is not within the scope of BOT and an appropriate ontology needs to be selected here by the user. The use of this property is potentially ambiguous and it might be removed or revised in future editions of the ontology.",
-          "ontologia": "bot.ttl"
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "https://w3id.org/bot#hasZeroPoint",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasZeroPoint\nLabel: har nulpunkt\nDefinition: Links a bot:Site to an instance that encodes the latitude and longitude of the Zero Point of the building site. This could be an instance of a wgs84:Point. The definition of GIS and geometry is not within the scope of BOT and an appropriate ontology needs to be selected here by the user. The use of this property is potentially ambiguous and it might be removed or revised in future editions of the ontology.",
-          "ontologia": "bot.ttl"
-        }
-      ],
-      "entidades_aprobadas": [
-        {
-          "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#lat",
-          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://www.w3.org/2003/01/geo/wgs84_pos#lat\nLabel: latitude\nDefinition: Latitude geo location coordinate.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#alt",
-          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://www.w3.org/2003/01/geo/wgs84_pos#alt\nLabel: altitude\nDefinition: Altitude geo location coordinate.",
-          "ontologia": "building.ttl"
-        }
-      ]
-    },
-    "A device shall have a model property": {
-      "keywords_usadas": "Based on the user's request \"A device shall have a model property\", I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Model, Property, Class, Type, Ontology, Concept, Category, Thing, Entity, Object, Attribute, Characteristic, Description, Specification",
-      "entidades_recuperadas": [
-        {
-          "uri": "https://saref.etsi.org/core/hasModel",
-          "texto": "Concept: Property\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag.",
-          "ontologia": "saref_2020-05-29.n3"
-        },
-        {
-          "uri": "https://saref.etsi.org/core/hasModel",
-          "texto": "Concept: Property\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device)",
-          "ontologia": "s4agri_2020-06-05.n3"
-        },
-        {
-          "uri": "https://saref.etsi.org/core/hasModel",
-          "texto": "Concept: Property\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device)",
-          "ontologia": "s4watr_2020-06-03.n3"
-        },
-        {
-          "uri": "https://saref.etsi.org/saref4ehaw/hasDeviceCharacteristic",
-          "texto": "Concept: Property\nOntology: s4ehaw_2020-05-01.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ehaw/hasDeviceCharacteristic\nLabel: has device characteristic\nDefinition: A health device has device characteristic describing the physical characteristics of the health device, e.g. its dimensions.",
+          "uri": "https://saref.etsi.org/saref4ehaw/DataConstraint",
+          "texto": "Concept: Class\nOntology: s4ehaw_2020-05-01.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ehaw/DataConstraint\nLabel: Data constraint\nDefinition: The Data constraints, e.g. validity, legal...",
           "ontologia": "s4ehaw_2020-05-01.n3"
-        },
-        {
-          "uri": "https://saref.etsi.org/saref4ener/nodeRemoteControllable",
-          "texto": "Concept: Property\nOntology: s4ener_2020-06-04.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ener/nodeRemoteControllable\nLabel: node remote controllable\nDefinition: Indicates whether the power profile of a device is configured for remote control (e.g., by an energy management system).This refers to the selection chosen by the user on the remote control feature of the device. If nodeRemoteControllable is equal to FALSE, all the supported power sequences shall set the sequenceRemoteControllable property to FALSE. If nodeRemoteControllable is equal to TRUE, at least one power sequence shall be remotely controllable by setting the sequenceRemoteControllable property to TRUE.",
-          "ontologia": "s4ener_2020-06-04.n3"
         }
       ],
       "entidades_aprobadas": [
         {
-          "uri": "https://saref.etsi.org/core/hasModel",
-          "texto": "Concept: Property\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag.",
-          "ontologia": "saref_2020-05-29.n3"
+          "uri": "http://www.w3.org/ns/odrl/2/constraint",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/constraint\nLabel: Has Constraint\nDefinition: Constraint applied to a Rule",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/hasModel",
-          "texto": "Concept: Property\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device)",
-          "ontologia": "s4agri_2020-06-05.n3"
+          "uri": "http://www.w3.org/ns/odrl/2/constraint",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/constraint\nLabel: Has Constraint\nDefinition: Constraint applied to a Rule",
+          "ontologia": "odrl_2017-09-16.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/hasModel",
-          "texto": "Concept: Property\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device)",
-          "ontologia": "s4watr_2020-06-03.n3"
+          "uri": "https://saref.etsi.org/saref4ehaw/DataConstraint",
+          "texto": "Concept: Class\nOntology: s4ehaw_2020-05-01.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ehaw/DataConstraint\nLabel: Data constraint\nDefinition: The Data constraints, e.g. validity, legal...",
+          "ontologia": "s4ehaw_2020-05-01.n3"
         }
       ]
     },
-    "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room": {
-      "keywords_usadas": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Building space, device, kitchen, living room, location\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* BuildingSpace, DeviceLocation, KitchenArea, LivingRoomArea, PhysicalSpace\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Space, Zone, Place\n\nHere's the optimized search list in English, separated by commas:\n\nBuildingSpace, DeviceLocation, KitchenArea, LivingRoomArea, PhysicalSpace, Room, Area, Space, Zone, Place",
+    "The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPolicyInstance, DataModel, Ontology, Class, Type, Concept, Variable, Value, RDF, OWL, SemanticWeb, Policy, Instance, Data, Model, Extension, ExplicitData, ImplicitData, FormalOntology, Category\n\nNote that I've included both the original terms and their formal ontological equivalents (e.g., \"PolicyInstance\" is equivalent to \"Class\" or \"Type\"), as well as some technical synonyms (e.g., \"ExplicitData\" instead of just \"Data\"). This list should provide a good starting point for searching relevant resources in the field of Web Semantics using OWL and RDF.",
       "entidades_recuperadas": [
         {
-          "uri": "http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment",
-          "texto": "Concept: Class\nOntology: dogont_2015-01-11.n3 (EXTENSION)\nURI: http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment\nLabel: BuildingEnvironment\nDefinition: A physical environment in which people lives, e.g. kitchen, bathroom",
-          "ontologia": "dogont_2015-01-11.n3"
+          "uri": "http://xmlns.com/foaf/0.1/Document",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/foaf/0.1/Document\nLabel: http://xmlns.com/foaf/0.1/Document\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
         },
         {
-          "uri": "http://bimerr.iot.linkeddata.es/def/building#Apartment",
-          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Apartment\nLabel: Apartment\nDefinition: An apartment is a group of spaces, partial spaces or other zones.",
-          "ontologia": "building.ttl"
+          "uri": "https://w3id.org/skgo/modsci#DataFormat",
+          "texto": "Concept: Class\nOntology: modsci_2022-12-18.n3 (EXTENSION)\nURI: https://w3id.org/skgo/modsci#DataFormat\nLabel: DataFormat\nDefinition: ",
+          "ontologia": "modsci_2022-12-18.n3"
         },
         {
-          "uri": "https://brickschema.org/schema/Brick#Zone",
-          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://brickschema.org/schema/Brick#Zone\nLabel: Zone\nDefinition: (1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
-          "ontologia": "brick.ttl"
+          "uri": "http://www.oegov.org/core/owl/gc#DataFormat",
+          "texto": "Concept: Class\nOntology: gc_2009-08-24.n3 (EXTENSION)\nURI: http://www.oegov.org/core/owl/gc#DataFormat\nLabel: Data Format\nDefinition: ",
+          "ontologia": "gc_2009-08-24.n3"
         },
         {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zóna\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
+          "uri": "http://xmlns.com/wordnet/1.6/Document",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/wordnet/1.6/Document\nLabel: http://xmlns.com/wordnet/1.6/Document\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
         },
         {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zóna\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
+          "uri": "http://xmlns.com/foaf/0.1/Project",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/foaf/0.1/Project\nLabel: http://xmlns.com/foaf/0.1/Project\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
         }
       ],
       "entidades_aprobadas": [
         {
-          "uri": "http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment",
-          "texto": "Concept: Class\nOntology: dogont_2015-01-11.n3 (EXTENSION)\nURI: http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment\nLabel: BuildingEnvironment\nDefinition: A physical environment in which people lives, e.g. kitchen, bathroom",
-          "ontologia": "dogont_2015-01-11.n3"
-        },
-        {
-          "uri": "https://brickschema.org/schema/Brick#Zone",
-          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://brickschema.org/schema/Brick#Zone\nLabel: Zone\nDefinition: (1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
-          "ontologia": "brick.ttl"
+          "uri": "http://www.oegov.org/core/owl/gc#DataFormat",
+          "texto": "Concept: Class\nOntology: gc_2009-08-24.n3 (EXTENSION)\nURI: http://www.oegov.org/core/owl/gc#DataFormat\nLabel: Data Format\nDefinition: ",
+          "ontologia": "gc_2009-08-24.n3"
         }
       ]
     },
-    "The devices can belong to several categories": {
-      "keywords_usadas": "Based on the user's request \"The devices can belong to several categories\", I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCategory, Class, Type, Classification, Hierarchy, Ontology, Taxonomy, Categorization, Classification Scheme, Device Category, Belonging, Membership, Association\n\nNote that I've included both formal ontological terms (e.g., \"Category\", \"Class\") and technical synonyms (e.g., \"Classification Scheme\", \"Taxonomy\") to provide a comprehensive search list.",
+    "In addition to the existing identifiers of a policy means for expressing a version of this policy should specified.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPolicy, Version, Identifier, Expression, Specification, Ontology, Class, Type, Concept, Term, Definition, Semantic, RDF, OWL, XML, Schema, Namespace, URI",
       "entidades_recuperadas": [
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended.",
-          "ontologia": "s4watr_2020-06-03.n3"
+          "uri": "https://w3id.org/dpv#Policy",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#Policy\nLabel: Policy\nDefinition: A guidance document outlining any of: procedures, plans, principles, decisions, intent, or protocols.",
+          "ontologia": "dpv_2025-08-01.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Function",
-          "texto": "Concept: Class\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. ",
-          "ontologia": "s4agri_2020-06-05.n3"
+          "uri": "http://rdf.myexperiment.org/ontologies/snarm/Policy",
+          "texto": "Concept: Class\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://rdf.myexperiment.org/ontologies/snarm/Policy\nLabel: http://rdf.myexperiment.org/ontologies/snarm/Policy\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Function",
-          "texto": "Concept: Class\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. ",
-          "ontologia": "s4agri_2020-06-05.n3"
+          "uri": "https://w3id.org/dpv#ContractDefinitions",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#ContractDefinitions\nLabel: ContractDefinitions\nDefinition: A section specifying the meanings of key terms and phrases used throughout the contract",
+          "ontologia": "dpv_2025-08-01.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Function",
-          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. ",
-          "ontologia": "saref_2020-05-29.n3"
+          "uri": "http://purl.org/net/tsn#hasVersion",
+          "texto": "Concept: Property\nOntology: tsn_2017-01-31.n3 (CORE)\nURI: http://purl.org/net/tsn#hasVersion\nLabel: hasVersion\nDefinition: Indicates a resource is a Version, edition, or adaptation of the described resource.",
+          "ontologia": "tsn_2017-01-31.n3"
         },
         {
-          "uri": "https://saref.etsi.org/core/Function",
-          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth.",
-          "ontologia": "s4inma_2019-04-30.n3"
+          "uri": "http://purl.org/vocab/frbr/core#Expression",
+          "texto": "Concept: Class\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/vocab/frbr/core#Expression\nLabel: Expression\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
         }
       ],
       "entidades_aprobadas": [
         {
-          "uri": "https://saref.etsi.org/core/Device",
-          "texto": "Concept: Class\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended.",
+          "uri": "https://w3id.org/dpv#Policy",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#Policy\nLabel: Policy\nDefinition: A guidance document outlining any of: procedures, plans, principles, decisions, intent, or protocols.",
+          "ontologia": "dpv_2025-08-01.n3"
+        },
+        {
+          "uri": "http://purl.org/net/tsn#hasVersion",
+          "texto": "Concept: Property\nOntology: tsn_2017-01-31.n3 (CORE)\nURI: http://purl.org/net/tsn#hasVersion\nLabel: hasVersion\nDefinition: Indicates a resource is a Version, edition, or adaptation of the described resource.",
+          "ontologia": "tsn_2017-01-31.n3"
+        }
+      ]
+    },
+    "It should be possible to define the price for duty/duties of payment for all permissions of a policy in a global way.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPolicy, Permission, Duty, Payment, Price, Global, Definition, Class, Type, Category, Fee, Charge, Cost, Tariff, Rate, Standard, Specification.\n\nNote: The terms are in English to facilitate searching across different ontologies and databases.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.eurocris.org/ontologies/cerif/1.3#price",
+          "texto": "Concept: Property\nOntology: cerif_2013-04-23.n3 (CORE)\nURI: http://www.eurocris.org/ontologies/cerif/1.3#price\nLabel: Price\nDefinition: Quantity of payment or compensation given by one party to another in return for goods or service (measured in a specific currency)",
+          "ontologia": "cerif_2013-04-23.n3"
+        },
+        {
+          "uri": "http://purl.org/cerif/frapo/Payment",
+          "texto": "Concept: Class\nOntology: frapo_2014-01-31.n3 (EXTENSION)\nURI: http://purl.org/cerif/frapo/Payment\nLabel: payment\nDefinition: A financial payment made, for example in exchange for something purchased such as property, goods or services, or to refund expenses incurred.",
+          "ontologia": "frapo_2014-01-31.n3"
+        },
+        {
+          "uri": "http://vocab.datex.org/terms#PermitsAndProhibitions",
+          "texto": "Concept: Class\nOntology: datex_2016-06-13.n3 (CORE)\nURI: http://vocab.datex.org/terms#PermitsAndProhibitions\nLabel: PermitsAndProhibitions\nDefinition: Defines sets of action and regulations to specify permitted and prohibited issues.",
+          "ontologia": "datex_2016-06-13.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#FeeRequired",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#FeeRequired\nLabel: FeeRequired\nDefinition: Concept indicating a fee is required. The value of the fee should be specified using rdf:value or an another relevant means",
+          "ontologia": "dpv_2025-08-01.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4watr/Tariff",
+          "texto": "Concept: Class\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/saref4watr/Tariff\nLabel: Tariff\nDefinition: A tariff is a schedule of rates or charges of a business or a public utility. Tariffs can be based on time, thresholds or consumption; however, combined tariffs may also exist that mix more than one of these types.",
           "ontologia": "s4watr_2020-06-03.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.eurocris.org/ontologies/cerif/1.3#price",
+          "texto": "Concept: Property\nOntology: cerif_2013-04-23.n3 (CORE)\nURI: http://www.eurocris.org/ontologies/cerif/1.3#price\nLabel: Price\nDefinition: Quantity of payment or compensation given by one party to another in return for goods or service (measured in a specific currency)",
+          "ontologia": "cerif_2013-04-23.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#FeeRequired",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#FeeRequired\nLabel: FeeRequired\nDefinition: Concept indicating a fee is required. The value of the fee should be specified using rdf:value or an another relevant means",
+          "ontologia": "dpv_2025-08-01.n3"
+        }
+      ]
+    },
+    "Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nTemporal constraints, Time reference, Point in time, Period, RightOperand, Ontology, Semantic Web, OWL, RDF, Class, Type, Category, Interval, Instant, Timestamp, Date, TimeStamp, Temporal Reasoning.\n\nNote that I've included both technical terms and their formal equivalents (e.g., \"Class\" instead of just \"class\") to facilitate searching.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/2006/time#TemporalDuration",
+          "texto": "Concept: Class\nOntology: s4city_2020-06-05.n3 (EXTENSION)\nURI: http://www.w3.org/2006/time#TemporalDuration\nLabel: TemporalDuration\nDefinition: ",
+          "ontologia": "s4city_2020-06-05.n3"
+        },
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#TemporalParameter",
+          "texto": "Concept: Class\nOntology: th_sharedvocalulary.owl (CORE)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#TemporalParameter\nLabel: TemporalParameter\nDefinition: Parameters of the temporal class are just used at the design time of a building as in operation time the time-ont ontology is used.",
+          "ontologia": "th_sharedvocalulary.owl"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/PeriodOfTime",
+          "texto": "Concept: Class\nOntology: dcterms_2012-06-14.n3 (CORE)\nURI: http://purl.org/dc/terms/PeriodOfTime\nLabel: Period of Time\nDefinition: An interval of time that is named or defined by its start and end dates.",
+          "ontologia": "dcterms_2012-06-14.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/temporal",
+          "texto": "Concept: Property\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/temporal\nLabel: http://purl.org/dc/terms/temporal\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
+        },
+        {
+          "uri": "http://reference.data.gov.au/def/ont/dataset#Timelnterval",
+          "texto": "Concept: Class\nOntology: donto_2015-06-19.n3 (EXTENSION)\nURI: http://reference.data.gov.au/def/ont/dataset#Timelnterval\nLabel: Time Interval\nDefinition: Note that this is a subclass of the Interval class from OWL-Time.",
+          "ontologia": "donto_2015-06-19.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/2006/time#TemporalDuration",
+          "texto": "Concept: Class\nOntology: s4city_2020-06-05.n3 (EXTENSION)\nURI: http://www.w3.org/2006/time#TemporalDuration\nLabel: TemporalDuration\nDefinition: ",
+          "ontologia": "s4city_2020-06-05.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/PeriodOfTime",
+          "texto": "Concept: Class\nOntology: dcterms_2012-06-14.n3 (CORE)\nURI: http://purl.org/dc/terms/PeriodOfTime\nLabel: Period of Time\nDefinition: An interval of time that is named or defined by its start and end dates.",
+          "ontologia": "dcterms_2012-06-14.n3"
+        }
+      ]
+    },
+    "For a relativeTimePeriod constraint the rightOperand has to provide a time period as value.": {
+      "keywords_usadas": "Here is the optimized search list:\n\nTimePeriod, RelativeTimePeriod, Constraint, RightOperand, Value, Period, Time, Ontology, OWL, RDF, SemanticWeb, Category, Class, Type, TemporalConstraint, Interval, Duration.\n\nNote: I've extracted the main technical nouns and verbs from the user's request, normalized them ontologically by adding formal equivalents (Category, Class, Type), and included precise technical synonyms.",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timePeriods_IfcRecurrencePattern",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timePeriods_IfcRecurrencePattern\nLabel: TimePeriods\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "http://www.w3.org/ns/dcat#temporalResolution",
+          "texto": "Concept: Property\nOntology: m4i_2025-03-10.n3 (CORE)\nURI: http://www.w3.org/ns/dcat#temporalResolution\nLabel: temporalResolution\nDefinition: Minimum time period resolvable in a dataset.",
+          "ontologia": "m4i_2025-03-10.n3"
+        },
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#hasTimePeriodValue",
+          "texto": "Concept: Property\nOntology: th_building.owl (EXTENSION)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#hasTimePeriodValue\nLabel: hasTimePeriodValue\nDefinition: ",
+          "ontologia": "th_building.owl"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcTimePeriod",
+          "texto": "Concept: Class\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcTimePeriod\nLabel: IfcTimePeriod\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcTimePeriod_List",
+          "texto": "Concept: Class\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcTimePeriod_List\nLabel: IfcTimePeriod_List\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timePeriods_IfcRecurrencePattern",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timePeriods_IfcRecurrencePattern\nLabel: TimePeriods\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcTimePeriod",
+          "texto": "Concept: Class\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcTimePeriod\nLabel: IfcTimePeriod\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        }
+      ]
+    },
+    "Being able to tie Permission, Prohibition, Duty, and Constraint entities together with an AND, OR or XOR relationship.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPermission, Prohibition, Duty, Constraint, AND, OR, XOR, Ontology, Category, Class, Type, Relationship, Entity, Semantics, Logic, Formalization, Normative, Regulatory, Binding, Obligation, Restriction.\n\nNote that I've included both the original terms and their formal equivalents (e.g., \"Category\" instead of just \"Permission\"), as well as some technical synonyms (e.g., \"Regulatory\" for \"Prohibition\"). This list should provide a good starting point for searching relevant concepts in Web Semantics (OWL/RDF).",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Rule",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Rule\nLabel: Rule\nDefinition: An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Rule",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Rule\nLabel: Rule\nDefinition: An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://vocab.datex.org/terms#PermitsAndProhibitions",
+          "texto": "Concept: Class\nOntology: datex_2016-06-13.n3 (CORE)\nURI: http://vocab.datex.org/terms#PermitsAndProhibitions\nLabel: PermitsAndProhibitions\nDefinition: Defines sets of action and regulations to specify permitted and prohibited issues.",
+          "ontologia": "datex_2016-06-13.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Rule",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Rule\nLabel: Rule\nDefinition: An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Rule",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Rule\nLabel: Rule\nDefinition: An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ]
+    },
+    "Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified.": {
+      "keywords_usadas": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Party, Group, Permission, Prohibition, Duty\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Entity, Concept, Role, Individual, Instance\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Member, Participant, Stakeholder, User, Role\n\nHere's the optimized search list in English, separated by commas:\n\nParty, Group, Permission, Prohibition, Duty, Entity, Concept, Role, Individual, Instance, Member, Participant, Stakeholder, User",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://vocab.datex.org/terms#PermitsAndProhibitions",
+          "texto": "Concept: Class\nOntology: datex_2016-06-13.n3 (CORE)\nURI: http://vocab.datex.org/terms#PermitsAndProhibitions\nLabel: PermitsAndProhibitions\nDefinition: Defines sets of action and regulations to specify permitted and prohibited issues.",
+          "ontologia": "datex_2016-06-13.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/consequence",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/consequence\nLabel: Consequence\nDefinition: Relates a Duty to another Duty, the latter being a consequence of not fulfilling the former.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/consequence",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/consequence\nLabel: Consequence\nDefinition: Relates a Duty to another Duty, the latter being a consequence of not fulfilling the former.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#EntityPermissiveInvolvement",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#EntityPermissiveInvolvement\nLabel: EntityPermissiveInvolvement\nDefinition: Involvement of an entity in specific context where it is permitted or able to do something",
+          "ontologia": "dpv_2025-08-01.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#ConsumerStandardFormContract",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#ConsumerStandardFormContract\nLabel: ConsumerStandardFormContract\nDefinition: A contract where the terms and conditions are determined by parties in the role of a 'consumer' - whether an entity or an individual, and the other parties have negligible or no ability to negotiate the terms and conditions",
+          "ontologia": "dpv_2025-08-01.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://vocab.datex.org/terms#PermitsAndProhibitions",
+          "texto": "Concept: Class\nOntology: datex_2016-06-13.n3 (CORE)\nURI: http://vocab.datex.org/terms#PermitsAndProhibitions\nLabel: PermitsAndProhibitions\nDefinition: Defines sets of action and regulations to specify permitted and prohibited issues.",
+          "ontologia": "datex_2016-06-13.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#EntityPermissiveInvolvement",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#EntityPermissiveInvolvement\nLabel: EntityPermissiveInvolvement\nDefinition: Involvement of an entity in specific context where it is permitted or able to do something",
+          "ontologia": "dpv_2025-08-01.n3"
+        }
+      ]
+    },
+    "Ability to link from a Policy or a Permission to the original (text-based) license.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPolicy, Permission, License, Link, Original, Text-Based, Ontology, Class, Type, Category, Semantic Web, RDF, OWL, Resource, Description, Property, Statement.\n\nNote that I've included both technical terms (e.g., \"Ontology\", \"Class\", \"Type\") and synonyms (e.g., \"Semantic Web\" instead of just \"Web\"), as well as relevant concepts from the domain of web semantics (RDF, OWL). This list should provide a good starting point for searching and exploring related resources.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://creativecommons.org/ns#License",
+          "texto": "Concept: Class\nOntology: ccrel.rdf (CORE)\nURI: http://creativecommons.org/ns#License\nLabel: License\nDefinition: a set of requests/permissions to users of a Work, e.g. a copyright license, the public domain, information for distributors",
+          "ontologia": "ccrel.rdf"
+        },
+        {
+          "uri": "http://web.resource.org/cc/license",
+          "texto": "Concept: Property\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://web.resource.org/cc/license\nLabel: http://web.resource.org/cc/license\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/license",
+          "texto": "Concept: Property\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/license\nLabel: http://purl.org/dc/terms/license\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
+        },
+        {
+          "uri": "http://web.resource.org/cc/License",
+          "texto": "Concept: Class\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://web.resource.org/cc/License\nLabel: http://web.resource.org/cc/License\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
+        },
+        {
+          "uri": "http://xmlns.com/foaf/0.1/title",
+          "texto": "Concept: Property\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/foaf/0.1/title\nLabel: http://xmlns.com/foaf/0.1/title\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://creativecommons.org/ns#License",
+          "texto": "Concept: Class\nOntology: ccrel.rdf (CORE)\nURI: http://creativecommons.org/ns#License\nLabel: License\nDefinition: a set of requests/permissions to users of a Work, e.g. a copyright license, the public domain, information for distributors",
+          "ontologia": "ccrel.rdf"
+        },
+        {
+          "uri": "http://web.resource.org/cc/license",
+          "texto": "Concept: Property\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://web.resource.org/cc/license\nLabel: http://web.resource.org/cc/license\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/license",
+          "texto": "Concept: Property\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/license\nLabel: http://purl.org/dc/terms/license\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
+        },
+        {
+          "uri": "http://web.resource.org/cc/License",
+          "texto": "Concept: Class\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://web.resource.org/cc/License\nLabel: http://web.resource.org/cc/License\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
+        }
+      ]
+    },
+    "It should be possible to define policies of type Assertion.": {
+      "keywords_usadas": "Based on the user's request \"It should be possible to define policies of type Assertion\", I've extracted the key concepts and generated an optimized search list. Here it is:\n\nAssertion, Policy, Definition, Type, Class, Category, Ontology, Concept, Statement, Rule, Regulation, Standard, Specification, Semantic, WebOntologyLanguage, OWL, RDF, ResourceDescriptionFramework\n\nNote that I've included both technical terms (e.g., \"Assertion\", \"Policy\") and ontological concepts (e.g., \"Class\", \"Category\") to provide a comprehensive search list.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/Policy",
+          "texto": "Concept: Class\nOntology: donto_2015-06-19.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/Policy\nLabel: Policy\nDefinition: A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters.",
+          "ontologia": "donto_2015-06-19.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/Policy",
+          "texto": "Concept: Class\nOntology: dcterms_2012-06-14.n3 (CORE)\nURI: http://purl.org/dc/terms/Policy\nLabel: Policy\nDefinition: A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters.",
+          "ontologia": "dcterms_2012-06-14.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ]
+    },
+    "An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nAssertionPolicy, PolicyTerm, Permission, Prohibition, Belief, Party, Ontology, Category, Class, Type, SemanticWeb, RDF, OWL, PolicyManagement, Authorization, AccessControl\n\nNote that I've included both technical terms (e.g., \"Permission\", \"Prohibition\") and ontological concepts (e.g., \"Category\", \"Class\", \"Type\") to provide a comprehensive search list.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/prohibition",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/prohibition\nLabel: Has Prohibition\nDefinition: Relates an individual Prohibition to a Policy.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/prohibition",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/prohibition\nLabel: Has Prohibition\nDefinition: Relates an individual Prohibition to a Policy.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/permission",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/permission\nLabel: Has Permission\nDefinition: Relates an individual Permission to a Policy.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/prohibition",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/prohibition\nLabel: Has Prohibition\nDefinition: Relates an individual Prohibition to a Policy.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/prohibition",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/prohibition\nLabel: Has Prohibition\nDefinition: Relates an individual Prohibition to a Policy.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/permission",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/permission\nLabel: Has Permission\nDefinition: Relates an individual Permission to a Policy.",
+          "ontologia": "odrl_2017-09-16.n3"
         }
       ]
     }
   },
   "matriz_cobertura": {
-    "saref_2020-05-29.n3": [
-      "A device performs one or more functions",
-      "A device shall have a model property"
+    "odrl_2017-09-16.n3": [
+      "A single option for applying a constraint to a party (of a specific role) should be defined.",
+      "It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets.",
+      "Being able to tie Permission, Prohibition, Duty, and Constraint entities together with an AND, OR or XOR relationship.",
+      "It should be possible to define policies of type Assertion.",
+      "An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have."
     ],
-    "s4inma_2019-04-30.n3": [
-      "A device performs one or more functions"
+    "s4ehaw_2020-05-01.n3": [
+      "It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets."
+    ],
+    "gc_2009-08-24.n3": [
+      "The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values."
+    ],
+    "dpv_2025-08-01.n3": [
+      "In addition to the existing identifiers of a policy means for expressing a version of this policy should specified.",
+      "It should be possible to define the price for duty/duties of payment for all permissions of a policy in a global way.",
+      "Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified."
+    ],
+    "tsn_2017-01-31.n3": [
+      "In addition to the existing identifiers of a policy means for expressing a version of this policy should specified."
+    ],
+    "cerif_2013-04-23.n3": [
+      "It should be possible to define the price for duty/duties of payment for all permissions of a policy in a global way."
     ],
     "s4city_2020-06-05.n3": [
-      "A device performs one or more functions"
+      "Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time."
     ],
-    "building.ttl": [
-      "A building space is a geographical point characterized by acertain altitude, latitude and longitude"
+    "dcterms_2012-06-14.n3": [
+      "Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time."
     ],
-    "s4agri_2020-06-05.n3": [
-      "A device shall have a model property"
+    "ifc4.ttl": [
+      "For a relativeTimePeriod constraint the rightOperand has to provide a time period as value."
     ],
-    "s4watr_2020-06-03.n3": [
-      "A device shall have a model property",
-      "The devices can belong to several categories"
+    "datex_2016-06-13.n3": [
+      "Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified."
     ],
-    "dogont_2015-01-11.n3": [
-      "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room"
+    "ccrel.rdf": [
+      "Ability to link from a Policy or a Permission to the original (text-based) license."
     ],
-    "brick.ttl": [
-      "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room"
+    "meb_2013-03-26.n3": [
+      "Ability to link from a Policy or a Permission to the original (text-based) license."
+    ],
+    "seo_2019-04-10.n3": [
+      "Ability to link from a Policy or a Permission to the original (text-based) license."
     ]
   },
-  "veredicto_final": "**Veredicto Final**\n\nRecomendación de Red: saref_2020-05-29.n3, s4watr_2020-06-03.n3, building.ttl\n\nJustificación:\n\n1. **saref_2020-05-29.n3**: Esta ontología cubre dos requisitos fundamentales: \"A device performs one or more functions\" y \"A device shall have a model property\". Como ontología de referencia para dispositivos, es fundamental en la cobertura de los requisitos.\n2. **s4watr_2020-06-03.n3**: Esta ontología cubre dos requisitos importantes: \"The devices can belong to several categories\" y \"A device shall have a model property\". Como ontología relacionada con el agua, es relevante en la cobertura de los requisitos.\n3. **building.ttl**: Esta ontología cubre un requisito específico sobre la definición de espacios físicos dentro de un edificio. Como ontología que describe las características geográficas y físicas de un edificio, es fundamental para completar la cobertura de los requisitos.\n\nObservaciones:\n\n* La ontología dogont_2015-01-11.n3 no se incluye en la recomendación debido a que su cobertura se superpone con la de building.ttl.\n* La ontología brick.ttl no se incluye en la recomendación debido a que su cobertura es similar a la de dogont_2015-01-11.n3 y no agrega valor adicional.\n* La ontología s4inma_2019-04-30.n3 y s4agri_2020-06-05.n3 no se incluyen en la recomendación debido a que su cobertura se superpone con la de saref_2020-05-29.n3 y s4watr_2020-06-03.n3.\n* La cobertura de los requisitos \"A device performs one or more functions\" y \"The devices can belong to several categories\" está completa gracias a las tres ontologías recomendadas.\n\nEn resumen, la recomendación de red propuesta cubre una amplia gama de requisitos relacionados con dispositivos, espacios físicos y categorías."
+  "veredicto_final": "**Recomendación de Red**\n\nSe recomienda la siguiente red de ontologías:\n\n1. `odrl_2017-09-16.n3`\n2. `dpv_2025-08-01.n3`\n3. `s4ehaw_2020-05-01.n3`\n\n**Justificación por Ontología**\n\n1. `odrl_2017-09-16.n3`: Esta ontología cubre requisitos relacionados con la definición de restricciones y políticas, como la capacidad de definir el objetivo de una restricción dentro de una permiso, prohibición o deber. Su cobertura es amplia y se relaciona con otros requisitos que se encuentran en otras ontologías.\n2. `dpv_2025-08-01.n3`: Esta ontología cubre requisitos relacionados con la gestión de políticas y restricciones, como la capacidad de definir precios para deberes de pago y asignar múltiples individuos a un grupo. Su cobertura es amplia y se relaciona con otros requisitos que se encuentran en otras ontologías.\n3. `s4ehaw_2020-05-01.n3`: Esta ontología cubre requisitos relacionados con la definición de restricciones y políticas, como la capacidad de definir el objetivo de una restricción dentro de una permiso, prohibición o deber. Su cobertura es amplia y se relaciona con otros requisitos que se encuentran en otras ontologías.\n\n**Observaciones de Cobertura y Posibles Huecos**\n\nLa red recomendada cubre un amplio rango de requisitos relacionados con la gestión de políticas y restricciones. Sin embargo, hay algunos requisitos que no están completamente cubiertos por esta red:\n\n* Requisito `ccrel.rdf`: La capacidad de enlazar a una política o permiso con la licencia original (text-based) no está cubierta por esta red.\n* Requisito `meb_2013-03-26.n3` y `seo_2019-04-10.n3`: La capacidad de definir políticas de tipo aserción no está completamente cubierta por esta red.\n\nEn general, la red recomendada proporciona una buena cobertura de los requisitos relacionados con la gestión de políticas y restricciones, pero hay algunos huecos que podrían ser cubiertos mediante la adición de otras ontologías o la creación de nuevos requisitos."
 }

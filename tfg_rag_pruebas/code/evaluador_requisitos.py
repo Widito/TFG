@@ -380,7 +380,7 @@ class EvaluadorRequisitos:
     def orquestar_evaluacion(
         self,
         ruta_csv: str,
-        max_requirements: int = 5,
+        max_requirements: Optional[int] = None,
         start_row: Optional[int] = None,
         end_row: Optional[int] = None,
         selected_rows: Optional[List[int]] = None,
@@ -477,4 +477,4 @@ if __name__ == "__main__":
     ruta_default = os.path.join(project_root, "dataset_bot_test.csv")
 
     evaluador = EvaluadorRequisitos()
-    evaluador.orquestar_evaluacion(ruta_default, start_row=8, end_row=14)
+    evaluador.orquestar_evaluacion(ruta_default, start_row=15, end_row=26)
