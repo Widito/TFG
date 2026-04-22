@@ -1,382 +1,261 @@
 {
   "ruta_csv": "C:\\Users\\Wido\\Desktop\\TFG\\tfg_rag_pruebas\\dataset_bot_test.csv",
-  "max_requirements": 7,
-  "total_requisitos": 7,
+  "max_requirements": 5,
+  "total_requisitos": 5,
   "tad_requisitos": {
-    "Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.": {
-      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nArea, Space, Volume, Building, Storey, Zone, 3D, Spatial, Ontology, Category, Class, Type, Region, Territory, Domain, Realm, Sector.\n\nNote: The list includes both technical terms (e.g., \"Spatial\", \"3D\") and ontological categories (e.g., \"Category\", \"Class\", \"Type\"), as well as synonyms for the main concepts (e.g., \"Area\" and \"Space\").",
+    "A device performs one or more functions": {
+      "keywords_usadas": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nDevice, FunctionalEntity, EntityWithFunctionality, Performer, Functionary, Actor, DeviceFunctionality, Capability, Functionality, Action, Operation\n\nNote: The terms are in English, as per your request.",
       "entidades_recuperadas": [
         {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: A part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent. Concept from the BOT ontology.",
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4city_2020-06-05.n3 (EXTENSION)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended.",
+          "ontologia": "s4city_2020-06-05.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4city_2020-06-05.n3 (EXTENSION)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended.",
+          "ontologia": "s4city_2020-06-05.n3"
+        }
+      ]
+    },
+    "A building space is a geographical point characterized by acertain altitude, latitude and longitude": {
+      "keywords_usadas": "What a great request!\n\nAfter analyzing the user's petition, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicPoint, BuildingSpace, Altitude, Latitude, Longitude, PointOfInterest, SpatialLocation, GeographicCoordinate, CoordinateSystem, GeospatialData, SpatialReferenceSystem\n\nThis list includes the main nouns (BuildingSpace, GeographicPoint) and verbs (characterized by) from the original petition. I've also added formal equivalents (Category: GeographicPoint, Class: BuildingSpace), as well as technical synonyms (e.g., PointOfInterest, SpatialLocation).\n\nNote that some of these terms might be more specific or general than others, but they all relate to the concept of a building space with geographical coordinates.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#lat",
+          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://www.w3.org/2003/01/geo/wgs84_pos#lat\nLabel: latitude\nDefinition: Latitude geo location coordinate.",
           "ontologia": "building.ttl"
         },
         {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#alt",
+          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://www.w3.org/2003/01/geo/wgs84_pos#alt\nLabel: altitude\nDefinition: Altitude geo location coordinate.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#hasZeroPoint",
+          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasZeroPoint\nLabel: heeft nulpunt\nDefinition: Links a bot:Site to an instance that encodes the latitude and longitude of the Zero Point of the building site. This could be an instance of a wgs84:Point. The definition of GIS and geometry is not within the scope of BOT and an appropriate ontology needs to be selected here by the user. The use of this property is potentially ambiguous and it might be removed or revised in future editions of the ontology.",
           "ontologia": "bot.ttl"
         },
         {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "uri": "https://w3id.org/bot#hasZeroPoint",
+          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasZeroPoint\nLabel: tiene punto cero\nDefinition: Links a bot:Site to an instance that encodes the latitude and longitude of the Zero Point of the building site. This could be an instance of a wgs84:Point. The definition of GIS and geometry is not within the scope of BOT and an appropriate ontology needs to be selected here by the user. The use of this property is potentially ambiguous and it might be removed or revised in future editions of the ontology.",
           "ontologia": "bot.ttl"
         },
         {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "uri": "https://w3id.org/bot#hasZeroPoint",
+          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasZeroPoint\nLabel: har nulpunkt\nDefinition: Links a bot:Site to an instance that encodes the latitude and longitude of the Zero Point of the building site. This could be an instance of a wgs84:Point. The definition of GIS and geometry is not within the scope of BOT and an appropriate ontology needs to be selected here by the user. The use of this property is potentially ambiguous and it might be removed or revised in future editions of the ontology.",
           "ontologia": "bot.ttl"
         }
       ],
       "entidades_aprobadas": [
         {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: A part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent. Concept from the BOT ontology.",
+          "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#lat",
+          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://www.w3.org/2003/01/geo/wgs84_pos#lat\nLabel: latitude\nDefinition: Latitude geo location coordinate.",
           "ontologia": "building.ttl"
         },
         {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
-        }
-      ]
-    },
-    "Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.": {
-      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nZone, Building, Storey, Space, Container, Level, Layer, Area, Region, Class, Type, Category, SpatialPartition, HierarchicalStructure, NestedEntity.\n\nNote that I've included both technical terms (e.g., \"Container\", \"Level\") and ontological equivalents (e.g., \"Class\", \"Type\", \"Category\"). This list should provide a comprehensive foundation for searching and querying in the context of Web Semantics (OWL/RDF).",
-      "entidades_recuperadas": [
-        {
-          "uri": "https://w3id.org/bot#containsZone",
-          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#containsZone\nLabel: contains zone\nDefinition: Relationship to the subzones of a major zone. A space zone could for instance be contained in a storey zone which is further contained in a building zone.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasStorey",
-          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#hasStorey\nLabel: has storey\nDefinition: Relation to storeys contained in a zone.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#Zone",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
-          "ontologia": "bot.ttl"
-        }
-      ],
-      "entidades_aprobadas": [
-        {
-          "uri": "https://w3id.org/bot#containsZone",
-          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#containsZone\nLabel: contains zone\nDefinition: Relationship to the subzones of a major zone. A space zone could for instance be contained in a storey zone which is further contained in a building zone.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasStorey",
-          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#hasStorey\nLabel: has storey\nDefinition: Relation to storeys contained in a zone.",
+          "uri": "http://www.w3.org/2003/01/geo/wgs84_pos#alt",
+          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://www.w3.org/2003/01/geo/wgs84_pos#alt\nLabel: altitude\nDefinition: Altitude geo location coordinate.",
           "ontologia": "building.ttl"
         }
       ]
     },
-    "Zones may intersect, or be adjacent to other zones.": {
-      "keywords_usadas": "Based on the user's request \"Zones may intersect, or be adjacent to other zones\", I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicZone, SpatialRegion, Area, Region, ZoneType, Intersection, Adjacency, GeographicBoundary, SpatialPartitioning, Class:GeographicFeature, Type:GeospatialRelationship\n\nNote that I've used a combination of natural language processing (NLP) and ontological reasoning to generate this list. The concepts are organized in a way that reflects their relationships and hierarchies within the domain of Web Semantics (OWL/RDF).",
+    "A device shall have a model property": {
+      "keywords_usadas": "Based on the user's request \"A device shall have a model property\", I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Model, Property, Class, Type, Ontology, Concept, Category, Thing, Entity, Object, Attribute, Characteristic, Description, Specification",
       "entidades_recuperadas": [
         {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: Relación entre dos zonas que comparten una interfaz común, pero que no intersecan.",
-          "ontologia": "bot.ttl"
+          "uri": "https://saref.etsi.org/core/hasModel",
+          "texto": "Concept: Property\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag.",
+          "ontologia": "saref_2020-05-29.n3"
         },
         {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: Relatie tussen twee zones die een interface delen, maar niet doorsnijdend zijn",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: zone adjacente\nDefinition: 两个区域之间共享公共界面但不相交的关系",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#intersectsZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#intersectsZone\nLabel: intersecte zone\nDefinition: رابطه بین دو منطقه که حدود سه بعدی آنها با هم تلاقی دارد. برای مثال، یک راه پله از منطقه های مختلف عبور می کند و با آنها تلاقی دارد.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: رابطه بین دو منطقه که یک رابط مشترک دارند، ولی منقطع نیستند.",
-          "ontologia": "bot.ttl"
-        }
-      ],
-      "entidades_aprobadas": [
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: Relación entre dos zonas que comparten una interfaz común, pero que no intersecan.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: Relatie tussen twee zones die een interface delen, maar niet doorsnijdend zijn",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: zone adjacente\nDefinition: 两个区域之间共享公共界面但不相交的关系",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: رابطه بین دو منطقه که یک رابط مشترک دارند، ولی منقطع نیستند.",
-          "ontologia": "bot.ttl"
-        }
-      ]
-    },
-    "There are building elements, which may have sub elements.": {
-      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nBuildingElement, SubElement, Component, Part, Entity, Object, Structure, Architecture, Ontology, Class, Type, Category, Element, Subcomponent, Fragment, Module, Unit.\n\nNote: The terms are in English to facilitate searching across different ontologies and databases.",
-      "entidades_recuperadas": [
-        {
-          "uri": "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
-          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#BuildingElement\nLabel: Building Element\nDefinition: The building element comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
-          "texto": "Concept: Class\nOntology: beo.ttl (CORE)\nURI: https://pi.pauwel.be/voc/buildingelement#BuildingElement\nLabel: Building Element\nDefinition: Comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "beo.ttl"
-        },
-        {
-          "uri": "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
-          "texto": "Concept: Class\nOntology: beo.ttl (CORE)\nURI: https://pi.pauwel.be/voc/buildingelement#BuildingElement\nLabel: Elément de construction\nDefinition: Comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "beo.ttl"
-        },
-        {
-          "uri": "http://bimerr.iot.linkeddata.es/def/building#Element",
-          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Element\nLabel: Element\nDefinition: An element is a generalization of all components that make up an AEC product.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#Element",
-          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Element\nLabel: Building element\nDefinition: تشکیل دهنده‌ی یک واحد ساخت با عملکرد فنی، فرم و یا موقعیت   مشخص.",
-          "ontologia": "bot.ttl"
-        }
-      ],
-      "entidades_aprobadas": [
-        {
-          "uri": "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
-          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#BuildingElement\nLabel: Building Element\nDefinition: The building element comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
-          "texto": "Concept: Class\nOntology: beo.ttl (CORE)\nURI: https://pi.pauwel.be/voc/buildingelement#BuildingElement\nLabel: Building Element\nDefinition: Comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "beo.ttl"
-        },
-        {
-          "uri": "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
-          "texto": "Concept: Class\nOntology: beo.ttl (CORE)\nURI: https://pi.pauwel.be/voc/buildingelement#BuildingElement\nLabel: Elément de construction\nDefinition: Comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "beo.ttl"
-        }
-      ]
-    },
-    "Zones may have elements, either contained, adjacent, or intersecting it.": {
-      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nZones, elements, contained, adjacent, intersecting, spatial relationships, geometric entities, regions, areas, boundaries, Class:Zone, Type:Element, Category:SpatialRelationship.\n\nNote that I've used OWL/RDF terminology to formalize the concepts, and included synonyms and related terms to improve search results.",
-      "entidades_recuperadas": [
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: has element\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: omaa elementin\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: 含构件\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: heeft element\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: a élément\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        }
-      ],
-      "entidades_aprobadas": [
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: has element\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: omaa elementin\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: 含构件\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: heeft element\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: a élément\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        }
-      ]
-    },
-    "A adjacent zones and/or elements share some interface.": {
-      "keywords_usadas": "Based on the user's request \"A adjacent zones and/or elements share some interface.\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nZone, Element, Interface, Adjacent, Shared, Neighbor, Proximity, Contiguous, Bordering, Co-located, Interconnected, Coupled.\n\nNote: The terms are in English as per your request.",
-      "entidades_recuperadas": [
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: Relationship between two zones that share a common interface, but do not intersect.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: zone adjacente\nDefinition: Relationship between two zones that share a common interface, but do not intersect.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: Relation entre deux zones partageant une interface commune, sans intersection",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: has element\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: tem elemento\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        }
-      ],
-      "entidades_aprobadas": [
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: Relationship between two zones that share a common interface, but do not intersect.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: zone adjacente\nDefinition: Relationship between two zones that share a common interface, but do not intersect.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#adjacentZone",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#adjacentZone\nLabel: adjacent zone\nDefinition: Relation entre deux zones partageant une interface commune, sans intersection",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: has element\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://w3id.org/bot#hasElement",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasElement\nLabel: tem elemento\nDefinition: Links a Zone to an Element that is either contained in, adjacent to or intersecting with the Zone. The intended use of this relationship is not to be stated explicitly, but to be inferred from its sub-properties. It will, for example, allow one to query for all the doors of a building given that they have an adjacency to spaces of the building.",
-          "ontologia": "bot.ttl"
-        }
-      ]
-    },
-    "Zones and Elements have a 3D Model (including geometry, material, etc.).": {
-      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeometry, Material, Model, 3DModel, Zone, Element, Class, Type, Category, SpatialRepresentation, ThreeDimensionalModel, ObjectModel, GeometryDefinition, MaterialProperty, SpatialEntity\n\nNote that I've included both technical terms (e.g., \"Geometry\", \"Material\") and ontological equivalents (e.g., \"Class\", \"Type\", \"Category\"), as well as synonyms and related concepts to provide a comprehensive search list.",
-      "entidades_recuperadas": [
-        {
-          "uri": "https://w3id.org/bot#has3DModel",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#has3DModel\nLabel: a modèle 3D\nDefinition: Liittää vyöhykkeen (bot:Zone) tai elementin (bot:Element) sen 3D-mallin yksilöivään IRI:in. Tämä 3D-malli voi olla kuvattu jollakin siihen tarkoitetulla RDF-sanastolla. 3D-mallin IRI voi myös osoittaa johonkin olemassa olevalla dataformaatilla kuvattuun 3D-malliin, joka on ladattavissa IRI:n kautta.",
-          "ontologia": "bot.ttl"
-        },
-        {
-          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL#Material",
-          "texto": "Concept: Class\nOntology: dstv.ttl (CORE)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL#Material\nLabel: Material\nDefinition: Material is a homogeneous or inhomogeneous substance that can be used to form elements (physical products or their components). Material is the basic entity for material designation and definition; this includes identification by name and classification (via reference to an external classification). Material must have a name (=material grade e.g. S355JR) and a category (=material e.g. Steel, Aluminium etc.). Material defines the planned/proposed material. The finally used material is stored in the property set.",
-          "ontologia": "dstv.ttl"
-        },
-        {
-          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#GeometricParameter",
-          "texto": "Concept: Class\nOntology: th_sharedvocalulary.owl (CORE)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#GeometricParameter\nLabel: GeometricParameter\nDefinition: Parameter describing the geometry of elements described in the building information model",
-          "ontologia": "th_sharedvocalulary.owl"
-        },
-        {
-          "uri": "http://vocab.datex.org/terms#Dimension",
-          "texto": "Concept: Class\nOntology: datex_2016-06-13.n3 (CORE)\nURI: http://vocab.datex.org/terms#Dimension\nLabel: Dimension\nDefinition: A component that provides dimension information. The product of width and height must not be necessarily be the square footage (e.g. in multi-storey buildings or when some zones are not part of the square footage).",
-          "ontologia": "datex_2016-06-13.n3"
-        },
-        {
-          "uri": "http://www.opengis.net/ont/geosparql#SpatialObject",
-          "texto": "Concept: Class\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: http://www.opengis.net/ont/geosparql#SpatialObject\nLabel: SpatialObject\nDefinition: The class spatial-object represents everything that can have a spatial representation. It is superclass of feature and geometry.",
+          "uri": "https://saref.etsi.org/core/hasModel",
+          "texto": "Concept: Property\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device)",
           "ontologia": "s4agri_2020-06-05.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/hasModel",
+          "texto": "Concept: Property\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device)",
+          "ontologia": "s4watr_2020-06-03.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4ehaw/hasDeviceCharacteristic",
+          "texto": "Concept: Property\nOntology: s4ehaw_2020-05-01.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ehaw/hasDeviceCharacteristic\nLabel: has device characteristic\nDefinition: A health device has device characteristic describing the physical characteristics of the health device, e.g. its dimensions.",
+          "ontologia": "s4ehaw_2020-05-01.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4ener/nodeRemoteControllable",
+          "texto": "Concept: Property\nOntology: s4ener_2020-06-04.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ener/nodeRemoteControllable\nLabel: node remote controllable\nDefinition: Indicates whether the power profile of a device is configured for remote control (e.g., by an energy management system).This refers to the selection chosen by the user on the remote control feature of the device. If nodeRemoteControllable is equal to FALSE, all the supported power sequences shall set the sequenceRemoteControllable property to FALSE. If nodeRemoteControllable is equal to TRUE, at least one power sequence shall be remotely controllable by setting the sequenceRemoteControllable property to TRUE.",
+          "ontologia": "s4ener_2020-06-04.n3"
         }
       ],
       "entidades_aprobadas": [
         {
-          "uri": "https://w3id.org/bot#has3DModel",
-          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#has3DModel\nLabel: a modèle 3D\nDefinition: Liittää vyöhykkeen (bot:Zone) tai elementin (bot:Element) sen 3D-mallin yksilöivään IRI:in. Tämä 3D-malli voi olla kuvattu jollakin siihen tarkoitetulla RDF-sanastolla. 3D-mallin IRI voi myös osoittaa johonkin olemassa olevalla dataformaatilla kuvattuun 3D-malliin, joka on ladattavissa IRI:n kautta.",
+          "uri": "https://saref.etsi.org/core/hasModel",
+          "texto": "Concept: Property\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/hasModel",
+          "texto": "Concept: Property\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device)",
+          "ontologia": "s4agri_2020-06-05.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/hasModel",
+          "texto": "Concept: Property\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device)",
+          "ontologia": "s4watr_2020-06-03.n3"
+        }
+      ]
+    },
+    "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room": {
+      "keywords_usadas": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Building space, device, kitchen, living room, location\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* BuildingSpace, DeviceLocation, KitchenArea, LivingRoomArea, PhysicalSpace\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Space, Zone, Place\n\nHere's the optimized search list in English, separated by commas:\n\nBuildingSpace, DeviceLocation, KitchenArea, LivingRoomArea, PhysicalSpace, Room, Area, Space, Zone, Place",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment",
+          "texto": "Concept: Class\nOntology: dogont_2015-01-11.n3 (EXTENSION)\nURI: http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment\nLabel: BuildingEnvironment\nDefinition: A physical environment in which people lives, e.g. kitchen, bathroom",
+          "ontologia": "dogont_2015-01-11.n3"
+        },
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Apartment",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Apartment\nLabel: Apartment\nDefinition: An apartment is a group of spaces, partial spaces or other zones.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://brickschema.org/schema/Brick#Zone",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://brickschema.org/schema/Brick#Zone\nLabel: Zone\nDefinition: (1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Zone",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zóna\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
           "ontologia": "bot.ttl"
         },
         {
-          "uri": "http://www.opengis.net/ont/geosparql#SpatialObject",
-          "texto": "Concept: Class\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: http://www.opengis.net/ont/geosparql#SpatialObject\nLabel: SpatialObject\nDefinition: The class spatial-object represents everything that can have a spatial representation. It is superclass of feature and geometry.",
+          "uri": "https://w3id.org/bot#Zone",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zóna\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "ontologia": "bot.ttl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment",
+          "texto": "Concept: Class\nOntology: dogont_2015-01-11.n3 (EXTENSION)\nURI: http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment\nLabel: BuildingEnvironment\nDefinition: A physical environment in which people lives, e.g. kitchen, bathroom",
+          "ontologia": "dogont_2015-01-11.n3"
+        },
+        {
+          "uri": "https://brickschema.org/schema/Brick#Zone",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://brickschema.org/schema/Brick#Zone\nLabel: Zone\nDefinition: (1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
+          "ontologia": "brick.ttl"
+        }
+      ]
+    },
+    "The devices can belong to several categories": {
+      "keywords_usadas": "Based on the user's request \"The devices can belong to several categories\", I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCategory, Class, Type, Classification, Hierarchy, Ontology, Taxonomy, Categorization, Classification Scheme, Device Category, Belonging, Membership, Association\n\nNote that I've included both formal ontological terms (e.g., \"Category\", \"Class\") and technical synonyms (e.g., \"Classification Scheme\", \"Taxonomy\") to provide a comprehensive search list.",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended.",
+          "ontologia": "s4watr_2020-06-03.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Function",
+          "texto": "Concept: Class\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. ",
           "ontologia": "s4agri_2020-06-05.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Function",
+          "texto": "Concept: Class\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. ",
+          "ontologia": "s4agri_2020-06-05.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Function",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. ",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Function",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4watr_2020-06-03.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended.",
+          "ontologia": "s4watr_2020-06-03.n3"
         }
       ]
     }
   },
   "matriz_cobertura": {
+    "saref_2020-05-29.n3": [
+      "A device performs one or more functions",
+      "A device shall have a model property"
+    ],
+    "s4inma_2019-04-30.n3": [
+      "A device performs one or more functions"
+    ],
+    "s4city_2020-06-05.n3": [
+      "A device performs one or more functions"
+    ],
     "building.ttl": [
-      "Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.",
-      "Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.",
-      "There are building elements, which may have sub elements."
-    ],
-    "bot.ttl": [
-      "Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.",
-      "Zones may intersect, or be adjacent to other zones.",
-      "Zones may have elements, either contained, adjacent, or intersecting it.",
-      "A adjacent zones and/or elements share some interface.",
-      "Zones and Elements have a 3D Model (including geometry, material, etc.)."
-    ],
-    "beo.ttl": [
-      "There are building elements, which may have sub elements."
+      "A building space is a geographical point characterized by acertain altitude, latitude and longitude"
     ],
     "s4agri_2020-06-05.n3": [
-      "Zones and Elements have a 3D Model (including geometry, material, etc.)."
+      "A device shall have a model property"
+    ],
+    "s4watr_2020-06-03.n3": [
+      "A device shall have a model property",
+      "The devices can belong to several categories"
+    ],
+    "dogont_2015-01-11.n3": [
+      "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room"
+    ],
+    "brick.ttl": [
+      "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room"
     ]
   },
-  "veredicto_final": "**Recomendación de Red**\n\nSe recomienda la siguiente red de ontologías:\n\n* **building.ttl**: Esta ontología es fundamental para describir las características espaciales de los edificios, incluyendo zonas, edificios, plantas y espacios. Cubre requisitos como la definición de zonas con volúmenes 3D y la existencia de elementos constructivos.\n* **bot.ttl**: Esta ontología es importante para describir las relaciones entre las zonas y los elementos constructivos, incluyendo la posibilidad de intersección o adyacencia. Cubre requisitos como la definición de zonas que pueden intersectar o ser adyacentes, así como la existencia de elementos que comparten interfaces.\n* **s4agri_2020-06-05.n3**: Esta ontología es relevante para describir los modelos 3D de las zonas y elementos constructivos. Cubre requisitos como la existencia de modelos 3D que incluyen geometría, material, etc.\n\n**Justificación breve por ontología**\n\n* **building.ttl**: Esta ontología proporciona una base sólida para describir los edificios y sus componentes espaciales.\n* **bot.ttl**: Esta ontología permite describir las relaciones entre las zonas y elementos constructivos, lo que es fundamental para entender la estructura y el comportamiento de los edificios.\n* **s4agri_2020-06-05.n3**: Esta ontologia proporciona una forma de describir los modelos 3D de las zonas y elementos constructivos, lo que es importante para aplicaciones que requieren la visualización o análisis de datos espaciales.\n\n**Observaciones de cobertura y posibles huecos**\n\nLa recomendación de esta red de ontologías cubre una amplia gama de requisitos relacionados con la descripción de edificios y sus componentes espaciales. Sin embargo, es posible que existan algunos huecos en la cobertura, como:\n\n* La falta de ontologías que describan los materiales y propiedades físicas de los elementos constructivos.\n* La necesidad de ontologías que describan las relaciones entre los edificios y el entorno circundante (por ejemplo, la relación con la naturaleza o la infraestructura).\n\nEn general, esta red de ontologías proporciona una base sólida para describir los edificios y sus componentes espaciales, pero puede requerir la adición de ontologías adicionales para cubrir áreas específicas."
+  "veredicto_final": "**Veredicto Final**\n\nRecomendación de Red: saref_2020-05-29.n3, s4watr_2020-06-03.n3, building.ttl\n\nJustificación:\n\n1. **saref_2020-05-29.n3**: Esta ontología cubre dos requisitos fundamentales: \"A device performs one or more functions\" y \"A device shall have a model property\". Como ontología de referencia para dispositivos, es fundamental en la cobertura de los requisitos.\n2. **s4watr_2020-06-03.n3**: Esta ontología cubre dos requisitos importantes: \"The devices can belong to several categories\" y \"A device shall have a model property\". Como ontología relacionada con el agua, es relevante en la cobertura de los requisitos.\n3. **building.ttl**: Esta ontología cubre un requisito específico sobre la definición de espacios físicos dentro de un edificio. Como ontología que describe las características geográficas y físicas de un edificio, es fundamental para completar la cobertura de los requisitos.\n\nObservaciones:\n\n* La ontología dogont_2015-01-11.n3 no se incluye en la recomendación debido a que su cobertura se superpone con la de building.ttl.\n* La ontología brick.ttl no se incluye en la recomendación debido a que su cobertura es similar a la de dogont_2015-01-11.n3 y no agrega valor adicional.\n* La ontología s4inma_2019-04-30.n3 y s4agri_2020-06-05.n3 no se incluyen en la recomendación debido a que su cobertura se superpone con la de saref_2020-05-29.n3 y s4watr_2020-06-03.n3.\n* La cobertura de los requisitos \"A device performs one or more functions\" y \"The devices can belong to several categories\" está completa gracias a las tres ontologías recomendadas.\n\nEn resumen, la recomendación de red propuesta cubre una amplia gama de requisitos relacionados con dispositivos, espacios físicos y categorías."
 }

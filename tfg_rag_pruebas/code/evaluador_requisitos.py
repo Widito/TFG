@@ -49,14 +49,23 @@ class EvaluadorRequisitos:
         json_candidate = cleaned[first_curly:last_curly + 1].strip()
         return json.loads(json_candidate)
 
-    def cargar_requisitos(self, ruta_csv: str, max_requirements: Optional[int] = None) -> List[str]:
+    def cargar_requisitos(
+        self,
+        ruta_csv: str,
+        max_requirements: Optional[int] = None,
+        start_row: Optional[int] = None,
+        end_row: Optional[int] = None,
+        selected_rows: Optional[List[int]] = None,
+        selected_ids: Optional[List[int]] = None,
+    ) -> List[str]:
         """
         Lee un CSV y extrae una lista de requisitos.
 
         Estrategia de extraccion:
         1) Intenta localizar una columna tipica (requisito/requirement/etc.).
         2) Si no existe, usa la primera columna no vacia por fila.
-        3) Aplica limite max_requirements si se indica.
+        3) Permite filtrar por rango de filas, filas concretas o IDs del CSV.
+        4) Aplica limite max_requirements si se indica.
         """
         if not os.path.exists(ruta_csv):
             print(f"[ERROR] No existe el archivo CSV: {ruta_csv}")
@@ -113,7 +122,20 @@ class EvaluadorRequisitos:
 
                 excluded_fallback_cols = {"id", "expected_ontology", "difficulty"}
 
-                for row in reader:
+                for row_index, row in enumerate(reader, start=1):
+                    csv_id = None
+                    if "id" in row and str(row["id"]).strip().isdigit():
+                        csv_id = int(str(row["id"]).strip())
+
+                    if start_row is not None and row_index < start_row:
+                        continue
+                    if end_row is not None and row_index > end_row:
+                        continue
+                    if selected_rows is not None and row_index not in selected_rows:
+                        continue
+                    if selected_ids is not None and csv_id is not None and csv_id not in selected_ids:
+                        continue
+
                     value = ""
                     if selected_column:
                         value = str(row.get(selected_column, "")).strip()
@@ -355,7 +377,15 @@ class EvaluadorRequisitos:
         except Exception as exc:
             return f"No fue posible generar el veredicto final en este momento: {exc}"
 
-    def orquestar_evaluacion(self, ruta_csv: str, max_requirements: int = 5) -> Dict[str, object]:
+    def orquestar_evaluacion(
+        self,
+        ruta_csv: str,
+        max_requirements: int = 5,
+        start_row: Optional[int] = None,
+        end_row: Optional[int] = None,
+        selected_rows: Optional[List[int]] = None,
+        selected_ids: Optional[List[int]] = None,
+    ) -> Dict[str, object]:
         """
         Flujo principal Bottom-Up:
         1) Carga requisitos.
@@ -365,7 +395,14 @@ class EvaluadorRequisitos:
         5) Genera y muestra matriz de cobertura ontologia->requisitos.
         6) Redacta veredicto final con recomendacion de red de ontologias.
         """
-        requisitos = self.cargar_requisitos(ruta_csv, max_requirements=max_requirements)
+        requisitos = self.cargar_requisitos(
+            ruta_csv,
+            max_requirements=max_requirements,
+            start_row=start_row,
+            end_row=end_row,
+            selected_rows=selected_rows,
+            selected_ids=selected_ids,
+        )
         if not requisitos:
             print("[INFO] No hay requisitos para evaluar.")
             return {"tad_requisitos": {}, "matriz_cobertura": {}, "veredicto_final": ""}
@@ -440,4 +477,4 @@ if __name__ == "__main__":
     ruta_default = os.path.join(project_root, "dataset_bot_test.csv")
 
     evaluador = EvaluadorRequisitos()
-    evaluador.orquestar_evaluacion(ruta_default, max_requirements=7)
+    evaluador.orquestar_evaluacion(ruta_default, start_row=8, end_row=14)
