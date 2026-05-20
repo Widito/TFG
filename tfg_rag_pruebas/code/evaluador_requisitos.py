@@ -477,4 +477,4 @@ if __name__ == "__main__":
     ruta_default = os.path.join(project_root, "dataset_bot_test.csv")
 
     evaluador = EvaluadorRequisitos()
-    evaluador.orquestar_evaluacion(ruta_default, start_row=15, end_row=26)
+    evaluador.orquestar_evaluacion(ruta_default, start_row=1, end_row=14)
