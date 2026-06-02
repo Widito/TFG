@@ -81,25 +81,68 @@ class OntologyRecommender:
         self.chroma_retriever = self.vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 25})
 
     def _hybrid_retrieve(self, query, k=40):
-        self.bm25_retriever.k = k 
-        self.chroma_retriever.search_kwargs["k"] = k 
-        dense_docs = self.chroma_retriever.invoke(query)
-        sparse_docs = self.bm25_retriever.invoke(query)
-        
-        seen = set()
-        combined = []
-        max_len = max(len(dense_docs), len(sparse_docs))
-        for i in range(max_len):
-            if i < len(dense_docs):
-                d = dense_docs[i]
-                uid = (d.page_content, str(d.metadata))
-                if uid not in seen: seen.add(uid); combined.append(d)
-            if i < len(sparse_docs):
-                d = sparse_docs[i]
-                uid = (d.page_content, str(d.metadata))
-                if uid not in seen: seen.add(uid); combined.append(d)
-            if len(combined) >= k: break
-        return combined
+        self.bm25_retriever.k = k
+
+        # Over-fetching en Chroma para compensar duplicados por URI y conservar el orden de relevancia.
+        query_embedding = self.embeddings.embed_query(query)
+        raw_results = self.vectorstore._collection.query(
+            query_embeddings=[query_embedding],
+            n_results=k * 3,
+            include=["documents", "metadatas", "distances"],
+        )
+
+        documents_batch = raw_results.get("documents") or [[]]
+        metadatas_batch = raw_results.get("metadatas") or [[]]
+        distances_batch = raw_results.get("distances") or [[]]
+
+        dense_documents = documents_batch[0] if documents_batch else []
+        dense_metadatas = metadatas_batch[0] if metadatas_batch else []
+        dense_distances = distances_batch[0] if distances_batch else []
+
+        uris_vistas = set()
+        unique_docs = []
+        unique_metadatas = []
+        unique_distances = []
+
+        for document_text, metadata, distance in zip(dense_documents, dense_metadatas, dense_distances):
+            metadata = metadata or {}
+            uri = str(metadata.get("uri", "")).strip()
+            if not uri:
+                match = re.search(r"^URI:\s*(\S+)", str(document_text or ""), flags=re.MULTILINE)
+                uri = match.group(1).strip() if match else ""
+
+            # Filtrado por URI para evitar repetir la misma entidad en distintas anotaciones.
+            if uri in uris_vistas:
+                continue
+
+            uris_vistas.add(uri)
+            unique_docs.append(Document(page_content=document_text, metadata=metadata))
+            unique_metadatas.append(metadata)
+            unique_distances.append(distance)
+
+            if len(unique_docs) >= k:
+                break
+
+        if len(unique_docs) < k:
+            sparse_docs = self.bm25_retriever.invoke(query)
+            for doc in sparse_docs:
+                uri = str((doc.metadata or {}).get("uri", "")).strip()
+                if not uri:
+                    match = re.search(r"^URI:\s*(\S+)", str(doc.page_content or ""), flags=re.MULTILINE)
+                    uri = match.group(1).strip() if match else ""
+
+                if uri in uris_vistas:
+                    continue
+
+                uris_vistas.add(uri)
+                unique_docs.append(doc)
+                unique_metadatas.append(doc.metadata)
+                unique_distances.append(None)
+
+                if len(unique_docs) >= k:
+                    break
+
+        return unique_docs
 
     def _setup_chains(self):
         # 1. EXTRACCIÓN
