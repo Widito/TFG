@@ -1,11 +1,11 @@
 import csv
 import os  
 import pandas as pd
-from rag_basico import OntologyRecommender
+# CORRECCIÓN 1: Importamos desde la librería instalable
+from ontology_rag import OntologyRecommender
 import sys
 import time
 
-# --- CLASE PARA REDIRIGIR SALIDA (LOGGING) ---
 class DualLogger(object):
     def __init__(self, filename):
         self.terminal = sys.stdout
@@ -14,37 +14,34 @@ class DualLogger(object):
     def write(self, message):
         self.terminal.write(message)
         self.log.write(message)
-        self.log.flush() # Asegura que se guarde en tiempo real
+        self.log.flush() 
 
     def flush(self):
         self.terminal.flush()
         self.log.flush()
 
-# Redirigir stdout al archivo y pantalla
-log_filename = "log_evaluacion_completa.txt"
-sys.stdout = DualLogger(log_filename)
-# ---------------------------------------------
-
-
-# 1. Obtenemos la ruta de la carpeta donde está ESTE archivo
 current_dir = os.path.dirname(os.path.abspath(__file__))
+# Calculamos rutas absolutas hacia la raíz del proyecto
+project_root = os.path.dirname(current_dir)
+CSV_PATH = os.path.join(project_root, "dataset_bot_test.csv")
+OUTPUT_CSV = os.path.join(project_root, "resultados_evaluacion.csv")
+# CORRECCIÓN 2: Calculamos la ruta de ChromaDB
+PERSIST_DIRECTORY = os.path.join(project_root, "chroma_db")
 
-# 2. Construimos las rutas relativas (dataset_bot_test.csv está una carpeta arriba)
-CSV_PATH = os.path.join(current_dir, "..", "dataset_bot_test.csv")
-OUTPUT_CSV = os.path.join(current_dir, "..", "resultados_evaluacion.csv")
+log_filename = os.path.join(current_dir, "log_evaluacion_completa.txt")
+sys.stdout = DualLogger(log_filename)
 
 def evaluate():
     print("INICIANDO EVALUACIÓN AUTOMATIZADA ")
     print(f"Leyendo dataset desde: {os.path.abspath(CSV_PATH)}")
     
-    # 1. Cargar el sistema
+    # CORRECCIÓN 3: Inyectamos la dependencia (persist_directory)
     try:
-        rag = OntologyRecommender()
+        rag = OntologyRecommender(persist_directory=PERSIST_DIRECTORY)
     except Exception as e:
         print(f"Error iniciando RAG: {e}")
         return
     
-    # 2. Leer dataset
     if not os.path.exists(CSV_PATH):
         print(f" ERROR: No se encuentra el dataset en: {CSV_PATH}")
         return
@@ -65,23 +62,15 @@ def evaluate():
         
         print(f"Prueba {index+1}/{len(df)}: '{query[:40]}...' -> Esperado: {target}")
         
-        # EJECUCIÓN DEL RAG
-        # Usamos initial_k=40 para permitir que el Broad Retrieval capture candidatos antes de que el Re-ranker los filtre.
         try:
             response = rag.run_pipeline(query, initial_k=100)
             
-            # CÁLCULO DE MÉTRICAS 
-            
-            # 1. Retrieval Recall (¿Sobrevivió el archivo correcto al re-rankeo?)
-            # 'unique_retrieved_sources' ahora contiene la lista FILTRADA por el LLM
             retrieved_list = response.get('unique_retrieved_sources', [])
             hit_retrieval = target in retrieved_list
             
-            # 2. Generación Accuracy (¿El LLM recomendó el archivo correcto?)
             llm_text = response.get('llm_response', '').lower()
             hit_generation = target.lower() in llm_text
             
-            # Guardar métricas
             results.append({
                 "id": row['id'],
                 "query": query,
@@ -104,7 +93,6 @@ def evaluate():
                 "llm_output_snippet": f"ERROR: {str(e)}"
             })
 
-    # 3. Guardar y Mostrar Resumen
     results_df = pd.DataFrame(results)
     results_df.to_csv(OUTPUT_CSV, index=False, sep=";")
     
