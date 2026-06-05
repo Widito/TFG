@@ -1,0 +1,144 @@
+================================================================================
+EVOLUCIÓN DEL PROYECTO: REFACTORIZACIÓN RAG CON OOP + INYECCIÓN DE DEPENDENCIAS
+================================================================================
+
+📅 ENTRADA 001 - REFACTORIZACIÓN DE FASE DE INGESTA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OBJETIVO ALCANZADO:
+  ✓ Extracción modular de lógica de indexación hacia librería ontology_rag
+  ✓ Implementación del patrón OOP con Inyección de Dependencias
+  ✓ Mejora significativa en testabilidad y reutilización de código
+
+CAMBIOS REALIZADOS:
+
+1. NUEVO MÓDULO: src/ontology_rag/creador_rag.py
+   ──────────────────────────────────────────────
+   Clase: OntologyIndexer
+   
+   Responsabilidades encapsuladas:
+     • Parsing robusto de múltiples formatos RDF (TTL, N3, OWL, RDF, NT)
+     • Análisis estructural automático de ontologías (CORE vs EXTENSION)
+     • Extracción de Clases y Propiedades mediante SPARQL
+     • Fragmentación semántica de documentos
+     • Vectorización con HuggingFace Embeddings (configurable)
+     • Persistencia en ChromaDB con metadatos estructurales
+     • Soporte para procesamiento en lotes (configurable)
+   
+   Inyección de Dependencias:
+     • source_directories: List[str] - Rutas de entrada (múltiples)
+     • persist_directory: str - Ruta de salida ChromaDB
+     • embedding_model: str - Modelo HF intercambiable
+     • batch_size: int - Tamaño de procesamiento configurable
+     • logger: Optional[Logger] - Logging customizable
+     • recreate_db: bool - Modo regeneración vs. adición
+   
+   Beneficios:
+     ✓ Fácil testabilidad con mocks de dependencias
+     ✓ Reutilización en múltiples contextos (CLI, API, scripts)
+     ✓ Cambios de configuración sin modificar código
+     ✓ Logging inyectable para trazabilidad
+
+2. ACTUALIZACIÓN: src/ontology_rag/__init__.py
+   ───────────────────────────────────────────
+   • Exportación de OntologyIndexer en __all__
+   • Integración transparente con módulo existente
+
+3. NUEVO SCRIPT: code/run_indexacion.py
+   ──────────────────────────────────────
+   Cliente de indexación que:
+     • Define rutas físicas reales (entrada/salida)
+     • Instancia OntologyIndexer con inyección explícita
+     • Ejecuta pipeline de indexación completo
+     • Maneja errores y logging centralizado
+   
+   Uso:
+     $ python code/run_indexacion.py
+
+MEJORAS ARQUITECTÓNICAS:
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ ANTES: Lógica monolítica en code/chroma_db.py                          │
+├─────────────────────────────────────────────────────────────────────────┤
+│ ✗ Acoplamiento alto a rutas hardcodeadas                               │
+│ ✗ Difícil de testear sin datos reales                                  │
+│ ✗ No reutilizable en otros contextos (API, tests)                      │
+│ ✗ Dependencias implícitas en código                                     │
+│ ✗ Logging y configuración dispersos                                     │
+└─────────────────────────────────────────────────────────────────────────┘
+
+                                   ↓↓↓
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ DESPUÉS: Clase OntologyIndexer con DI + Script cliente                 │
+├─────────────────────────────────────────────────────────────────────────┤
+│ ✓ Dependencias inyectadas explícitamente                               │
+│ ✓ Fácil crear instancias con diferentes configuraciones                │
+│ ✓ Testeable con fixtures (pytest) o mocks                             │
+│ ✓ Reutilizable en librerías externas, APIs, CLI                       │
+│ ✓ Logging centralizado y configurable                                 │
+│ ✓ Separación clara entre librería (src/) y cliente (code/)            │
+└─────────────────────────────────────────────────────────────────────────┘
+
+TESTABILIDAD MEJORADA:
+
+Antes de esta refactorización, verificar indexación requería:
+  ✗ Modificar código de chroma_db.py
+  ✗ Ejecutar todo el proceso contra datos reales
+  ✗ Inspeccionar logs dispersos
+
+Después de esta refactorización, ahora es posible:
+  ✓ Crear instancias test con directorios mock
+  ✓ Inyectar logger mock para capturar logs
+  ✓ Usar diferentes modelos de embeddings
+  ✓ Probar con bases de datos sandbox
+  
+  Ejemplo test:
+  ```python
+  from ontology_rag import OntologyIndexer
+  
+  indexer = OntologyIndexer(
+      source_directories=["/tmp/test_ontologies"],
+      persist_directory="/tmp/test_chroma",
+      embedding_model="BAAI/bge-small-en-v1.5",  # Más ligero
+      logger=mock_logger,
+  )
+  indexer.build_index()
+  # Verificar resultados...
+  ```
+
+INTEGRACIÓN CON COMPONENTES EXISTENTES:
+
+• OntologyRecommender (src/ontology_rag/rag_basico.py):
+  → Sigue usando ChromaDB persistido por OntologyIndexer
+  → Sin cambios en su interfaz pública
+  
+• Pipeline de retrieval + reranking:
+  → Transparente a la nueva arquitectura
+  → Beneficiado de metadatos más ricos de indexación
+
+PRÓXIMOS PASOS (ROADMAP):
+
+1. [ ] Crear suite de tests para OntologyIndexer (pytest)
+2. [ ] Agregar validación de esquema RDF antes de indexación
+3. [ ] Implementar cache de índices para iteración rápida
+4. [ ] Extender OntologyIndexer con soporte para índices incrementales
+5. [ ] Crear CLI mejorado con argumentos configurables
+6. [ ] Documentación de API completa (Sphinx/MkDocs)
+
+RESUMEN DE CAMBIOS:
+
+├── src/ontology_rag/
+│   ├── __init__.py (ACTUALIZADO - exporta OntologyIndexer)
+│   ├── creador_rag.py (NUEVO - clase principal)
+│   ├── rag_basico.py (SIN CAMBIOS)
+│   └── evaluador_requisitos.py (SIN CAMBIOS)
+│
+├── code/
+│   ├── run_indexacion.py (NUEVO - script lanzador)
+│   ├── chroma_db.py (HEREDADO - considerar deprecación)
+│   └── ... (otros scripts existentes)
+│
+└── evolucion_proyecto.txt (ESTE ARCHIVO)
+
+================================================================================
