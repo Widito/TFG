@@ -1,0 +1,562 @@
+{
+  "ruta_csv": "C:\\Users\\Wido\\Desktop\\TFG\\tfg_rag_pruebas\\dataset_bot_test.csv",
+  "max_requirements": null,
+  "total_requisitos": 12,
+  "tad_requisitos": {
+    "A single option for applying a constraint to a party (of a specific role) should be defined.": {
+      "keywords_usadas": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Option, Constraint, Party, Role\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Concept, Entity, Instance, Type\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Specification, Restriction, Condition, Requirement\n\nHere's the optimized search list in English, separated by commas:\n\nOption, Constraint, Party, Role, Concept, Entity, Instance, Type, Specification, Restriction, Condition, Requirement",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/LogicalConstraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/LogicalConstraint\nLabel: Logical Constraint\nDefinition: A logical expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4ehaw/OperatingConstraint",
+          "texto": "Concept: Class\nOntology: s4ehaw_2020-05-01.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ehaw/OperatingConstraint\nLabel: Operating constraint\nDefinition: An empty container for describing the operating constraints of a device, e.g. recommended humidity and temperature range...",
+          "ontologia": "s4ehaw_2020-05-01.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Operator",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Operator\nLabel: Operator\nDefinition: Operator for constraint expression.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://qudt.org/schema/qudt/Enumeration",
+          "texto": "Concept: Class\nOntology: qudt_2020-04-20.n3 (EXTENSION)\nURI: http://qudt.org/schema/qudt/Enumeration\nLabel: Enumeration\nDefinition: <p>An enumeration is a set of literals from which a single value is selected. Each literal can have a tag as an integer within a standard encoding appropriate to the range of integer values. Consistency of enumeration types will allow them, and the enumerated values, to be referred to unambiguously either through symbolic name or encoding. Enumerated values are also controlled vocabularies and as such need to be standardized. Without this consistency enumeration literals can be stated differently and result in  data conflicts and misinterpretations.</p>\r\n\r\n<p>The tags are a set of positive whole numbers, not necessarily contiguous and having no numerical significance, each corresponding to the associated literal identifier. An order attribute can also be given on the enumeration elements. An enumeration can itself be a member of an enumeration. This allows enumerations to be enumerated in a selection. Enumerations are also subclasses of <em>Scalar Datatype</em>. This allows them to be used as the reference of a datatype specification.</p>",
+          "ontologia": "qudt_2020-04-20.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/LogicalConstraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/LogicalConstraint\nLabel: Logical Constraint\nDefinition: A logical expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ]
+    },
+    "It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets (of type audio or video), etc.": {
+      "keywords_usadas": "Here is the optimized search list:\n\nConstraint, Target, Permission, Prohibition, Duty, Assignee, Assets, Age, Time, Category, Class, Type, Ontology, Semantic Web, OWL, RDF, Resource Description Framework.\n\nNote: I've extracted the main technical nouns and verbs, added formal equivalents (Category, Class, Type), and included precise synonyms.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/refinement",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/refinement\nLabel: Refinement\nDefinition: Constraint used to refine the semantics of an Action, or Party/Asset Collection",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#constraintGrade_IfcConstraint",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#constraintGrade_IfcConstraint\nLabel: ConstraintGrade\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#relatingConstraint_IfcResourceConstraintRelationship",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#relatingConstraint_IfcResourceConstraintRelationship\nLabel: RelatingConstraint\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#relatedResourceObjects_IfcResourceConstraintRelationship",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#relatedResourceObjects_IfcResourceConstraintRelationship\nLabel: RelatedResourceObjects\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Constraint",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Constraint\nLabel: Constraint\nDefinition: A boolean expression that refines the semantics of an Action and Party/Asset Collection or declare the conditions applicable to a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#constraintGrade_IfcConstraint",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#constraintGrade_IfcConstraint\nLabel: ConstraintGrade\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        }
+      ]
+    },
+    "The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values which are defined by parameters provided by an access to this template.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPolicyInstance, DataModel, Template, Parameter, Variable, Value, Ontology, Class, Type, Concept, Category, SemanticWeb, RDF, OWL, XMLSchema, Schema, Instance, Data, Model, Extension\n\nNote: I've used the formal equivalents from the ontology (e.g., \"Class\" instead of just \"class\") and included technical synonyms (e.g., \"Semantic Web\" instead of just \"web\"). Let me know if you'd like me to elaborate on any of these terms!",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://schema.org/Dataset",
+          "texto": "Concept: Class\nOntology: m4i_2025-03-10.n3 (CORE)\nURI: https://schema.org/Dataset\nLabel: https://schema.org/Dataset\nDefinition: ",
+          "ontologia": "m4i_2025-03-10.n3"
+        },
+        {
+          "uri": "http://www.oegov.org/core/owl/gc#DataFormat",
+          "texto": "Concept: Class\nOntology: gc_2009-08-24.n3 (EXTENSION)\nURI: http://www.oegov.org/core/owl/gc#DataFormat\nLabel: Data Format\nDefinition: ",
+          "ontologia": "gc_2009-08-24.n3"
+        },
+        {
+          "uri": "https://w3id.org/skgo/modsci#DataFormat",
+          "texto": "Concept: Class\nOntology: modsci_2022-12-18.n3 (EXTENSION)\nURI: https://w3id.org/skgo/modsci#DataFormat\nLabel: DataFormat\nDefinition: ",
+          "ontologia": "modsci_2022-12-18.n3"
+        },
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#PointData",
+          "texto": "Concept: Class\nOntology: th_building.owl (EXTENSION)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#PointData\nLabel: PointData\nDefinition: The PointData element allows for graph or tabular information to be entered. The data type and units of the independent and dependent variables are defined in their respective elements. Each Data element represent a data point, with each Value element representing the value of a variable - starting with the independent variable, then each dependent variable listed in the order defined.",
+          "ontologia": "th_building.owl"
+        },
+        {
+          "uri": "http://schema.org/itemListElement",
+          "texto": "Concept: Property\nOntology: ei2a_2021-10-21.n3 (CORE)\nURI: http://schema.org/itemListElement\nLabel: http://schema.org/itemListElement\nDefinition: ",
+          "ontologia": "ei2a_2021-10-21.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://schema.org/Dataset",
+          "texto": "Concept: Class\nOntology: m4i_2025-03-10.n3 (CORE)\nURI: https://schema.org/Dataset\nLabel: https://schema.org/Dataset\nDefinition: ",
+          "ontologia": "m4i_2025-03-10.n3"
+        },
+        {
+          "uri": "http://www.oegov.org/core/owl/gc#DataFormat",
+          "texto": "Concept: Class\nOntology: gc_2009-08-24.n3 (EXTENSION)\nURI: http://www.oegov.org/core/owl/gc#DataFormat\nLabel: Data Format\nDefinition: ",
+          "ontologia": "gc_2009-08-24.n3"
+        },
+        {
+          "uri": "https://w3id.org/skgo/modsci#DataFormat",
+          "texto": "Concept: Class\nOntology: modsci_2022-12-18.n3 (EXTENSION)\nURI: https://w3id.org/skgo/modsci#DataFormat\nLabel: DataFormat\nDefinition: ",
+          "ontologia": "modsci_2022-12-18.n3"
+        }
+      ]
+    },
+    "In addition to the existing identifiers of a policy means for expressing a version of this policy should specified.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPolicy, Version, Identifier, Expression, Specification, Ontology, Class, Type, Concept, Term, Definition, Semantic, RDF, OWL, XML, Schema, Data Model, Information Model.\n\nNote: The list includes both technical terms and ontological categories to facilitate searching in Web Semantics (OWL/RDF) contexts.",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#IdentifierElement",
+          "texto": "Concept: Class\nOntology: th_sharedvocalulary.owl (CORE)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#IdentifierElement\nLabel: IdentifierElement\nDefinition: Groups identifier elements",
+          "ontologia": "th_sharedvocalulary.owl"
+        },
+        {
+          "uri": "http://purl.org/vocab/frbr/core#Expression",
+          "texto": "Concept: Class\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/vocab/frbr/core#Expression\nLabel: Expression\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
+        },
+        {
+          "uri": "http://xmlns.com/foaf/0.1/Document",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/foaf/0.1/Document\nLabel: http://xmlns.com/foaf/0.1/Document\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
+        },
+        {
+          "uri": "http://xmlns.com/wordnet/1.6/Document",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/wordnet/1.6/Document\nLabel: http://xmlns.com/wordnet/1.6/Document\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
+        },
+        {
+          "uri": "http://xmlns.com/foaf/0.1/Organization",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/foaf/0.1/Organization\nLabel: http://xmlns.com/foaf/0.1/Organization\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#IdentifierElement",
+          "texto": "Concept: Class\nOntology: th_sharedvocalulary.owl (CORE)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#IdentifierElement\nLabel: IdentifierElement\nDefinition: Groups identifier elements",
+          "ontologia": "th_sharedvocalulary.owl"
+        },
+        {
+          "uri": "http://purl.org/vocab/frbr/core#Expression",
+          "texto": "Concept: Class\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/vocab/frbr/core#Expression\nLabel: Expression\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
+        }
+      ]
+    },
+    "It should be possible to define the price for duty/duties of payment for all permissions of a policy in a global way - while currently the payment duty must be defined for each permission individually.": {
+      "keywords_usadas": "Here is the optimized search list:\n\nPolicy, Permission, Duty, Payment, Price, Ontology, Class, Type, Category, Semantic Web, RDF, OWL, Taxonomy, Hierarchy, Definition, Specification.\n\nNote: I've extracted the main technical nouns and verbs, added formal equivalents (Category, Class, Type), included precise synonyms, and kept the list concise.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://rdf.myexperiment.org/ontologies/snarm/Policy",
+          "texto": "Concept: Class\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://rdf.myexperiment.org/ontologies/snarm/Policy\nLabel: http://rdf.myexperiment.org/ontologies/snarm/Policy\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
+        },
+        {
+          "uri": "https://w3id.org/seo#Award",
+          "texto": "Concept: Class\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: https://w3id.org/seo#Award\nLabel: Award\nDefinition: A price for the highest quality research.",
+          "ontologia": "seo_2019-04-10.n3"
+        },
+        {
+          "uri": "http://xmlns.com/wordnet/1.6/Document",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/wordnet/1.6/Document\nLabel: http://xmlns.com/wordnet/1.6/Document\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
+        },
+        {
+          "uri": "http://xmlns.com/wordnet/1.6/Menu",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/wordnet/1.6/Menu\nLabel: http://xmlns.com/wordnet/1.6/Menu\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
+        },
+        {
+          "uri": "http://www.w3.org/2000/01/rdf-schema#Literal",
+          "texto": "Concept: Class\nOntology: scip_2012-07-03.n3 (CORE)\nURI: http://www.w3.org/2000/01/rdf-schema#Literal\nLabel: Literal\nDefinition: ",
+          "ontologia": "scip_2012-07-03.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://rdf.myexperiment.org/ontologies/snarm/Policy",
+          "texto": "Concept: Class\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://rdf.myexperiment.org/ontologies/snarm/Policy\nLabel: http://rdf.myexperiment.org/ontologies/snarm/Policy\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
+        }
+      ]
+    },
+    "Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nTemporal constraints, Time reference, Point in time, Period, RightOperand, Ontology, Semantic Web, OWL, RDF, Class, Type, Category, Interval, Instant, Timestamp, Date, TimeStamp, Temporal Reasoning.\n\nNote that I've included both technical terms and their formal equivalents (e.g., \"Class\" instead of just \"class\") to facilitate searching.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/dcat#temporalResolution",
+          "texto": "Concept: Property\nOntology: m4i_2025-03-10.n3 (CORE)\nURI: http://www.w3.org/ns/dcat#temporalResolution\nLabel: temporalResolution\nDefinition: Minimum time period resolvable in a dataset.",
+          "ontologia": "m4i_2025-03-10.n3"
+        },
+        {
+          "uri": "http://www.w3.org/2006/time#TemporalEntity",
+          "texto": "Concept: Class\nOntology: ei2a_2021-10-21.n3 (CORE)\nURI: http://www.w3.org/2006/time#TemporalEntity\nLabel: Temporal entity\nDefinition: A temporal interval or instant",
+          "ontologia": "ei2a_2021-10-21.n3"
+        },
+        {
+          "uri": "http://www.w3.org/2006/time#TemporalDuration",
+          "texto": "Concept: Class\nOntology: s4city_2020-06-05.n3 (EXTENSION)\nURI: http://www.w3.org/2006/time#TemporalDuration\nLabel: TemporalDuration\nDefinition: ",
+          "ontologia": "s4city_2020-06-05.n3"
+        },
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#TemporalParameter",
+          "texto": "Concept: Class\nOntology: th_sharedvocalulary.owl (CORE)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#TemporalParameter\nLabel: TemporalParameter\nDefinition: Parameters of the temporal class are just used at the design time of a building as in operation time the time-ont ontology is used.",
+          "ontologia": "th_sharedvocalulary.owl"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/temporal",
+          "texto": "Concept: Property\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/temporal\nLabel: http://purl.org/dc/terms/temporal\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/dcat#temporalResolution",
+          "texto": "Concept: Property\nOntology: m4i_2025-03-10.n3 (CORE)\nURI: http://www.w3.org/ns/dcat#temporalResolution\nLabel: temporalResolution\nDefinition: Minimum time period resolvable in a dataset.",
+          "ontologia": "m4i_2025-03-10.n3"
+        },
+        {
+          "uri": "http://www.w3.org/2006/time#TemporalEntity",
+          "texto": "Concept: Class\nOntology: ei2a_2021-10-21.n3 (CORE)\nURI: http://www.w3.org/2006/time#TemporalEntity\nLabel: Temporal entity\nDefinition: A temporal interval or instant",
+          "ontologia": "ei2a_2021-10-21.n3"
+        },
+        {
+          "uri": "http://www.w3.org/2006/time#TemporalDuration",
+          "texto": "Concept: Class\nOntology: s4city_2020-06-05.n3 (EXTENSION)\nURI: http://www.w3.org/2006/time#TemporalDuration\nLabel: TemporalDuration\nDefinition: ",
+          "ontologia": "s4city_2020-06-05.n3"
+        }
+      ]
+    },
+    "For a relativeTimePeriod constraint the rightOperand has to provide a time period as value.": {
+      "keywords_usadas": "Here is the optimized search list:\n\nTimePeriod, RelativeTimePeriod, Constraint, RightOperand, Value, Period, Time, Ontology, Category, Class, Type, SemanticWeb, OWL, RDF, Concept, Entity, Property, Relationship.\n\nNote: I've followed the steps you provided to generate this list. Here's a brief explanation of each step:\n\n1. **Conceptos Nucleares:** The main technical nouns and verbs are \"TimePeriod\", \"RelativeTimePeriod\", \"Constraint\", \"RightOperand\", \"Value\", and \"Period\".\n2. **Normalización Ontológica:** I added the formal equivalents for these concepts, including \"Category\", \"Class\", and \"Type\" to reflect their ontological nature.\n3. **Sinónimos Técnicos:** I included alternative precise terms such as \"Ontology\", \"SemanticWeb\", \"OWL\", \"RDF\", \"Concept\", \"Entity\", \"Property\", and \"Relationship\" to provide a comprehensive search list.\n\nLet me know if you have any further requests!",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timePeriods_IfcRecurrencePattern",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timePeriods_IfcRecurrencePattern\nLabel: TimePeriods\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "http://data.tbfy.eu/ontology/ocds#hasContractPeriod",
+          "texto": "Concept: Property\nOntology: ei2a_2021-10-21.n3 (CORE)\nURI: http://data.tbfy.eu/ontology/ocds#hasContractPeriod\nLabel: Enlace con Periodo\nDefinition: Enlace con Periodo",
+          "ontologia": "ei2a_2021-10-21.n3"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timeValue_IfcQuantityTime",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timeValue_IfcQuantityTime\nLabel: TimeValue\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcTimePeriod_List",
+          "texto": "Concept: Class\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcTimePeriod_List\nLabel: IfcTimePeriod_List\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#TemporalParameter",
+          "texto": "Concept: Class\nOntology: th_sharedvocalulary.owl (CORE)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#TemporalParameter\nLabel: TemporalParameter\nDefinition: Parameters of the temporal class are just used at the design time of a building as in operation time the time-ont ontology is used.",
+          "ontologia": "th_sharedvocalulary.owl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timePeriods_IfcRecurrencePattern",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#timePeriods_IfcRecurrencePattern\nLabel: TimePeriods\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "http://data.tbfy.eu/ontology/ocds#hasContractPeriod",
+          "texto": "Concept: Property\nOntology: ei2a_2021-10-21.n3 (CORE)\nURI: http://data.tbfy.eu/ontology/ocds#hasContractPeriod\nLabel: Enlace con Periodo\nDefinition: Enlace con Periodo",
+          "ontologia": "ei2a_2021-10-21.n3"
+        }
+      ]
+    },
+    "Being able to tie Permission, Prohibition, Duty, and Constraint entities together with an AND, OR or XOR relationship": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPermission, Prohibition, Duty, Constraint, AND, OR, XOR, Relationship, Entity, Ontology, Category, Class, Type, Logic, Semantics, Formalization, Normative, Regulatory, Governance.\n\nNote that I've included both nouns (e.g., Permission, Prohibition) and verbs (e.g., AND, OR, XOR) as they are relevant to the user's request. I've also added formal ontological equivalents (Category, Class, Type) and technical synonyms (Logic, Semantics, Formalization) to facilitate a more comprehensive search.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Rule",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Rule\nLabel: Rule\nDefinition: An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/duty",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/duty\nLabel: Has Duty\nDefinition: Relates an individual Duty to a Permission.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/prohibition",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/prohibition\nLabel: Has Prohibition\nDefinition: Relates an individual Prohibition to a Policy.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://creativecommons.org/ns#Prohibition",
+          "texto": "Concept: Class\nOntology: ccrel.rdf (CORE)\nURI: http://creativecommons.org/ns#Prohibition\nLabel: Prohibition\nDefinition: something you may be asked not to do",
+          "ontologia": "ccrel.rdf"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Rule",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Rule\nLabel: Rule\nDefinition: An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ]
+    },
+    "Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified.": {
+      "keywords_usadas": "Here is the optimized search list:\n\nParty, Group, Individual, Permission, Prohibition, Duty, Assign, Class, Type, Category, Entity, Role, Membership, Association, Relationship, Ontology.\n\nNote: I've used a combination of technical nouns and verbs to capture the essence of the user's request. The normalized ontological terms (e.g., \"Class\", \"Type\") are included to facilitate searching in OWL/RDF-based systems.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/duty",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/duty\nLabel: Has Duty\nDefinition: Relates an individual Duty to a Permission.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Party",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Party\nLabel: Party\nDefinition: An entity or a collection of entities that undertake Roles in a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/PartyScope",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/PartyScope\nLabel: Party Scope\nDefinition: Scopes for Party Scope expressions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://xmlns.com/foaf/0.1/Group",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/foaf/0.1/Group\nLabel: http://xmlns.com/foaf/0.1/Group\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Party",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Party\nLabel: Party\nDefinition: An entity or a collection of entities that undertake Roles in a Rule.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://xmlns.com/foaf/0.1/Group",
+          "texto": "Concept: Class\nOntology: swc_2009-05-11.n3 (EXTENSION)\nURI: http://xmlns.com/foaf/0.1/Group\nLabel: http://xmlns.com/foaf/0.1/Group\nDefinition: ",
+          "ontologia": "swc_2009-05-11.n3"
+        }
+      ]
+    },
+    "Ability to link from a Policy or a Permission to the original (text-based) license.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPolicy, Permission, License, Link, Original, Text-Based, Ontology, Class, Type, Category, Semantic Web, RDF, OWL, Resource Description Framework, Web Ontology Language.\n\nNote that I've included both technical terms (e.g., \"Ontology\", \"Class\", \"Type\") and synonyms (e.g., \"Semantic Web\" instead of just \"Web\"), as well as relevant standards (RDF, OWL) to ensure a comprehensive search.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://creativecommons.org/ns#License",
+          "texto": "Concept: Class\nOntology: ccrel.rdf (CORE)\nURI: http://creativecommons.org/ns#License\nLabel: License\nDefinition: a set of requests/permissions to users of a Work, e.g. a copyright license, the public domain, information for distributors",
+          "ontologia": "ccrel.rdf"
+        },
+        {
+          "uri": "http://rdf.myexperiment.org/ontologies/base/License",
+          "texto": "Concept: Class\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://rdf.myexperiment.org/ontologies/base/License\nLabel: License\nDefinition: A License under which an Upload is licensed under",
+          "ontologia": "meb_2013-03-26.n3"
+        },
+        {
+          "uri": "http://rdf.myexperiment.org/ontologies/snarm/Policy",
+          "texto": "Concept: Class\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://rdf.myexperiment.org/ontologies/snarm/Policy\nLabel: http://rdf.myexperiment.org/ontologies/snarm/Policy\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/license",
+          "texto": "Concept: Property\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/license\nLabel: http://purl.org/dc/terms/license\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
+        },
+        {
+          "uri": "http://web.resource.org/cc/License",
+          "texto": "Concept: Class\nOntology: meb_2013-03-26.n3 (EXTENSION)\nURI: http://web.resource.org/cc/License\nLabel: http://web.resource.org/cc/License\nDefinition: ",
+          "ontologia": "meb_2013-03-26.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://creativecommons.org/ns#License",
+          "texto": "Concept: Class\nOntology: ccrel.rdf (CORE)\nURI: http://creativecommons.org/ns#License\nLabel: License\nDefinition: a set of requests/permissions to users of a Work, e.g. a copyright license, the public domain, information for distributors",
+          "ontologia": "ccrel.rdf"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/license",
+          "texto": "Concept: Property\nOntology: seo_2019-04-10.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/license\nLabel: http://purl.org/dc/terms/license\nDefinition: ",
+          "ontologia": "seo_2019-04-10.n3"
+        }
+      ]
+    },
+    "It should be possible to define policies of type Assertion.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nAssertion, Policy, Definition, Type, Class, Category, Ontology, Concept, Statement, Rule, Regulation, Standard, Specification, Formalization, Semantic Web, OWL, RDF.\n\nNote that I've included both technical terms (e.g., \"Assertion\", \"Policy\") and their formal equivalents (e.g., \"Class\", \"Category\"), as well as synonyms and related concepts to provide a comprehensive search list.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/Policy",
+          "texto": "Concept: Class\nOntology: dcterms_2012-06-14.n3 (CORE)\nURI: http://purl.org/dc/terms/Policy\nLabel: Policy\nDefinition: A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters.",
+          "ontologia": "dcterms_2012-06-14.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#Policy",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#Policy\nLabel: Policy\nDefinition: A guidance document outlining any of: procedures, plans, principles, decisions, intent, or protocols.",
+          "ontologia": "dpv_2025-08-01.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Privacy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Privacy\nLabel: Privacy Policy\nDefinition: A Policy that expresses a Rule over an Asset containing personal information.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ]
+    },
+    "An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have.": {
+      "keywords_usadas": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Assertion policy, permission, prohibition, term, party\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Policy (owl:Class), Permission (owl:Class), Prohibition (owl:Class), Term (owl:DatatypeProperty), Party (owl:Class)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Authorization policy, Access control policy, Rule, Condition, Entity\n\nHere is the optimized search list in English, separated by commas:\n\nAssertion policy, Policy, Permission, Prohibition, Term, Party, owl:Class, owl:DatatypeProperty, Authorization policy, Access control policy, Rule, Condition, Entity",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/permission",
+          "texto": "Concept: Property\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/permission\nLabel: Has Permission\nDefinition: Relates an individual Permission to a Policy.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://vocab.datex.org/terms#PermitsAndProhibitions",
+          "texto": "Concept: Class\nOntology: datex_2016-06-13.n3 (CORE)\nURI: http://vocab.datex.org/terms#PermitsAndProhibitions\nLabel: PermitsAndProhibitions\nDefinition: Defines sets of action and regulations to specify permitted and prohibited issues.",
+          "ontologia": "datex_2016-06-13.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#Permission",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#Permission\nLabel: Permission\nDefinition: A rule describing a permission to perform an activity",
+          "ontologia": "dpv_2025-08-01.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#Permission",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#Permission\nLabel: Permission\nDefinition: A rule describing a permission to perform an activity",
+          "ontologia": "dpv_2025-08-01.n3"
+        }
+      ]
+    }
+  },
+  "matriz_cobertura": {
+    "odrl_2017-09-16.n3": [
+      "A single option for applying a constraint to a party (of a specific role) should be defined.",
+      "It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets (of type audio or video), etc.",
+      "Being able to tie Permission, Prohibition, Duty, and Constraint entities together with an AND, OR or XOR relationship",
+      "Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified.",
+      "It should be possible to define policies of type Assertion.",
+      "An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have."
+    ],
+    "ifc4.ttl": [
+      "It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets (of type audio or video), etc.",
+      "For a relativeTimePeriod constraint the rightOperand has to provide a time period as value."
+    ],
+    "m4i_2025-03-10.n3": [
+      "The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values which are defined by parameters provided by an access to this template.",
+      "Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time."
+    ],
+    "gc_2009-08-24.n3": [
+      "The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values which are defined by parameters provided by an access to this template."
+    ],
+    "modsci_2022-12-18.n3": [
+      "The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values which are defined by parameters provided by an access to this template."
+    ],
+    "th_sharedvocalulary.owl": [
+      "In addition to the existing identifiers of a policy means for expressing a version of this policy should specified."
+    ],
+    "seo_2019-04-10.n3": [
+      "In addition to the existing identifiers of a policy means for expressing a version of this policy should specified.",
+      "Ability to link from a Policy or a Permission to the original (text-based) license."
+    ],
+    "meb_2013-03-26.n3": [
+      "It should be possible to define the price for duty/duties of payment for all permissions of a policy in a global way - while currently the payment duty must be defined for each permission individually."
+    ],
+    "ei2a_2021-10-21.n3": [
+      "Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time.",
+      "For a relativeTimePeriod constraint the rightOperand has to provide a time period as value."
+    ],
+    "s4city_2020-06-05.n3": [
+      "Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time."
+    ],
+    "swc_2009-05-11.n3": [
+      "Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified."
+    ],
+    "ccrel.rdf": [
+      "Ability to link from a Policy or a Permission to the original (text-based) license."
+    ],
+    "dpv_2025-08-01.n3": [
+      "An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have."
+    ]
+  },
+  "veredicto_final": "**Recomendación de Red**\n\nSe recomienda la siguiente red de ontologías:\n\n1. `odrl_2017-09-16.n3`\n2. `ifc4.ttl`\n3. `ei2a_2021-10-21.n3`\n\n**Justificación por Ontología**\n\n1. `odrl_2017-09-16.n3`: Esta ontología cubre requisitos relacionados con la definición de restricciones y permisos, lo que es fundamental para la gestión de políticas y derechos. Su cobertura en la matriz es significativa, especialmente en cuanto a la definición de restricciones y permisos.\n2. `ifc4.ttl`: Esta ontología cubre requisitos relacionados con la definición de restricciones temporales y su relación con los permisos y prohibiciones. Su cobertura en la matriz es importante para la gestión de políticas y derechos.\n3. `ei2a_2021-10-21.n3`: Esta ontologia cubre requisitos relacionados con la extensión de las restricciones temporales y su relación con los permisos y prohibiciones. Su cobertura en la matriz es importante para la gestión de políticas y derechos.\n\n**Observaciones de Cobertura y Posibles Huecos**\n\nLa recomendación de esta red de ontologías cubre una amplia gama de requisitos relacionados con la definición de restricciones, permisos y prohibiciones. Sin embargo, hay algunos requisitos que no están completamente cubiertos por esta recomendación:\n\n* La ontología `m4i_2025-03-10.n3` cubre requisitos relacionados con la extensión de las políticas para incluir variables y parámetros, lo que podría ser útil para mejorar la flexibilidad de las políticas.\n* La ontología `th_sharedvocalulary.owl` cubre requisitos relacionados con la especificación de versiones de políticas, lo que podría ser importante para la gestión de políticas y derechos.\n\nEn general, esta recomendación de red de ontologías proporciona una buena cobertura de los requisitos relacionados con la definición de restricciones, permisos y prohibiciones, pero puede requerir la adición de otras ontologías para cubrir completamente todos los requisitos."
+}

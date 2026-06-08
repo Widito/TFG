@@ -1,0 +1,635 @@
+{
+  "ruta_csv": "C:\\Users\\Wido\\Desktop\\TFG\\tfg_rag_pruebas\\dataset_bot_test.csv",
+  "max_requirements": null,
+  "total_requisitos": 13,
+  "tad_requisitos": {
+    "Zones are areas with spatial 3D volumes": {
+      "keywords_usadas": "Based on the user's request \"Zones are areas with spatial 3D volumes\", I've generated an optimized search list following the steps:\n\n1. **Concepts Nucleares:** Main technical nouns and verbs:\n\t* Zones, Areas, Volumes\n\t* Spatial, Three-Dimensional (3D)\n2. **Normalización Ontológica:**\n\t* Category: Geographic Area, Spatial Region\n\t* Class: Zone, Area, Volume\n\t* Type: 3D Space, Geospatial Volume\n3. **Sinónimos Técnicos:**\n\t* Regions, Districts, Territories\n\t* Spaces, Areas, Domains\n\nHere's the optimized search list in English, separated by commas:\n\nGeographic Area, Spatial Region, Zone, Area, Volume, 3D Space, Geospatial Volume, Regions, Districts, Territories, Spaces, Areas, Domains",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://cogito.iot.linkeddata.es/def/facility#SpatialZone",
+          "texto": "Concept: Class\nOntology: facility.ttl (EXTENSION)\nURI: https://cogito.iot.linkeddata.es/def/facility#SpatialZone\nLabel: Spatial Zone\nDefinition: A subclass of bot:Zone and, as such, a part of the physical or a virtual world that is inherently both located in this world and has a 3D spatial extent.",
+          "ontologia": "facility.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#has3DModel",
+          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#has3DModel\nLabel: heeft 3D model\nDefinition: Links any bot:Zone or bot:Element to a IRI that identifies its 3D Model. This 3D Model can then be described using some dedicated RDF vocabulary. Else, the 3D Model IRI could be dereferenceable, and when looking up the IRI one could retrieve a representation of the 3D Model with some existing data format for 3D models.",
+          "ontologia": "bot.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Zone",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zona\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "ontologia": "bot.ttl"
+        },
+        {
+          "uri": "http://purl.obolibrary.org/obo/BFO_0000006",
+          "texto": "Concept: Class\nOntology: vivo_2014-07-12.n3 (CORE)\nURI: http://purl.obolibrary.org/obo/BFO_0000006\nLabel: Spatial Region\nDefinition: ",
+          "ontologia": "vivo_2014-07-12.n3"
+        },
+        {
+          "uri": "http://reference.data.gov.au/def/ont/dataset#SpatialThing",
+          "texto": "Concept: Class\nOntology: donto_2015-06-19.n3 (EXTENSION)\nURI: http://reference.data.gov.au/def/ont/dataset#SpatialThing\nLabel: Spatial Thing\nDefinition: A Spatial Thing describes the spatial characteristics of the resources within a Dataset, i.e. the geographical area where data was collected, a place which is the predominant subject of the Dataset, or a location which is the focus of an activity described in the Dataset.",
+          "ontologia": "donto_2015-06-19.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://cogito.iot.linkeddata.es/def/facility#SpatialZone",
+          "texto": "Concept: Class\nOntology: facility.ttl (EXTENSION)\nURI: https://cogito.iot.linkeddata.es/def/facility#SpatialZone\nLabel: Spatial Zone\nDefinition: A subclass of bot:Zone and, as such, a part of the physical or a virtual world that is inherently both located in this world and has a 3D spatial extent.",
+          "ontologia": "facility.ttl"
+        },
+        {
+          "uri": "http://purl.obolibrary.org/obo/BFO_0000006",
+          "texto": "Concept: Class\nOntology: vivo_2014-07-12.n3 (CORE)\nURI: http://purl.obolibrary.org/obo/BFO_0000006\nLabel: Spatial Region\nDefinition: ",
+          "ontologia": "vivo_2014-07-12.n3"
+        }
+      ]
+    },
+    "Construction sites are areas with spatial 3D volumes": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nConstructionSite, Area, SpatialVolume, 3DVolume, BuildingSite, ConstructionArea, Site, Volume, Space, Location, Geospatial, GeographicRegion, Region, Zone, Sector, Domain\n\nNote: The list includes both nouns (e.g., \"ConstructionSite\", \"SpatialVolume\") and verbs (e.g., \"Location\", \"Sector\") that are relevant to the concept of construction sites with spatial 3D volumes.",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://w3id.org/rec#Architecture",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Architecture\nLabel: Architecture\nDefinition: A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Zone",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: منطقه\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "ontologia": "bot.ttl"
+        },
+        {
+          "uri": "http://www.google.com/digitalbuildings/0.0.1/subfields#Volume",
+          "texto": "Concept: Class\nOntology: dbo.rdf (CORE)\nURI: http://www.google.com/digitalbuildings/0.0.1/subfields#Volume\nLabel: Volume\nDefinition: The quantity of three-dimensional space contained by a closed surface.",
+          "ontologia": "dbo.rdf"
+        },
+        {
+          "uri": "https://brickschema.org/schema/Brick#volume",
+          "texto": "Concept: Property\nOntology: brick.ttl (EXTENSION)\nURI: https://brickschema.org/schema/Brick#volume\nLabel: Volume\nDefinition: Entity has 3-dimensional volume",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "http://dati.beniculturali.it/cis/CulturalInstituteOrSite",
+          "texto": "Concept: Class\nOntology: cis_2016-03-30.n3 (CORE)\nURI: http://dati.beniculturali.it/cis/CulturalInstituteOrSite\nLabel: Cultural Institute or Site\nDefinition: The class Cultural Institute or Site represents museums, libraries, archive holders, archaeologic areas and parks, monumental areas. The cultural institutes of sites that are owned by public bodies are meant to offer public services. The cultural institutes or sites that are owned by private subjects, and are open to the public, offer a public and societal service.",
+          "ontologia": "cis_2016-03-30.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://w3id.org/rec#Architecture",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Architecture\nLabel: Architecture\nDefinition: A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "http://www.google.com/digitalbuildings/0.0.1/subfields#Volume",
+          "texto": "Concept: Class\nOntology: dbo.rdf (CORE)\nURI: http://www.google.com/digitalbuildings/0.0.1/subfields#Volume\nLabel: Volume\nDefinition: The quantity of three-dimensional space contained by a closed surface.",
+          "ontologia": "dbo.rdf"
+        },
+        {
+          "uri": "https://brickschema.org/schema/Brick#volume",
+          "texto": "Concept: Property\nOntology: brick.ttl (EXTENSION)\nURI: https://brickschema.org/schema/Brick#volume\nLabel: Volume\nDefinition: Entity has 3-dimensional volume",
+          "ontologia": "brick.ttl"
+        }
+      ]
+    },
+    "Buildings are areas with spatial 3D volumes": {
+      "keywords_usadas": "Based on the user's request \"Buildings are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuilding, Structure, Architecture, Area, Volume, Space, Spatial, ThreeDimensional, 3D, Ontology, Category:BuiltStructure, Class:Architecture, Type:Edifice, Edificatory, SpatialRegion, GeometricShape, Geometry, Dimensionality\n\nNote that I've used a mix of English and technical terms to provide a comprehensive search list.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Space",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Space\nLabel: Space\nDefinition: A space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain functions within a building.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/rec#Architecture",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Architecture\nLabel: Architecture\nDefinition: A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4inma/Area",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/saref4inma/Area\nLabel: Area\nDefinition: A subclass of s4bldg:BuildingSpace used to define the physical spaces of the building. According to IEC 62264, areas are physical, geographical or logical groupings of resources determined by the site. A site can be divided in areas, whereas areas contain work centers.s.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        },
+        {
+          "uri": "https://w3id.org/bot#Site",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Site\nLabel: Site\nDefinition: A part of the physical world or a virtual world that is inherently both located in this world and having a 3D spatial extent. It is intended to contain or contains one or more buildings.",
+          "ontologia": "bot.ttl"
+        },
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Area",
+          "texto": "Concept: Class\nOntology: th_building.owl (EXTENSION)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Area\nLabel: Area\nDefinition: Specifies the area of the space or building. This value should be equal to the area enclosed by the physical boundaries of the space, as defined by the intersection of the horizontal plane at the highest floor height and the volumetric model's vertical interior surface planes. Building area should be the sum of space areas whose PeopleNumber element values are greater than zero.",
+          "ontologia": "th_building.owl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Space",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Space\nLabel: Space\nDefinition: A space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain functions within a building.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4inma/Area",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/saref4inma/Area\nLabel: Area\nDefinition: A subclass of s4bldg:BuildingSpace used to define the physical spaces of the building. According to IEC 62264, areas are physical, geographical or logical groupings of resources determined by the site. A site can be divided in areas, whereas areas contain work centers.s.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        }
+      ]
+    },
+    "Storeys are areas with spatial 3D volumes": {
+      "keywords_usadas": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpatialVolume, 3DRegion, Area, Volume, Space, Region, Zone, Layer, Level, Floor, Story, BuildingComponent, OntologicalClass, SpatialEntity\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Storeys\n\t* Areas\n\t* Spatial 3D volumes\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type):\n\t* SpatialVolume\n\t* 3DRegion\n\t* Area\n\t* Volume\n\t* Space\n\t* Region\n\t* Zone\n\t* Layer\n\t* Level\n\t* Floor\n\t* Story\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* BuildingComponent\n\t* OntologicalClass\n\t* SpatialEntity\n\nThese terms are separated by commas, as requested.",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://w3id.org/bot#Zone",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zóna\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "ontologia": "bot.ttl"
+        },
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Space",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Space\nLabel: Space\nDefinition: A space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain functions within a building.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://cogito.iot.linkeddata.es/def/facility#SpatialZone",
+          "texto": "Concept: Class\nOntology: facility.ttl (EXTENSION)\nURI: https://cogito.iot.linkeddata.es/def/facility#SpatialZone\nLabel: Spatial Zone\nDefinition: A subclass of bot:Zone and, as such, a part of the physical or a virtual world that is inherently both located in this world and has a 3D spatial extent.",
+          "ontologia": "facility.ttl"
+        },
+        {
+          "uri": "https://brickschema.org/schema/Brick#volume",
+          "texto": "Concept: Property\nOntology: brick.ttl (EXTENSION)\nURI: https://brickschema.org/schema/Brick#volume\nLabel: Volume\nDefinition: Entity has 3-dimensional volume",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "http://www.google.com/digitalbuildings/0.0.1/subfields#Volume",
+          "texto": "Concept: Class\nOntology: dbo.rdf (CORE)\nURI: http://www.google.com/digitalbuildings/0.0.1/subfields#Volume\nLabel: Volume\nDefinition: The quantity of three-dimensional space contained by a closed surface.",
+          "ontologia": "dbo.rdf"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://w3id.org/bot#Zone",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zóna\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "ontologia": "bot.ttl"
+        },
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Space",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Space\nLabel: Space\nDefinition: A space represents an area or volume bounded actually or theoretically. Spaces are areas or volumes that provide for certain functions within a building.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://cogito.iot.linkeddata.es/def/facility#SpatialZone",
+          "texto": "Concept: Class\nOntology: facility.ttl (EXTENSION)\nURI: https://cogito.iot.linkeddata.es/def/facility#SpatialZone\nLabel: Spatial Zone\nDefinition: A subclass of bot:Zone and, as such, a part of the physical or a virtual world that is inherently both located in this world and has a 3D spatial extent.",
+          "ontologia": "facility.ttl"
+        }
+      ]
+    },
+    "Zones may contain other zones": {
+      "keywords_usadas": "What a delightful challenge!\n\nAfter analyzing the user's request \"Zones may contain other zones\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nZone, Container, Class, Type, Region, Area, Subzone, Enclosure, Enclave, Subset, Component, Part, Entity\n\nNote that I've used a combination of natural language processing (NLP) and ontology-based reasoning to generate this list. The terms are separated by commas as requested.",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://w3id.org/bot#containsZone",
+          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#containsZone\nLabel: contains zone\nDefinition: Relationship to the subzones of a major zone. A space zone could for instance be contained in a storey zone which is further contained in a building zone.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/rec#Zone",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Zone\nLabel: Zone\nDefinition: A sub-zone within or outside of a building defined to support some technology and/or use, e.g., an HVAC zone, a parking space, a security zone, etc.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "https://brickschema.org/schema/Brick#Zone",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://brickschema.org/schema/Brick#Zone\nLabel: Zone\nDefinition: (1) a separately controlled heated or cooled space. (2) one occupied space or several occupied spaces with similar occupancy category, occupant density, zone air distribution effectiveness, and zone primary airflow per unit area. (3) space or group of spaces within a building for which the heating, cooling, or lighting requirements are sufficiently similar that desired conditions can be maintained throughout by a single controlling device.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Zone",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "ontologia": "bot.ttl"
+        },
+        {
+          "uri": "https://w3id.org/skgo/modsci#NaturalLanguageProcessing",
+          "texto": "Concept: Class\nOntology: modsci_2022-12-18.n3 (EXTENSION)\nURI: https://w3id.org/skgo/modsci#NaturalLanguageProcessing\nLabel: Natural language processing (NLP)\nDefinition: Natural language processing (NLP) is a subfield of linguistics, computer science, information engineering, and artificial intelligence concerned with the interactions between computers and human (natural) languages, in particular how to program computers to process and analyze large amounts of natural language data.",
+          "ontologia": "modsci_2022-12-18.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://w3id.org/bot#containsZone",
+          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#containsZone\nLabel: contains zone\nDefinition: Relationship to the subzones of a major zone. A space zone could for instance be contained in a storey zone which is further contained in a building zone.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Zone",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Zone\nLabel: Zone\nDefinition: 区域是物理世界或虚拟世界的一部分，既位于现实空间中又可在3D空间中拓展。bot:Zone的子集包括bot:Site, bot:Building, bot:Storey, or bot:Space。bot:Zone实例可包含其他bot:Zone实例，从而可以对区域进行分组或细分。 同时，bot：Zone的实例也可以与其他bot：Zone实例相邻。最后，bot：Zone可以实例化为bot：Element的两个关系，它们可以包含在（bot：containsElement）中，或者与其相邻（bot：adjacentElement）。",
+          "ontologia": "bot.ttl"
+        }
+      ]
+    },
+    "Construction sites may contain buildings": {
+      "keywords_usadas": "Based on the user's request \"Construction sites may contain buildings\", I've analyzed it and generated a list of optimized search terms following the steps:\n\n1. **Concepts Nucleares:** Main nouns and verbs:\n\t* Construction, site, building\n\t* May, contain\n2. **Normalización Ontológica:**\n\t* Category: Building, Structure, Infrastructure\n\t* Class: Construction Site, Building Location\n\t* Type: Physical Structure, Man-made Object\n3. **Sinónimos Técnicos:**\n\t* Edifice, Architecture, Facility\n\nHere's the optimized list of search terms in English, separated by commas:\n\nConstruction, site, building, structure, infrastructure, physical structure, man-made object, edifice, architecture, facility, contain, may",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#BuildingElement\nLabel: Building Element\nDefinition: The building element comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
+          "texto": "Concept: Class\nOntology: beo.ttl (CORE)\nURI: https://pi.pauwel.be/voc/buildingelement#BuildingElement\nLabel: Elément de construction\nDefinition: Comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
+          "ontologia": "beo.ttl"
+        },
+        {
+          "uri": "https://w3id.org/rec#Architecture",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Architecture\nLabel: Architecture\nDefinition: A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Construction",
+          "texto": "Concept: Class\nOntology: th_building.owl (EXTENSION)\nURI: https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Construction\nLabel: Construction\nDefinition: A Construction is a combination of layers, such as a wall or a roof",
+          "ontologia": "th_building.owl"
+        },
+        {
+          "uri": "https://w3id.org/con-tax#ConstructionComponent",
+          "texto": "Concept: Class\nOntology: contax.ttl (CORE)\nURI: https://w3id.org/con-tax#ConstructionComponent\nLabel: construction component\nDefinition: An object that forms, formed or has the potential to form a part of a construction. Use a more specific subclass from a dedicated taxonomy such as BEO/FURN/MEP based on IFC or AAT-ARCH/AAT-FURN/AAT-MEP based on the Getty AAT concepts related to constructions.",
+          "ontologia": "contax.ttl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#BuildingElement\nLabel: Building Element\nDefinition: The building element comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
+          "texto": "Concept: Class\nOntology: beo.ttl (CORE)\nURI: https://pi.pauwel.be/voc/buildingelement#BuildingElement\nLabel: Elément de construction\nDefinition: Comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
+          "ontologia": "beo.ttl"
+        }
+      ]
+    },
+    "Buildings may contain storeys": {
+      "keywords_usadas": "What a delightful challenge!\n\nAfter analyzing the user's request \"Buildings may contain storeys\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nStructures, Buildings, Architecture, Storeys, Levels, Floors, Edifices, Construction, Real Estate, Ontology, OWL, RDF\n\nNote: The list is in English to facilitate international searching.\n\nNow, let me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Buildings (Structure)\n\t* Storeys (Levels/Floors)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Architecture\n\t* Class: Building Type\n\t* Type: Structure, Edifice\n3. **Sinónimos Técnicos:** I included precise alternatives:\n\t* Levels → Floors\n\t* Real Estate → Property\n\nBy combining these concepts, we can create a comprehensive search list that captures the essence of the user's request.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Storey",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Storey\nLabel: Storey\nDefinition: The building storey has an elevation and typically represents a (nearly) horizontal aggregation of spaces that are vertically bound.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#hasApartment",
+          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#hasApartment\nLabel: has apartment\nDefinition: Relation between a storey and the apartments it is composed of.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/rec#Level",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Level\nLabel: Level\nDefinition: The level of a building, a.k.a. storey, floor, etc.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Storey",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Storey\nLabel: 楼层\nDefinition: Correspond à un niveau du bâtiment",
+          "ontologia": "bot.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Building",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Building\nLabel: Edifício\nDefinition: 具有特定空间结构的建筑环境独立单元，旨在服务至少一种功能或用户活动[ISO 12006-2：2013]。 bot:Building是物理或虚拟世界的一部分，其既存在于其中，又具有3D空间范围。bot:Building包含在建筑工地中，并且可以包含一个或多个垂直连接的楼层。",
+          "ontologia": "bot.ttl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Storey",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Storey\nLabel: Storey\nDefinition: The building storey has an elevation and typically represents a (nearly) horizontal aggregation of spaces that are vertically bound.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/rec#Level",
+          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Level\nLabel: Level\nDefinition: The level of a building, a.k.a. storey, floor, etc.",
+          "ontologia": "brick.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Storey",
+          "texto": "Concept: Class\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#Storey\nLabel: 楼层\nDefinition: Correspond à un niveau du bâtiment",
+          "ontologia": "bot.ttl"
+        }
+      ]
+    },
+    "Storeys may contain spaces": {
+      "keywords_usadas": "What a delightful challenge!\n\nAfter analyzing the user's request \"Storeys may contain spaces\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nBuilding, Floor, Level, Story, Space, Area, Room, Container, Entity, Concept, Class, Type, Spatial, Dimensional, Architectural, Structural\n\nNote: The terms are in English to facilitate searching across various databases and ontologies.\n\nNow, if you'll excuse me, I'll just tidy up my semantic web...",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://cogito.iot.linkeddata.es/def/facility#Storey",
+          "texto": "Concept: Class\nOntology: facility.ttl (EXTENSION)\nURI: https://cogito.iot.linkeddata.es/def/facility#Storey\nLabel: Storey\nDefinition: A subclass of bot:Storey and, as such, is contained (bot:hasStorey) in one facility:Building, and is intended to contain (bot:hasSpace) one or more facility:Space that are horizontally connected.",
+          "ontologia": "facility.ttl"
+        },
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Storey",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Storey\nLabel: Storey\nDefinition: The building storey has an elevation and typically represents a (nearly) horizontal aggregation of spaces that are vertically bound.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#hasStorey",
+          "texto": "Concept: Property\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#hasStorey\nLabel: has storey\nDefinition: Relation to storeys contained in a zone.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#Storey",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: https://w3id.org/bot#Storey\nLabel: Storey\nDefinition: A level part of a building. Concept from the BOT ontology.",
+          "ontologia": "building.ttl"
+        },
+        {
+          "uri": "https://w3id.org/bot#hasSpace",
+          "texto": "Concept: Property\nOntology: bot.ttl (CORE)\nURI: https://w3id.org/bot#hasSpace\nLabel: 包含空间\nDefinition: Bir bölgede bulunan odalarla ilişkisi. Bot:hasSpace için tipik etki alanları bot:Building ve bot:Storey örnekleridir.",
+          "ontologia": "bot.ttl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://cogito.iot.linkeddata.es/def/facility#Storey",
+          "texto": "Concept: Class\nOntology: facility.ttl (EXTENSION)\nURI: https://cogito.iot.linkeddata.es/def/facility#Storey\nLabel: Storey\nDefinition: A subclass of bot:Storey and, as such, is contained (bot:hasStorey) in one facility:Building, and is intended to contain (bot:hasSpace) one or more facility:Space that are horizontally connected.",
+          "ontologia": "facility.ttl"
+        },
+        {
+          "uri": "http://bimerr.iot.linkeddata.es/def/building#Storey",
+          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#Storey\nLabel: Storey\nDefinition: The building storey has an elevation and typically represents a (nearly) horizontal aggregation of spaces that are vertically bound.",
+          "ontologia": "building.ttl"
+        }
+      ]
+    },
+    "A device performs one or more functions": {
+      "keywords_usadas": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Function, Perform, Execute, Carry Out, Implement, Realize, Actuator, Appliance, Instrument, Tool, Capability, Ability, Service, Utility\n\nNote: The list includes both nouns (e.g., Device, Function) and verbs (e.g., Perform, Execute) to capture the essence of the request.",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Function",
+          "texto": "Concept: Class\nOntology: s4agri_2020-06-05.n3 (CORE)\nURI: https://saref.etsi.org/core/Function\nLabel: Function\nDefinition: The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. ",
+          "ontologia": "s4agri_2020-06-05.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Service",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Service\nLabel: Service\nDefinition: A service is a representation of a function to a network that makes the function discoverable, registerable, remotely controllable by other devices in the network. A service can represent one or more functions. A Service is offered by a device that wants (a certain set of) its function(s) to be discoverable, registerable, remotely controllable by other devices in the network. A Service must specify the device that is offering the service and the function(s) to be represented.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Actuator",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Actuator\nLabel: Actuator\nDefinition: A device responsible for moving or controlling a mechanism or system by performing an actuating function",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Switch",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Switch\nLabel: Switch\nDefinition: A device of category saref:Actuator that performs an actuating function of type saref:OnOffFunction or saref:OpenCloseFunction",
+          "ontologia": "saref_2020-05-29.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://saref.etsi.org/core/Device",
+          "texto": "Concept: Class\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/core/Device\nLabel: Device\nDefinition: A tangible object designed to accomplish a particular task. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function.",
+          "ontologia": "s4inma_2019-04-30.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/Actuator",
+          "texto": "Concept: Class\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/Actuator\nLabel: Actuator\nDefinition: A device responsible for moving or controlling a mechanism or system by performing an actuating function",
+          "ontologia": "saref_2020-05-29.n3"
+        }
+      ]
+    },
+    "A device shall have a model property": {
+      "keywords_usadas": "Based on the user's request \"A device shall have a model property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Model, Property\n2. **Normalización Ontológica:** Formal equivalents:\nClass (e.g., rdfs:Class), Type (e.g., owl:Type), Category (e.g., rdf:Category)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Object, Thing, Instance\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Model, Property, Class, Type, Category, Entity, Object, Thing, Instance",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://saref.etsi.org/core/hasModel",
+          "texto": "Concept: Property\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4ehaw/hasMode",
+          "texto": "Concept: Property\nOntology: s4ehaw_2020-05-01.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ehaw/hasMode\nLabel: has mode\nDefinition: Each device has modes of operations that model its dynamic characteristic varying during its lifetime, e.g. active, hold, beacon...",
+          "ontologia": "s4ehaw_2020-05-01.n3"
+        },
+        {
+          "uri": "http://purl.org/cerif/frapo/hasModelNumber",
+          "texto": "Concept: Property\nOntology: frapo_2014-01-31.n3 (EXTENSION)\nURI: http://purl.org/cerif/frapo/hasModelNumber\nLabel: has model number\nDefinition: A data property linking something, for example a piece of equipment, to its model number.",
+          "ontologia": "frapo_2014-01-31.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4inma/hasModelNumber",
+          "texto": "Concept: Property\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/saref4inma/hasModelNumber\nLabel: has model number\nDefinition: A relation to express the model number of a certain object (item, product, equipment, etc.) ",
+          "ontologia": "s4inma_2019-04-30.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4ener/deviceName",
+          "texto": "Concept: Property\nOntology: s4ener_2020-06-04.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ener/deviceName\nLabel: device name\nDefinition: Provides the name of the device as defined by the manufacturer.",
+          "ontologia": "s4ener_2020-06-04.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://saref.etsi.org/core/hasModel",
+          "texto": "Concept: Property\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/hasModel\nLabel: has model\nDefinition: A relationship identifying the model of an entity (e.g., device). The value is expected to be a string or a string with language tag.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "http://purl.org/cerif/frapo/hasModelNumber",
+          "texto": "Concept: Property\nOntology: frapo_2014-01-31.n3 (EXTENSION)\nURI: http://purl.org/cerif/frapo/hasModelNumber\nLabel: has model number\nDefinition: A data property linking something, for example a piece of equipment, to its model number.",
+          "ontologia": "frapo_2014-01-31.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4inma/hasModelNumber",
+          "texto": "Concept: Property\nOntology: s4inma_2019-04-30.n3 (CORE)\nURI: https://saref.etsi.org/saref4inma/hasModelNumber\nLabel: has model number\nDefinition: A relation to express the model number of a certain object (item, product, equipment, etc.) ",
+          "ontologia": "s4inma_2019-04-30.n3"
+        }
+      ]
+    },
+    "A device shall have a manufacturer property": {
+      "keywords_usadas": "Based on the user's request \"A device shall have a manufacturer property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Manufacturer, Property\n2. **Normalización Ontológica:** Formal equivalents:\nCategory (e.g., rdfs:Class), Class (e.g., owl:Class), Type (e.g., rdf:Type)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Producer, Maker, Fabricator\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Manufacturer, Property, Category, rdfs:Class, Class, owl:Class, Type, rdf:Type, Entity, Producer, Maker, Fabricator",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://saref.etsi.org/saref4ener/manufacturerNodeIdentification",
+          "texto": "Concept: Property\nOntology: s4ener_2020-06-04.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ener/manufacturerNodeIdentification\nLabel: manufacturer node identification\nDefinition: Indicates a node identification for the device as defined by the manufacturer. This could be used for the identification of a device, even if it was removed from the network and rejoined later with changed node address.",
+          "ontologia": "s4ener_2020-06-04.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/hasManufacturer",
+          "texto": "Concept: Property\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/hasManufacturer\nLabel: has manufacturer\nDefinition: A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag.",
+          "ontologia": "saref_2020-05-29.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4ener/manufacturerLabel",
+          "texto": "Concept: Property\nOntology: s4ener_2020-06-04.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ener/manufacturerLabel\nLabel: manufacturer label\nDefinition: A short label of the device as defined by the manufacturer. ",
+          "ontologia": "s4ener_2020-06-04.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4ener/manufacturerDescription",
+          "texto": "Concept: Property\nOntology: s4ener_2020-06-04.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ener/manufacturerDescription\nLabel: manufacturer description\nDefinition: A description for the device as defined by the manufacturer.",
+          "ontologia": "s4ener_2020-06-04.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/saref4ener/deviceCode",
+          "texto": "Concept: Property\nOntology: s4ener_2020-06-04.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ener/deviceCode\nLabel: device code\nDefinition: Provides a device code for the device as defined by the manufacturer.",
+          "ontologia": "s4ener_2020-06-04.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://saref.etsi.org/saref4ener/manufacturerNodeIdentification",
+          "texto": "Concept: Property\nOntology: s4ener_2020-06-04.n3 (EXTENSION)\nURI: https://saref.etsi.org/saref4ener/manufacturerNodeIdentification\nLabel: manufacturer node identification\nDefinition: Indicates a node identification for the device as defined by the manufacturer. This could be used for the identification of a device, even if it was removed from the network and rejoined later with changed node address.",
+          "ontologia": "s4ener_2020-06-04.n3"
+        },
+        {
+          "uri": "https://saref.etsi.org/core/hasManufacturer",
+          "texto": "Concept: Property\nOntology: saref_2020-05-29.n3 (CORE)\nURI: https://saref.etsi.org/core/hasManufacturer\nLabel: has manufacturer\nDefinition: A relationship identifying the manufacturer of an entity (e.g., device). The value is expected to be a string or a string with language tag.",
+          "ontologia": "saref_2020-05-29.n3"
+        }
+      ]
+    },
+    "A device can optionally have a description": {
+      "keywords_usadas": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Description, Optional, Class, Type, Entity, Concept, Property, Ontology, Semantic, Resource, RDF, OWL, Schema, Definition, Attribute, Characteristic\n\nThese terms are separated by commas, as requested.",
+      "entidades_recuperadas": [
+        {
+          "uri": "https://w3id.org/bpo#Product",
+          "texto": "Concept: Class\nOntology: bpo.ttl (CORE)\nURI: https://w3id.org/bpo#Product\nLabel: product\nDefinition: A product is a description of any item that can be or is offered for sale by vendors or manufacturers. Products can be assembled or modelled as an element. In any case, the product's structure should be clarified by giving the individual the according type (scp:Assembly or scp:Element) as well.",
+          "ontologia": "bpo.ttl"
+        },
+        {
+          "uri": "http://purl.oclc.org/NET/ssnx/ssn#Device",
+          "texto": "Concept: Class\nOntology: iot-lite_2015-06-01.n3 (CORE)\nURI: http://purl.oclc.org/NET/ssnx/ssn#Device\nLabel: Device\nDefinition: ",
+          "ontologia": "iot-lite_2015-06-01.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/description",
+          "texto": "Concept: Property\nOntology: qudt_2020-04-20.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/description\nLabel: description\nDefinition: ",
+          "ontologia": "qudt_2020-04-20.n3"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#description_IfcConstraint",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#description_IfcConstraint\nLabel: Description\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        },
+        {
+          "uri": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#description_IfcTableColumn",
+          "texto": "Concept: Property\nOntology: ifc4.ttl (EXTENSION)\nURI: https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#description_IfcTableColumn\nLabel: Description\nDefinition: ",
+          "ontologia": "ifc4.ttl"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "https://w3id.org/bpo#Product",
+          "texto": "Concept: Class\nOntology: bpo.ttl (CORE)\nURI: https://w3id.org/bpo#Product\nLabel: product\nDefinition: A product is a description of any item that can be or is offered for sale by vendors or manufacturers. Products can be assembled or modelled as an element. In any case, the product's structure should be clarified by giving the individual the according type (scp:Assembly or scp:Element) as well.",
+          "ontologia": "bpo.ttl"
+        },
+        {
+          "uri": "http://purl.oclc.org/NET/ssnx/ssn#Device",
+          "texto": "Concept: Class\nOntology: iot-lite_2015-06-01.n3 (CORE)\nURI: http://purl.oclc.org/NET/ssnx/ssn#Device\nLabel: Device\nDefinition: ",
+          "ontologia": "iot-lite_2015-06-01.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/description",
+          "texto": "Concept: Property\nOntology: qudt_2020-04-20.n3 (EXTENSION)\nURI: http://purl.org/dc/terms/description\nLabel: description\nDefinition: ",
+          "ontologia": "qudt_2020-04-20.n3"
+        }
+      ]
+    },
+    "It should be possible to define policies of type Assertion.": {
+      "keywords_usadas": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nAssertion, Policy, Definition, Type, Class, Category, Ontology, Concept, Statement, Rule, Regulation, Standard, Specification, Formalization.\n\nNote that I've included equivalent formal terms (Category, Class, Type) to facilitate searching in ontological frameworks like OWL/RDF.",
+      "entidades_recuperadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "http://purl.org/dc/terms/Policy",
+          "texto": "Concept: Class\nOntology: dcterms_2012-06-14.n3 (CORE)\nURI: http://purl.org/dc/terms/Policy\nLabel: Policy\nDefinition: A plan or course of action by an authority, intended to influence and determine decisions, actions, and other matters.",
+          "ontologia": "dcterms_2012-06-14.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Policy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Policy\nLabel: Policy\nDefinition: A non-empty group of Permissions and/or Prohibitions.",
+          "ontologia": "odrl_2017-09-16.n3"
+        },
+        {
+          "uri": "https://w3id.org/dpv#Policy",
+          "texto": "Concept: Class\nOntology: dpv_2025-08-01.n3 (CORE)\nURI: https://w3id.org/dpv#Policy\nLabel: Policy\nDefinition: A guidance document outlining any of: procedures, plans, principles, decisions, intent, or protocols.",
+          "ontologia": "dpv_2025-08-01.n3"
+        },
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Privacy",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Privacy\nLabel: Privacy Policy\nDefinition: A Policy that expresses a Rule over an Asset containing personal information.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ],
+      "entidades_aprobadas": [
+        {
+          "uri": "http://www.w3.org/ns/odrl/2/Assertion",
+          "texto": "Concept: Class\nOntology: odrl_2017-09-16.n3 (CORE)\nURI: http://www.w3.org/ns/odrl/2/Assertion\nLabel: Assertion\nDefinition: A Policy that asserts a Rule over an Asset from parties.",
+          "ontologia": "odrl_2017-09-16.n3"
+        }
+      ]
+    }
+  },
+  "matriz_cobertura": {
+    "facility.ttl": [
+      "Zones are areas with spatial 3D volumes",
+      "Storeys are areas with spatial 3D volumes",
+      "Storeys may contain spaces"
+    ],
+    "vivo_2014-07-12.n3": [
+      "Zones are areas with spatial 3D volumes"
+    ],
+    "brick.ttl": [
+      "Construction sites are areas with spatial 3D volumes",
+      "Buildings may contain storeys"
+    ],
+    "dbo.rdf": [
+      "Construction sites are areas with spatial 3D volumes"
+    ],
+    "building.ttl": [
+      "Buildings are areas with spatial 3D volumes",
+      "Storeys are areas with spatial 3D volumes",
+      "Zones may contain other zones",
+      "Construction sites may contain buildings",
+      "Buildings may contain storeys",
+      "Storeys may contain spaces"
+    ],
+    "s4inma_2019-04-30.n3": [
+      "Buildings are areas with spatial 3D volumes",
+      "A device performs one or more functions",
+      "A device shall have a model property"
+    ],
+    "bot.ttl": [
+      "Storeys are areas with spatial 3D volumes",
+      "Zones may contain other zones",
+      "Buildings may contain storeys"
+    ],
+    "beo.ttl": [
+      "Construction sites may contain buildings"
+    ],
+    "saref_2020-05-29.n3": [
+      "A device performs one or more functions",
+      "A device shall have a model property",
+      "A device shall have a manufacturer property"
+    ],
+    "frapo_2014-01-31.n3": [
+      "A device shall have a model property"
+    ],
+    "s4ener_2020-06-04.n3": [
+      "A device shall have a manufacturer property"
+    ],
+    "bpo.ttl": [
+      "A device can optionally have a description"
+    ],
+    "iot-lite_2015-06-01.n3": [
+      "A device can optionally have a description"
+    ],
+    "qudt_2020-04-20.n3": [
+      "A device can optionally have a description"
+    ],
+    "odrl_2017-09-16.n3": [
+      "It should be possible to define policies of type Assertion."
+    ]
+  },
+  "veredicto_final": "**Veredicto Final**\n\nRecomendación de Red: **building.ttl**, **s4inma_2019-04-30.n3**, and **bot.ttl**\n\nJustificación:\n\n1. **building.ttl**: Esta ontología cubre una amplia gama de requisitos relacionados con edificios y estructuras, incluyendo la definición de zonas, storeys y construcción de sitios. Su cobertura es significativa en términos de requisitos de área espacial.\n2. **s4inma_2019-04-30.n3**: Esta ontología se centra en el concepto de dispositivos y su relación con funciones y propiedades. Cubre requisitos importantes como la definición de modelos y fabricantes de dispositivos, lo que es relevante para la cobertura de requisitos de dispositivo.\n3. **bot.ttl**: Esta ontología se enfoca en la definición de zonas y storeys, y su relación con edificios y construcción de sitios. Su cobertura es significativa en términos de requisitos de área espacial.\n\nObservaciones:\n\n* La cobertura de requisitos por ontología es significativa para **building.ttl** y **bot.ttl**, que cubren una amplia gama de requisitos relacionados con edificios y estructuras.\n* **s4inma_2019-04-30.n3** tiene una cobertura más limitada, pero es importante para la cobertura de requisitos de dispositivo.\n* No hay ontologías que cubran completamente los requisitos de política (odrl_2017-09-16.n3), por lo que se recomienda explorar otras opciones para cubrir este requisito.\n\nEn general, esta recomendación de red busca maximizar la cobertura de requisitos relacionados con edificios y estructuras, dispositivos y políticas."
+}

@@ -1,27 +1,37 @@
 id;query_natural;expected_ontology;difficulty
-1;Zones are areas with spatial 3D volumes, and include, Buildings, Storeys, and Spaces.;bot.ttl;easy
-2;Zones may contain other zones, Buildings may contain storeys, Storeys may contain spaces.;bot.ttl;medium
-3;Zones may intersect, or be adjacent to other zones.;bot.ttl;medium
-4;There are building elements, which may have sub elements.;bot.ttl;easy
-5;Zones may have elements, either contained, adjacent, or intersecting it.;bot.ttl;hard
-6;A adjacent zones and/or elements share some interface.;bot.ttl;hard
-7;Zones and Elements have a 3D Model (including geometry, material, etc.).;bot.ttl;easy
-8;A device performs one or more functions;saref_2020-05-29.n3;easy
-9;A building space is a geographical point characterized by acertain altitude, latitude and longitude;saref_2020-05-29.n3;hard
-10;A device shall have a model property;saref_2020-05-29.n3;easy
-11;A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room;saref_2020-05-29.n3;hard
-12;The devices can belong to several categories;saref_2020-05-29.n3;medium
-13;A switch is a device that has category Actuator;saref_2020-05-29.n3;easy
-14;A function represents the functionality necessary toaccomplish the task for which a device is designed;saref_2020-05-29.n3;easy
-15;A single option for applying a constraint to a party (of a specific role) should be defined.;odrl_2017-09-16.n3;medium
-16;It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets.;odrl_2017-09-16.n3;hard
-17;The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values.;odrl_2017-09-16.n3;hard
-18;In addition to the existing identifiers of a policy means for expressing a version of this policy should specified.;odrl_2017-09-16.n3;easy
-19;It should be possible to define the price for duty/duties of payment for all permissions of a policy in a global way.;odrl_2017-09-16.n3;medium
-20;Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time.;odrl_2017-09-16.n3;medium
-21;For a relativeTimePeriod constraint the rightOperand has to provide a time period as value.;odrl_2017-09-16.n3;medium
-22;Being able to tie Permission, Prohibition, Duty, and Constraint entities together with an AND, OR or XOR relationship.;odrl_2017-09-16.n3;hard
-23;Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified.;odrl_2017-09-16.n3;medium
-24;Ability to link from a Policy or a Permission to the original (text-based) license.;odrl_2017-09-16.n3;easy
-25;It should be possible to define policies of type Assertion.;odrl_2017-09-16.n3;easy
-26;An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have.;odrl_2017-09-16.n3;medium
+1;Zones are areas with spatial 3D volumes;bot.ttl;easy
+2;Construction sites are areas with spatial 3D volumes;bot.ttl;easy
+3;Buildings are areas with spatial 3D volumes;bot.ttl;easy
+4;Storeys are areas with spatial 3D volumes;bot.ttl;easy
+5;Spaces are limited three-dimensional extent defined physically or notionally, and are areas with spatial 3D volumes;bot.ttl;medium
+6;Zones may contain other zones;bot.ttl;easy
+7;Construction sites may contain buildings;bot.ttl;easy
+8;Buildings may contain storeys;bot.ttl;easy
+9;Storeys may contain spaces;bot.ttl;easy
+10;Spaces may be contained in storeys, buildings, and construction sites;bot.ttl;medium
+11;Spaces may intersect different storeys, buildings, and construction sites;bot.ttl;hard
+12;A zone can be adjacent to another zone;bot.ttl;medium
+13;A device performs one or more functions;saref_2020-05-29.n3;easy
+14;Examples of devices are a light switch, a temperature sensor, an energy meter, a washing machine;saref_2020-05-29.n3;medium
+15;A device shall have a model property;saref_2020-05-29.n3;easy
+16;A device shall have a manufacturer property;saref_2020-05-29.n3;easy
+17;A device can optionally have a description;saref_2020-05-29.n3;easy
+18;A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room;saref_2020-05-29.n3;hard
+19;A building space contains devices or building objects;saref_2020-05-29.n3;medium
+20;Building objects are objects in the building that can be controlled by devices, such as doors or windows;saref_2020-05-29.n3;hard
+21;A building object can be opened or closed by an actuator;saref_2020-05-29.n3;medium
+22;A building space has also a property that can be used to specify the type of space, for example, the living room or the bedroom;saref_2020-05-29.n3;hard
+23;A building space is a geographical point characterized by a certain altitude, latitude and longitude;saref_2020-05-29.n3;hard
+24;The devices can be classified into categories: FunctionRelated, EnergyRelated and BuildingRelated;saref_2020-05-29.n3;medium
+25;A single option for applying a constraint to a party (of a specific role) should be defined.;odrl_2017-09-16.n3;medium
+26;It should be possible to define the target of a constraint inside a Permission, Prohibition or Duty: e.g. a constraint of human age applies to the Assignee, a constraint of play time applies to Assets (of type audio or video), etc.;odrl_2017-09-16.n3;hard
+27;The current data model assumes a policy instance includes all required data explicitly. This should be extended to policy instances which include explicit data and variables for values which are defined by parameters provided by an access to this template.;odrl_2017-09-16.n3;hard
+28;In addition to the existing identifiers of a policy means for expressing a version of this policy should specified.;odrl_2017-09-16.n3;medium
+29;It should be possible to define the price for duty/duties of payment for all permissions of a policy in a global way - while currently the payment duty must be defined for each permission individually.;odrl_2017-09-16.n3;hard
+30;Extend the temporal constraints by setting a time reference, any period in the rightOperand refers to this point in time.;odrl_2017-09-16.n3;medium
+31;For a relativeTimePeriod constraint the rightOperand has to provide a time period as value.;odrl_2017-09-16.n3;medium
+32;Being able to tie Permission, Prohibition, Duty, and Constraint entities together with an AND, OR or XOR relationship;odrl_2017-09-16.n3;hard
+33;Being able to assign multiple individuals of type Party to a Group for which permissions/prohibitions/duties can be specified.;odrl_2017-09-16.n3;hard
+34;Ability to link from a Policy or a Permission to the original (text-based) license.;odrl_2017-09-16.n3;medium
+35;It should be possible to define policies of type Assertion.;odrl_2017-09-16.n3;easy
+36;An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have.;odrl_2017-09-16.n3;medium
