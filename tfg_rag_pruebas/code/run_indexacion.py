@@ -92,20 +92,20 @@ def main():
             recreate_db=recreate_db,
         )
         
-        logger.info("✓ OntologyIndexer instanciado correctamente")
+        logger.info(" OntologyIndexer instanciado correctamente")
         
     except Exception as e:
-        logger.error(f"✗ Error al instanciar OntologyIndexer: {e}", exc_info=True)
+        logger.error(f" Error al instanciar OntologyIndexer: {e}", exc_info=True)
         sys.exit(1)
     
     # === EJECUCIÓN DEL PIPELINE ===
     
     try:
         indexer.build_index()
-        logger.info("✓ Indexación completada exitosamente")
+        logger.info(" Indexación completada exitosamente")
         
     except Exception as e:
-        logger.error(f"✗ Error durante indexación: {e}", exc_info=True)
+        logger.error(f" Error durante indexación: {e}", exc_info=True)
         sys.exit(1)
 
 
