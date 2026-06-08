@@ -2,15 +2,20 @@ import json
 import os
 import re
 import time
+import logging
+from typing import Optional
 
 from langchain_chroma import Chroma
 from langchain_community.retrievers import BM25Retriever
 from langchain_core.documents import Document
+from langchain_core.language_models.chat_models import BaseChatModel
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_ollama import ChatOllama
 from sentence_transformers import CrossEncoder
+
+logger = logging.getLogger(__name__)
 
 
 class OntologyRecommender:
@@ -22,6 +27,7 @@ class OntologyRecommender:
         reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2",
         temperature: float = 0.0,
         warmup: bool = True,
+        llm: Optional[BaseChatModel] = None,
     ):
         self.persist_directory = persist_directory
         self.embedding_model = embedding_model
@@ -29,7 +35,7 @@ class OntologyRecommender:
         self.reranker_model = reranker_model
         self.temperature = temperature
 
-        print("Iniciando sistema RAG con Búsqueda Híbrida + Cross-Encoder Reranking...")
+        logger.info("Iniciando sistema RAG con Búsqueda Híbrida + Cross-Encoder Reranking...")
 
         self.embeddings = HuggingFaceEmbeddings(model_name=self.embedding_model)
 
@@ -41,39 +47,42 @@ class OntologyRecommender:
             embedding_function=self.embeddings,
         )
 
-        print(f" - Cargando Reranker ({self.reranker_model})...")
+        logger.info(f" - Cargando Reranker ({self.reranker_model})...")
         self.reranker = CrossEncoder(self.reranker_model)
 
         self._setup_retrievers()
 
-        self.llm = ChatOllama(model=self.llm_model, temperature=self.temperature)
+        if llm is not None:
+            self.llm = llm
+        else:
+            self.llm = ChatOllama(model=self.llm_model, temperature=self.temperature)
         self._setup_chains()
 
         if warmup:
             self._warmup_system()
 
-        print("Sistema RAG Híbrido listo y optimizado.")
+        logger.info("Sistema RAG Híbrido listo y optimizado.")
 
     def _warmup_system(self):
         """Ejecuta una inferencia dummy para cargar modelos en VRAM"""
-        print("   Ejecutando Warmup (Cargando modelos en GPU)...")
+        logger.info("   Ejecutando Warmup (Cargando modelos en GPU)...")
         try:
             self.embeddings.embed_query("warmup query")
             self.reranker.predict([["test query", "test document content"]])
             self.llm.invoke("Ready?")
-            print("   Modelos cargados.")
+            logger.info("   Modelos cargados.")
         except Exception as e:
-            print(f"   Error en Warmup (no crítico): {e}")
+            logger.warning(f"   Error en Warmup (no crítico): {e}")
 
     def _setup_retrievers(self):
-        print(" - Construyendo índice BM25...")
+        logger.info(" - Construyendo índice BM25...")
         try:
             collection_data = self.vectorstore.get()
             texts = collection_data.get("documents") or []
             metadatas = collection_data.get("metadatas") or []
             docs = [Document(page_content=t, metadata=m or {}) for t, m in zip(texts, metadatas)]
         except Exception as e:
-            print(f"Error cargando docs para BM25: {e}")
+            logger.error(f"Error cargando docs para BM25: {e}")
             docs = []
 
         if not docs:
@@ -197,14 +206,14 @@ class OntologyRecommender:
         if start_idx == -1 or start_idx < 200:
             clean_text = text[:max_len]
         else:
-            print(f"   (Snippet optimizado: saltando {start_idx} chars de encabezado)")
+            logger.debug(f"   (Snippet optimizado: saltando {start_idx} chars de encabezado)")
             clean_text = "..." + text[start_idx : start_idx + max_len]
 
         return clean_text.replace("\n", " ")
 
     def run_pipeline(self, user_request, initial_k=100):
         start_time = time.time()
-        print(f"--- Inicio Pipeline: {user_request[:50]}... ---")
+        logger.info(f"--- Inicio Pipeline: {user_request[:50]}... ---")
 
         try:
             keywords = self.extraction_chain.invoke({"user_request": user_request})
@@ -212,9 +221,9 @@ class OntologyRecommender:
             keywords = user_request
 
         raw_docs = self._hybrid_retrieve(keywords, k=initial_k)
-        print(f"Retrieval Broad: {len(raw_docs)} docs candidatos.")
+        logger.info(f"Retrieval Broad: {len(raw_docs)} docs candidatos.")
 
-        print("Ejecutando Cross-Encoder Re-ranking...")
+        logger.info("Ejecutando Cross-Encoder Re-ranking...")
         if raw_docs:
             doc_contents = [d.page_content[:500] for d in raw_docs]
             pairs = [[user_request, content] for content in doc_contents]
@@ -225,7 +234,7 @@ class OntologyRecommender:
 
             top_k_reranked = 10
             final_docs = [doc for doc, score in scored_docs_sorted[:top_k_reranked]]
-            print(f"Top {top_k_reranked} seleccionados (Score máx: {scored_docs_sorted[0][1]:.4f})")
+            logger.info(f"Top {top_k_reranked} seleccionados (Score máx: {scored_docs_sorted[0][1]:.4f})")
         else:
             final_docs = []
 
@@ -238,14 +247,14 @@ class OntologyRecommender:
 
         context_str = "\n".join(context_lines)
 
-        print("Generando decisión final con LLM...")
+        logger.info("Generando decisión final con LLM...")
         decision_text = self.selection_chain.invoke({
             "user_request": user_request,
             "filtered_context": context_str,
         })
 
         total_time = time.time() - start_time
-        print(f"--- Fin Pipeline ({total_time:.2f}s) ---")
+        logger.info(f"--- Fin Pipeline ({total_time:.2f}s) ---")
 
         return {
             "query": user_request,
@@ -254,3 +263,4 @@ class OntologyRecommender:
             "llm_response": decision_text,
             "execution_time": total_time,
         }
+

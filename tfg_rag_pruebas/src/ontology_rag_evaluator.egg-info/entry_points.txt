@@ -1,0 +1,2 @@
+[console_scripts]
+ontology-rag = ontology_rag.cli:main

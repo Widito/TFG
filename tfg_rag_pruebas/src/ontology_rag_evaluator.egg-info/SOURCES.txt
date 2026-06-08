@@ -1,10 +1,13 @@
 README.md
 pyproject.toml
 src/ontology_rag/__init__.py
+src/ontology_rag/cli.py
+src/ontology_rag/creador_rag.py
 src/ontology_rag/evaluador_requisitos.py
 src/ontology_rag/rag_basico.py
 src/ontology_rag_evaluator.egg-info/PKG-INFO
 src/ontology_rag_evaluator.egg-info/SOURCES.txt
 src/ontology_rag_evaluator.egg-info/dependency_links.txt
+src/ontology_rag_evaluator.egg-info/entry_points.txt
 src/ontology_rag_evaluator.egg-info/requires.txt
 src/ontology_rag_evaluator.egg-info/top_level.txt

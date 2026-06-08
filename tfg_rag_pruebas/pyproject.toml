@@ -8,6 +8,16 @@ version = "0.1.0"
 description = "Libreria modular para evaluacion RAG de ontologias"
 readme = "README.md"
 requires-python = ">=3.10"
+authors = [
+    {name = "Wido", email = "wido@example.com"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
 dependencies = [
     "langchain-chroma",
     "langchain-core",
@@ -19,8 +29,12 @@ dependencies = [
     "rdflib",
 ]
 
+[project.scripts]
+ontology-rag = "ontology_rag.cli:main"
+
 [tool.setuptools]
 package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+

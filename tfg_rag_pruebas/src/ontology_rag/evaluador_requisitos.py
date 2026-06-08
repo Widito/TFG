@@ -2,9 +2,12 @@ import csv
 import json
 import os
 import re
+import logging
 from typing import Any, Dict, List, Optional
 
 from .rag_basico import OntologyRecommender as RAGBasico
+
+logger = logging.getLogger(__name__)
 
 
 class EvaluadorRequisitos:
@@ -18,6 +21,7 @@ class EvaluadorRequisitos:
         llm_model: str = "llama3",
         reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2",
         warmup: bool = True,
+        output_dir: Optional[str] = None,
     ):
         self.rag = (
             rag
@@ -30,6 +34,7 @@ class EvaluadorRequisitos:
                 warmup=warmup,
             )
         )
+        self.output_dir = output_dir or os.path.join(os.getcwd(), "resultado")
 
     @staticmethod
     def _normalizar_requisito(texto: str) -> str:
@@ -67,7 +72,7 @@ class EvaluadorRequisitos:
         selected_ids: Optional[List[int]] = None,
     ) -> List[str]:
         if not os.path.exists(ruta_csv):
-            print(f"[ERROR] No existe el archivo CSV: {ruta_csv}")
+            logger.error(f"No existe el archivo CSV: {ruta_csv}")
             return []
 
         requisitos: List[str] = []
@@ -150,7 +155,7 @@ class EvaluadorRequisitos:
                         requisitos.append(value)
 
         except Exception as exc:
-            print(f"[ERROR] Fallo leyendo CSV de requisitos: {exc}")
+            logger.error(f"Fallo leyendo CSV de requisitos: {exc}")
             return []
 
         if max_requirements is not None and max_requirements > 0:
@@ -344,14 +349,14 @@ class EvaluadorRequisitos:
             selected_ids=selected_ids,
         )
         if not requisitos:
-            print("[INFO] No hay requisitos para evaluar.")
+            logger.info("No hay requisitos para evaluar.")
             return {"tad_requisitos": {}, "matriz_cobertura": {}, "veredicto_final": ""}
 
         tad_requisitos: Dict[str, List[Dict[str, str]]] = {}
         tad_detallado: Dict[str, Dict[str, Any]] = {}
 
         for idx, requisito in enumerate(requisitos, start=1):
-            print(f"\n[{idx}/{len(requisitos)}] Evaluando requisito: {requisito[:120]}")
+            logger.info(f"[{idx}/{len(requisitos)}] Evaluando requisito: {requisito[:120]}")
 
             eval_trace = self.evaluar_requisito(requisito, top_k=5, return_trace=True)
             keywords_usadas = eval_trace.get("keywords", "")
@@ -367,14 +372,17 @@ class EvaluadorRequisitos:
 
         matriz_cobertura = self.generar_matriz_cobertura(tad_requisitos)
 
-        print("\n=== Matriz de Cobertura (Ontologia -> Requisitos) ===")
-        print(json.dumps(matriz_cobertura, indent=2, ensure_ascii=False))
+        logger.info("=== Matriz de Cobertura (Ontologia -> Requisitos) ===")
+        logger.info(json.dumps(matriz_cobertura, indent=2, ensure_ascii=False))
 
         veredicto_final = self.redactar_veredicto_final(matriz_cobertura)
-        print("\n=== Veredicto Final Recomendado ===")
-        print(veredicto_final)
+        logger.info("=== Veredicto Final Recomendado ===")
+        logger.info(veredicto_final)
 
-        trace_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "trazas_ejecucion.json")
+        # Crear carpeta resultado
+        os.makedirs(self.output_dir, exist_ok=True)
+        trace_path = os.path.join(self.output_dir, "trazas_ejecucion.json")
+
         trace_payload = {
             "ruta_csv": os.path.abspath(ruta_csv),
             "max_requirements": max_requirements,
@@ -386,9 +394,9 @@ class EvaluadorRequisitos:
         try:
             with open(trace_path, "w", encoding="utf-8") as f:
                 json.dump(trace_payload, f, ensure_ascii=False, indent=2)
-            print(f"\n[INFO] Trazas guardadas en: {trace_path}")
+            logger.info(f"Trazas guardadas en: {trace_path}")
         except Exception as exc:
-            print(f"\n[WARN] No se pudo guardar trazas_ejecucion.json: {exc}")
+            logger.warning(f"No se pudo guardar trazas_ejecucion.json: {exc}")
 
         return {
             "tad_requisitos": tad_requisitos,
@@ -406,3 +414,4 @@ class EvaluadorRequisitos:
         if match:
             return match.group(1)
         return ""
+
