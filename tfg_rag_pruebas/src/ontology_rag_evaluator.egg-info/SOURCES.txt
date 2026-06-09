@@ -1,4 +1,3 @@
-README.md
 pyproject.toml
 src/ontology_rag/__init__.py
 src/ontology_rag/cli.py

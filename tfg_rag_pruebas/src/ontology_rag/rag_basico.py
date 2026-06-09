@@ -37,7 +37,15 @@ class OntologyRecommender:
 
         logger.info("Iniciando sistema RAG con Búsqueda Híbrida + Cross-Encoder Reranking...")
 
-        self.embeddings = HuggingFaceEmbeddings(model_name=self.embedding_model)
+        # Intentar cargar embeddings en local, si falla descargar en primer arranque
+        try:
+            self.embeddings = HuggingFaceEmbeddings(
+                model_name=self.embedding_model,
+                model_kwargs={"local_files_only": True}
+            )
+        except Exception:
+            logger.info("Modelo de embeddings no encontrado localmente. Descargando desde Hugging Face...")
+            self.embeddings = HuggingFaceEmbeddings(model_name=self.embedding_model)
 
         if not os.path.exists(self.persist_directory):
             raise FileNotFoundError(f"No se encuentra la BD en {self.persist_directory}")
@@ -48,7 +56,14 @@ class OntologyRecommender:
         )
 
         logger.info(f" - Cargando Reranker ({self.reranker_model})...")
-        self.reranker = CrossEncoder(self.reranker_model)
+        
+        # Intentar cargar reranker en local, si falla descargar en primer arranque
+        try:
+            self.reranker = CrossEncoder(self.reranker_model, local_files_only=True)
+        except Exception:
+            logger.info("Modelo Reranker no encontrado localmente. Descargando desde Hugging Face...")
+            self.reranker = CrossEncoder(self.reranker_model)
+
 
         self._setup_retrievers()
 

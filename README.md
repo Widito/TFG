@@ -19,6 +19,16 @@ Antes de utilizar esta librería, asegúrate de cumplir con lo siguiente:
 
 ---
 
+## 🔌 Ejecución 100% Offline (Local)
+
+Esta librería está diseñada para ser **completamente autónoma y local**:
+* **Primer arranque (Online obligatorio):** La primera vez que ejecutes una consulta, indexación o evaluación, la librería requiere conexión a internet para descargar de Hugging Face los modelos de embeddings (`bge-m3`) y de reordenación (`MiniLM`). Esta descarga es de un solo uso y se realiza automáticamente en segundo plano.
+* **Uso posterior (Offline 100%):** Una vez realizada la descarga inicial, los modelos quedan guardados en tu caché local. El sistema se ejecutará de forma estrictamente local y offline, sin enviar consultas de metadatos a la web, optimizando la latencia de respuesta.
+* **Ollama:** Las inferencias de lenguaje con Ollama y `llama3` se realizan de manera local en tu máquina y nunca requieren conexión.
+
+---
+
+
 ##  Instalación
 
 Puedes instalar la librería directamente de manera local o a través de un repositorio Git.

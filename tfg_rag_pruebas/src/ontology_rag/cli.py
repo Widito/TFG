@@ -9,13 +9,39 @@ from .rag_basico import OntologyRecommender
 from .evaluador_requisitos import EvaluadorRequisitos
 
 def setup_logging(debug: bool):
-    # Configuramos el formato del logger raíz para salida limpia en consola
     level = logging.DEBUG if debug else logging.INFO
-    logging.basicConfig(
-        level=level,
-        format="[%(asctime)s] [%(levelname)s] %(message)s",
+    
+    # 1. Configurar handlers y formato para nuestro logger específico
+    formatter = logging.Formatter(
+        fmt="[%(levelname)s] %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     )
+    
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setFormatter(formatter)
+    
+    # Logger principal de la librería
+    lib_logger = logging.getLogger("ontology_rag")
+    lib_logger.setLevel(level)
+    lib_logger.addHandler(handler)
+    lib_logger.propagate = False
+    
+    # Logger del CLI
+    cli_logger = logging.getLogger("ontology_rag.cli")
+    cli_logger.setLevel(level)
+    cli_logger.addHandler(handler)
+    cli_logger.propagate = False
+
+    # 2. Silenciar el logger raíz y librerías externas ruidosas
+    logging.basicConfig(level=logging.WARNING)
+    logging.getLogger("httpx").setLevel(logging.WARNING)
+    logging.getLogger("httpcore").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
+    logging.getLogger("huggingface_hub").setLevel(logging.ERROR) # Muta avisos de token/descarga
+    logging.getLogger("transformers").setLevel(logging.WARNING)
+    logging.getLogger("sentence_transformers").setLevel(logging.WARNING)
+
+
 
 def handle_index(args):
     logger = logging.getLogger("ontology_rag.cli")

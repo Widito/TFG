@@ -98,7 +98,14 @@ class OntologyIndexer:
         
         self.logger = logger or self._setup_logger()
         
-        self.embeddings = HuggingFaceEmbeddings(model_name=self.embedding_model)
+        try:
+            self.embeddings = HuggingFaceEmbeddings(
+                model_name=self.embedding_model,
+                model_kwargs={"local_files_only": True}
+            )
+        except Exception:
+            self.logger.info("Modelo de embeddings no encontrado localmente. Descargando desde Hugging Face...")
+            self.embeddings = HuggingFaceEmbeddings(model_name=self.embedding_model)
         self.vectorstore = None
     
     def _setup_logger(self) -> logging.Logger:
