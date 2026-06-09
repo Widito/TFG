@@ -19,7 +19,7 @@ Antes de utilizar esta librería, asegúrate de cumplir con lo siguiente:
 
 ---
 
-## 🔌 Ejecución 100% Offline (Local)
+##  Ejecución 100% Offline (Local)
 
 Esta librería está diseñada para ser **completamente autónoma y local**:
 * **Primer arranque (Online obligatorio):** La primera vez que ejecutes una consulta, indexación o evaluación, la librería requiere conexión a internet para descargar de Hugging Face los modelos de embeddings (`bge-m3`) y de reordenación (`MiniLM`). Esta descarga es de un solo uso y se realiza automáticamente en segundo plano.
