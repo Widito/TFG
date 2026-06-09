@@ -4,7 +4,7 @@ Una librería de Python modular y portable para la recuperación, recomendación
 
 ---
 
-## 📋 Requisitos Previos
+##  Requisitos Previos
 
 Antes de utilizar esta librería, asegúrate de cumplir con lo siguiente:
 
@@ -19,7 +19,7 @@ Antes de utilizar esta librería, asegúrate de cumplir con lo siguiente:
 
 ---
 
-## 🚀 Instalación
+##  Instalación
 
 Puedes instalar la librería directamente de manera local o a través de un repositorio Git.
 
@@ -37,7 +37,7 @@ pip install git+https://github.com/tu-usuario/tu-repositorio.git#subdirectory=tf
 
 ---
 
-## 🛠️ Interfaz de Consola (CLI)
+##  Interfaz de Consola (CLI)
 
 Al instalar la librería, se registra un comando global llamado `ontology-rag` en el sistema. Soporta tres subcomandos principales:
 
@@ -65,7 +65,7 @@ ontology-rag evaluate --csv ./dataset_bot_test.csv --db ./chroma_db --output ./r
 
 ---
 
-## 🐍 Uso desde Código Python
+##  Uso desde Código Python
 
 También puedes importar la librería en tus propios scripts de Python para integrarla en cualquier otra aplicación.
 
@@ -111,7 +111,7 @@ evaluador.orquestar_evaluacion(
 
 ---
 
-## ⚙️ Inyección de LLMs Personalizados
+##  Inyección de LLMs Personalizados
 
 Si no deseas usar Ollama en local y prefieres utilizar APIs comerciales (como GPT-4 de OpenAI), puedes inyectar cualquier modelo de chat compatible con LangChain:
 
