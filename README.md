@@ -42,8 +42,9 @@ pip install -e .
 ### Instalación Directa desde GitHub (Para usuarios)
 Puedes instalar la librería en cualquier otro proyecto ejecutando:
 ```bash
-pip install git+https://github.com/tu-usuario/tu-repositorio.git#subdirectory=tfg_rag_pruebas
+pip install git+https://github.com/Widito/TFG.git#subdirectory=tfg_rag_pruebas
 ```
+
 
 ---
 

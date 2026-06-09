@@ -4,9 +4,15 @@ tfg_rag_pruebas/.venv/
 # Base de datos Chroma
 tfg_rag_pruebas/chroma_db/
 
+# Carpeta de resultados y distribución
+tfg_rag_pruebas/resultado/
+tfg_rag_pruebas/dist/
+tfg_rag_pruebas/src/*.egg-info/
+tfg_rag_pruebas/*.egg-info/
+
 # Caché de Python
 **/__pycache__/
 
 # Caché de modelos y VS Code
 .cache/
-.vscode/
+.vscode/
