@@ -107,48 +107,49 @@ class OntologyRecommender:
         self.bm25_retriever.k = 40
         self.chroma_retriever = self.vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 25})
 
-    def _hybrid_retrieve(self, query, k=40):
+    def _hybrid_retrieve(self, query, k=40, retrieval_mode="hybrid"):
         self.bm25_retriever.k = k
-
-        query_embedding = self.embeddings.embed_query(query)
-        raw_results = self.vectorstore._collection.query(
-            query_embeddings=[query_embedding],
-            n_results=k * 3,
-            include=["documents", "metadatas", "distances"],
-        )
-
-        documents_batch = raw_results.get("documents") or [[]]
-        metadatas_batch = raw_results.get("metadatas") or [[]]
-        distances_batch = raw_results.get("distances") or [[]]
-
-        dense_documents = documents_batch[0] if documents_batch else []
-        dense_metadatas = metadatas_batch[0] if metadatas_batch else []
-        dense_distances = distances_batch[0] if distances_batch else []
 
         uris_vistas = set()
         unique_docs = []
         unique_metadatas = []
         unique_distances = []
 
-        for document_text, metadata, distance in zip(dense_documents, dense_metadatas, dense_distances):
-            metadata = metadata or {}
-            uri = str(metadata.get("uri", "")).strip()
-            if not uri:
-                match = re.search(r"^URI:\s*(\S+)", str(document_text or ""), flags=re.MULTILINE)
-                uri = match.group(1).strip() if match else ""
+        if retrieval_mode in ("dense", "hybrid"):
+            query_embedding = self.embeddings.embed_query(query)
+            raw_results = self.vectorstore._collection.query(
+                query_embeddings=[query_embedding],
+                n_results=k * 3,
+                include=["documents", "metadatas", "distances"],
+            )
 
-            if uri in uris_vistas:
-                continue
+            documents_batch = raw_results.get("documents") or [[]]
+            metadatas_batch = raw_results.get("metadatas") or [[]]
+            distances_batch = raw_results.get("distances") or [[]]
 
-            uris_vistas.add(uri)
-            unique_docs.append(Document(page_content=document_text, metadata=metadata))
-            unique_metadatas.append(metadata)
-            unique_distances.append(distance)
+            dense_documents = documents_batch[0] if documents_batch else []
+            dense_metadatas = metadatas_batch[0] if metadatas_batch else []
+            dense_distances = distances_batch[0] if distances_batch else []
 
-            if len(unique_docs) >= k:
-                break
+            for document_text, metadata, distance in zip(dense_documents, dense_metadatas, dense_distances):
+                metadata = metadata or {}
+                uri = str(metadata.get("uri", "")).strip()
+                if not uri:
+                    match = re.search(r"^URI:\s*(\S+)", str(document_text or ""), flags=re.MULTILINE)
+                    uri = match.group(1).strip() if match else ""
 
-        if len(unique_docs) < k:
+                if uri in uris_vistas:
+                    continue
+
+                uris_vistas.add(uri)
+                unique_docs.append(Document(page_content=document_text, metadata=metadata))
+                unique_metadatas.append(metadata)
+                unique_distances.append(distance)
+
+                if len(unique_docs) >= k:
+                    break
+
+        if retrieval_mode in ("bm25", "hybrid") and len(unique_docs) < k:
             sparse_docs = self.bm25_retriever.invoke(query)
             for doc in sparse_docs:
                 uri = str((doc.metadata or {}).get("uri", "")).strip()
@@ -226,7 +227,7 @@ class OntologyRecommender:
 
         return clean_text.replace("\n", " ")
 
-    def run_pipeline(self, user_request, initial_k=100):
+    def run_pipeline(self, user_request, initial_k=100, retrieval_mode="hybrid", use_reranker=True):
         start_time = time.time()
         logger.info(f"--- Inicio Pipeline: {user_request[:50]}... ---")
 
@@ -235,21 +236,26 @@ class OntologyRecommender:
         except Exception:
             keywords = user_request
 
-        raw_docs = self._hybrid_retrieve(keywords, k=initial_k)
+        raw_docs = self._hybrid_retrieve(keywords, k=initial_k, retrieval_mode=retrieval_mode)
         logger.info(f"Retrieval Broad: {len(raw_docs)} docs candidatos.")
 
         logger.info("Ejecutando Cross-Encoder Re-ranking...")
         if raw_docs:
-            doc_contents = [d.page_content[:500] for d in raw_docs]
-            pairs = [[user_request, content] for content in doc_contents]
-            scores = self.reranker.predict(pairs)
+            if use_reranker:
+                doc_contents = [d.page_content[:500] for d in raw_docs]
+                pairs = [[user_request, content] for content in doc_contents]
+                scores = self.reranker.predict(pairs)
 
-            scored_docs = list(zip(raw_docs, scores))
-            scored_docs_sorted = sorted(scored_docs, key=lambda x: x[1], reverse=True)
+                scored_docs = list(zip(raw_docs, scores))
+                scored_docs_sorted = sorted(scored_docs, key=lambda x: x[1], reverse=True)
 
-            top_k_reranked = 10
-            final_docs = [doc for doc, score in scored_docs_sorted[:top_k_reranked]]
-            logger.info(f"Top {top_k_reranked} seleccionados (Score máx: {scored_docs_sorted[0][1]:.4f})")
+                top_k_reranked = 10
+                final_docs = [doc for doc, score in scored_docs_sorted[:top_k_reranked]]
+                logger.info(f"Top {top_k_reranked} seleccionados (Score máx: {scored_docs_sorted[0][1]:.4f})")
+            else:
+                top_k_no_rerank = 10
+                final_docs = raw_docs[:top_k_no_rerank]
+                logger.info(f"Top {top_k_no_rerank} seleccionados (Sin re-ranking)")
         else:
             final_docs = []
 

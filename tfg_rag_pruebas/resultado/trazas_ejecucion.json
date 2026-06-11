@@ -1,7 +1,7 @@
 {
   "ruta_csv": "C:\\Users\\Wido\\Desktop\\TFG\\tfg_rag_pruebas\\dataset_bot_test.csv",
-  "max_requirements": 2,
-  "total_requisitos": 2,
+  "max_requirements": null,
+  "total_requisitos": 1,
   "tad_requisitos": {
     "Zones are areas with spatial 3D volumes": {
       "keywords_usadas": "Based on the user's request \"Zones are areas with spatial 3D volumes\", I've generated an optimized search list following the steps:\n\n1. **Concepts Nucleares:** Main technical nouns and verbs:\n\t* Zones, Areas, Volumes\n\t* Spatial, Three-Dimensional (3D)\n2. **Normalización Ontológica:**\n\t* Category: Geographic Area, Spatial Region\n\t* Class: Zone, Area, Volume\n\t* Type: 3D Space, Geospatial Volume\n3. **Sinónimos Técnicos:**\n\t* Regions, Districts, Territories\n\t* Spaces, Areas, Domains\n\nHere's the optimized search list in English, separated by commas:\n\nGeographic Area, Spatial Region, Zone, Area, Volume, 3D Space, Geospatial Volume, Regions, Districts, Territories, Spaces, Areas, Domains",
@@ -32,6 +32,16 @@
           "ontologia": "donto_2015-06-19.n3"
         }
       ],
+      "raw_retrieved_ontologies": [
+        "th_building.owl",
+        "dcterms_2012-06-14.n3",
+        "bpo.ttl",
+        "oum_2020-06-06.n3",
+        "vivo_2014-07-12.n3",
+        "donto_2015-06-19.n3",
+        "facility.ttl",
+        "bot.ttl"
+      ],
       "entidades_aprobadas": [
         {
           "uri": "https://cogito.iot.linkeddata.es/def/facility#SpatialZone",
@@ -44,53 +54,6 @@
           "ontologia": "vivo_2014-07-12.n3"
         }
       ]
-    },
-    "Construction sites are areas with spatial 3D volumes": {
-      "keywords_usadas": "Based on the user's request \"Construction sites are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nSite, Construction Site, Area, Volume, Spatial Volume, Three-Dimensional (3D) Volume, Building Site, Construction Area, Location, Geographic Area, Region, Zone, Space, Domain\n\nNote: The terms are in English to facilitate searching and querying across different ontologies and databases.",
-      "entidades_recuperadas": [
-        {
-          "uri": "https://w3id.org/rec#Architecture",
-          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Architecture\nLabel: Architecture\nDefinition: A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc.",
-          "ontologia": "brick.ttl"
-        },
-        {
-          "uri": "https://cogito.iot.linkeddata.es/def/facility#ConstructionZone",
-          "texto": "Concept: Class\nOntology: facility.ttl (EXTENSION)\nURI: https://cogito.iot.linkeddata.es/def/facility#ConstructionZone\nLabel: Construction Zone\nDefinition: An entity used to represent zones used by the Health and Safety module",
-          "ontologia": "facility.ttl"
-        },
-        {
-          "uri": "http://dati.beniculturali.it/cis/CulturalInstituteOrSite",
-          "texto": "Concept: Class\nOntology: cis_2016-03-30.n3 (CORE)\nURI: http://dati.beniculturali.it/cis/CulturalInstituteOrSite\nLabel: Cultural Institute or Site\nDefinition: The class Cultural Institute or Site represents museums, libraries, archive holders, archaeologic areas and parks, monumental areas. The cultural institutes of sites that are owned by public bodies are meant to offer public services. The cultural institutes or sites that are owned by private subjects, and are open to the public, offer a public and societal service.",
-          "ontologia": "cis_2016-03-30.n3"
-        },
-        {
-          "uri": "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
-          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#BuildingElement\nLabel: Building Element\nDefinition: The building element comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
-          "texto": "Concept: Class\nOntology: beo.ttl (CORE)\nURI: https://pi.pauwel.be/voc/buildingelement#BuildingElement\nLabel: Building Element\nDefinition: Comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "beo.ttl"
-        }
-      ],
-      "entidades_aprobadas": [
-        {
-          "uri": "https://w3id.org/rec#Architecture",
-          "texto": "Concept: Class\nOntology: brick.ttl (EXTENSION)\nURI: https://w3id.org/rec#Architecture\nLabel: Architecture\nDefinition: A designed/landscaped (or potentially designed/landscaped) part of the physical world that has a 3D spatial extent. E.g., a building site, a building, levels within the building, rooms, etc.",
-          "ontologia": "brick.ttl"
-        },
-        {
-          "uri": "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
-          "texto": "Concept: Class\nOntology: building.ttl (CORE)\nURI: http://bimerr.iot.linkeddata.es/def/building#BuildingElement\nLabel: Building Element\nDefinition: The building element comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "building.ttl"
-        },
-        {
-          "uri": "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
-          "texto": "Concept: Class\nOntology: beo.ttl (CORE)\nURI: https://pi.pauwel.be/voc/buildingelement#BuildingElement\nLabel: Building Element\nDefinition: Comprises all elements that are primarily part of the construction of a building, i.e., its structural and space separating system. Building elements are all physically existent and tangible things.",
-          "ontologia": "beo.ttl"
-        }
-      ]
     }
   },
   "matriz_cobertura": {
@@ -99,16 +62,15 @@
     ],
     "vivo_2014-07-12.n3": [
       "Zones are areas with spatial 3D volumes"
-    ],
-    "brick.ttl": [
-      "Construction sites are areas with spatial 3D volumes"
-    ],
-    "building.ttl": [
-      "Construction sites are areas with spatial 3D volumes"
-    ],
-    "beo.ttl": [
-      "Construction sites are areas with spatial 3D volumes"
     ]
   },
-  "veredicto_final": "**Veredicto Final**\n\nRecomendación de Red: **facility.ttl**, **brick.ttl**, and **building.ttl**\n\nJustificación:\n\n1. **facility.ttl**: Esta ontología cubre el requisito \"Zones are areas with spatial 3D volumes\", lo que sugiere una gran cantidad de información sobre áreas y espacios físicos. Su inclusión en la red es fundamental para abordar conceptos como zonas, edificios y construcciones.\n2. **brick.ttl**: Esta ontología también cubre el requisito \"Construction sites are areas with spatial 3D volumes\", lo que indica una gran cantidad de información sobre sitios de construcción y edificios. Su inclusión en la red es importante para abordar conceptos como construcciones, edificios y materiales.\n3. **building.ttl**: Esta ontología también cubre el requisito \"Construction sites are areas with spatial 3D volumes\", lo que sugiere una gran cantidad de información sobre edificios y construcciones. Su inclusión en la red es importante para abordar conceptos como diseño, construcción y mantenimiento de edificios.\n\nObservaciones:\n\n* La cobertura de requisitos por ontología es relativamente baja, lo que sugiere que hay posibles huecos en la cobertura.\n* No se incluyen ontologías que cubran el requisito \"Zones are areas with spatial 3D volumes\" fuera del conjunto de ontologías recomendadas. Esto puede ser un problema si se necesita abordar conceptos más específicos sobre zonas y espacios físicos.\n* La inclusión de **vivo_2014-07-12.n3** en la red podría ser beneficioso para abordar conceptos como personas, organizaciones y eventos. Sin embargo, no hay requisitos asociados a esta ontología en la matriz de cobertura, lo que sugiere que su inclusión puede ser problemática.\n\nEn resumen, la recomendación de **facility.ttl**, **brick.ttl**, and **building.ttl** como red de ontologías maximiza la cobertura de requisitos y aborda conceptos importantes sobre áreas, edificios y construcciones. Sin embargo, es importante considerar posibles huecos en la cobertura y evaluar la inclusión de otras ontologías que puedan ser beneficiosas para abordar conceptos específicos."
+  "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra dos ontologías que cubren el requisito \"Zones are areas with spatial 3D volumes\". La primera es `facility.ttl` y la segunda es `vivo_2014-07-12.n3`. Ambas ontologías tienen en común la definición de zonas como áreas con volúmenes espaciales 3D.\n\nConsiderando que ambos requisitos están cubiertos por estas dos ontologías, no hay necesidad de incluir otras ontologías para alcanzar la cobertura total. Por lo tanto, se recomiendan las dos ontologías mencionadas como suficientes para cubrir los requisitos.\n\n**Recomendaciones y Exclusiones**\n\n\n\nEn este caso, no hay ontologías que no sean recomendadas que deban ser excluidas. La cobertura total se logra con las dos ontologías mencionadas.",
+  "veredicto_estructurado": {
+    "recomendadas": [
+      "facility.ttl",
+      "vivo_2014-07-12.n3"
+    ],
+    "excluidas": [],
+    "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra dos ontologías que cubren el requisito \"Zones are areas with spatial 3D volumes\". La primera es `facility.ttl` y la segunda es `vivo_2014-07-12.n3`. Ambas ontologías tienen en común la definición de zonas como áreas con volúmenes espaciales 3D.\n\nConsiderando que ambos requisitos están cubiertos por estas dos ontologías, no hay necesidad de incluir otras ontologías para alcanzar la cobertura total. Por lo tanto, se recomiendan las dos ontologías mencionadas como suficientes para cubrir los requisitos.\n\n**Recomendaciones y Exclusiones**\n\n\n\nEn este caso, no hay ontologías que no sean recomendadas que deban ser excluidas. La cobertura total se logra con las dos ontologías mencionadas."
+  }
 }

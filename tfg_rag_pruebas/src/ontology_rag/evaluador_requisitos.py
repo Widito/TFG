@@ -60,7 +60,31 @@ class EvaluadorRequisitos:
             raise ValueError("No se encontro bloque JSON delimitado por llaves")
 
         json_candidate = cleaned[first_curly:last_curly + 1].strip()
-        return json.loads(json_candidate)
+        
+        # 1. Intentar json.loads estándar
+        try:
+            return json.loads(json_candidate)
+        except Exception as e_json:
+            logger.warning(f"json.loads fallo: {e_json}. Intentando ast.literal_eval...")
+
+        # 2. Intentar ast.literal_eval para tolerar comillas simples y saltos de línea crudos
+        try:
+            import ast
+            candidate_py = json_candidate.replace("true", "True").replace("false", "False").replace("null", "None")
+            parsed = ast.literal_eval(candidate_py)
+            if isinstance(parsed, dict):
+                return parsed
+        except Exception as e_ast:
+            logger.warning(f"ast.literal_eval fallo: {e_ast}")
+
+        # 3. Limpieza desesperada de comillas
+        try:
+            fixed_json = json_candidate
+            if "'" in fixed_json and '"' not in fixed_json:
+                fixed_json = fixed_json.replace("'", '"')
+            return json.loads(fixed_json)
+        except Exception as e_final:
+            raise ValueError(f"Fallo parsing JSON en todos los intentos. Error original: {e_json}")
 
     def cargar_requisitos(
         self,
@@ -162,7 +186,14 @@ class EvaluadorRequisitos:
             return requisitos[:max_requirements]
         return requisitos
 
-    def evaluar_requisito(self, requisito: str, top_k: int = 5, return_trace: bool = False):
+    def evaluar_requisito(
+        self,
+        requisito: str,
+        top_k: int = 5,
+        return_trace: bool = False,
+        retrieval_mode: str = "hybrid",
+        use_reranker: bool = True,
+    ):
         if not requisito or not requisito.strip():
             return {"keywords": "", "entidades_recuperadas": []} if return_trace else []
 
@@ -174,16 +205,21 @@ class EvaluadorRequisitos:
             keywords = query
 
         broad_k = max(top_k * 5, top_k)
-        raw_docs = self.rag._hybrid_retrieve(keywords, k=broad_k)
+        raw_docs = self.rag._hybrid_retrieve(keywords, k=broad_k, retrieval_mode=retrieval_mode)
         if not raw_docs:
-            empty = {"keywords": str(keywords), "entidades_recuperadas": []}
+            empty = {"keywords": str(keywords), "entidades_recuperadas": [], "raw_retrieved_ontologies": []}
             return empty if return_trace else []
 
-        pairs = [[query, d.page_content[:500]] for d in raw_docs]
-        scores = self.rag.reranker.predict(pairs)
+        # Recoger las ontologías de los documentos recuperados originalmente
+        raw_ontologies = list(set([doc.metadata.get("source", "unknown") for doc in raw_docs if doc.metadata]))
 
-        scored_docs = sorted(zip(raw_docs, scores), key=lambda x: x[1], reverse=True)
-        selected = scored_docs[:top_k]
+        if use_reranker:
+            pairs = [[query, d.page_content[:500]] for d in raw_docs]
+            scores = self.rag.reranker.predict(pairs)
+            scored_docs = sorted(zip(raw_docs, scores), key=lambda x: x[1], reverse=True)
+            selected = scored_docs[:top_k]
+        else:
+            selected = [(doc, 1.0) for doc in raw_docs[:top_k]]
 
         entidades = []
         for doc, _score in selected:
@@ -193,7 +229,11 @@ class EvaluadorRequisitos:
             entidades.append({"uri": uri, "texto": texto, "ontologia": ontologia})
 
         if return_trace:
-            return {"keywords": str(keywords), "entidades_recuperadas": entidades}
+            return {
+                "keywords": str(keywords),
+                "entidades_recuperadas": entidades,
+                "raw_retrieved_ontologies": raw_ontologies,
+            }
         return entidades
 
     def juez_llm(self, requisito: str, entidades_recuperadas: List[Dict[str, str]]) -> List[Dict[str, str]]:
@@ -292,29 +332,38 @@ class EvaluadorRequisitos:
 
         return cobertura
 
-    def redactar_veredicto_final(self, matriz_cobertura: Dict[str, List[str]]) -> str:
+    def redactar_veredicto_final(self, matriz_cobertura: Dict[str, List[str]]) -> Dict[str, Any]:
         from langchain_core.prompts import ChatPromptTemplate
 
         matriz_json = json.dumps(matriz_cobertura, indent=2, ensure_ascii=False)
 
         system_prompt = (
-            "Actua como un Consultor Experto en Web Semantica y Ontologias. "
+            "Actua como un Consultor Experto en Web Semantica y Ontologias.\n"
             "Tu tarea es analizar la matriz de cobertura de requisitos por ontologia y proponer "
-            "una red de ontologias recomendada. "
-            "Debes recomendar un conjunto de maximo 3 ontologias que, juntas, maximicen la cobertura. "
-            "Justifica brevemente por que eliges cada ontologia, citando los requisitos que cubre. "
-            "La respuesta debe estar en Markdown limpio, claro y profesional. "
-            "No devuelvas JSON en esta etapa. "
-            "Restriccion de grounding estricta: Solo puedes recomendar ontologias que tengan al menos "
-            "un requisito asociado en la matriz JSON. Esta prohibido alucinar o sugerir ontologias externas."
+            "una red de ontologias recomendada (maximo 3).\n\n"
+            "Tu respuesta debe constar de dos partes obligatorias:\n"
+            "1. Un reporte detallado en Markdown justificando la recomendacion y analizando la cobertura.\n"
+            "2. Al final de tu respuesta, un bloque de codigo JSON estrictamente valido delimitado por ```json y ``` que contenga las listas estructuradas:\n"
+            "```json\n"
+            "{{\n"
+            "  \"recomendadas\": [\"nombre_ontologia1\", \"nombre_ontologia2\"],\n"
+            "  \"excluidas\": [\n"
+            "    {{\n"
+            "      \"ontologia\": \"nombre_ontologia3\",\n"
+            "      \"motivo\": \"Explicacion muy breve de por que fue excluida (maximo 15 palabras)\"\n"
+            "    }}\n"
+            "  ]\n"
+            "}}\n"
+            "```\n\n"
+            "Restricciones:\n"
+            "1. Maximo 3 ontologias en 'recomendadas'.\n"
+            "2. Solo puedes recomendar o excluir ontologias que tengan al menos un requisito asociado en la matriz JSON.\n"
+            "3. En 'excluidas', incluye las ontologias de la matriz de cobertura que no fueron seleccionadas en 'recomendadas'."
         )
 
         human_prompt = (
             "MATRIZ DE COBERTURA (JSON):\n{matriz_cobertura_json}\n\n"
-            "Redacta el veredicto final con:\n"
-            "1) Recomendacion de red (maximo 3 ontologias).\n"
-            "2) Justificacion breve por ontologia.\n"
-            "3) Observaciones de cobertura y posibles huecos."
+            "Devuelve el reporte en Markdown seguido por el bloque JSON de recomendadas y excluidas."
         )
 
         prompt_template = ChatPromptTemplate.from_messages([
@@ -324,12 +373,51 @@ class EvaluadorRequisitos:
 
         prompt_generado = prompt_template.format_messages(matriz_cobertura_json=matriz_json)
 
+        pool_ontologias = list(matriz_cobertura.keys())
+
         try:
             respuesta = self.rag.llm.invoke(prompt_generado)
-            veredicto = respuesta.content if hasattr(respuesta, "content") else str(respuesta)
-            return str(veredicto).strip()
+            raw_text = respuesta.content if hasattr(respuesta, "content") else str(respuesta)
+            
+            # Extraer el bloque JSON
+            parsed = self._extraer_json_objeto(raw_text)
+            
+            # Extraer el reporte markdown eliminando el bloque JSON de la respuesta del LLM
+            veredicto_markdown = re.sub(r"```json.*?```", "", raw_text, flags=re.DOTALL).strip()
+            
+            # Validaciones básicas
+            if not isinstance(parsed.get("recomendadas"), list):
+                parsed["recomendadas"] = []
+            if not isinstance(parsed.get("excluidas"), list):
+                parsed["excluidas"] = []
+            
+            parsed["veredicto_markdown"] = veredicto_markdown
+            return parsed
         except Exception as exc:
-            return f"No fue posible generar el veredicto final en este momento: {exc}"
+            logger.warning(f"Error generando veredicto estructurado: {exc}. Usando fallback.")
+            
+            # Fallback en caso de fallo del LLM: ordenar por cobertura (mayor a menor)
+            sorted_pool = sorted(pool_ontologias, key=lambda ont: len(matriz_cobertura.get(ont, [])), reverse=True)
+            recomendadas = sorted_pool[:3]
+            excluidas = []
+            for ont in sorted_pool[3:]:
+                excluidas.append({
+                    "ontologia": ont,
+                    "motivo": "Excluida automáticamente debido a límite de recomendación y menor cobertura."
+                })
+                
+            fallback_markdown = (
+                "### Veredicto Final (Fallback)\n\n"
+                f"No se pudo estructurar el veredicto debido a un error: {exc}.\n\n"
+                "**Ontologías Recomendadas en Red:**\n" + 
+                "\n".join([f"- **{ont}**" for ont in recomendadas])
+            )
+            
+            return {
+                "recomendadas": recomendadas,
+                "excluidas": excluidas,
+                "veredicto_markdown": fallback_markdown
+            }
 
     def orquestar_evaluacion(
         self,
@@ -339,6 +427,8 @@ class EvaluadorRequisitos:
         end_row: Optional[int] = None,
         selected_rows: Optional[List[int]] = None,
         selected_ids: Optional[List[int]] = None,
+        retrieval_mode: str = "hybrid",
+        use_reranker: bool = True,
     ) -> Dict[str, object]:
         requisitos = self.cargar_requisitos(
             ruta_csv,
@@ -358,15 +448,23 @@ class EvaluadorRequisitos:
         for idx, requisito in enumerate(requisitos, start=1):
             logger.info(f"[{idx}/{len(requisitos)}] Evaluando requisito: {requisito[:120]}")
 
-            eval_trace = self.evaluar_requisito(requisito, top_k=5, return_trace=True)
+            eval_trace = self.evaluar_requisito(
+                requisito,
+                top_k=5,
+                return_trace=True,
+                retrieval_mode=retrieval_mode,
+                use_reranker=use_reranker,
+            )
             keywords_usadas = eval_trace.get("keywords", "")
             entidades_recuperadas = eval_trace.get("entidades_recuperadas", [])
+            raw_retrieved_ontologies = eval_trace.get("raw_retrieved_ontologies", [])
             entidades_validadas = self.juez_llm(requisito, entidades_recuperadas)
 
             tad_requisitos[requisito] = entidades_validadas
             tad_detallado[requisito] = {
                 "keywords_usadas": keywords_usadas,
                 "entidades_recuperadas": entidades_recuperadas,
+                "raw_retrieved_ontologies": raw_retrieved_ontologies,
                 "entidades_aprobadas": entidades_validadas,
             }
 
@@ -375,9 +473,11 @@ class EvaluadorRequisitos:
         logger.info("=== Matriz de Cobertura (Ontologia -> Requisitos) ===")
         logger.info(json.dumps(matriz_cobertura, indent=2, ensure_ascii=False))
 
-        veredicto_final = self.redactar_veredicto_final(matriz_cobertura)
+        veredicto_estructurado = self.redactar_veredicto_final(matriz_cobertura)
+        veredicto_final_markdown = veredicto_estructurado.get("veredicto_markdown", "")
+        
         logger.info("=== Veredicto Final Recomendado ===")
-        logger.info(veredicto_final)
+        logger.info(veredicto_final_markdown)
 
         # Crear carpeta resultado
         os.makedirs(self.output_dir, exist_ok=True)
@@ -389,7 +489,8 @@ class EvaluadorRequisitos:
             "total_requisitos": len(requisitos),
             "tad_requisitos": tad_detallado,
             "matriz_cobertura": matriz_cobertura,
-            "veredicto_final": veredicto_final,
+            "veredicto_final": veredicto_final_markdown,
+            "veredicto_estructurado": veredicto_estructurado,
         }
         try:
             with open(trace_path, "w", encoding="utf-8") as f:
@@ -402,7 +503,8 @@ class EvaluadorRequisitos:
             "tad_requisitos": tad_requisitos,
             "tad_requisitos_detallado": tad_detallado,
             "matriz_cobertura": matriz_cobertura,
-            "veredicto_final": veredicto_final,
+            "veredicto_final": veredicto_final_markdown,
+            "veredicto_estructurado": veredicto_estructurado,
         }
 
     @staticmethod
