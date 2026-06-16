@@ -1,0 +1,3047 @@
+[
+  {
+    "config_name": "Híbrido + Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.75,
+      "judge_accuracy": 0.4166666666666667,
+      "veredict_accuracy": 0.4166666666666667,
+      "veredict_precision": 0.5,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.6666666666666666,
+      "average_time": 5.428004165490468,
+      "total_time": 65.13604998588562
+    },
+    "cases": [
+      {
+        "id": "49",
+        "query": "What software works best with RDF data?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, graph database, SPARQL, query language, data integration, data processing, data analysis, semantic reasoning, inference engine, natural language processing, NLP.\n\nHere's the breakdown:\n\n**Conceptos Nucleares:**\n\n* RDF (Resource Description Framework)\n* Software\n* Data\n\n**Normalización Ontológica:**\n\n* Category: Knowledge Representation Language\n* Class: Semantic Web Technology\n* Type: Data Integration Tool\n\n**Sinónimos Técnicos:**\n\n* Ontology: Knowledge Base, Semantic Network\n* Triple Store: Graph Database, RDF Store\n* SPARQL: Query Language, RDF Query\n* Inference Engine: Reasoning System, Rule-Based System\n* Natural Language Processing (NLP): Text Analysis, Language Understanding\n\nNow, here's the final list of search terms separated by commas:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, graph database, SPARQL, query language, data integration, data processing, data analysis, semantic reasoning, inference engine, natural language processing, NLP.\n\nHope this helps!",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "doap.rdf",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "doap.rdf",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Triplestore"
+          ]
+        }
+      },
+      {
+        "id": "50",
+        "query": "Does SIM render a gif?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRendering, GIF, SIM, Image, Format, Type, Class, Category, Graphics, File, Format, RenderingEngine, Output, VisualRepresentation, Multimedia, Content\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "cgo.rdf",
+            "foaf_2014-01-14.n3",
+            "modsci_2022-12-18.n3",
+            "cis_2016-03-30.n3",
+            "saref4envi.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "foaf_2014-01-14.n3",
+            "cgo.rdf",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [
+            "foaf_2014-01-14.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_uris": [
+            "http://xmlns.com/foaf/0.1/img",
+            "http://w3id.org/roh/mirror/foaf#img"
+          ]
+        }
+      },
+      {
+        "id": "51",
+        "query": "Is PostgreSQL compatible with dfp?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDatabase, PostgreSQL, DFP, Ontology, RDF, OWL, Semantic Web, Data Integration, Query Language, SQL, Database Management System, DBMS, Compatibility, Interoperability\n\nHere's a brief explanation of each term:\n\n1. **Database**: A collection of organized data.\n2. **PostgreSQL**: A popular open-source relational database management system (RDBMS).\n3. **DFP**: Not a widely recognized acronym in the context of Web Semantics or RDF/OWL. Assuming it refers to \"Data Federation Protocol\" or something similar, I've included it as a potential search term.\n4. **Ontology**: A formal representation of knowledge and concepts.\n5. **RDF** (Resource Description Framework): A standard for representing data on the web using graphs.\n6. **OWL** (Web Ontology Language): A language for creating and sharing ontologies.\n7. **Semantic Web**: The extension of the traditional web to include semantic information, enabling better machine understanding and integration of data.\n8. **Data Integration**: Combining data from multiple sources into a unified view.\n9. **Query Language**: A language used to query and manipulate data in a database (e.g., SQL).\n10. **SQL** (Structured Query Language): A standard language for managing relational databases.\n11. **Database Management System** (DBMS): Software that manages and controls access to a database.\n12. **Compatibility**: The ability of two or more systems to work together seamlessly.\n13. **Interoperability**: The ability of different systems, applications, or devices to communicate and exchange data effectively.\n\nThese terms should help you find relevant information about the compatibility of PostgreSQL with DFP (assuming it's related to data federation or integration).",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "dbo.rdf",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "52",
+        "query": "What platform does qvalue run on?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlatform, QValue, Run, Ontology, Semantic Web, OWL, RDF, Software, System, Environment, Infrastructure, Architecture, Technology, Framework",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "ifc4.ttl",
+            "beo.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "ifc4.ttl"
+          ],
+          "approved_sources": [
+            "ifc4.ttl"
+          ],
+          "approved_uris": [
+            "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcValue_List",
+            "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcParameterValue_List"
+          ]
+        }
+      },
+      {
+        "id": "53",
+        "query": "Does MATLAB work on 64 bit windows?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps you provided:\n\n**Conceptos Nucleares:** Main technical nouns and verbs\n- MATLAB, Windows, 64-bit\n\n**Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n- Software, Operating System, Bit Architecture\n\n**Sinónimos Técnicos:** Precise alternative terms\n- MathWorks, Microsoft, x86-64, 64-bit OS\n\nHere's the final list of search terms separated by commas:\n\nMATLAB, Windows, 64-bit, Software, Operating System, Bit Architecture, MathWorks, Microsoft, x86-64",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "beo.ttl",
+            "mexcore.ttl",
+            "schema.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/SWO_1100115",
+            "http://www.ebi.ac.uk/swo/SWO_0000005"
+          ]
+        }
+      },
+      {
+        "id": "54",
+        "query": "What software can perform clustering task?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Clustering, Algorithm, Data Mining, Machine Learning, Classification, Pattern Recognition, Type:Data Analysis Tool, Category:Machine Intelligence Software, Class:Clustering Algorithm, Type:Pattern Recognition Software, Synonyms:K-Means, Hierarchical Clustering, DBSCAN, Expectation-Maximization.\n\nThis list includes the main technical nouns and verbs, along with their formal ontological equivalents (Category, Class, Type), and some precise synonyms.",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "qudt_2020-04-20.n3",
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "aiiso_2008-09-25.n3"
+          ],
+          "top_k_sources": [
+            "swo.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "swo.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://www.ontodm.com/OntoDM-core/OntoDM_000264",
+            "http://purl.org/spar/fabio/ComputerApplication"
+          ]
+        }
+      },
+      {
+        "id": "55",
+        "query": "What are the alternatives to Weka?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nData Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms, Statistical Analysis Software, Alternative Data Analysis Systems, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Orange, RapidMiner, KNIME, Apache Spark MLlib, H2O.ai Driverless AI, Google's AutoML, Microsoft's Azure Machine Learning.\n\nNote: I've used a combination of natural language processing and ontological reasoning to generate this list. The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "mexalgo.ttl",
+            "mexcore.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3"
+          ],
+          "top_k_sources": [
+            "mexalgo.ttl",
+            "modsci_2022-12-18.n3",
+            "swo.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#NaturalLanguageProcessing",
+            "http://www.ontodm.com/OntoDM-core/OntoDM_530819"
+          ]
+        }
+      },
+      {
+        "id": "56",
+        "query": "In what language was Ringo implemented?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Ringo\n\t* Implementation\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Software (Class)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Programming Language (Type)\n\nHere's the optimized search list in English, separated by commas:\n\nRingo, Implementation, Software, Programming Language\n\nThis list should help you find relevant information about Ringo's implementation language!",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "mexcore.ttl",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "schema.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "doap.rdf",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://usefulinc.com/ns/doap#programming-language",
+            "https://schema.org/Language"
+          ]
+        }
+      },
+      {
+        "id": "57",
+        "query": "Do I need a license key to use Ringo?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Application, Ringo, License, Key, Ontology, Semantic Web, OWL, RDF, Concept, Class, Type, Category, Synonym.\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Software (Application)\n\t* Ringo\n\t* License\n\t* Key\n2. **Normalización Ontológica:** I added formal equivalents for these concepts:\n\t* Category: Software, Application\n\t* Class: Ringo, License, Key\n\t* Type: Ontology, Semantic Web\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Synonym: Concept, Class, Type\n\nNow, here's the optimized search list in English, separated by commas:\n\nSoftware, Application, Ringo, License, Key, Ontology, Semantic Web, OWL, RDF, Concept, Class, Type, Category, Synonym.\n\nThis list should help you find relevant information about using Ringo and its licensing requirements.",
+          "raw_retrieved": [
+            "swo.owl",
+            "gc_2009-08-24.n3",
+            "doap.rdf",
+            "vivo_2014-07-12.n3",
+            "meb_2013-03-26.n3",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "ccrel.rdf",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "swo.owl",
+            "vivo_2014-07-12.n3",
+            "meb_2013-03-26.n3",
+            "schema.ttl",
+            "ccrel.rdf"
+          ],
+          "approved_sources": [
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/license/SWO_1000061"
+          ]
+        }
+      },
+      {
+        "id": "58",
+        "query": "What compiler do I need to compile source code on Windows platform?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical concepts and normalized them using OWL/RDF terminology. Here's the optimized search list:\n\ncompiler, compiler tool, source code, Windows platform, programming language, software development, compilation process, build system, build tool, development environment, IDE (Integrated Development Environment), compiler type, C++ compiler, Java compiler, Python compiler, GCC, MinGW, Visual Studio, Cygwin\n\nNote that I've included both the original terms and their equivalent formal representations in OWL/RDF notation.",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "mexcore.ttl",
+            "schema.ttl",
+            "mep.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/Code",
+            "https://schema.org/SoftwareSourceCode"
+          ]
+        }
+      },
+      {
+        "id": "59",
+        "query": "What are the primary inputs and outputs of XDE?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the primary inputs and outputs of XDE. Here's the optimized search list:\n\nOntology Concepts: XDE, System, Architecture, Interface, Input, Output, Data, Processing, Knowledge, Reasoning\n\nNormalized Ontological Terms: Category (XDE), Class (System), Type (Architecture)\n\nTechnical Synonyms: XDE - Expert Decision Engine, System - Knowledge-Based System, Interface - API, Input - Data Feed, Output - Inference Results, Data - Knowledge Base, Processing - Reasoning Mechanism, Knowledge - Domain Expertise\n\nHere's the list of terms separated by commas:\n\nXDE, System, Architecture, Interface, Input, Output, Data, Processing, Knowledge, Reasoning, Category (XDE), Class (System), Type (Architecture), Expert Decision Engine, Knowledge-Based System, API, Data Feed, Inference Results, Knowledge Base, Reasoning Mechanism, Domain Expertise",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "ssno_2017-04-17.n3",
+            "swo.owl",
+            "ssn_2011-06-20.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "mexcore.ttl",
+            "th_sharedvocalulary.owl",
+            "mep.ttl",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "ssno_2017-04-17.n3",
+            "ssn_2011-06-20.n3",
+            "swo.owl",
+            "m4i_2025-03-10.n3"
+          ],
+          "approved_sources": [
+            "ssno_2017-04-17.n3",
+            "m4i_2025-03-10.n3"
+          ],
+          "approved_uris": [
+            "http://purl.obolibrary.org/obo/RO_0002352",
+            "http://www.w3.org/ns/ssn/Output"
+          ]
+        }
+      },
+      {
+        "id": "60",
+        "query": "Is Weka available as a web service?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\n`Service, Weka, Web Service, Machine Learning, Data Mining, Java, API, Software`\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Sustantivos técnicos: Weka, Service\n\t* Verbos técnicos: available, as\n2. **Normalización Ontológica:**\n\t* Category: Web Service\n\t* Class: Machine Learning, Data Mining\n\t* Type: Software (Java)\n3. **Sinónimos Técnicos:**\n\t* API (Application Programming Interface) for Weka's functionality\n\nBy combining these concepts, I've generated a comprehensive search list that should help the user find relevant information about Weka as a web service.\n\nNote: The list is in English to match the original request.",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "saref_2020-05-29.n3",
+            "mexcore.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "schema.ttl",
+            "swo.owl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "swo.owl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/interface/SWO_9000051",
+            "https://saref.etsi.org/core/Service",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Service"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías y requisitos asociados. Para recomendar las mejores ontologías, debemos analizar la cobertura y identificar patrones y relaciones entre los requisitos.\n\nEn primer lugar, notamos que algunas ontologías tienen requisitos en común, como \"What are the alternatives to Weka?\" y \"Is Weka available as a web service?\", que se encuentran en `swo.owl`, `modsci_2022-12-18.n3` y `base_ontology.owl`. Esto sugiere que estas ontologías pueden ser relacionadas y tener una cobertura similar.\n\nPor otro lado, encontramos ontologías que tienen requisitos únicos, como \"What software works best with RDF data?\" en `fabio_2019-02-19.n3`, o \"In what language was Ringo implemented?\" en `doap.rdf`. Estas ontologías pueden ser consideradas especializadas y tener una cobertura más estrecha.\n\nConsiderando estos patrones, propongo la siguiente red de ontologías recomendada:\n\n**Recomendadas**\n\n\n\nEn resumen, la ontología `swo.owl` y `base_ontology.owl` tienen una cobertura similar y relacionada con los requisitos de Weka, lo que las hace recomendables. Las ontologías `fabio_2019-02-19.n3` y `doap.rdf` tienen requisitos únicos y especializados, por lo que no son recomendadas.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "swo.owl",
+        "base_ontology.owl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "fabio_2019-02-19.n3",
+          "motivo": "Requisitos únicos y especializados"
+        },
+        {
+          "ontologia": "doap.rdf",
+          "motivo": "Requisitos únicos y especializados"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías y requisitos asociados. Para recomendar las mejores ontologías, debemos analizar la cobertura y identificar patrones y relaciones entre los requisitos.\n\nEn primer lugar, notamos que algunas ontologías tienen requisitos en común, como \"What are the alternatives to Weka?\" y \"Is Weka available as a web service?\", que se encuentran en `swo.owl`, `modsci_2022-12-18.n3` y `base_ontology.owl`. Esto sugiere que estas ontologías pueden ser relacionadas y tener una cobertura similar.\n\nPor otro lado, encontramos ontologías que tienen requisitos únicos, como \"What software works best with RDF data?\" en `fabio_2019-02-19.n3`, o \"In what language was Ringo implemented?\" en `doap.rdf`. Estas ontologías pueden ser consideradas especializadas y tener una cobertura más estrecha.\n\nConsiderando estos patrones, propongo la siguiente red de ontologías recomendada:\n\n**Recomendadas**\n\n\n\nEn resumen, la ontología `swo.owl` y `base_ontology.owl` tienen una cobertura similar y relacionada con los requisitos de Weka, lo que las hace recomendables. Las ontologías `fabio_2019-02-19.n3` y `doap.rdf` tienen requisitos únicos y especializados, por lo que no son recomendadas."
+    }
+  },
+  {
+    "config_name": "Híbrido Sin Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.75,
+      "judge_accuracy": 0.3333333333333333,
+      "veredict_accuracy": 0.3333333333333333,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 5.476101617018382,
+      "total_time": 65.71321940422058
+    },
+    "cases": [
+      {
+        "id": "49",
+        "query": "What software works best with RDF data?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Software\n\t* RDF data\n2. **Normalización Ontológica:**\n\t* Category (RDF data)\n\t* Class (ontology)\n\t* Type (software)\n3. **Sinónimos Técnicos:**\n\t* Knowledge base (semantic web)\n\t* Triple store (data storage)\n\t* Query language (SPARQL)\n\t* Reasoning engine (inference rules)\n\t* Data integration (processing and analysis)\n\t* Graph database (triple pattern)\n\t* RDF parser (serialization format)\n\nHere's the final list, separated by commas:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nI hope this helps you find the best software for working with RDF data!",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "doap.rdf",
+            "qudt_2020-04-20.n3",
+            "ei2a_2021-10-21.n3",
+            "modsci_2022-12-18.n3",
+            "ppo_2013-11-13.n3",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "doap.rdf"
+          ],
+          "approved_sources": [
+            "doap.rdf"
+          ],
+          "approved_uris": [
+            "http://usefulinc.com/ns/doap#DarcsRepository",
+            "http://usefulinc.com/ns/doap#Repository",
+            "http://usefulinc.com/ns/doap#SVNRepository",
+            "http://usefulinc.com/ns/doap#CVSRepository"
+          ]
+        }
+      },
+      {
+        "id": "50",
+        "query": "Does SIM render a gif?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRendering, GIF, SIM, Image, Format, RenderingEngine, Graphics, FileFormat, VisualRepresentation, Output, Display\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* SIM (Software Image Manager)\n\t* GIF (Graphics Interchange Format)\n\t* Rendering\n2. **Normalización Ontológica:**\n\t* Category: Graphics, FileFormat, VisualRepresentation\n\t* Class: RenderingEngine, Output, Display\n3. **Sinónimos Técnicos:**\n\t* Rendering: ImageRendering, GraphicRendering, VisualOutput\n\t* GIF: GraphicsInterchangeFormat, GIFImage\n\nThis list should help you find relevant information about whether SIM renders a GIF or not!",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "cgo.rdf",
+            "m3lite_2017-07-29.n3",
+            "foaf_2014-01-14.n3",
+            "modsci_2022-12-18.n3",
+            "stg.ttl",
+            "vivo_2014-07-12.n3",
+            "cis_2016-03-30.n3",
+            "datex_2016-06-13.n3",
+            "saref4envi.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "cgo.rdf",
+            "fabio_2019-02-19.n3",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/MovingImage",
+            "http://purl.org/ontology/bibo/Image",
+            "http://purl.org/spar/fabio/Image"
+          ]
+        }
+      },
+      {
+        "id": "51",
+        "query": "Is PostgreSQL compatible with dfp?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDatabase, PostgreSQL, DFP, Ontology, RDF, OWL, Semantic Web, Data Integration, Query Language, SQL, XML, XQuery, SPARQL, Triple Store\n\nHere's a brief explanation of each term:\n\n1. **Database**: A collection of organized data.\n2. **PostgreSQL**: A popular open-source relational database management system.\n3. **DFP**: Not a widely recognized acronym in the context of Web Semantics (OWL/RDF). Assuming it refers to \"Data Federation Protocol\" or \"Data Flow Protocol\", which is not a standard protocol in this domain.\n4. **Ontology**: A formal representation of concepts and relationships between them, used for knowledge sharing and integration.\n5. **RDF** (Resource Description Framework): A standard framework for representing data on the Web as graphs of interconnected resources.\n6. **OWL** (Web Ontology Language): A semantic markup language for publishing and sharing ontologies on the Web.\n7. **Semantic Web**: The extension of the current Web from a simple information storage and retrieval system to a more intelligent, knowledge-sharing platform.\n8. **Data Integration**: The process of combining data from multiple sources into a unified view.\n9. **Query Language**: A language used for querying and manipulating data in a database or triple store.\n10. **SQL** (Structured Query Language): A standard language for managing relational databases.\n11. **XML** (Extensible Markup Language): A markup language for representing structured data.\n12. **XQuery**: A query language for XML documents.\n13. **SPARQL** (SPARQL Protocol And RDF Query Language): A query language for querying and manipulating RDF data in a triple store.\n\nPlease note that DFP is not a widely recognized term in the context of Web Semantics, so I've included it as a possible interpretation. If you meant something else by DFP, please clarify!",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "dbo.rdf",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "doap.rdf"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Triplestore",
+            "http://purl.org/spar/fabio/RelationalDatabase",
+            "http://purl.org/spar/fabio/Database"
+          ]
+        }
+      },
+      {
+        "id": "52",
+        "query": "What platform does qvalue run on?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlatform, QValue, Run, Ontology, Semantic Web, OWL, RDF, Software, System, Technology, Category, Class, Type, Framework, Infrastructure",
+          "raw_retrieved": [
+            "ifc4.ttl",
+            "beo.ttl",
+            "mexcore.ttl",
+            "swc_2009-05-11.n3",
+            "scip_2012-07-03.n3",
+            "th_building.owl",
+            "th_sharedvocalulary.owl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "ifc4.ttl"
+          ],
+          "approved_sources": [
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#RatedFlow"
+          ]
+        }
+      },
+      {
+        "id": "53",
+        "query": "Does MATLAB work on 64 bit windows?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* MATLAB, Windows, 64-bit\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Software, Operating System, Bit Architecture\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* MathWorks, Microsoft, x86-64\n\nHere's the optimized search list in English, separated by commas:\n\nMATLAB, Windows, 64-bit, Software, Operating System, Bit Architecture, MathWorks, Microsoft, x86-64",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "beo.ttl",
+            "mexcore.ttl",
+            "schema.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "fabio_2019-02-19.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "th_sharedvocalulary.owl",
+            "fabio_2019-02-19.n3",
+            "mexcore.ttl",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/ComputerProgram",
+            "http://www.ebi.ac.uk/swo/SWO_1100115"
+          ]
+        }
+      },
+      {
+        "id": "54",
+        "query": "What software can perform clustering task?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Clustering, Algorithm, Classification, Data Mining, Machine Learning, Pattern Recognition, Type:Data Analysis Software, Category:Clustering Algorithm, Class:Machine Learning Tool\n\nNote that I've included both technical terms (e.g., \"Algorithm\", \"Classification\") and formal ontological equivalents (e.g., \"Type:Data Analysis Software\", \"Category:Clustering Algorithm\", \"Class:Machine Learning Tool\"). This should help the search engine retrieve relevant results.",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "mexalgo.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ontodm.com/OntoDM-core/OntoDM_000038",
+            "https://w3id.org/skgo/modsci#DataMining"
+          ]
+        }
+      },
+      {
+        "id": "55",
+        "query": "What are the alternatives to Weka?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nData Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms, Statistical Analysis Software, Alternative Data Analysis Systems, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP.\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Data Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms\n2. **Normalización Ontológica:** Alternative (Category), Class (Type)\n3. **Sinónimos Técnicos:** Statistical Analysis Software, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP\n\nThis list should provide a comprehensive starting point for finding alternatives to Weka.",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "mexalgo.ttl",
+            "mexcore.ttl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "mexalgo.ttl",
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "mexalgo.ttl",
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_uris": [
+            "http://mex.aksw.org/mex-algo#Weka",
+            "https://w3id.org/skgo/modsci#DataMining"
+          ]
+        }
+      },
+      {
+        "id": "56",
+        "query": "In what language was Ringo implemented?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Ringo\n\t* Implementation\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Software (Class)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Programming Language (Type)\n\nHere's the optimized search list in English, separated by commas:\n\nRingo, Implementation, Software, Programming Language\n\nThis list should help you find relevant information about Ringo's implementation language!",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "mexcore.ttl",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/programmingLanguage"
+          ]
+        }
+      },
+      {
+        "id": "57",
+        "query": "Do I need a license key to use Ringo?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Application, Ringo, License, Key, Ontology, Semantic Web, OWL, RDF, Concept, Class, Type, Category, Synonym, Technical Term\n\nLet me break down the process for you:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Software\n\t* Application\n\t* Ringo (assuming it's a software application)\n\t* License\n\t* Key\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category (e.g., OWL Class, RDF Type)\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Ontology (related to semantic web and knowledge representation)\n\t* Semantic Web (context for OWL/RDF)\n\nNow, here's the optimized search list in English, separated by commas:\n\nSoftware, Application, Ringo, License, Key, Category, Class, Type, Ontology, Semantic Web, OWL, RDF, Synonym, Technical Term",
+          "raw_retrieved": [
+            "swo.owl",
+            "doap.rdf",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "ccrel.rdf"
+          ],
+          "top_k_sources": [
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/SWO_0000360"
+          ]
+        }
+      },
+      {
+        "id": "58",
+        "query": "What compiler do I need to compile source code on Windows platform?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical concepts and normalized them using OWL/RDF terminology. Here's the optimized search list:\n\ncompiler, compiler tool, source code, Windows platform, programming language, software development kit (SDK), build system, compilation process, compiler type, C++ compiler, Java compiler, Python compiler, GCC, MinGW, Visual Studio, MSVC, Cygwin\n\nNote that I've included both the original terms and their technical synonyms to ensure a comprehensive search.",
+          "raw_retrieved": [
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "mexcore.ttl",
+            "schema.ttl",
+            "mep.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/SoftwareSourceCode",
+            "http://purl.org/spar/fabio/ComputerProgram"
+          ]
+        }
+      },
+      {
+        "id": "59",
+        "query": "What are the primary inputs and outputs of XDE?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the primary inputs and outputs of XDE. Here's the optimized search list:\n\nOntology Concepts: XDE, System, Component, Input, Output, Data, Processing, Interface, Communication\n\nNormalized Ontological Terms: Class (XDE), Type (System), Category (Component)\n\nTechnical Synonyms: Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol\n\nHere's the list of terms separated by commas:\n\nXDE, System, Component, Input, Output, Data, Processing, Interface, Communication, Class, Type, Category, Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "ssno_2017-04-17.n3",
+            "contax.ttl",
+            "swo.owl",
+            "base_ontology.owl",
+            "ssn_2011-06-20.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "swc_2009-05-11.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "ssn_2011-06-20.n3",
+            "mep.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "ssn_2011-06-20.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "http://purl.oclc.org/NET/ssnx/ssn#Process",
+            "http://www.w3.org/ns/ssn/System"
+          ]
+        }
+      },
+      {
+        "id": "60",
+        "query": "Is Weka available as a web service?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Software\n\t* Service\n\t* Weka (specifically referring to the machine learning software)\n2. **Normalización Ontológica:**\n\t* Category: Software, Service\n\t* Class: Machine Learning, Data Mining\n\t* Type: Java API, Web Service\n3. **Sinónimos Técnicos:**\n\t* Ontology: Knowledge Representation\n\t* RDF: Semantic Web\n\nSo, the optimized search list is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nThis list should help you find relevant information about Weka's availability as a web service.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "mexcore.ttl",
+            "swo.owl"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ontodm.com/OntoDM-core/OntoDM_000038",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Service"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías y requisitos asociados. Para recomendar las mejores ontologías, debemos analizar la cobertura y identificar patrones y relaciones entre los requisitos.\n\nEn primer lugar, notamos que algunas ontologías tienen un número significativo de requisitos asociados, como `fabio_2019-02-19.n3` (4 requisitos) y `swo.owl` (3 requisitos). Estas ontologías pueden ser consideradas como \"fuente\" de información para otros requisitos.\n\nPor otro lado, algunas ontologías tienen pocos o ningún requisito asociado, como `doap.rdf` (1 requisito) y `base_ontology.owl` (1 requisito). Estas ontologías pueden ser consideradas como \"especializadas\" en un área específica.\n\nDespués de analizar la cobertura, podemos identificar tres ontologías que cubren una amplia gama de requisitos y son relevantes para la mayoría de los problemas:\n\n* `fabio_2019-02-19.n3`: Esta ontología tiene un número significativo de requisitos asociados y es relevante para la mayoría de los problemas.\n* `swo.owl`: Esta ontología también tiene un número significativo de requisitos asociados y es relevante para la mayoría de los problemas.\n* `schema.ttl`: Esta ontologia tiene requisitos asociados que se relacionan con la implementación de Ringo y el compilador necesario para compilar código en Windows, lo que la hace relevante para una amplia gama de problemas.\n\nEn cuanto a las ontologías excluidas, podemos considerar aquellas que no tienen requisitos asociados significativos o que son especializadas en un área específica. En este caso, podemos excluir `doap.rdf`, `base_ontology.owl` y `mexalgo.ttl` ya que no tienen un impacto significativo en la cobertura de los requisitos.\n\n**Recomendaciones**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "fabio_2019-02-19.n3",
+        "swo.owl",
+        "schema.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "doap.rdf",
+          "motivo": "Poca cobertura de requisitos"
+        },
+        {
+          "ontologia": "base_ontology.owl",
+          "motivo": "Especializada en un área específica"
+        },
+        {
+          "ontologia": "mexalgo.ttl",
+          "motivo": "Poca cobertura de requisitos"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías y requisitos asociados. Para recomendar las mejores ontologías, debemos analizar la cobertura y identificar patrones y relaciones entre los requisitos.\n\nEn primer lugar, notamos que algunas ontologías tienen un número significativo de requisitos asociados, como `fabio_2019-02-19.n3` (4 requisitos) y `swo.owl` (3 requisitos). Estas ontologías pueden ser consideradas como \"fuente\" de información para otros requisitos.\n\nPor otro lado, algunas ontologías tienen pocos o ningún requisito asociado, como `doap.rdf` (1 requisito) y `base_ontology.owl` (1 requisito). Estas ontologías pueden ser consideradas como \"especializadas\" en un área específica.\n\nDespués de analizar la cobertura, podemos identificar tres ontologías que cubren una amplia gama de requisitos y son relevantes para la mayoría de los problemas:\n\n* `fabio_2019-02-19.n3`: Esta ontología tiene un número significativo de requisitos asociados y es relevante para la mayoría de los problemas.\n* `swo.owl`: Esta ontología también tiene un número significativo de requisitos asociados y es relevante para la mayoría de los problemas.\n* `schema.ttl`: Esta ontologia tiene requisitos asociados que se relacionan con la implementación de Ringo y el compilador necesario para compilar código en Windows, lo que la hace relevante para una amplia gama de problemas.\n\nEn cuanto a las ontologías excluidas, podemos considerar aquellas que no tienen requisitos asociados significativos o que son especializadas en un área específica. En este caso, podemos excluir `doap.rdf`, `base_ontology.owl` y `mexalgo.ttl` ya que no tienen un impacto significativo en la cobertura de los requisitos.\n\n**Recomendaciones**"
+    }
+  },
+  {
+    "config_name": "Denso + Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.6666666666666666,
+      "judge_accuracy": 0.5,
+      "veredict_accuracy": 0.5,
+      "veredict_precision": 0.5,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.6666666666666666,
+      "average_time": 5.411196788152059,
+      "total_time": 64.9343614578247
+    },
+    "cases": [
+      {
+        "id": "49",
+        "query": "What software works best with RDF data?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Software\n\t* RDF data\n2. **Normalización Ontológica:**\n\t* Category (RDF data)\n\t* Class (ontology)\n\t* Type (software)\n3. **Sinónimos Técnicos:**\n\t* Knowledge base (semantic web)\n\t* Triple store (data storage)\n\t* Query language (SPARQL)\n\t* Reasoning engine (inference rules)\n\t* Data integration (processing and analysis)\n\t* Graph database (triple pattern)\n\t* RDF parser (serialization format)\n\nHere's the final list, separated by commas:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nI hope this helps you find the best software for working with RDF data!",
+          "raw_retrieved": [
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "doap.rdf"
+          ],
+          "approved_sources": [
+            "doap.rdf"
+          ],
+          "approved_uris": [
+            "http://usefulinc.com/ns/doap#platform",
+            "http://usefulinc.com/ns/doap#programming-language"
+          ]
+        }
+      },
+      {
+        "id": "50",
+        "query": "Does SIM render a gif?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRendering, GIF, SIM, Image, Format, RenderingEngine, Graphics, FileFormat, VisualRepresentation, Output, Display\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* SIM (Software Image Manager)\n\t* GIF (Graphics Interchange Format)\n\t* Rendering\n2. **Normalización Ontológica:**\n\t* Category: Graphics, FileFormat, VisualRepresentation\n\t* Class: RenderingEngine, Output, Display\n3. **Sinónimos Técnicos:**\n\t* Rendering: ImageRendering, GraphicRendering, VisualOutput\n\t* GIF: GraphicsInterchangeFormat, GIFImage\n\nThis list should help you find relevant information about whether SIM renders a GIF or not!",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "cgo.rdf",
+            "m3lite_2017-07-29.n3",
+            "foaf_2014-01-14.n3",
+            "modsci_2022-12-18.n3",
+            "stg.ttl",
+            "vivo_2014-07-12.n3",
+            "cis_2016-03-30.n3",
+            "datex_2016-06-13.n3",
+            "saref4envi.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "foaf_2014-01-14.n3",
+            "cgo.rdf",
+            "stg.ttl"
+          ],
+          "approved_sources": [
+            "foaf_2014-01-14.n3",
+            "cgo.rdf"
+          ],
+          "approved_uris": [
+            "http://xmlns.com/foaf/0.1/img",
+            "http://autosemanticgame.eu/ontologies/cgo#Visuals"
+          ]
+        }
+      },
+      {
+        "id": "51",
+        "query": "Is PostgreSQL compatible with dfp?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDatabase, PostgreSQL, DFP, Ontology, RDF, OWL, Semantic Web, Data Integration, Query Language, SQL, XML, XQuery, SPARQL, Triple Store\n\nHere's a brief explanation of each term:\n\n1. **Database**: A collection of organized data.\n2. **PostgreSQL**: A popular open-source relational database management system.\n3. **DFP**: Not a widely recognized acronym in the context of Web Semantics (OWL/RDF). Assuming it refers to \"Data Federation Protocol\" or \"Data Flow Protocol\", which is not a standard protocol in this domain.\n4. **Ontology**: A formal representation of concepts and relationships between them, used for knowledge sharing and integration.\n5. **RDF** (Resource Description Framework): A standard framework for representing data on the Web as graphs of interconnected resources.\n6. **OWL** (Web Ontology Language): A semantic markup language for publishing and sharing ontologies on the Web.\n7. **Semantic Web**: The extension of the current Web from a simple information storage and retrieval system to a more intelligent, knowledge-sharing platform.\n8. **Data Integration**: The process of combining data from multiple sources into a unified view.\n9. **Query Language**: A language used for querying and manipulating data in a database or triple store.\n10. **SQL** (Structured Query Language): A standard language for managing relational databases.\n11. **XML** (Extensible Markup Language): A markup language for representing structured data.\n12. **XQuery**: A query language for XML documents.\n13. **SPARQL** (SPARQL Protocol And RDF Query Language): A query language for querying and manipulating RDF data in a triple store.\n\nPlease note that DFP is not a widely recognized term in the context of Web Semantics, so I've included it as a possible interpretation. If you meant something else by DFP, please clarify!",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "dbo.rdf",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/dpv#DataProcessingAgreement"
+          ]
+        }
+      },
+      {
+        "id": "52",
+        "query": "What platform does qvalue run on?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlatform, QValue, Run, Ontology, Semantic Web, OWL, RDF, Software, System, Technology, Category, Class, Type, Framework, Infrastructure",
+          "raw_retrieved": [
+            "ifc4.ttl",
+            "beo.ttl",
+            "mexcore.ttl",
+            "swc_2009-05-11.n3",
+            "scip_2012-07-03.n3",
+            "th_building.owl",
+            "th_sharedvocalulary.owl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "ifc4.ttl"
+          ],
+          "approved_sources": [
+            "ifc4.ttl"
+          ],
+          "approved_uris": [
+            "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcParameterValue_List"
+          ]
+        }
+      },
+      {
+        "id": "53",
+        "query": "Does MATLAB work on 64 bit windows?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* MATLAB, Windows, 64-bit\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Software, Operating System, Bit Architecture\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* MathWorks, Microsoft, x86-64\n\nHere's the optimized search list in English, separated by commas:\n\nMATLAB, Windows, 64-bit, Software, Operating System, Bit Architecture, MathWorks, Microsoft, x86-64",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "beo.ttl",
+            "mexcore.ttl",
+            "schema.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "fabio_2019-02-19.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/SWO_1100115",
+            "http://www.ebi.ac.uk/swo/SWO_0000005"
+          ]
+        }
+      },
+      {
+        "id": "54",
+        "query": "What software can perform clustering task?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Clustering, Algorithm, Classification, Data Mining, Machine Learning, Pattern Recognition, Type:Data Analysis Software, Category:Clustering Algorithm, Class:Machine Learning Tool\n\nNote that I've included both technical terms (e.g., \"Algorithm\", \"Classification\") and formal ontological equivalents (e.g., \"Type:Data Analysis Software\", \"Category:Clustering Algorithm\", \"Class:Machine Learning Tool\"). This should help the search engine retrieve relevant results.",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "mexalgo.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "mexalgo.ttl",
+            "swo.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "mexalgo.ttl",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ontodm.com/OntoDM-core/OntoDM_000264",
+            "http://mex.aksw.org/mex-algo#Clustering"
+          ]
+        }
+      },
+      {
+        "id": "55",
+        "query": "What are the alternatives to Weka?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nData Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms, Statistical Analysis Software, Alternative Data Analysis Systems, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP.\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Data Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms\n2. **Normalización Ontológica:** Alternative (Category), Class (Type)\n3. **Sinónimos Técnicos:** Statistical Analysis Software, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP\n\nThis list should provide a comprehensive starting point for finding alternatives to Weka.",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "mexalgo.ttl",
+            "mexcore.ttl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "mexalgo.ttl",
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/SWO_0000141",
+            "https://w3id.org/skgo/modsci#DataMining"
+          ]
+        }
+      },
+      {
+        "id": "56",
+        "query": "In what language was Ringo implemented?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Ringo\n\t* Implementation\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Software (Class)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Programming Language (Type)\n\nHere's the optimized search list in English, separated by commas:\n\nRingo, Implementation, Software, Programming Language\n\nThis list should help you find relevant information about Ringo's implementation language!",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "mexcore.ttl",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "schema.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "doap.rdf",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://usefulinc.com/ns/doap#programming-language",
+            "https://schema.org/Language"
+          ]
+        }
+      },
+      {
+        "id": "57",
+        "query": "Do I need a license key to use Ringo?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Application, Ringo, License, Key, Ontology, Semantic Web, OWL, RDF, Concept, Class, Type, Category, Synonym, Technical Term\n\nLet me break down the process for you:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Software\n\t* Application\n\t* Ringo (assuming it's a software application)\n\t* License\n\t* Key\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category (e.g., OWL Class, RDF Type)\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Ontology (related to semantic web and knowledge representation)\n\t* Semantic Web (context for OWL/RDF)\n\nNow, here's the optimized search list in English, separated by commas:\n\nSoftware, Application, Ringo, License, Key, Category, Class, Type, Ontology, Semantic Web, OWL, RDF, Synonym, Technical Term",
+          "raw_retrieved": [
+            "swo.owl",
+            "doap.rdf",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "ccrel.rdf"
+          ],
+          "top_k_sources": [
+            "doap.rdf",
+            "swo.owl",
+            "ccrel.rdf"
+          ],
+          "approved_sources": [
+            "swo.owl",
+            "ccrel.rdf"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/license/SWO_1000061",
+            "http://creativecommons.org/ns#License"
+          ]
+        }
+      },
+      {
+        "id": "58",
+        "query": "What compiler do I need to compile source code on Windows platform?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical concepts and normalized them using OWL/RDF terminology. Here's the optimized search list:\n\ncompiler, compiler tool, source code, Windows platform, programming language, software development kit (SDK), build system, compilation process, compiler type, C++ compiler, Java compiler, Python compiler, GCC, MinGW, Visual Studio, MSVC, Cygwin\n\nNote that I've included both the original terms and their technical synonyms to ensure a comprehensive search.",
+          "raw_retrieved": [
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "mexcore.ttl",
+            "schema.ttl",
+            "mep.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/Code",
+            "https://schema.org/SoftwareSourceCode"
+          ]
+        }
+      },
+      {
+        "id": "59",
+        "query": "What are the primary inputs and outputs of XDE?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the primary inputs and outputs of XDE. Here's the optimized search list:\n\nOntology Concepts: XDE, System, Component, Input, Output, Data, Processing, Interface, Communication\n\nNormalized Ontological Terms: Class (XDE), Type (System), Category (Component)\n\nTechnical Synonyms: Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol\n\nHere's the list of terms separated by commas:\n\nXDE, System, Component, Input, Output, Data, Processing, Interface, Communication, Class, Type, Category, Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "ssno_2017-04-17.n3",
+            "contax.ttl",
+            "swo.owl",
+            "base_ontology.owl",
+            "ssn_2011-06-20.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "swc_2009-05-11.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "ssno_2017-04-17.n3",
+            "ssn_2011-06-20.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "ssn_2011-06-20.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/SWO_0000446",
+            "http://purl.oclc.org/NET/ssnx/ssn#Process",
+            "http://purl.oclc.org/NET/ssnx/ssn#Output"
+          ]
+        }
+      },
+      {
+        "id": "60",
+        "query": "Is Weka available as a web service?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Software\n\t* Service\n\t* Weka (specifically referring to the machine learning software)\n2. **Normalización Ontológica:**\n\t* Category: Software, Service\n\t* Class: Machine Learning, Data Mining\n\t* Type: Java API, Web Service\n3. **Sinónimos Técnicos:**\n\t* Ontology: Knowledge Representation\n\t* RDF: Semantic Web\n\nSo, the optimized search list is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nThis list should help you find relevant information about Weka's availability as a web service.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "mexcore.ttl",
+            "swo.owl"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/interface/SWO_5000006",
+            "http://www.ebi.ac.uk/swo/interface/SWO_5000005"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la web semántica, inteligencia artificial y software. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `swo.owl` es la que cubre el mayor número de requisitos (6), lo que sugiere que es una buena elección como base para la recomendación. La ontología `schema.ttl` también tiene un buen número de requisitos asociados (2) y puede ser útil en combinación con `swo.owl`.\n\nLa ontología `doap.rdf` tiene dos requisitos relacionados con RDF, lo que sugiere que es una buena elección para aquellos interesados en la representación de datos en formato RDF.\n\nPor otro lado, las ontologías `foaf_2014-01-14.n3`, `cgo.rdf`, `dpv_2025-08-01.n3` y `ssn_2011-06-20.n3` tienen un número limitado de requisitos asociados y no se consideran prioritarias para la recomendación.\n\n**Recomendaciones**\n\n\n\nEn resumen, se recomiendan las ontologías `swo.owl` y `schema.ttl` como base para la recomendación, ya que cubren un buen número de requisitos relacionados con software y inteligencia artificial. Las ontologías excluidas no tienen una cobertura significativa de requisitos asociados.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "swo.owl",
+        "schema.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "foaf_2014-01-14.n3",
+          "motivo": "Pocas preguntas relacionadas"
+        },
+        {
+          "ontologia": "cgo.rdf",
+          "motivo": "Poca cobertura de requisitos"
+        },
+        {
+          "ontologia": "dpv_2025-08-01.n3",
+          "motivo": "Poca cobertura de requisitos"
+        },
+        {
+          "ontologia": "ssn_2011-06-20.n3",
+          "motivo": "Poca cobertura de requisitos"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la web semántica, inteligencia artificial y software. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `swo.owl` es la que cubre el mayor número de requisitos (6), lo que sugiere que es una buena elección como base para la recomendación. La ontología `schema.ttl` también tiene un buen número de requisitos asociados (2) y puede ser útil en combinación con `swo.owl`.\n\nLa ontología `doap.rdf` tiene dos requisitos relacionados con RDF, lo que sugiere que es una buena elección para aquellos interesados en la representación de datos en formato RDF.\n\nPor otro lado, las ontologías `foaf_2014-01-14.n3`, `cgo.rdf`, `dpv_2025-08-01.n3` y `ssn_2011-06-20.n3` tienen un número limitado de requisitos asociados y no se consideran prioritarias para la recomendación.\n\n**Recomendaciones**\n\n\n\nEn resumen, se recomiendan las ontologías `swo.owl` y `schema.ttl` como base para la recomendación, ya que cubren un buen número de requisitos relacionados con software y inteligencia artificial. Las ontologías excluidas no tienen una cobertura significativa de requisitos asociados."
+    }
+  },
+  {
+    "config_name": "Denso Sin Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.6666666666666666,
+      "judge_accuracy": 0.3333333333333333,
+      "veredict_accuracy": 0.3333333333333333,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 5.136895318826039,
+      "total_time": 61.642743825912476
+    },
+    "cases": [
+      {
+        "id": "49",
+        "query": "What software works best with RDF data?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Software\n\t* RDF data\n2. **Normalización Ontológica:**\n\t* Category (RDF data)\n\t* Class (ontology)\n\t* Type (software)\n3. **Sinónimos Técnicos:**\n\t* Knowledge base (semantic web)\n\t* Triple store (data storage)\n\t* Query language (SPARQL)\n\t* Reasoning engine (inference rules)\n\t* Data integration (processing and analysis)\n\t* Graph database (triple pattern)\n\t* RDF parser (serialization format)\n\nHere's the final list, separated by commas:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nI hope this helps you find the best software for working with RDF data!",
+          "raw_retrieved": [
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "doap.rdf"
+          ],
+          "approved_sources": [
+            "doap.rdf"
+          ],
+          "approved_uris": [
+            "http://usefulinc.com/ns/doap#DarcsRepository",
+            "http://usefulinc.com/ns/doap#Repository",
+            "http://usefulinc.com/ns/doap#SVNRepository",
+            "http://usefulinc.com/ns/doap#CVSRepository"
+          ]
+        }
+      },
+      {
+        "id": "50",
+        "query": "Does SIM render a gif?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRendering, GIF, SIM, Image, Format, RenderingEngine, Graphics, FileFormat, VisualRepresentation, Output, Display\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* SIM (Software Image Manager)\n\t* GIF (Graphics Interchange Format)\n\t* Rendering\n2. **Normalización Ontológica:**\n\t* Category: Graphics, FileFormat, VisualRepresentation\n\t* Class: RenderingEngine, Output, Display\n3. **Sinónimos Técnicos:**\n\t* Rendering: ImageRendering, GraphicRendering, VisualOutput\n\t* GIF: GraphicsInterchangeFormat, GIFImage\n\nThis list should help you find relevant information about whether SIM renders a GIF or not!",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "cgo.rdf",
+            "m3lite_2017-07-29.n3",
+            "foaf_2014-01-14.n3",
+            "modsci_2022-12-18.n3",
+            "stg.ttl",
+            "vivo_2014-07-12.n3",
+            "cis_2016-03-30.n3",
+            "datex_2016-06-13.n3",
+            "saref4envi.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "cgo.rdf",
+            "fabio_2019-02-19.n3",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/MovingImage",
+            "http://purl.org/ontology/bibo/Image",
+            "http://purl.org/spar/fabio/Image"
+          ]
+        }
+      },
+      {
+        "id": "51",
+        "query": "Is PostgreSQL compatible with dfp?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDatabase, PostgreSQL, DFP, Ontology, RDF, OWL, Semantic Web, Data Integration, Query Language, SQL, XML, XQuery, SPARQL, Triple Store\n\nHere's a brief explanation of each term:\n\n1. **Database**: A collection of organized data.\n2. **PostgreSQL**: A popular open-source relational database management system.\n3. **DFP**: Not a widely recognized acronym in the context of Web Semantics (OWL/RDF). Assuming it refers to \"Data Federation Protocol\" or \"Data Flow Protocol\", which is not a standard protocol in this domain.\n4. **Ontology**: A formal representation of concepts and relationships between them, used for knowledge sharing and integration.\n5. **RDF** (Resource Description Framework): A standard framework for representing data on the Web as graphs of interconnected resources.\n6. **OWL** (Web Ontology Language): A semantic markup language for publishing and sharing ontologies on the Web.\n7. **Semantic Web**: The extension of the current Web from a simple information storage and retrieval system to a more intelligent, knowledge-sharing platform.\n8. **Data Integration**: The process of combining data from multiple sources into a unified view.\n9. **Query Language**: A language used for querying and manipulating data in a database or triple store.\n10. **SQL** (Structured Query Language): A standard language for managing relational databases.\n11. **XML** (Extensible Markup Language): A markup language for representing structured data.\n12. **XQuery**: A query language for XML documents.\n13. **SPARQL** (SPARQL Protocol And RDF Query Language): A query language for querying and manipulating RDF data in a triple store.\n\nPlease note that DFP is not a widely recognized term in the context of Web Semantics, so I've included it as a possible interpretation. If you meant something else by DFP, please clarify!",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "dbo.rdf",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "doap.rdf"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Triplestore",
+            "http://purl.org/spar/fabio/RelationalDatabase",
+            "http://purl.org/spar/fabio/Database"
+          ]
+        }
+      },
+      {
+        "id": "52",
+        "query": "What platform does qvalue run on?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlatform, QValue, Run, Ontology, Semantic Web, OWL, RDF, Software, System, Technology, Category, Class, Type, Framework, Infrastructure",
+          "raw_retrieved": [
+            "ifc4.ttl",
+            "beo.ttl",
+            "mexcore.ttl",
+            "swc_2009-05-11.n3",
+            "scip_2012-07-03.n3",
+            "th_building.owl",
+            "th_sharedvocalulary.owl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "ifc4.ttl"
+          ],
+          "approved_sources": [
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#RatedFlow"
+          ]
+        }
+      },
+      {
+        "id": "53",
+        "query": "Does MATLAB work on 64 bit windows?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* MATLAB, Windows, 64-bit\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Software, Operating System, Bit Architecture\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* MathWorks, Microsoft, x86-64\n\nHere's the optimized search list in English, separated by commas:\n\nMATLAB, Windows, 64-bit, Software, Operating System, Bit Architecture, MathWorks, Microsoft, x86-64",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "beo.ttl",
+            "mexcore.ttl",
+            "schema.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "fabio_2019-02-19.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "th_sharedvocalulary.owl",
+            "fabio_2019-02-19.n3",
+            "mexcore.ttl",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/ComputerProgram",
+            "http://www.ebi.ac.uk/swo/SWO_1100115"
+          ]
+        }
+      },
+      {
+        "id": "54",
+        "query": "What software can perform clustering task?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Clustering, Algorithm, Classification, Data Mining, Machine Learning, Pattern Recognition, Type:Data Analysis Software, Category:Clustering Algorithm, Class:Machine Learning Tool\n\nNote that I've included both technical terms (e.g., \"Algorithm\", \"Classification\") and formal ontological equivalents (e.g., \"Type:Data Analysis Software\", \"Category:Clustering Algorithm\", \"Class:Machine Learning Tool\"). This should help the search engine retrieve relevant results.",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "mexalgo.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ontodm.com/OntoDM-core/OntoDM_000038",
+            "https://w3id.org/skgo/modsci#DataMining"
+          ]
+        }
+      },
+      {
+        "id": "55",
+        "query": "What are the alternatives to Weka?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nData Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms, Statistical Analysis Software, Alternative Data Analysis Systems, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP.\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Data Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms\n2. **Normalización Ontológica:** Alternative (Category), Class (Type)\n3. **Sinónimos Técnicos:** Statistical Analysis Software, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP\n\nThis list should provide a comprehensive starting point for finding alternatives to Weka.",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "mexalgo.ttl",
+            "mexcore.ttl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "mexalgo.ttl",
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "mexalgo.ttl",
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_uris": [
+            "http://mex.aksw.org/mex-algo#Weka",
+            "https://w3id.org/skgo/modsci#DataMining"
+          ]
+        }
+      },
+      {
+        "id": "56",
+        "query": "In what language was Ringo implemented?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Ringo\n\t* Implementation\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Software (Class)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Programming Language (Type)\n\nHere's the optimized search list in English, separated by commas:\n\nRingo, Implementation, Software, Programming Language\n\nThis list should help you find relevant information about Ringo's implementation language!",
+          "raw_retrieved": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "mexcore.ttl",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/programmingLanguage"
+          ]
+        }
+      },
+      {
+        "id": "57",
+        "query": "Do I need a license key to use Ringo?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Application, Ringo, License, Key, Ontology, Semantic Web, OWL, RDF, Concept, Class, Type, Category, Synonym, Technical Term\n\nLet me break down the process for you:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Software\n\t* Application\n\t* Ringo (assuming it's a software application)\n\t* License\n\t* Key\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category (e.g., OWL Class, RDF Type)\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Ontology (related to semantic web and knowledge representation)\n\t* Semantic Web (context for OWL/RDF)\n\nNow, here's the optimized search list in English, separated by commas:\n\nSoftware, Application, Ringo, License, Key, Category, Class, Type, Ontology, Semantic Web, OWL, RDF, Synonym, Technical Term",
+          "raw_retrieved": [
+            "swo.owl",
+            "doap.rdf",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "ccrel.rdf"
+          ],
+          "top_k_sources": [
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/SWO_0000360"
+          ]
+        }
+      },
+      {
+        "id": "58",
+        "query": "What compiler do I need to compile source code on Windows platform?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical concepts and normalized them using OWL/RDF terminology. Here's the optimized search list:\n\ncompiler, compiler tool, source code, Windows platform, programming language, software development kit (SDK), build system, compilation process, compiler type, C++ compiler, Java compiler, Python compiler, GCC, MinGW, Visual Studio, MSVC, Cygwin\n\nNote that I've included both the original terms and their technical synonyms to ensure a comprehensive search.",
+          "raw_retrieved": [
+            "modsci_2022-12-18.n3",
+            "doap.rdf",
+            "mexcore.ttl",
+            "schema.ttl",
+            "mep.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/SoftwareSourceCode",
+            "http://purl.org/spar/fabio/ComputerProgram"
+          ]
+        }
+      },
+      {
+        "id": "59",
+        "query": "What are the primary inputs and outputs of XDE?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the primary inputs and outputs of XDE. Here's the optimized search list:\n\nOntology Concepts: XDE, System, Component, Input, Output, Data, Processing, Interface, Communication\n\nNormalized Ontological Terms: Class (XDE), Type (System), Category (Component)\n\nTechnical Synonyms: Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol\n\nHere's the list of terms separated by commas:\n\nXDE, System, Component, Input, Output, Data, Processing, Interface, Communication, Class, Type, Category, Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "ssno_2017-04-17.n3",
+            "contax.ttl",
+            "swo.owl",
+            "base_ontology.owl",
+            "ssn_2011-06-20.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "swc_2009-05-11.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "ssn_2011-06-20.n3",
+            "mep.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "ssn_2011-06-20.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "http://purl.oclc.org/NET/ssnx/ssn#Process",
+            "http://www.w3.org/ns/ssn/System"
+          ]
+        }
+      },
+      {
+        "id": "60",
+        "query": "Is Weka available as a web service?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Software\n\t* Service\n\t* Weka (specifically referring to the machine learning software)\n2. **Normalización Ontológica:**\n\t* Category: Software, Service\n\t* Class: Machine Learning, Data Mining\n\t* Type: Java API, Web Service\n3. **Sinónimos Técnicos:**\n\t* Ontology: Knowledge Representation\n\t* RDF: Semantic Web\n\nSo, the optimized search list is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nThis list should help you find relevant information about Weka's availability as a web service.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "mexcore.ttl",
+            "swo.owl"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ontodm.com/OntoDM-core/OntoDM_000038",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Service"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías y requisitos asociados. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\n**Análisis de Cobertura**\n\nLa ontología `doap.rdf` tiene un requisito relacionado con RDF data, lo que sugiere una especialización en datos semánticos. La ontología `swo.owl` y `modsci_2022-12-18.n3` tienen requisitos relacionados con clustering y Weka, lo que indica una especialización en inteligencia artificial y aprendizaje automático.\n\nLa ontología `schema.ttl` tiene requisitos relacionados con Ringo y compiladores, lo que sugiere una especialización en desarrollo de software. La ontología `ssn_2011-06-20.n3` y `s4agri_2020-06-05.n3` tienen requisitos relacionados con XDE, lo que indica una especialización en ciencias sociales y naturales.\n\n**Recomendaciones**\n\nConsiderando la cobertura de los requisitos, se recomiendan las siguientes ontologías:\n\n\n\nEstas ontologías cubren una variedad de áreas, desde datos semánticos hasta inteligencia artificial y desarrollo de software.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "doap.rdf",
+        "swo.owl",
+        "schema.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "fabio_2019-02-19.n3",
+          "motivo": "No hay requisitos únicos asociados"
+        },
+        {
+          "ontologia": "vivo_2014-07-12.n3",
+          "motivo": "Requisito duplicado en doap.rdf"
+        },
+        {
+          "ontologia": "th_building.owl",
+          "motivo": "No hay requisitos únicos asociados"
+        },
+        {
+          "ontologia": "mexalgo.ttl",
+          "motivo": "Requisito duplicado en modsci_2022-12-18.n3"
+        },
+        {
+          "ontologia": "base_ontology.owl",
+          "motivo": "Requisito duplicado en swo.owl"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías y requisitos asociados. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\n**Análisis de Cobertura**\n\nLa ontología `doap.rdf` tiene un requisito relacionado con RDF data, lo que sugiere una especialización en datos semánticos. La ontología `swo.owl` y `modsci_2022-12-18.n3` tienen requisitos relacionados con clustering y Weka, lo que indica una especialización en inteligencia artificial y aprendizaje automático.\n\nLa ontología `schema.ttl` tiene requisitos relacionados con Ringo y compiladores, lo que sugiere una especialización en desarrollo de software. La ontología `ssn_2011-06-20.n3` y `s4agri_2020-06-05.n3` tienen requisitos relacionados con XDE, lo que indica una especialización en ciencias sociales y naturales.\n\n**Recomendaciones**\n\nConsiderando la cobertura de los requisitos, se recomiendan las siguientes ontologías:\n\n\n\nEstas ontologías cubren una variedad de áreas, desde datos semánticos hasta inteligencia artificial y desarrollo de software."
+    }
+  },
+  {
+    "config_name": "BM25 + Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.75,
+      "judge_accuracy": 0.16666666666666666,
+      "veredict_accuracy": 0.16666666666666666,
+      "veredict_precision": 0.5,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.6666666666666666,
+      "average_time": 5.5689481894175215,
+      "total_time": 66.82737827301025
+    },
+    "cases": [
+      {
+        "id": "49",
+        "query": "What software works best with RDF data?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Software\n\t* RDF data\n2. **Normalización Ontológica:**\n\t* Category (RDF data)\n\t* Class (ontology)\n\t* Type (software)\n3. **Sinónimos Técnicos:**\n\t* Knowledge base (semantic web)\n\t* Triple store (data storage)\n\t* Query language (SPARQL)\n\t* Reasoning engine (inference rules)\n\t* Data integration (processing and analysis)\n\t* Graph database (triple pattern)\n\t* RDF parser (serialization format)\n\nHere's the final list, separated by commas:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nI hope this helps you find the best software for working with RDF data!",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "swo.owl",
+            "base_ontology.owl",
+            "qudt_2020-04-20.n3",
+            "ei2a_2021-10-21.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "ppo_2013-11-13.n3",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "ppo_2013-11-13.n3",
+            "swo.owl",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Triplestore"
+          ]
+        }
+      },
+      {
+        "id": "50",
+        "query": "Does SIM render a gif?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRendering, GIF, SIM, Image, Format, RenderingEngine, Graphics, FileFormat, VisualRepresentation, Output, Display\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* SIM (Software Image Manager)\n\t* GIF (Graphics Interchange Format)\n\t* Rendering\n2. **Normalización Ontológica:**\n\t* Category: Graphics, FileFormat, VisualRepresentation\n\t* Class: RenderingEngine, Output, Display\n3. **Sinónimos Técnicos:**\n\t* Rendering: ImageRendering, GraphicRendering, VisualOutput\n\t* GIF: GraphicsInterchangeFormat, GIFImage\n\nThis list should help you find relevant information about whether SIM renders a GIF or not!",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "saref4bldg.n3",
+            "swo.owl",
+            "m3lite_2017-07-29.n3",
+            "ei2a_2021-10-21.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "cgov_2012-08-28.n3",
+            "swrc_2007-06-22.n3"
+          ],
+          "top_k_sources": [
+            "swo.owl",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "swo.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/data/SWO_3000019",
+            "https://schema.org/embedUrl"
+          ]
+        }
+      },
+      {
+        "id": "51",
+        "query": "Is PostgreSQL compatible with dfp?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDatabase, PostgreSQL, DFP, Ontology, RDF, OWL, Semantic Web, Data Integration, Query Language, SQL, XML, XQuery, SPARQL, Triple Store\n\nHere's a brief explanation of each term:\n\n1. **Database**: A collection of organized data.\n2. **PostgreSQL**: A popular open-source relational database management system.\n3. **DFP**: Not a widely recognized acronym in the context of Web Semantics (OWL/RDF). Assuming it refers to \"Data Federation Protocol\" or \"Data Flow Protocol\", which is not a standard protocol in this domain.\n4. **Ontology**: A formal representation of concepts and relationships between them, used for knowledge sharing and integration.\n5. **RDF** (Resource Description Framework): A standard framework for representing data on the Web as graphs of interconnected resources.\n6. **OWL** (Web Ontology Language): A semantic markup language for publishing and sharing ontologies on the Web.\n7. **Semantic Web**: The extension of the current Web from a simple information storage and retrieval system to a more intelligent, knowledge-sharing platform.\n8. **Data Integration**: The process of combining data from multiple sources into a unified view.\n9. **Query Language**: A language used for querying and manipulating data in a database or triple store.\n10. **SQL** (Structured Query Language): A standard language for managing relational databases.\n11. **XML** (Extensible Markup Language): A markup language for representing structured data.\n12. **XQuery**: A query language for XML documents.\n13. **SPARQL** (SPARQL Protocol And RDF Query Language): A query language for querying and manipulating RDF data in a triple store.\n\nPlease note that DFP is not a widely recognized term in the context of Web Semantics, so I've included it as a possible interpretation. If you meant something else by DFP, please clarify!",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "saref4bldg.n3",
+            "base_ontology.owl",
+            "GameOntologyv3.owl",
+            "modsci_2022-12-18.n3",
+            "qudt_2020-04-20.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Triplestore"
+          ]
+        }
+      },
+      {
+        "id": "52",
+        "query": "What platform does qvalue run on?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlatform, QValue, Run, Ontology, Semantic Web, OWL, RDF, Software, System, Technology, Category, Class, Type, Framework, Infrastructure",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "s4city_2020-06-05.n3",
+            "ssn_2011-06-20.n3",
+            "sosa_2017-04-17.n3",
+            "bot.ttl",
+            "dstv.ttl",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "ssn_2011-06-20.n3",
+            "sosa_2017-04-17.n3",
+            "bot.ttl",
+            "schema.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "ssn_2011-06-20.n3"
+          ],
+          "approved_uris": [
+            "http://purl.oclc.org/NET/ssnx/ssn#Platform"
+          ]
+        }
+      },
+      {
+        "id": "53",
+        "query": "Does MATLAB work on 64 bit windows?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* MATLAB, Windows, 64-bit\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Software, Operating System, Bit Architecture\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* MathWorks, Microsoft, x86-64\n\nHere's the optimized search list in English, separated by commas:\n\nMATLAB, Windows, 64-bit, Software, Operating System, Bit Architecture, MathWorks, Microsoft, x86-64",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "ssn_2011-06-20.n3",
+            "qudt_2020-04-20.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "eurio_2023-09-28.n3",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "ssn_2011-06-20.n3",
+            "qudt_2020-04-20.n3",
+            "schema.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "54",
+        "query": "What software can perform clustering task?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Clustering, Algorithm, Classification, Data Mining, Machine Learning, Pattern Recognition, Type:Data Analysis Software, Category:Clustering Algorithm, Class:Machine Learning Tool\n\nNote that I've included both technical terms (e.g., \"Algorithm\", \"Classification\") and formal ontological equivalents (e.g., \"Type:Data Analysis Software\", \"Category:Clustering Algorithm\", \"Class:Machine Learning Tool\"). This should help the search engine retrieve relevant results.",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "donto_2015-06-19.n3",
+            "ssn_2011-06-20.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "saref_2020-05-29.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "m4i_2025-03-10.n3",
+            "edupro_2016-09-13.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl",
+            "m4i_2025-03-10.n3",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#MachineLearning",
+            "http://www.ebi.ac.uk/swo/SWO_0000375"
+          ]
+        }
+      },
+      {
+        "id": "55",
+        "query": "What are the alternatives to Weka?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nData Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms, Statistical Analysis Software, Alternative Data Analysis Systems, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP.\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Data Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms\n2. **Normalización Ontológica:** Alternative (Category), Class (Type)\n3. **Sinónimos Técnicos:** Statistical Analysis Software, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP\n\nThis list should provide a comprehensive starting point for finding alternatives to Weka.",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "qudt_2020-04-20.n3",
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "roh_2022-01-01.n3",
+            "dpv_2025-08-01.n3",
+            "edupro_2016-09-13.n3"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#MachineLearning",
+            "https://w3id.org/skgo/modsci#DataMining"
+          ]
+        }
+      },
+      {
+        "id": "56",
+        "query": "In what language was Ringo implemented?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Ringo\n\t* Implementation\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Software (Class)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Programming Language (Type)\n\nHere's the optimized search list in English, separated by commas:\n\nRingo, Implementation, Software, Programming Language\n\nThis list should help you find relevant information about Ringo's implementation language!",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "s4city_2020-06-05.n3",
+            "modsci_2022-12-18.n3",
+            "s4agri_2020-06-05.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#ProgrammingLanguage",
+            "https://schema.org/Language"
+          ]
+        }
+      },
+      {
+        "id": "57",
+        "query": "Do I need a license key to use Ringo?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Application, Ringo, License, Key, Ontology, Semantic Web, OWL, RDF, Concept, Class, Type, Category, Synonym, Technical Term\n\nLet me break down the process for you:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Software\n\t* Application\n\t* Ringo (assuming it's a software application)\n\t* License\n\t* Key\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category (e.g., OWL Class, RDF Type)\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Ontology (related to semantic web and knowledge representation)\n\t* Semantic Web (context for OWL/RDF)\n\nNow, here's the optimized search list in English, separated by commas:\n\nSoftware, Application, Ringo, License, Key, Category, Class, Type, Ontology, Semantic Web, OWL, RDF, Synonym, Technical Term",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "oum_2020-06-06.n3",
+            "base_ontology.owl",
+            "qudt_2020-04-20.n3",
+            "roh_2022-01-01.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "m4i_2025-03-10.n3",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "swrc_2007-06-22.n3"
+          ],
+          "top_k_sources": [
+            "m4i_2025-03-10.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "58",
+        "query": "What compiler do I need to compile source code on Windows platform?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical concepts and normalized them using OWL/RDF terminology. Here's the optimized search list:\n\ncompiler, compiler tool, source code, Windows platform, programming language, software development kit (SDK), build system, compilation process, compiler type, C++ compiler, Java compiler, Python compiler, GCC, MinGW, Visual Studio, MSVC, Cygwin\n\nNote that I've included both the original terms and their technical synonyms to ensure a comprehensive search.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "apco_2022-08-31.n3",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#CompilerTheory"
+          ]
+        }
+      },
+      {
+        "id": "59",
+        "query": "What are the primary inputs and outputs of XDE?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the primary inputs and outputs of XDE. Here's the optimized search list:\n\nOntology Concepts: XDE, System, Component, Input, Output, Data, Processing, Interface, Communication\n\nNormalized Ontological Terms: Class (XDE), Type (System), Category (Component)\n\nTechnical Synonyms: Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol\n\nHere's the list of terms separated by commas:\n\nXDE, System, Component, Input, Output, Data, Processing, Interface, Communication, Class, Type, Category, Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "oum_2020-06-06.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "mep.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "frapo_2014-01-31.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "dpv_2025-08-01.n3",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "frapo_2014-01-31.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#buildingPrimaryFunction",
+            "http://purl.org/cerif/frapo/Investigation"
+          ]
+        }
+      },
+      {
+        "id": "60",
+        "query": "Is Weka available as a web service?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Software\n\t* Service\n\t* Weka (specifically referring to the machine learning software)\n2. **Normalización Ontológica:**\n\t* Category: Software, Service\n\t* Class: Machine Learning, Data Mining\n\t* Type: Java API, Web Service\n3. **Sinónimos Técnicos:**\n\t* Ontology: Knowledge Representation\n\t* RDF: Semantic Web\n\nSo, the optimized search list is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nThis list should help you find relevant information about Weka's availability as a web service.",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "swo.owl",
+            "donto_2015-06-19.n3",
+            "edupro_2016-09-13.n3",
+            "base_ontology.owl",
+            "ei2a_2021-10-21.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "mexalgo.ttl",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "aiiso_2008-09-25.n3",
+            "cgov_2012-08-28.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "s4ehaw_2020-05-01.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Service",
+            "http://purl.org/spar/fabio/WebPage"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre diferentes ontologías y requisitos. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `modsci_2022-12-18.n3` tiene una cobertura significativa con 4 requisitos relacionados con clustering, Ringo y compiladores. Esto sugiere que esta ontología es fundamental para entender los conceptos de clustering y Ringo.\n\nLa ontología `swo.owl` tiene 2 requisitos relacionados con SIM y clustering. Aunque no tiene tantos requisitos como `modsci_2022-12-18.n3`, su cobertura en clustering y SIM es significativa.\n\nPor otro lado, la ontología `base_ontology.owl` solo tiene un requisito relacionado con Weka, lo que sugiere que esta ontología es más especializada y no cubre una amplia gama de temas.\n\nLa ontología `brick.ttl` y `frapo_2014-01-31.n3` tienen un requisito relacionado con XDE, pero no hay otros requisitos asociados a estas ontologías. Esto sugiere que estas ontologías son más específicas y no cubren una amplia gama de temas.\n\nLa ontología `fabio_2019-02-19.n3`, `schema.ttl` y `ssn_2011-06-20.n3` tienen pocos requisitos relacionados con software, RDF y clustering. Aunque son importantes para entender ciertos conceptos, no cubren una amplia gama de temas.\n\n**Recomendadas y Excluidas**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "modsci_2022-12-18.n3",
+        "swo.owl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "brick.ttl",
+          "motivo": "No cubre una amplia gama de temas"
+        },
+        {
+          "ontologia": "frapo_2014-01-31.n3",
+          "motivo": "No cubre una amplia gama de temas"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre diferentes ontologías y requisitos. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `modsci_2022-12-18.n3` tiene una cobertura significativa con 4 requisitos relacionados con clustering, Ringo y compiladores. Esto sugiere que esta ontología es fundamental para entender los conceptos de clustering y Ringo.\n\nLa ontología `swo.owl` tiene 2 requisitos relacionados con SIM y clustering. Aunque no tiene tantos requisitos como `modsci_2022-12-18.n3`, su cobertura en clustering y SIM es significativa.\n\nPor otro lado, la ontología `base_ontology.owl` solo tiene un requisito relacionado con Weka, lo que sugiere que esta ontología es más especializada y no cubre una amplia gama de temas.\n\nLa ontología `brick.ttl` y `frapo_2014-01-31.n3` tienen un requisito relacionado con XDE, pero no hay otros requisitos asociados a estas ontologías. Esto sugiere que estas ontologías son más específicas y no cubren una amplia gama de temas.\n\nLa ontología `fabio_2019-02-19.n3`, `schema.ttl` y `ssn_2011-06-20.n3` tienen pocos requisitos relacionados con software, RDF y clustering. Aunque son importantes para entender ciertos conceptos, no cubren una amplia gama de temas.\n\n**Recomendadas y Excluidas**"
+    }
+  },
+  {
+    "config_name": "BM25 Sin Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.75,
+      "judge_accuracy": 0.16666666666666666,
+      "veredict_accuracy": 0.0,
+      "veredict_precision": 0.0,
+      "veredict_recall": 0.0,
+      "veredict_f1": 0.0,
+      "average_time": 5.410354336102803,
+      "total_time": 64.92425203323364
+    },
+    "cases": [
+      {
+        "id": "49",
+        "query": "What software works best with RDF data?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Software\n\t* RDF data\n2. **Normalización Ontológica:**\n\t* Category (RDF data)\n\t* Class (ontology)\n\t* Type (software)\n3. **Sinónimos Técnicos:**\n\t* Knowledge base (semantic web)\n\t* Triple store (data storage)\n\t* Query language (SPARQL)\n\t* Reasoning engine (inference rules)\n\t* Data integration (processing and analysis)\n\t* Graph database (triple pattern)\n\t* RDF parser (serialization format)\n\nHere's the final list, separated by commas:\n\nRDF data, software, ontology, semantic web, knowledge base, triple store, query language, SPARQL, reasoning engine, inference rules, data integration, data processing, data analysis, graph database, triple pattern, RDF parser, serialization format.\n\nI hope this helps you find the best software for working with RDF data!",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "swo.owl",
+            "base_ontology.owl",
+            "qudt_2020-04-20.n3",
+            "ei2a_2021-10-21.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "ppo_2013-11-13.n3",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Nanopublication",
+            "http://purl.org/spar/fabio/Triplestore"
+          ]
+        }
+      },
+      {
+        "id": "50",
+        "query": "Does SIM render a gif?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_VEREDICT_EXCLUSION",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nRendering, GIF, SIM, Image, Format, RenderingEngine, Graphics, FileFormat, VisualRepresentation, Output, Display\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* SIM (Software Image Manager)\n\t* GIF (Graphics Interchange Format)\n\t* Rendering\n2. **Normalización Ontológica:**\n\t* Category: Graphics, FileFormat, VisualRepresentation\n\t* Class: RenderingEngine, Output, Display\n3. **Sinónimos Técnicos:**\n\t* Rendering: ImageRendering, GraphicRendering, VisualOutput\n\t* GIF: GraphicsInterchangeFormat, GIFImage\n\nThis list should help you find relevant information about whether SIM renders a GIF or not!",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "saref4bldg.n3",
+            "swo.owl",
+            "m3lite_2017-07-29.n3",
+            "ei2a_2021-10-21.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "cgov_2012-08-28.n3",
+            "swrc_2007-06-22.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "swo.owl",
+            "fabio_2019-02-19.n3",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/data/SWO_3000019"
+          ]
+        }
+      },
+      {
+        "id": "51",
+        "query": "Is PostgreSQL compatible with dfp?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDatabase, PostgreSQL, DFP, Ontology, RDF, OWL, Semantic Web, Data Integration, Query Language, SQL, XML, XQuery, SPARQL, Triple Store\n\nHere's a brief explanation of each term:\n\n1. **Database**: A collection of organized data.\n2. **PostgreSQL**: A popular open-source relational database management system.\n3. **DFP**: Not a widely recognized acronym in the context of Web Semantics (OWL/RDF). Assuming it refers to \"Data Federation Protocol\" or \"Data Flow Protocol\", which is not a standard protocol in this domain.\n4. **Ontology**: A formal representation of concepts and relationships between them, used for knowledge sharing and integration.\n5. **RDF** (Resource Description Framework): A standard framework for representing data on the Web as graphs of interconnected resources.\n6. **OWL** (Web Ontology Language): A semantic markup language for publishing and sharing ontologies on the Web.\n7. **Semantic Web**: The extension of the current Web from a simple information storage and retrieval system to a more intelligent, knowledge-sharing platform.\n8. **Data Integration**: The process of combining data from multiple sources into a unified view.\n9. **Query Language**: A language used for querying and manipulating data in a database or triple store.\n10. **SQL** (Structured Query Language): A standard language for managing relational databases.\n11. **XML** (Extensible Markup Language): A markup language for representing structured data.\n12. **XQuery**: A query language for XML documents.\n13. **SPARQL** (SPARQL Protocol And RDF Query Language): A query language for querying and manipulating RDF data in a triple store.\n\nPlease note that DFP is not a widely recognized term in the context of Web Semantics, so I've included it as a possible interpretation. If you meant something else by DFP, please clarify!",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "saref4bldg.n3",
+            "base_ontology.owl",
+            "GameOntologyv3.owl",
+            "modsci_2022-12-18.n3",
+            "qudt_2020-04-20.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "swrc_2007-06-22.n3",
+            "frapo_2014-01-31.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/RelationalDatabase",
+            "http://purl.org/spar/fabio/Triplestore"
+          ]
+        }
+      },
+      {
+        "id": "52",
+        "query": "What platform does qvalue run on?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlatform, QValue, Run, Ontology, Semantic Web, OWL, RDF, Software, System, Technology, Category, Class, Type, Framework, Infrastructure",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "s4city_2020-06-05.n3",
+            "ssn_2011-06-20.n3",
+            "sosa_2017-04-17.n3",
+            "bot.ttl",
+            "dstv.ttl",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "s4ehaw_2020-05-01.n3",
+            "ssn_2011-06-20.n3",
+            "sosa_2017-04-17.n3",
+            "dstv.ttl",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [
+            "sosa_2017-04-17.n3",
+            "ssn_2011-06-20.n3"
+          ],
+          "approved_uris": [
+            "http://www.w3.org/ns/sosa/isHostedBy",
+            "http://purl.oclc.org/NET/ssnx/ssn#Platform"
+          ]
+        }
+      },
+      {
+        "id": "53",
+        "query": "Does MATLAB work on 64 bit windows?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* MATLAB, Windows, 64-bit\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Software, Operating System, Bit Architecture\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* MathWorks, Microsoft, x86-64\n\nHere's the optimized search list in English, separated by commas:\n\nMATLAB, Windows, 64-bit, Software, Operating System, Bit Architecture, MathWorks, Microsoft, x86-64",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "ssn_2011-06-20.n3",
+            "qudt_2020-04-20.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "eurio_2023-09-28.n3",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "qudt_2020-04-20.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "54",
+        "query": "What software can perform clustering task?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_VEREDICT_EXCLUSION",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Clustering, Algorithm, Classification, Data Mining, Machine Learning, Pattern Recognition, Type:Data Analysis Software, Category:Clustering Algorithm, Class:Machine Learning Tool\n\nNote that I've included both technical terms (e.g., \"Algorithm\", \"Classification\") and formal ontological equivalents (e.g., \"Type:Data Analysis Software\", \"Category:Clustering Algorithm\", \"Class:Machine Learning Tool\"). This should help the search engine retrieve relevant results.",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "donto_2015-06-19.n3",
+            "ssn_2011-06-20.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "saref_2020-05-29.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "m4i_2025-03-10.n3",
+            "edupro_2016-09-13.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "m4i_2025-03-10.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#MachineLearning",
+            "http://www.ebi.ac.uk/swo/SWO_0000140"
+          ]
+        }
+      },
+      {
+        "id": "55",
+        "query": "What are the alternatives to Weka?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nData Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms, Statistical Analysis Software, Alternative Data Analysis Systems, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP.\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Data Mining Tools, Machine Learning Frameworks, Knowledge Discovery Platforms\n2. **Normalización Ontológica:** Alternative (Category), Class (Type)\n3. **Sinónimos Técnicos:** Statistical Analysis Software, Open-Source Analytics Engines, R, Python, Scikit-Learn, TensorFlow, PyTorch, Apache Spark MLlib, H2O.ai Driverless AI, Orange, RapidMiner, KNIME, XLSTAT, Statistica, Minitab, JMP\n\nThis list should provide a comprehensive starting point for finding alternatives to Weka.",
+          "raw_retrieved": [
+            "swo.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "qudt_2020-04-20.n3",
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "roh_2022-01-01.n3",
+            "dpv_2025-08-01.n3",
+            "edupro_2016-09-13.n3"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_uris": [
+            "http://w3id.org/roh/mirror/obo/ero#ERO_0001262",
+            "https://w3id.org/skgo/modsci#DataMining",
+            "https://w3id.org/skgo/modsci#MachineLearning"
+          ]
+        }
+      },
+      {
+        "id": "56",
+        "query": "In what language was Ringo implemented?",
+        "expected": "swo.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Ringo\n\t* Implementation\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Software (Class)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Programming Language (Type)\n\nHere's the optimized search list in English, separated by commas:\n\nRingo, Implementation, Software, Programming Language\n\nThis list should help you find relevant information about Ringo's implementation language!",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "s4city_2020-06-05.n3",
+            "modsci_2022-12-18.n3",
+            "s4agri_2020-06-05.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#ProgrammingLanguageTheory"
+          ]
+        }
+      },
+      {
+        "id": "57",
+        "query": "Do I need a license key to use Ringo?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Application, Ringo, License, Key, Ontology, Semantic Web, OWL, RDF, Concept, Class, Type, Category, Synonym, Technical Term\n\nLet me break down the process for you:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Software\n\t* Application\n\t* Ringo (assuming it's a software application)\n\t* License\n\t* Key\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category (e.g., OWL Class, RDF Type)\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Ontology (related to semantic web and knowledge representation)\n\t* Semantic Web (context for OWL/RDF)\n\nNow, here's the optimized search list in English, separated by commas:\n\nSoftware, Application, Ringo, License, Key, Category, Class, Type, Ontology, Semantic Web, OWL, RDF, Synonym, Technical Term",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "oum_2020-06-06.n3",
+            "base_ontology.owl",
+            "qudt_2020-04-20.n3",
+            "roh_2022-01-01.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "m4i_2025-03-10.n3",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "swrc_2007-06-22.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "58",
+        "query": "What compiler do I need to compile source code on Windows platform?",
+        "expected": "swo.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical concepts and normalized them using OWL/RDF terminology. Here's the optimized search list:\n\ncompiler, compiler tool, source code, Windows platform, programming language, software development kit (SDK), build system, compilation process, compiler type, C++ compiler, Java compiler, Python compiler, GCC, MinGW, Visual Studio, MSVC, Cygwin\n\nNote that I've included both the original terms and their technical synonyms to ensure a comprehensive search.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "apco_2022-08-31.n3",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3",
+            "modsci_2022-12-18.n3",
+            "m4i_2025-03-10.n3",
+            "saref4bldg.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#CompilerTheory"
+          ]
+        }
+      },
+      {
+        "id": "59",
+        "query": "What are the primary inputs and outputs of XDE?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the primary inputs and outputs of XDE. Here's the optimized search list:\n\nOntology Concepts: XDE, System, Component, Input, Output, Data, Processing, Interface, Communication\n\nNormalized Ontological Terms: Class (XDE), Type (System), Category (Component)\n\nTechnical Synonyms: Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol\n\nHere's the list of terms separated by commas:\n\nXDE, System, Component, Input, Output, Data, Processing, Interface, Communication, Class, Type, Category, Entity, Module, Node, Port, Stream, Flow, Message, Payload, Protocol",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "oum_2020-06-06.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "mep.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "prov_2015-01-11.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3",
+            "vivo_2014-07-12.n3",
+            "prov_2015-01-11.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [
+            "vivo_2014-07-12.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_uris": [
+            "http://w3id.org/roh#ExperimentalProtocolResult",
+            "http://purl.obolibrary.org/obo/OBI_0000272"
+          ]
+        }
+      },
+      {
+        "id": "60",
+        "query": "Is Weka available as a web service?",
+        "expected": "swo.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Software\n\t* Service\n\t* Weka (specifically referring to the machine learning software)\n2. **Normalización Ontológica:**\n\t* Category: Software, Service\n\t* Class: Machine Learning, Data Mining\n\t* Type: Java API, Web Service\n3. **Sinónimos Técnicos:**\n\t* Ontology: Knowledge Representation\n\t* RDF: Semantic Web\n\nSo, the optimized search list is:\n\nSoftware, Service, Weka, Machine Learning, Data Mining, Java, API, Web Service, Ontology, Knowledge Representation, OWL, RDF, Semantic Web.\n\nThis list should help you find relevant information about Weka's availability as a web service.",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "swo.owl",
+            "donto_2015-06-19.n3",
+            "edupro_2016-09-13.n3",
+            "base_ontology.owl",
+            "ei2a_2021-10-21.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "mexalgo.ttl",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "aiiso_2008-09-25.n3",
+            "cgov_2012-08-28.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "mexalgo.ttl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "cgov_2012-08-28.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la web semántica y las tecnologías de procesamiento de lenguaje natural (NLP). A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\n**Análisis**\n\nLa ontología `modsci_2022-12-18.n3` presenta una cobertura significativa en cuanto a software y tecnologías relacionadas con el procesamiento de lenguaje natural, como clustering y Weka. Además, se incluyen preguntas sobre compiladores y plataformas, lo que sugiere una amplia gama de aplicaciones.\n\nLa ontología `roh_2022-01-01.n3` también presenta una cobertura interesante en cuanto a software y tecnologías relacionadas con el procesamiento de lenguaje natural, como Weka y XDE. Sin embargo, su cobertura es más limitada que la de `modsci`.\n\nLa ontología `swo.owl` tiene una cobertura relativamente baja en comparación con las otras ontologías. Aunque se incluyen preguntas sobre software y tecnologías relacionadas con el procesamiento de lenguaje natural, no hay una gran cantidad de requisitos asociados.\n\n**Recomendaciones**\n\nConsiderando la cobertura y la relevancia de cada ontología, se recomiendan las siguientes tres ontologías:\n\n\n\nLa ontología `modsci` presenta una cobertura significativa y relevante en cuanto a software y tecnologías relacionadas con el procesamiento de lenguaje natural. La ontología `roh_2022-01-01.n3` también es relevante, aunque su cobertura es más limitada que la de `modsci`. Por último, la ontología `sosa_2017-04-17.n3` se incluye por su capacidad para abordar preguntas sobre plataformas y software.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "modsci_2022-12-18.n3",
+        "roh_2022-01-01.n3",
+        "sosa_2017-04-17.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "swo.owl",
+          "motivo": "Cobertura relativamente baja"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la web semántica y las tecnologías de procesamiento de lenguaje natural (NLP). A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\n**Análisis**\n\nLa ontología `modsci_2022-12-18.n3` presenta una cobertura significativa en cuanto a software y tecnologías relacionadas con el procesamiento de lenguaje natural, como clustering y Weka. Además, se incluyen preguntas sobre compiladores y plataformas, lo que sugiere una amplia gama de aplicaciones.\n\nLa ontología `roh_2022-01-01.n3` también presenta una cobertura interesante en cuanto a software y tecnologías relacionadas con el procesamiento de lenguaje natural, como Weka y XDE. Sin embargo, su cobertura es más limitada que la de `modsci`.\n\nLa ontología `swo.owl` tiene una cobertura relativamente baja en comparación con las otras ontologías. Aunque se incluyen preguntas sobre software y tecnologías relacionadas con el procesamiento de lenguaje natural, no hay una gran cantidad de requisitos asociados.\n\n**Recomendaciones**\n\nConsiderando la cobertura y la relevancia de cada ontología, se recomiendan las siguientes tres ontologías:\n\n\n\nLa ontología `modsci` presenta una cobertura significativa y relevante en cuanto a software y tecnologías relacionadas con el procesamiento de lenguaje natural. La ontología `roh_2022-01-01.n3` también es relevante, aunque su cobertura es más limitada que la de `modsci`. Por último, la ontología `sosa_2017-04-17.n3` se incluye por su capacidad para abordar preguntas sobre plataformas y software."
+    }
+  }
+]

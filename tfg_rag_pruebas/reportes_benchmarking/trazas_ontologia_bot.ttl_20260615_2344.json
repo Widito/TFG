@@ -1,0 +1,3152 @@
+[
+  {
+    "config_name": "Híbrido + Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 1.0,
+      "judge_accuracy": 0.4166666666666667,
+      "veredict_accuracy": 0.4166666666666667,
+      "veredict_precision": 0.5,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.6666666666666666,
+      "average_time": 5.3220492998758955,
+      "total_time": 63.86459159851074
+    },
+    "cases": [
+      {
+        "id": "1",
+        "query": "Zones are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Zones are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nSpatialVolume, Area, Zone, Region, ThreeDimensionalSpace, GeospatialZone, GeographicArea, SpatialBoundary, Volume, Space, Dimension\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "cis_2016-03-30.n3",
+            "bot.ttl",
+            "edupro_2016-09-13.n3",
+            "facility.ttl",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "schema.ttl",
+            "facility.ttl",
+            "th_building.owl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "facility.ttl"
+          ],
+          "approved_uris": [
+            "https://cogito.iot.linkeddata.es/def/facility#SpatialZone",
+            "https://w3id.org/bot#Space",
+            "https://w3id.org/bot#Zone"
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "query": "Construction sites are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Construction sites are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nSite, Construction Site, Area, Volume, Spatial Volume, Three-Dimensional (3D) Volume, Building Site, Construction Area, Location, Geographic Area, Region, Zone, Space, Domain\n\nNote: The terms are in English to facilitate searching and querying across different ontologies and databases.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "cis_2016-03-30.n3",
+            "bot.ttl",
+            "beo.ttl",
+            "facility.ttl",
+            "dpv_2025-08-01.n3",
+            "brick.ttl",
+            "roh_2022-01-01.n3",
+            "building.ttl",
+            "fea_2015-06-26.n3",
+            "s4agri_2020-06-05.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "cis_2016-03-30.n3",
+            "beo.ttl",
+            "facility.ttl",
+            "brick.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "beo.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/rec#Architecture",
+            "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+            "https://pi.pauwel.be/voc/buildingelement#BuildingElement"
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "query": "Buildings are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Buildings are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuilding, Structure, Architecture, Area, Volume, Space, Spatial, ThreeDimensional, 3D, Ontology, Category: Building, Class: Edifice, Type: Construction, Concept: RealEstate, Synonyms: Edification, ConstructionSite, ArchitectureDesign",
+          "raw_retrieved": [
+            "schema.ttl",
+            "th_building.owl",
+            "ssno_2017-04-17.n3",
+            "modsci_2022-12-18.n3",
+            "dogont_2015-01-11.n3",
+            "mep.ttl",
+            "bot.ttl",
+            "s4inma_2019-04-30.n3",
+            "dpv_2025-08-01.n3",
+            "brick.ttl",
+            "roh_2022-01-01.n3",
+            "building.ttl",
+            "s4agri_2020-06-05.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "th_building.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_sources": [
+            "building.ttl",
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Space",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Area"
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "query": "Storeys are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpatialVolume, 3DRegion, Area, Volume, Space, Region, Zone, Layer, Level, Floor, Story, BuildingComponent, OntologicalClass, SpatialEntity\n\nThis list includes:\n\n1. **Conceptos Nucleares:**\n\t* Storeys (main concept)\n\t* Areas\n\t* Volumes\n2. **Normalización Ontológica:**\n\t* Category: SpatialVolume\n\t* Class: 3DRegion\n\t* Type: Area, Volume, Space\n3. **Sinónimos Técnicos:**\n\t* Region\n\t* Zone\n\t* Layer\n\t* Level\n\t* Floor\n\nThese terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "bot.ttl",
+            "tsnc_2017-05-15.n3",
+            "edupro_2016-09-13.n3",
+            "facility.ttl",
+            "dpv_2025-08-01.n3",
+            "eurio_2023-09-28.n3",
+            "schema.ttl",
+            "brick.ttl",
+            "dstv.ttl",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "facility.ttl",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "facility.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone",
+            "https://cogito.iot.linkeddata.es/def/facility#SpatialZone"
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "query": "Spaces are limited three-dimensional extent defined physically or notionally, and are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Space, Area, Volume, Dimension, Extent\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Concept: Space, Category: SpatialRegion, Class: ThreeDimensionalSpace, Type: PhysicalOrNotionalArea\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Region, Domain, Territory, Zone, Sector\n\nHere is the optimized search list in English, separated by commas:\n\nSpace, Area, Volume, Dimension, Extent, Concept, SpatialRegion, ThreeDimensionalSpace, PhysicalOrNotionalArea, Region, Domain, Territory, Zone, Sector",
+          "raw_retrieved": [
+            "bibo_2009-11-04.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "bot.ttl",
+            "dpv_2025-08-01.n3",
+            "swo.owl",
+            "eurio_2023-09-28.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "dpv_2025-08-01.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Space",
+            "https://w3id.org/bot#Zone"
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "query": "Zones may contain other zones",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Zones may contain other zones\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nZone, Container, Class, Type, Region, Area, Subzone, Enclosure, Enclave, Subset, Component, Part, Entity\n\nThese terms should help you navigate the realm of Web Semantics (OWL/RDF) and find relevant information on zones and their relationships!",
+          "raw_retrieved": [
+            "schema.ttl",
+            "vivo_2014-07-12.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "aiiso_2008-09-25.n3",
+            "bot.ttl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "cerif_2013-04-23.n3",
+            "eurio_2023-09-28.n3",
+            "brick.ttl",
+            "roh_2022-01-01.n3",
+            "building.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "aiiso_2008-09-25.n3",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#containsZone",
+            "https://brickschema.org/schema/Brick#Zone",
+            "https://w3id.org/bot#Zone"
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "query": "Construction sites may contain buildings",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Construction sites may contain buildings\", I've analyzed the query and generated an optimized search list following the steps:\n\n1. **Concepts Nucleares:** Main nouns and technical verbs:\n\t* Construction site\n\t* Building\n2. **Normalización Ontológica:**\n\t* Category: Infrastructure, Structure\n\t* Class: Building, Construction Site\n\t* Type: Physical Entity, Location\n3. **Sinónimos Técnicos:**\n\t* Construction site: Building site, Job site, Worksite\n\t* Building: Edifice, Structure, Architecture\n\nHere's the optimized search list in English, separated by commas:\n\nInfrastructure, Structure, Building, Construction Site, Building site, Job site, Worksite, Physical Entity, Location, Edifice, Structure, Architecture",
+          "raw_retrieved": [
+            "saref4envi.n3",
+            "th_building.owl",
+            "teach_2013-04-25.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "bpo.ttl",
+            "cis_2016-03-30.n3",
+            "bot.ttl",
+            "m3lite_2017-07-29.n3",
+            "beo.ttl",
+            "facility.ttl",
+            "s4inma_2019-04-30.n3",
+            "dpv_2025-08-01.n3",
+            "dt.n3",
+            "brick.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "building.ttl",
+            "saref4envi.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "s4inma_2019-04-30.n3",
+            "building.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Building",
+            "https://saref.etsi.org/saref4agri/Building",
+            "https://saref.etsi.org/saref4bldg/Building"
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "query": "Buildings may contain storeys",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful task!\n\nAfter analyzing the user's request \"Buildings may contain storeys\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nStructures, Buildings, Architecture, Storeys, Levels, Floors, Edifices, Construction, Real Estate, Ontology, Class, Type, Category\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "saref4bldg.n3",
+            "bot.ttl",
+            "beo.ttl",
+            "edupro_2016-09-13.n3",
+            "dpv_2025-08-01.n3",
+            "swo.owl",
+            "brick.ttl",
+            "building.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Storey",
+            "https://w3id.org/bot#Storey"
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "query": "Storeys may contain spaces",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Storeys may contain spaces\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nBuilding, Floor, Level, Space, Area, Room, Container, Entity, Concept, Class, Type, Spatial, Dimensional, Physical, Abstract\n\nNote: The terms are in English to maintain consistency with the original request.\n\nNow, if you'll excuse me, I'll just tidy up my ontology...",
+          "raw_retrieved": [
+            "schema.ttl",
+            "tsn_2017-01-31.n3",
+            "fabio_2019-02-19.n3",
+            "bot.ttl",
+            "facility.ttl",
+            "ppo_2013-11-13.n3",
+            "dpv_2025-08-01.n3",
+            "swo.owl",
+            "s4inma_2019-04-30.n3",
+            "brick.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "approved_uris": [
+            "https://cogito.iot.linkeddata.es/def/facility#Storey",
+            "http://bimerr.iot.linkeddata.es/def/building#Storey"
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "query": "Spaces may be contained in storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.\n\nHere's a breakdown of the steps I followed:\n\n1. **Conceptos Nucleares:** The main nouns and verbs are:\n\t* Spaces\n\t* Storeys\n\t* Buildings\n\t* Construction sites\n\t* Contained (verb)\n2. **Normalización Ontológica:**\n\t* Category: Architecture, Real Estate, Civil Engineering\n\t* Class: Spaces, Storeys, Buildings, Construction sites\n\t* Type: Spatial Relationships\n3. **Sinónimos Técnicos:**\n\t* Alternative terms for \"Spaces\":\n\t\t+ Areas\n\t\t+ Zones\n\t\t+ Regions\n\t* Alternative terms for \"Storeys\":\n\t\t+ Floors\n\t\t+ Levels\n\t\t+ Stories\n\nThe resulting list is:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web, Areas, Zones, Regions, Floors, Levels, Stories",
+          "raw_retrieved": [
+            "saref4envi.n3",
+            "th_building.owl",
+            "swrc_2007-06-22.n3",
+            "cgov_2012-08-28.n3",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "m3lite_2017-07-29.n3",
+            "facility.ttl",
+            "donto_2015-06-19.n3",
+            "dt.n3",
+            "schema.ttl",
+            "building.ttl",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "saref4envi.n3",
+            "building.ttl",
+            "facility.ttl",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "approved_uris": [
+            "https://cogito.iot.linkeddata.es/def/facility#Storey",
+            "http://bimerr.iot.linkeddata.es/def/building#Storey"
+          ]
+        }
+      },
+      {
+        "id": "11",
+        "query": "Spaces may intersect different storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "hard",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpace, Building, Construction Site, Storey, Intersection, Overlap, Co-location, Spatial Relationship, Architecture, Engineering, Ontology, Category: Space, Class: Building, Type: Construction Site, Synonyms: Area, Location, Zone, Sector.\n\nNote that I've used a combination of natural language processing and ontological reasoning to generate this list. The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "teach_2013-04-25.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "dogont_2015-01-11.n3",
+            "bot.ttl",
+            "th_sharedvocalulary.owl",
+            "s4inma_2019-04-30.n3",
+            "brick.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "building.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "s4inma_2019-04-30.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Building",
+            "https://saref.etsi.org/saref4bldg/Building"
+          ]
+        }
+      },
+      {
+        "id": "12",
+        "query": "A zone can be adjacent to another zone",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nZone, Adjacent, Region, Area, Territory, Border, Edge, Neighborhood, Proximity, SpatialRelationship, TopologicalNeighbor, OWL:Class, RDF:Type, SemanticWebConcept\n\nNote that I've included both technical terms (e.g., \"SpatialRelationship\", \"TopologicalNeighbor\") and more general concepts (e.g., \"Region\", \"Area\"), as well as their formal equivalents in OWL/RDF (e.g., \"OWL:Class\", \"RDF:Type\"). This list should provide a solid foundation for searching and exploring the concept of adjacency between zones.",
+          "raw_retrieved": [
+            "modsci_2022-12-18.n3",
+            "ssn_2011-06-20.n3",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "s4inma_2019-04-30.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "s4agri_2020-06-05.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "s4agri_2020-06-05.n3",
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#adjacentZone",
+            "https://w3id.org/bot#adjacentElement"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre diferentes ontologías y requisitos. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `building.ttl` tiene una cobertura significativa en términos de requisitos, ya que cubre conceptos como \"construction sites\", \"buildings\", \"storeys\" y \"spaces\". Esto sugiere que esta ontología es fundamental para entender la relación entre diferentes tipos de áreas espaciales.\n\nLa ontología `bot.ttl` también tiene una cobertura importante, aunque no tan amplia como la anterior. Cubre conceptos como \"zones\", \"storeys\" y \"spaces\", lo que indica que esta ontología se enfoca en la descripción de áreas espaciales y su relación entre sí.\n\nLa ontología `facility.ttl` tiene una cobertura más limitada, aunque sigue siendo relevante para entender conceptos como \"Zones\" y \"Storeys\". Sin embargo, no cubre tanto como las otras ontologías mencionadas anteriormente.\n\nEn cuanto a las ontologías que no fueron seleccionadas, la ontología `beo.ttl` solo cubre el concepto de \"construction sites\", lo que no es tan relevante para entender la relación entre diferentes tipos de áreas espaciales. La ontología `th_building.owl` solo cubre el concepto de \"buildings\", lo que no es suficiente para obtener una visión completa de las relaciones entre diferentes áreas espaciales.\n\n**Recomendaciones**\n\n\n\nEn resumen, se recomiendan las ontologías `building.ttl` y `bot.ttl` debido a su cobertura significativa en términos de requisitos y su capacidad para describir la relación entre diferentes tipos de áreas espaciales. Las ontologías `beo.ttl` y `th_building.owl` no fueron seleccionadas porque cubren conceptos demasiado específicos o limitados.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "building.ttl",
+        "bot.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "beo.ttl",
+          "motivo": "Cubre solo conceptos de construction sites"
+        },
+        {
+          "ontologia": "th_building.owl",
+          "motivo": "Cubre solo conceptos de buildings"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre diferentes ontologías y requisitos. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `building.ttl` tiene una cobertura significativa en términos de requisitos, ya que cubre conceptos como \"construction sites\", \"buildings\", \"storeys\" y \"spaces\". Esto sugiere que esta ontología es fundamental para entender la relación entre diferentes tipos de áreas espaciales.\n\nLa ontología `bot.ttl` también tiene una cobertura importante, aunque no tan amplia como la anterior. Cubre conceptos como \"zones\", \"storeys\" y \"spaces\", lo que indica que esta ontología se enfoca en la descripción de áreas espaciales y su relación entre sí.\n\nLa ontología `facility.ttl` tiene una cobertura más limitada, aunque sigue siendo relevante para entender conceptos como \"Zones\" y \"Storeys\". Sin embargo, no cubre tanto como las otras ontologías mencionadas anteriormente.\n\nEn cuanto a las ontologías que no fueron seleccionadas, la ontología `beo.ttl` solo cubre el concepto de \"construction sites\", lo que no es tan relevante para entender la relación entre diferentes tipos de áreas espaciales. La ontología `th_building.owl` solo cubre el concepto de \"buildings\", lo que no es suficiente para obtener una visión completa de las relaciones entre diferentes áreas espaciales.\n\n**Recomendaciones**\n\n\n\nEn resumen, se recomiendan las ontologías `building.ttl` y `bot.ttl` debido a su cobertura significativa en términos de requisitos y su capacidad para describir la relación entre diferentes tipos de áreas espaciales. Las ontologías `beo.ttl` y `th_building.owl` no fueron seleccionadas porque cubren conceptos demasiado específicos o limitados."
+    }
+  },
+  {
+    "config_name": "Híbrido Sin Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 1.0,
+      "judge_accuracy": 0.9166666666666666,
+      "veredict_accuracy": 0.9166666666666666,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 5.031729022661845,
+      "total_time": 60.38074827194214
+    },
+    "cases": [
+      {
+        "id": "1",
+        "query": "Zones are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Zones are areas with spatial 3D volumes\", I've generated an optimized search list following the steps:\n\n1. **Concepts Nucleares:** Main technical nouns and verbs:\n\t* Zones, Areas, Volumes\n\t* Spatial, Three-Dimensional (3D)\n2. **Normalización Ontológica:**\n\t* Category: Geographic Area, Spatial Region\n\t* Class: Zone, Area, Volume\n\t* Type: 3D Space, Geospatial Volume\n3. **Sinónimos Técnicos:**\n\t* Regions, Districts, Territories\n\t* Spaces, Areas, Domains\n\nHere's the optimized search list in English, separated by commas:\n\nGeographic Area, Spatial Region, Zone, Area, Volume, 3D Space, Geospatial Volume, Regions, Districts, Territories, Spaces, Areas, Domains",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "facility.ttl",
+            "donto_2015-06-19.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone"
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "query": "Construction sites are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nConstructionSite, Area, SpatialVolume, 3DVolume, BuildingSite, ConstructionArea, Site, Volume, Space, Location, Geospatial, GeographicRegion, Region, Zone, Sector, Domain\n\nNote: The list includes both nouns (e.g., \"ConstructionSite\", \"SpatialVolume\") and verbs (e.g., \"Location\", \"Sector\") that are relevant to the concept of construction sites with spatial 3D volumes.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "tsn_2017-01-31.n3",
+            "th_building.owl",
+            "saref4bldg.n3",
+            "modsci_2022-12-18.n3",
+            "ssn_2011-06-20.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "cis_2016-03-30.n3",
+            "bot.ttl",
+            "tsnc_2017-05-15.n3",
+            "m4i_2025-03-10.n3",
+            "brick.ttl",
+            "roh_2022-01-01.n3",
+            "s4agri_2020-06-05.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "brick.ttl",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "dbo.rdf"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Site",
+            "http://www.google.com/digitalbuildings/0.0.1/subfields#Volume"
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "query": "Buildings are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Buildings are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuilding, Structure, Architecture, Area, Volume, Space, Spatial, ThreeDimensional, 3D, Ontology, Category:BuiltStructure, Class:Architecture, Type:Edifice, Edificatory, SpatialRegion, GeometricShape, Geometry, Dimensionality\n\nNote that I've used a mix of English and technical terms to provide a comprehensive search list.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "bot.ttl",
+            "s4inma_2019-04-30.n3",
+            "dpv_2025-08-01.n3",
+            "brick.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "s4inma_2019-04-30.n3",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "s4inma_2019-04-30.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Building",
+            "https://saref.etsi.org/saref4bldg/BuildingSpace",
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "query": "Storeys are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpatialVolume, 3DRegion, Area, Volume, Space, Region, Zone, Layer, Level, Floor, Story, BuildingComponent, OntologicalClass, SpatialEntity\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Storeys\n\t* Areas\n\t* Spatial 3D volumes\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type):\n\t* SpatialVolume\n\t* 3DRegion\n\t* Area\n\t* Volume\n\t* Space\n\t* Region\n\t* Zone\n\t* Layer\n\t* Level\n\t* Floor\n\t* Story\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* BuildingComponent\n\t* OntologicalClass\n\t* SpatialEntity\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "cgov_2012-08-28.n3",
+            "vivo_2014-07-12.n3",
+            "fabio_2019-02-19.n3",
+            "bot.ttl",
+            "facility.ttl",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "facility.ttl",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "facility.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone",
+            "https://cogito.iot.linkeddata.es/def/facility#SpatialZone"
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "query": "Spaces are limited three-dimensional extent defined physically or notionally, and are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpace, Area, Volume, Dimension, Extent, Region, Zone, Region, Spatial, Three-Dimensional, Physical, Notional, 3D, OWL:Class - Space, RDF:Resource - Space, Category - GeographicRegion, Type - SpatialExtent\n\nNote that I've included both the original terms and their normalized ontological equivalents (OWL/RDF) to facilitate searching. The list also includes technical synonyms for added precision.",
+          "raw_retrieved": [
+            "omg.ttl",
+            "saref4bldg.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "ssn_2011-06-20.n3",
+            "datex_2016-06-13.n3",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "facility.ttl",
+            "donto_2015-06-19.n3",
+            "dpv_2025-08-01.n3",
+            "s4ehaw_2020-05-01.n3",
+            "brick.ttl",
+            "seo_2019-04-10.n3",
+            "dbo.rdf",
+            "s4ener_2020-06-04.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "brick.ttl",
+            "datex_2016-06-13.n3",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "brick.ttl",
+            "datex_2016-06-13.n3"
+          ],
+          "approved_uris": [
+            "http://vocab.datex.org/terms#Dimension",
+            "https://w3id.org/bot#Space",
+            "https://brickschema.org/schema/Brick#Space"
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "query": "Zones may contain other zones",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Zones may contain other zones\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nZone, Container, Class, Type, Region, Area, Subzone, Enclosure, Enclave, Subset, Component, Part, Entity\n\nNote that I've used a combination of natural language processing (NLP) and ontology-based reasoning to generate this list. The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "saref4bldg.n3",
+            "tsn_2017-01-31.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "bot.ttl",
+            "dpv_2025-08-01.n3",
+            "cerif_2013-04-23.n3",
+            "swo.owl",
+            "eurio_2023-09-28.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "modsci_2022-12-18.n3",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone",
+            "https://w3id.org/bot#containsZone"
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "query": "Construction sites may contain buildings",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Construction sites may contain buildings\", I've analyzed it and generated a list of optimized search terms following the steps:\n\n1. **Concepts Nucleares:** Main nouns and verbs:\n\t* Construction, site, building\n\t* May, contain\n2. **Normalización Ontológica:**\n\t* Category: Building, Structure, Infrastructure\n\t* Class: Construction Site, Building Location\n\t* Type: Physical Structure, Man-made Object\n3. **Sinónimos Técnicos:**\n\t* Edifice, Architecture, Facility\n\nHere's the optimized list of search terms in English, separated by commas:\n\nConstruction, site, building, structure, infrastructure, physical structure, man-made object, edifice, architecture, facility, contain, may",
+          "raw_retrieved": [
+            "schema.ttl",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "modsci_2022-12-18.n3",
+            "dogont_2015-01-11.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "bot.ttl",
+            "contax.ttl",
+            "beo.ttl",
+            "facility.ttl",
+            "dpv_2025-08-01.n3",
+            "brick.ttl",
+            "building.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "building.ttl",
+            "beo.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "building.ttl",
+            "beo.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+            "https://w3id.org/bot#Site",
+            "https://pi.pauwel.be/voc/buildingelement#BuildingElement"
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "query": "Buildings may contain storeys",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Buildings may contain storeys\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nStructures, Buildings, Architecture, Storeys, Levels, Floors, Edifices, Construction, Real Estate, Ontology, OWL, RDF\n\nNote: The list is in English to facilitate international searching.\n\nNow, let me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Buildings (Structure)\n\t* Storeys (Levels/Floors)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Architecture\n\t* Class: Building Type\n\t* Type: Structure, Edifice\n3. **Sinónimos Técnicos:** I included precise alternatives:\n\t* Levels → Floors\n\t* Real Estate → Property\n\nBy combining these concepts, we can create a comprehensive search list that captures the essence of the user's request.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "saref4watr.n3",
+            "swo.owl",
+            "brick.ttl",
+            "roh_2022-01-01.n3",
+            "building.ttl",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/rec#Level",
+            "https://w3id.org/bot#hasStorey",
+            "https://w3id.org/bot#Storey"
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "query": "Storeys may contain spaces",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Storeys may contain spaces\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nBuilding, Floor, Level, Story, Space, Area, Room, Container, Entity, Concept, Class, Type, Spatial, Dimensional, Architectural, Structural\n\nNote: The terms are in English to facilitate searching across various databases and ontologies.\n\nNow, if you'll excuse me, I'll just tidy up my semantic web...",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "schema.ttl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "m3lite_2017-07-29.n3",
+            "facility.ttl",
+            "dpv_2025-08-01.n3",
+            "donto_2015-06-19.n3",
+            "swo.owl",
+            "brick.ttl",
+            "building.ttl",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#hasStorey",
+            "http://bimerr.iot.linkeddata.es/def/building#Storey"
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "query": "Spaces may be contained in storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.\n\nHere's a breakdown of the steps I followed:\n\n1. **Conceptos Nucleares:** The main nouns and verbs are:\n\t* Spaces\n\t* Storeys\n\t* Buildings\n\t* Construction Sites\n\t* Contained (verb)\n2. **Normalización Ontológica:**\n\t* Category: Spatial Entities\n\t* Class: Built Environment\n\t* Type: Architectural Features\n3. **Sinónimos Técnicos:**\n\t* Spaces: Areas, Zones, Regions\n\t* Storeys: Floors, Levels, Stories\n\t* Buildings: Structures, Edifices, Constructions\n\t* Construction Sites: Building Sites, Development Areas, Infrastructure Projects\n\nThe resulting list is a combination of these concepts, normalized and with technical synonyms:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.",
+          "raw_retrieved": [
+            "saref4envi.n3",
+            "th_building.owl",
+            "cgov_2012-08-28.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "dcterms_2012-06-14.n3",
+            "m3lite_2017-07-29.n3",
+            "donto_2015-06-19.n3",
+            "facility.ttl",
+            "dt.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#containsElement",
+            "https://w3id.org/bot#hasBuilding"
+          ]
+        }
+      },
+      {
+        "id": "11",
+        "query": "Spaces may intersect different storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Intersections, Storeys, Buildings, Construction Sites, Areas, Regions, Zones, Overlaps, Enclosures, Boundaries, Spatial Relationships, Geometric Shapes, Architectural Features, Structural Elements\n\nNote: The list includes both nouns (e.g., Spaces, Storeys) and verbs (e.g., Intersections) that are relevant to the topic of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "ssn_2011-06-20.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "swc_2009-05-11.n3",
+            "bot.ttl",
+            "tsnc_2017-05-15.n3",
+            "swo.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#intersectingElement",
+            "https://w3id.org/bot#intersectsZone"
+          ]
+        }
+      },
+      {
+        "id": "12",
+        "query": "A zone can be adjacent to another zone",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nZone, Adjacent, Region, Area, Territory, Border, Edge, Neighborhood, Proximity, SpatialRelationship, TopologicalNeighbor, OWL:Class, RDF:Type, SemanticWebConcept\n\nNote that I've included both technical terms (e.g., \"SpatialRelationship\", \"TopologicalNeighbor\") and more general concepts (e.g., \"Region\", \"Area\") to provide a comprehensive search scope. The added ontological formalizations (OWL:Class, RDF:Type) will help facilitate semantic searches across various knowledge graphs.",
+          "raw_retrieved": [
+            "apco_2022-08-31.n3",
+            "modsci_2022-12-18.n3",
+            "ssn_2011-06-20.n3",
+            "saref_2020-05-29.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "bot.ttl",
+            "tsnc_2017-05-15.n3",
+            "th_sharedvocalulary.owl",
+            "edupro_2016-09-13.n3",
+            "m4i_2025-03-10.n3",
+            "s4inma_2019-04-30.n3",
+            "swo.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "apco_2022-08-31.n3"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#adjacentZone",
+            "https://w3id.org/bot#adjacentElement"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías que cubren diferentes conceptos relacionados con edificios, construcción y espacios. A continuación, se analizará la cobertura para recomendar una red de ontologías recomendadas.\n\nLa ontología `bot.ttl` tiene una cobertura amplia en términos de conceptos como zonas, construcciones, edificios y espacios. Sin embargo, no hay requisitos específicos sobre la relación entre estos conceptos.\n\nLa ontología `building.ttl` proporciona información adicional sobre la relación entre edificios y construcciones, lo que es útil para entender cómo se organizan los espacios dentro de un edificio.\n\nLa ontología `facility.ttl` tiene una cobertura limitada en comparación con otras ontologías, pero proporciona información valiosa sobre los espacios dentro de un edificio.\n\nEn conclusión, se recomiendan las siguientes tres ontologías para cubrir la mayor parte de la cobertura:\n\n* `bot.ttl`: Cubre conceptos generales sobre zonas, construcciones y edificios.\n* `building.ttl`: Proporciona información adicional sobre la relación entre edificios y construcciones.\n* `facility.ttl`: Ofrece información valiosa sobre los espacios dentro de un edificio.\n\n**Recomendadas y excluidas**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "bot.ttl",
+        "building.ttl",
+        "facility.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "brick.ttl",
+          "motivo": "Cobertura limitada en comparación con otras ontologías"
+        },
+        {
+          "ontologia": "beo.ttl",
+          "motivo": "No proporciona información adicional significativa sobre la relación entre conceptos"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías que cubren diferentes conceptos relacionados con edificios, construcción y espacios. A continuación, se analizará la cobertura para recomendar una red de ontologías recomendadas.\n\nLa ontología `bot.ttl` tiene una cobertura amplia en términos de conceptos como zonas, construcciones, edificios y espacios. Sin embargo, no hay requisitos específicos sobre la relación entre estos conceptos.\n\nLa ontología `building.ttl` proporciona información adicional sobre la relación entre edificios y construcciones, lo que es útil para entender cómo se organizan los espacios dentro de un edificio.\n\nLa ontología `facility.ttl` tiene una cobertura limitada en comparación con otras ontologías, pero proporciona información valiosa sobre los espacios dentro de un edificio.\n\nEn conclusión, se recomiendan las siguientes tres ontologías para cubrir la mayor parte de la cobertura:\n\n* `bot.ttl`: Cubre conceptos generales sobre zonas, construcciones y edificios.\n* `building.ttl`: Proporciona información adicional sobre la relación entre edificios y construcciones.\n* `facility.ttl`: Ofrece información valiosa sobre los espacios dentro de un edificio.\n\n**Recomendadas y excluidas**"
+    }
+  },
+  {
+    "config_name": "Denso + Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 1.0,
+      "judge_accuracy": 0.75,
+      "veredict_accuracy": 0.75,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.869466324647267,
+      "total_time": 58.43359589576721
+    },
+    "cases": [
+      {
+        "id": "1",
+        "query": "Zones are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Zones are areas with spatial 3D volumes\", I've generated an optimized search list following the steps:\n\n1. **Concepts Nucleares:** Main technical nouns and verbs:\n\t* Zones, Areas, Volumes\n\t* Spatial, Three-Dimensional (3D)\n2. **Normalización Ontológica:**\n\t* Category: Geographic Area, Spatial Region\n\t* Class: Zone, Area, Volume\n\t* Type: 3D Space, Geospatial Volume\n3. **Sinónimos Técnicos:**\n\t* Regions, Districts, Territories\n\t* Spaces, Areas, Domains\n\nHere's the optimized search list in English, separated by commas:\n\nGeographic Area, Spatial Region, Zone, Area, Volume, 3D Space, Geospatial Volume, Regions, Districts, Territories, Spaces, Areas, Domains",
+          "raw_retrieved": [
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone"
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "query": "Construction sites are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nConstructionSite, Area, SpatialVolume, 3DVolume, BuildingSite, ConstructionArea, Site, Volume, Space, Location, Geospatial, GeographicRegion, Region, Zone, Sector, Domain\n\nNote: The list includes both nouns (e.g., \"ConstructionSite\", \"SpatialVolume\") and verbs (e.g., \"Location\", \"Sector\") that are relevant to the concept of construction sites with spatial 3D volumes.",
+          "raw_retrieved": [
+            "bot.ttl",
+            "brick.ttl",
+            "oum_2020-06-06.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "dbo.rdf",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/rec#Architecture",
+            "https://w3id.org/bot#Zone",
+            "https://w3id.org/bot#Space",
+            "https://w3id.org/bot#Building"
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "query": "Buildings are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Buildings are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuilding, Structure, Architecture, Area, Volume, Space, Spatial, ThreeDimensional, 3D, Ontology, Category:BuiltStructure, Class:Architecture, Type:Edifice, Edificatory, SpatialRegion, GeometricShape, Geometry, Dimensionality\n\nNote that I've used a mix of English and technical terms to provide a comprehensive search list.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "datex_2016-06-13.n3",
+            "bot.ttl",
+            "s4inma_2019-04-30.n3",
+            "brick.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "bot.ttl",
+            "s4inma_2019-04-30.n3",
+            "brick.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4inma_2019-04-30.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Space",
+            "https://saref.etsi.org/saref4inma/Area"
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "query": "Storeys are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpatialVolume, 3DRegion, Area, Volume, Space, Region, Zone, Layer, Level, Floor, Story, BuildingComponent, OntologicalClass, SpatialEntity\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Storeys\n\t* Areas\n\t* Spatial 3D volumes\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type):\n\t* SpatialVolume\n\t* 3DRegion\n\t* Area\n\t* Volume\n\t* Space\n\t* Region\n\t* Zone\n\t* Layer\n\t* Level\n\t* Floor\n\t* Story\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* BuildingComponent\n\t* OntologicalClass\n\t* SpatialEntity\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "bot.ttl",
+            "facility.ttl",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "facility.ttl",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "facility.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone",
+            "https://cogito.iot.linkeddata.es/def/facility#SpatialZone"
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "query": "Spaces are limited three-dimensional extent defined physically or notionally, and are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpace, Area, Volume, Dimension, Extent, Region, Zone, Region, Spatial, Three-Dimensional, Physical, Notional, 3D, OWL:Class - Space, RDF:Resource - Space, Category - GeographicRegion, Type - SpatialExtent\n\nNote that I've included both the original terms and their normalized ontological equivalents (OWL/RDF) to facilitate searching. The list also includes technical synonyms for added precision.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "ssn_2011-06-20.n3",
+            "datex_2016-06-13.n3",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "facility.ttl",
+            "donto_2015-06-19.n3",
+            "dpv_2025-08-01.n3",
+            "brick.ttl",
+            "seo_2019-04-10.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "donto_2015-06-19.n3",
+            "facility.ttl",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "facility.ttl",
+            "dbo.rdf"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Space",
+            "https://cogito.iot.linkeddata.es/def/facility#Space",
+            "http://www.google.com/digitalbuildings/0.0.1/subfields#Volume"
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "query": "Zones may contain other zones",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Zones may contain other zones\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nZone, Container, Class, Type, Region, Area, Subzone, Enclosure, Enclave, Subset, Component, Part, Entity\n\nNote that I've used a combination of natural language processing (NLP) and ontology-based reasoning to generate this list. The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "brick.ttl",
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/rec#Zone",
+            "https://brickschema.org/schema/Brick#Zone",
+            "https://w3id.org/bot#containsZone"
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "query": "Construction sites may contain buildings",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Construction sites may contain buildings\", I've analyzed it and generated a list of optimized search terms following the steps:\n\n1. **Concepts Nucleares:** Main nouns and verbs:\n\t* Construction, site, building\n\t* May, contain\n2. **Normalización Ontológica:**\n\t* Category: Building, Structure, Infrastructure\n\t* Class: Construction Site, Building Location\n\t* Type: Physical Structure, Man-made Object\n3. **Sinónimos Técnicos:**\n\t* Edifice, Architecture, Facility\n\nHere's the optimized list of search terms in English, separated by commas:\n\nConstruction, site, building, structure, infrastructure, physical structure, man-made object, edifice, architecture, facility, contain, may",
+          "raw_retrieved": [
+            "vivo_2014-07-12.n3",
+            "dogont_2015-01-11.n3",
+            "bot.ttl",
+            "contax.ttl",
+            "beo.ttl",
+            "facility.ttl",
+            "building.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "contax.ttl",
+            "building.ttl",
+            "beo.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "contax.ttl",
+            "building.ttl",
+            "beo.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+            "https://pi.pauwel.be/voc/buildingelement#BuildingElement",
+            "https://w3id.org/con-tax#ConstructionComponent",
+            "https://w3id.org/bot#Building"
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "query": "Buildings may contain storeys",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Buildings may contain storeys\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nStructures, Buildings, Architecture, Storeys, Levels, Floors, Edifices, Construction, Real Estate, Ontology, OWL, RDF\n\nNote: The list is in English to facilitate international searching.\n\nNow, let me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Buildings (Structure)\n\t* Storeys (Levels/Floors)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Architecture\n\t* Class: Building Type\n\t* Type: Structure, Edifice\n3. **Sinónimos Técnicos:** I included precise alternatives:\n\t* Levels → Floors\n\t* Real Estate → Property\n\nBy combining these concepts, we can create a comprehensive search list that captures the essence of the user's request.",
+          "raw_retrieved": [
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Storey",
+            "https://w3id.org/rec#Level",
+            "https://w3id.org/bot#Storey"
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "query": "Storeys may contain spaces",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Storeys may contain spaces\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nBuilding, Floor, Level, Story, Space, Area, Room, Container, Entity, Concept, Class, Type, Spatial, Dimensional, Architectural, Structural\n\nNote: The terms are in English to facilitate searching across various databases and ontologies.\n\nNow, if you'll excuse me, I'll just tidy up my semantic web...",
+          "raw_retrieved": [
+            "bot.ttl",
+            "brick.ttl",
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "approved_uris": [
+            "https://cogito.iot.linkeddata.es/def/facility#Storey",
+            "http://bimerr.iot.linkeddata.es/def/building#Storey"
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "query": "Spaces may be contained in storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.\n\nHere's a breakdown of the steps I followed:\n\n1. **Conceptos Nucleares:** The main nouns and verbs are:\n\t* Spaces\n\t* Storeys\n\t* Buildings\n\t* Construction Sites\n\t* Contained (verb)\n2. **Normalización Ontológica:**\n\t* Category: Spatial Entities\n\t* Class: Built Environment\n\t* Type: Architectural Features\n3. **Sinónimos Técnicos:**\n\t* Spaces: Areas, Zones, Regions\n\t* Storeys: Floors, Levels, Stories\n\t* Buildings: Structures, Edifices, Constructions\n\t* Construction Sites: Building Sites, Development Areas, Infrastructure Projects\n\nThe resulting list is a combination of these concepts, normalized and with technical synonyms:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.",
+          "raw_retrieved": [
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#hasSpace",
+            "https://w3id.org/bot#containsZone"
+          ]
+        }
+      },
+      {
+        "id": "11",
+        "query": "Spaces may intersect different storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Intersections, Storeys, Buildings, Construction Sites, Areas, Regions, Zones, Overlaps, Enclosures, Boundaries, Spatial Relationships, Geometric Shapes, Architectural Features, Structural Elements\n\nNote: The list includes both nouns (e.g., Spaces, Storeys) and verbs (e.g., Intersections) that are relevant to the topic of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#hasElement",
+            "https://w3id.org/bot#intersectingElement",
+            "https://w3id.org/bot#intersectsZone"
+          ]
+        }
+      },
+      {
+        "id": "12",
+        "query": "A zone can be adjacent to another zone",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nZone, Adjacent, Region, Area, Territory, Border, Edge, Neighborhood, Proximity, SpatialRelationship, TopologicalNeighbor, OWL:Class, RDF:Type, SemanticWebConcept\n\nNote that I've included both technical terms (e.g., \"SpatialRelationship\", \"TopologicalNeighbor\") and more general concepts (e.g., \"Region\", \"Area\") to provide a comprehensive search scope. The added ontological formalizations (OWL:Class, RDF:Type) will help facilitate semantic searches across various knowledge graphs.",
+          "raw_retrieved": [
+            "bot.ttl",
+            "apco_2022-08-31.n3",
+            "ssn_2011-06-20.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "ssn_2011-06-20.n3"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone",
+            "https://w3id.org/bot#adjacentZone"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con conceptos espaciales, como zonas, edificios, construcciones y espacios. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\n**Análisis**\n\nLa ontología `bot.ttl` presenta una cobertura amplia en términos de conceptos espaciales, incluyendo zonas, construcciones y edificios. Sin embargo, también se observa una cierta redundancia en la cobertura de conceptos como \"areas con volumen 3D\" y \"espacios\".\n\nLa ontología `brick.ttl` tiene una cobertura más limitada que `bot.ttl`, pero sigue siendo relevante para el dominio espacial. La ontología `building.ttl` se centra en edificios y construcciones, lo que la hace interesante para la cobertura de conceptos relacionados con edificios.\n\nLa ontología `s4inma_2019-04-30.n3` tiene una cobertura muy limitada, solo cubriendo el concepto de \"edificios como áreas con volumen 3D\". La ontología `facility.ttl` se centra en espacios y edificios, lo que la hace interesante para la cobertura de conceptos relacionados con espacios.\n\nLa ontología `dbo.rdf` tiene una cobertura muy limitada, solo cubriendo el concepto de \"espacios como áreas con volumen 3D\". La ontología `beo.ttl` y `contax.ttl` tienen una cobertura similar, se centran en construcciones y edificios.\n\n**Recomendaciones**\n\nConsiderando la cobertura y la redundancia entre las ontologías, se recomiendan las siguientes tres ontologías:\n\n\n\nEstas tres ontologías cubren una amplia variedad de conceptos espaciales y ofrecen una buena cobertura para el dominio. Las otras ontologías pueden ser excluidas debido a su cobertura limitada o redundante con las recomendadas.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "bot.ttl",
+        "brick.ttl",
+        "building.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "s4inma_2019-04-30.n3",
+          "motivo": "Cobertura muy limitada"
+        },
+        {
+          "ontologia": "dbo.rdf",
+          "motivo": "Cobertura muy limitada"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con conceptos espaciales, como zonas, edificios, construcciones y espacios. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\n**Análisis**\n\nLa ontología `bot.ttl` presenta una cobertura amplia en términos de conceptos espaciales, incluyendo zonas, construcciones y edificios. Sin embargo, también se observa una cierta redundancia en la cobertura de conceptos como \"areas con volumen 3D\" y \"espacios\".\n\nLa ontología `brick.ttl` tiene una cobertura más limitada que `bot.ttl`, pero sigue siendo relevante para el dominio espacial. La ontología `building.ttl` se centra en edificios y construcciones, lo que la hace interesante para la cobertura de conceptos relacionados con edificios.\n\nLa ontología `s4inma_2019-04-30.n3` tiene una cobertura muy limitada, solo cubriendo el concepto de \"edificios como áreas con volumen 3D\". La ontología `facility.ttl` se centra en espacios y edificios, lo que la hace interesante para la cobertura de conceptos relacionados con espacios.\n\nLa ontología `dbo.rdf` tiene una cobertura muy limitada, solo cubriendo el concepto de \"espacios como áreas con volumen 3D\". La ontología `beo.ttl` y `contax.ttl` tienen una cobertura similar, se centran en construcciones y edificios.\n\n**Recomendaciones**\n\nConsiderando la cobertura y la redundancia entre las ontologías, se recomiendan las siguientes tres ontologías:\n\n\n\nEstas tres ontologías cubren una amplia variedad de conceptos espaciales y ofrecen una buena cobertura para el dominio. Las otras ontologías pueden ser excluidas debido a su cobertura limitada o redundante con las recomendadas."
+    }
+  },
+  {
+    "config_name": "Denso Sin Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 1.0,
+      "judge_accuracy": 0.9166666666666666,
+      "veredict_accuracy": 0.9166666666666666,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.521702249844869,
+      "total_time": 54.26042699813843
+    },
+    "cases": [
+      {
+        "id": "1",
+        "query": "Zones are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Zones are areas with spatial 3D volumes\", I've generated an optimized search list following the steps:\n\n1. **Concepts Nucleares:** Main technical nouns and verbs:\n\t* Zones, Areas, Volumes\n\t* Spatial, Three-Dimensional (3D)\n2. **Normalización Ontológica:**\n\t* Category: Geographic Area, Spatial Region\n\t* Class: Zone, Area, Volume\n\t* Type: 3D Space, Geospatial Volume\n3. **Sinónimos Técnicos:**\n\t* Regions, Districts, Territories\n\t* Spaces, Areas, Domains\n\nHere's the optimized search list in English, separated by commas:\n\nGeographic Area, Spatial Region, Zone, Area, Volume, 3D Space, Geospatial Volume, Regions, Districts, Territories, Spaces, Areas, Domains",
+          "raw_retrieved": [
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone"
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "query": "Construction sites are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nConstructionSite, Area, SpatialVolume, 3DVolume, BuildingSite, ConstructionArea, Site, Volume, Space, Location, Geospatial, GeographicRegion, Region, Zone, Sector, Domain\n\nNote: The list includes both nouns (e.g., \"ConstructionSite\", \"SpatialVolume\") and verbs (e.g., \"Location\", \"Sector\") that are relevant to the concept of construction sites with spatial 3D volumes.",
+          "raw_retrieved": [
+            "bot.ttl",
+            "brick.ttl",
+            "oum_2020-06-06.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "brick.ttl",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "dbo.rdf"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Site",
+            "http://www.google.com/digitalbuildings/0.0.1/subfields#Volume"
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "query": "Buildings are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Buildings are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuilding, Structure, Architecture, Area, Volume, Space, Spatial, ThreeDimensional, 3D, Ontology, Category:BuiltStructure, Class:Architecture, Type:Edifice, Edificatory, SpatialRegion, GeometricShape, Geometry, Dimensionality\n\nNote that I've used a mix of English and technical terms to provide a comprehensive search list.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "datex_2016-06-13.n3",
+            "bot.ttl",
+            "s4inma_2019-04-30.n3",
+            "brick.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "s4inma_2019-04-30.n3",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "s4inma_2019-04-30.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Building",
+            "https://saref.etsi.org/saref4bldg/BuildingSpace",
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "query": "Storeys are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpatialVolume, 3DRegion, Area, Volume, Space, Region, Zone, Layer, Level, Floor, Story, BuildingComponent, OntologicalClass, SpatialEntity\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Storeys\n\t* Areas\n\t* Spatial 3D volumes\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type):\n\t* SpatialVolume\n\t* 3DRegion\n\t* Area\n\t* Volume\n\t* Space\n\t* Region\n\t* Zone\n\t* Layer\n\t* Level\n\t* Floor\n\t* Story\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* BuildingComponent\n\t* OntologicalClass\n\t* SpatialEntity\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "bot.ttl",
+            "facility.ttl",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "facility.ttl",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "facility.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone",
+            "https://cogito.iot.linkeddata.es/def/facility#SpatialZone"
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "query": "Spaces are limited three-dimensional extent defined physically or notionally, and are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpace, Area, Volume, Dimension, Extent, Region, Zone, Region, Spatial, Three-Dimensional, Physical, Notional, 3D, OWL:Class - Space, RDF:Resource - Space, Category - GeographicRegion, Type - SpatialExtent\n\nNote that I've included both the original terms and their normalized ontological equivalents (OWL/RDF) to facilitate searching. The list also includes technical synonyms for added precision.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "ssn_2011-06-20.n3",
+            "datex_2016-06-13.n3",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "facility.ttl",
+            "donto_2015-06-19.n3",
+            "dpv_2025-08-01.n3",
+            "brick.ttl",
+            "seo_2019-04-10.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "brick.ttl",
+            "datex_2016-06-13.n3",
+            "dbo.rdf"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "brick.ttl",
+            "datex_2016-06-13.n3"
+          ],
+          "approved_uris": [
+            "http://vocab.datex.org/terms#Dimension",
+            "https://w3id.org/bot#Space",
+            "https://brickschema.org/schema/Brick#Space"
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "query": "Zones may contain other zones",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Zones may contain other zones\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nZone, Container, Class, Type, Region, Area, Subzone, Enclosure, Enclave, Subset, Component, Part, Entity\n\nNote that I've used a combination of natural language processing (NLP) and ontology-based reasoning to generate this list. The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "brick.ttl",
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Zone",
+            "https://w3id.org/bot#containsZone"
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "query": "Construction sites may contain buildings",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Construction sites may contain buildings\", I've analyzed it and generated a list of optimized search terms following the steps:\n\n1. **Concepts Nucleares:** Main nouns and verbs:\n\t* Construction, site, building\n\t* May, contain\n2. **Normalización Ontológica:**\n\t* Category: Building, Structure, Infrastructure\n\t* Class: Construction Site, Building Location\n\t* Type: Physical Structure, Man-made Object\n3. **Sinónimos Técnicos:**\n\t* Edifice, Architecture, Facility\n\nHere's the optimized list of search terms in English, separated by commas:\n\nConstruction, site, building, structure, infrastructure, physical structure, man-made object, edifice, architecture, facility, contain, may",
+          "raw_retrieved": [
+            "vivo_2014-07-12.n3",
+            "dogont_2015-01-11.n3",
+            "bot.ttl",
+            "contax.ttl",
+            "beo.ttl",
+            "facility.ttl",
+            "building.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "building.ttl",
+            "beo.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "building.ttl",
+            "beo.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+            "https://w3id.org/bot#Site",
+            "https://pi.pauwel.be/voc/buildingelement#BuildingElement"
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "query": "Buildings may contain storeys",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Buildings may contain storeys\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nStructures, Buildings, Architecture, Storeys, Levels, Floors, Edifices, Construction, Real Estate, Ontology, OWL, RDF\n\nNote: The list is in English to facilitate international searching.\n\nNow, let me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Buildings (Structure)\n\t* Storeys (Levels/Floors)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Architecture\n\t* Class: Building Type\n\t* Type: Structure, Edifice\n3. **Sinónimos Técnicos:** I included precise alternatives:\n\t* Levels → Floors\n\t* Real Estate → Property\n\nBy combining these concepts, we can create a comprehensive search list that captures the essence of the user's request.",
+          "raw_retrieved": [
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/rec#Level",
+            "https://w3id.org/bot#hasStorey",
+            "https://w3id.org/bot#Storey"
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "query": "Storeys may contain spaces",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Storeys may contain spaces\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nBuilding, Floor, Level, Story, Space, Area, Room, Container, Entity, Concept, Class, Type, Spatial, Dimensional, Architectural, Structural\n\nNote: The terms are in English to facilitate searching across various databases and ontologies.\n\nNow, if you'll excuse me, I'll just tidy up my semantic web...",
+          "raw_retrieved": [
+            "bot.ttl",
+            "brick.ttl",
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "building.ttl",
+            "facility.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#hasStorey",
+            "http://bimerr.iot.linkeddata.es/def/building#Storey"
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "query": "Spaces may be contained in storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.\n\nHere's a breakdown of the steps I followed:\n\n1. **Conceptos Nucleares:** The main nouns and verbs are:\n\t* Spaces\n\t* Storeys\n\t* Buildings\n\t* Construction Sites\n\t* Contained (verb)\n2. **Normalización Ontológica:**\n\t* Category: Spatial Entities\n\t* Class: Built Environment\n\t* Type: Architectural Features\n3. **Sinónimos Técnicos:**\n\t* Spaces: Areas, Zones, Regions\n\t* Storeys: Floors, Levels, Stories\n\t* Buildings: Structures, Edifices, Constructions\n\t* Construction Sites: Building Sites, Development Areas, Infrastructure Projects\n\nThe resulting list is a combination of these concepts, normalized and with technical synonyms:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.",
+          "raw_retrieved": [
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#containsElement",
+            "https://w3id.org/bot#hasBuilding"
+          ]
+        }
+      },
+      {
+        "id": "11",
+        "query": "Spaces may intersect different storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Intersections, Storeys, Buildings, Construction Sites, Areas, Regions, Zones, Overlaps, Enclosures, Boundaries, Spatial Relationships, Geometric Shapes, Architectural Features, Structural Elements\n\nNote: The list includes both nouns (e.g., Spaces, Storeys) and verbs (e.g., Intersections) that are relevant to the topic of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "bot.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#intersectingElement",
+            "https://w3id.org/bot#intersectsZone"
+          ]
+        }
+      },
+      {
+        "id": "12",
+        "query": "A zone can be adjacent to another zone",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nZone, Adjacent, Region, Area, Territory, Border, Edge, Neighborhood, Proximity, SpatialRelationship, TopologicalNeighbor, OWL:Class, RDF:Type, SemanticWebConcept\n\nNote that I've included both technical terms (e.g., \"SpatialRelationship\", \"TopologicalNeighbor\") and more general concepts (e.g., \"Region\", \"Area\") to provide a comprehensive search scope. The added ontological formalizations (OWL:Class, RDF:Type) will help facilitate semantic searches across various knowledge graphs.",
+          "raw_retrieved": [
+            "bot.ttl",
+            "apco_2022-08-31.n3",
+            "ssn_2011-06-20.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "apco_2022-08-31.n3"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#adjacentZone",
+            "https://w3id.org/bot#adjacentElement"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre diferentes ontologías y los requisitos que cubren. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nEn primer lugar, es importante destacar que todas las ontologías presentan una buena cobertura en cuanto a la definición de espacios y edificios. Sin embargo, algunas ontologías tienen un mayor impacto en la cobertura general.\n\nLa ontología `bot.ttl` presenta una cobertura amplia y diversa, abarcando conceptos como zonas, construcciones, edificios y espacios. Esta ontología es fundamental para cualquier aplicación que requiera describir y relacionar diferentes tipos de espacios y edificios.\n\nPor otro lado, la ontología `building.ttl` tiene una cobertura más específica en cuanto a los edificios y sus componentes (storeys y spaces). Aunque no cubre tantos requisitos como `bot.ttl`, es importante para cualquier aplicación que requiera describir y relacionar edificios.\n\nLa ontología `facility.ttl` presenta una cobertura limitada, pero específica en cuanto a los storeys. Esta ontología puede ser útil para aplicaciones que requieren describir y relacionar diferentes niveles dentro de un edificio.\n\nEn conclusión, se recomiendan las siguientes ontologías:\n\n* `bot.ttl`: por su amplia cobertura y diversidad de conceptos.\n* `building.ttl`: por su especialización en edificios y sus componentes.\n* `facility.ttl`: por su especialización en storeys.\n\nLas ontologías que no se recomiendan son:",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "bot.ttl",
+        "building.ttl",
+        "facility.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "brick.ttl",
+          "motivo": "Cobertura limitada y redundante con otras ontologías"
+        },
+        {
+          "ontologia": "beo.ttl",
+          "motivo": "Cobertura específica en construcciones, pero no tan relevante para la cobertura general"
+        },
+        {
+          "ontologia": "datex_2016-06-13.n3",
+          "motivo": "Cobertura limitada y redundante con otras ontologías"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre diferentes ontologías y los requisitos que cubren. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nEn primer lugar, es importante destacar que todas las ontologías presentan una buena cobertura en cuanto a la definición de espacios y edificios. Sin embargo, algunas ontologías tienen un mayor impacto en la cobertura general.\n\nLa ontología `bot.ttl` presenta una cobertura amplia y diversa, abarcando conceptos como zonas, construcciones, edificios y espacios. Esta ontología es fundamental para cualquier aplicación que requiera describir y relacionar diferentes tipos de espacios y edificios.\n\nPor otro lado, la ontología `building.ttl` tiene una cobertura más específica en cuanto a los edificios y sus componentes (storeys y spaces). Aunque no cubre tantos requisitos como `bot.ttl`, es importante para cualquier aplicación que requiera describir y relacionar edificios.\n\nLa ontología `facility.ttl` presenta una cobertura limitada, pero específica en cuanto a los storeys. Esta ontología puede ser útil para aplicaciones que requieren describir y relacionar diferentes niveles dentro de un edificio.\n\nEn conclusión, se recomiendan las siguientes ontologías:\n\n* `bot.ttl`: por su amplia cobertura y diversidad de conceptos.\n* `building.ttl`: por su especialización en edificios y sus componentes.\n* `facility.ttl`: por su especialización en storeys.\n\nLas ontologías que no se recomiendan son:"
+    }
+  },
+  {
+    "config_name": "BM25 + Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.3333333333333333,
+      "judge_accuracy": 0.16666666666666666,
+      "veredict_accuracy": 0.16666666666666666,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.995613217353821,
+      "total_time": 59.94735860824585
+    },
+    "cases": [
+      {
+        "id": "1",
+        "query": "Zones are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Zones are areas with spatial 3D volumes\", I've generated an optimized search list following the steps:\n\n1. **Concepts Nucleares:** Main technical nouns and verbs:\n\t* Zones, Areas, Volumes\n\t* Spatial, Three-Dimensional (3D)\n2. **Normalización Ontológica:**\n\t* Category: Geographic Area, Spatial Region\n\t* Class: Zone, Area, Volume\n\t* Type: 3D Space, Geospatial Volume\n3. **Sinónimos Técnicos:**\n\t* Regions, Districts, Territories\n\t* Spaces, Areas, Domains\n\nHere's the optimized search list in English, separated by commas:\n\nGeographic Area, Spatial Region, Zone, Area, Volume, 3D Space, Geospatial Volume, Regions, Districts, Territories, Spaces, Areas, Domains",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "facility.ttl",
+            "donto_2015-06-19.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "donto_2015-06-19.n3",
+            "facility.ttl",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_sources": [
+            "donto_2015-06-19.n3",
+            "facility.ttl",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_uris": [
+            "https://cogito.iot.linkeddata.es/def/facility#SpatialZone",
+            "http://purl.obolibrary.org/obo/BFO_0000006",
+            "http://reference.data.gov.au/def/ont/dataset#SpatialThing"
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "query": "Construction sites are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nConstructionSite, Area, SpatialVolume, 3DVolume, BuildingSite, ConstructionArea, Site, Volume, Space, Location, Geospatial, GeographicRegion, Region, Zone, Sector, Domain\n\nNote: The list includes both nouns (e.g., \"ConstructionSite\", \"SpatialVolume\") and verbs (e.g., \"Location\", \"Sector\") that are relevant to the concept of construction sites with spatial 3D volumes.",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "saref4bldg.n3",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "ssn_2011-06-20.n3",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "cis_2016-03-30.n3",
+            "tsnc_2017-05-15.n3",
+            "m4i_2025-03-10.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "contax.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "tsn_2017-01-31.n3",
+            "modsci_2022-12-18.n3",
+            "oum_2020-06-06.n3",
+            "cis_2016-03-30.n3",
+            "contax.ttl"
+          ],
+          "approved_sources": [
+            "contax.ttl",
+            "cis_2016-03-30.n3"
+          ],
+          "approved_uris": [
+            "http://dati.beniculturali.it/cis/CulturalInstituteOrSite",
+            "https://w3id.org/con-tax#ConstructionSubComponent"
+          ]
+        }
+      },
+      {
+        "id": "3",
+        "query": "Buildings are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Buildings are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuilding, Structure, Architecture, Area, Volume, Space, Spatial, ThreeDimensional, 3D, Ontology, Category:BuiltStructure, Class:Architecture, Type:Edifice, Edificatory, SpatialRegion, GeometricShape, Geometry, Dimensionality\n\nNote that I've used a mix of English and technical terms to provide a comprehensive search list.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "bot.ttl",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "saref4bldg.n3",
+            "bot.ttl",
+            "schema.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "building.ttl",
+            "saref4bldg.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Building",
+            "http://bimerr.iot.linkeddata.es/def/building#Building",
+            "https://saref.etsi.org/saref4bldg/Building"
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "query": "Storeys are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpatialVolume, 3DRegion, Area, Volume, Space, Region, Zone, Layer, Level, Floor, Story, BuildingComponent, OntologicalClass, SpatialEntity\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Storeys\n\t* Areas\n\t* Spatial 3D volumes\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type):\n\t* SpatialVolume\n\t* 3DRegion\n\t* Area\n\t* Volume\n\t* Space\n\t* Region\n\t* Zone\n\t* Layer\n\t* Level\n\t* Floor\n\t* Story\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* BuildingComponent\n\t* OntologicalClass\n\t* SpatialEntity\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "cgov_2012-08-28.n3",
+            "qudt_2020-04-20.n3",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "building.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "query": "Spaces are limited three-dimensional extent defined physically or notionally, and are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpace, Area, Volume, Dimension, Extent, Region, Zone, Region, Spatial, Three-Dimensional, Physical, Notional, 3D, OWL:Class - Space, RDF:Resource - Space, Category - GeographicRegion, Type - SpatialExtent\n\nNote that I've included both the original terms and their normalized ontological equivalents (OWL/RDF) to facilitate searching. The list also includes technical synonyms for added precision.",
+          "raw_retrieved": [
+            "omg.ttl",
+            "base_ontology.owl",
+            "dogont_2015-01-11.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "cis_2016-03-30.n3",
+            "beo.ttl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "s4ehaw_2020-05-01.n3",
+            "roh_2022-01-01.n3",
+            "s4ener_2020-06-04.n3"
+          ],
+          "top_k_sources": [
+            "omg.ttl",
+            "base_ontology.owl",
+            "dogont_2015-01-11.n3",
+            "cis_2016-03-30.n3",
+            "s4ehaw_2020-05-01.n3"
+          ],
+          "approved_sources": [
+            "omg.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/omg#CurrentGeometryState",
+            "http://elite.polito.it/ontologies/dogont.owl#UpDownRestState"
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "query": "Zones may contain other zones",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Zones may contain other zones\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nZone, Container, Class, Type, Region, Area, Subzone, Enclosure, Enclave, Subset, Component, Part, Entity\n\nNote that I've used a combination of natural language processing (NLP) and ontology-based reasoning to generate this list. The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "saref4bldg.n3",
+            "base_ontology.owl",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "dpv_2025-08-01.n3",
+            "cerif_2013-04-23.n3",
+            "swo.owl",
+            "eurio_2023-09-28.n3",
+            "schema.ttl"
+          ],
+          "top_k_sources": [
+            "fabio_2019-02-19.n3",
+            "dpv_2025-08-01.n3",
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#NaturalLanguageProcessing"
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "query": "Construction sites may contain buildings",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Construction sites may contain buildings\", I've analyzed it and generated a list of optimized search terms following the steps:\n\n1. **Concepts Nucleares:** Main nouns and verbs:\n\t* Construction, site, building\n\t* May, contain\n2. **Normalización Ontológica:**\n\t* Category: Building, Structure, Infrastructure\n\t* Class: Construction Site, Building Location\n\t* Type: Physical Structure, Man-made Object\n3. **Sinónimos Técnicos:**\n\t* Edifice, Architecture, Facility\n\nHere's the optimized list of search terms in English, separated by commas:\n\nConstruction, site, building, structure, infrastructure, physical structure, man-made object, edifice, architecture, facility, contain, may",
+          "raw_retrieved": [
+            "schema.ttl",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "bot.ttl",
+            "dpv_2025-08-01.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "bot.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Building",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Equation"
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "query": "Buildings may contain storeys",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Buildings may contain storeys\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nStructures, Buildings, Architecture, Storeys, Levels, Floors, Edifices, Construction, Real Estate, Ontology, OWL, RDF\n\nNote: The list is in English to facilitate international searching.\n\nNow, let me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Buildings (Structure)\n\t* Storeys (Levels/Floors)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Architecture\n\t* Class: Building Type\n\t* Type: Structure, Edifice\n3. **Sinónimos Técnicos:** I included precise alternatives:\n\t* Levels → Floors\n\t* Real Estate → Property\n\nBy combining these concepts, we can create a comprehensive search list that captures the essence of the user's request.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "saref4watr.n3",
+            "swo.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "saref4watr.n3",
+            "swo.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Equation"
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "query": "Storeys may contain spaces",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Storeys may contain spaces\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nBuilding, Floor, Level, Story, Space, Area, Room, Container, Entity, Concept, Class, Type, Spatial, Dimensional, Architectural, Structural\n\nNote: The terms are in English to facilitate searching across various databases and ontologies.\n\nNow, if you'll excuse me, I'll just tidy up my semantic web...",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "base_ontology.owl",
+            "swrc_2007-06-22.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "m3lite_2017-07-29.n3",
+            "donto_2015-06-19.n3",
+            "dpv_2025-08-01.n3",
+            "swo.owl",
+            "eurio_2023-09-28.n3",
+            "schema.ttl",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "tsn_2017-01-31.n3",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "tsn_2017-01-31.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/tsn#Unit",
+            "https://schema.org/Campground",
+            "https://schema.org/CampingPitch"
+          ]
+        }
+      },
+      {
+        "id": "10",
+        "query": "Spaces may be contained in storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.\n\nHere's a breakdown of the steps I followed:\n\n1. **Conceptos Nucleares:** The main nouns and verbs are:\n\t* Spaces\n\t* Storeys\n\t* Buildings\n\t* Construction Sites\n\t* Contained (verb)\n2. **Normalización Ontológica:**\n\t* Category: Spatial Entities\n\t* Class: Built Environment\n\t* Type: Architectural Features\n3. **Sinónimos Técnicos:**\n\t* Spaces: Areas, Zones, Regions\n\t* Storeys: Floors, Levels, Stories\n\t* Buildings: Structures, Edifices, Constructions\n\t* Construction Sites: Building Sites, Development Areas, Infrastructure Projects\n\nThe resulting list is a combination of these concepts, normalized and with technical synonyms:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.",
+          "raw_retrieved": [
+            "saref4envi.n3",
+            "th_building.owl",
+            "cgov_2012-08-28.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "dcterms_2012-06-14.n3",
+            "m3lite_2017-07-29.n3",
+            "donto_2015-06-19.n3",
+            "facility.ttl",
+            "dt.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "saref4envi.n3",
+            "th_building.owl",
+            "m3lite_2017-07-29.n3",
+            "facility.ttl",
+            "dt.n3"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3",
+            "saref4envi.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4envi/Building",
+            "http://purl.org/iot/vocab/m3-lite#ConstructionWork"
+          ]
+        }
+      },
+      {
+        "id": "11",
+        "query": "Spaces may intersect different storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "hard",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Intersections, Storeys, Buildings, Construction Sites, Areas, Regions, Zones, Overlaps, Enclosures, Boundaries, Spatial Relationships, Geometric Shapes, Architectural Features, Structural Elements\n\nNote: The list includes both nouns (e.g., Spaces, Storeys) and verbs (e.g., Intersections) that are relevant to the topic of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "ssn_2011-06-20.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "swc_2009-05-11.n3",
+            "tsnc_2017-05-15.n3",
+            "bot.ttl",
+            "swo.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "schema.ttl",
+            "th_building.owl",
+            "oum_2020-06-06.n3"
+          ],
+          "approved_sources": [
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#PlanarGeometry"
+          ]
+        }
+      },
+      {
+        "id": "12",
+        "query": "A zone can be adjacent to another zone",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nZone, Adjacent, Region, Area, Territory, Border, Edge, Neighborhood, Proximity, SpatialRelationship, TopologicalNeighbor, OWL:Class, RDF:Type, SemanticWebConcept\n\nNote that I've included both technical terms (e.g., \"SpatialRelationship\", \"TopologicalNeighbor\") and more general concepts (e.g., \"Region\", \"Area\") to provide a comprehensive search scope. The added ontological formalizations (OWL:Class, RDF:Type) will help facilitate semantic searches across various knowledge graphs.",
+          "raw_retrieved": [
+            "saref_2020-05-29.n3",
+            "modsci_2022-12-18.n3",
+            "ssn_2011-06-20.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "tsnc_2017-05-15.n3",
+            "th_sharedvocalulary.owl",
+            "edupro_2016-09-13.n3",
+            "m4i_2025-03-10.n3",
+            "s4inma_2019-04-30.n3",
+            "swo.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "tsnc_2017-05-15.n3",
+            "s4inma_2019-04-30.n3",
+            "fea_2015-06-26.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con conceptos espaciales como zonas, edificios, construcciones y espacios. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nSe observa que varias ontologías comparten conceptos similares, como la idea de áreas con volumen 3D (zona, edificio, construcción). Esto sugiere una relación entre estas ontologías y la necesidad de integrarlas para obtener una cobertura más completa.\n\n**Recomendaciones**\n\nConsiderando la cobertura y las relaciones entre las ontologías, se recomiendan las siguientes tres ontologías:\n\n* **bot.ttl**: Esta ontología es fundamental para entender los conceptos de edificios y construcciones, y su relación con zonas y espacios.\n* **th_building.owl**: Esta ontología proporciona una visión más detallada de la relación entre edificios, construcciones y espacios, lo que es crucial para obtener una cobertura completa.\n* **saref4envi.n3**: Esta ontologia es importante porque proporciona información sobre la relación entre espacios y su contención en edificios y construcciones.\n\n**Excluidas**\n\nLas siguientes ontologías no fueron seleccionadas debido a que no ofrecen una cobertura significativamente diferente o relacionada con las recomendadas:\n\n* **facility.ttl**: Aunque esta ontología se refiere a zonas, su contenido es similar al de otras ontologías y no agrega información nueva.\n* **omg.ttl**: Esta ontología se centra en el concepto de espacios, pero no proporciona información sobre la relación entre edificios y construcciones.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "bot.ttl",
+        "th_building.owl",
+        "saref4envi.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "facility.ttl",
+          "motivo": "No agrega información nueva"
+        },
+        {
+          "ontologia": "omg.ttl",
+          "motivo": "Se centra en espacios, no edificios y construcciones"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con conceptos espaciales como zonas, edificios, construcciones y espacios. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nSe observa que varias ontologías comparten conceptos similares, como la idea de áreas con volumen 3D (zona, edificio, construcción). Esto sugiere una relación entre estas ontologías y la necesidad de integrarlas para obtener una cobertura más completa.\n\n**Recomendaciones**\n\nConsiderando la cobertura y las relaciones entre las ontologías, se recomiendan las siguientes tres ontologías:\n\n* **bot.ttl**: Esta ontología es fundamental para entender los conceptos de edificios y construcciones, y su relación con zonas y espacios.\n* **th_building.owl**: Esta ontología proporciona una visión más detallada de la relación entre edificios, construcciones y espacios, lo que es crucial para obtener una cobertura completa.\n* **saref4envi.n3**: Esta ontologia es importante porque proporciona información sobre la relación entre espacios y su contención en edificios y construcciones.\n\n**Excluidas**\n\nLas siguientes ontologías no fueron seleccionadas debido a que no ofrecen una cobertura significativamente diferente o relacionada con las recomendadas:\n\n* **facility.ttl**: Aunque esta ontología se refiere a zonas, su contenido es similar al de otras ontologías y no agrega información nueva.\n* **omg.ttl**: Esta ontología se centra en el concepto de espacios, pero no proporciona información sobre la relación entre edificios y construcciones."
+    }
+  },
+  {
+    "config_name": "BM25 Sin Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.3333333333333333,
+      "judge_accuracy": 0.08333333333333333,
+      "veredict_accuracy": 0.0,
+      "veredict_precision": 0.0,
+      "veredict_recall": 0.0,
+      "veredict_f1": 0.0,
+      "average_time": 4.966772496700287,
+      "total_time": 59.60126996040344
+    },
+    "cases": [
+      {
+        "id": "1",
+        "query": "Zones are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Zones are areas with spatial 3D volumes\", I've generated an optimized search list following the steps:\n\n1. **Concepts Nucleares:** Main technical nouns and verbs:\n\t* Zones, Areas, Volumes\n\t* Spatial, Three-Dimensional (3D)\n2. **Normalización Ontológica:**\n\t* Category: Geographic Area, Spatial Region\n\t* Class: Zone, Area, Volume\n\t* Type: 3D Space, Geospatial Volume\n3. **Sinónimos Técnicos:**\n\t* Regions, Districts, Territories\n\t* Spaces, Areas, Domains\n\nHere's the optimized search list in English, separated by commas:\n\nGeographic Area, Spatial Region, Zone, Area, Volume, 3D Space, Geospatial Volume, Regions, Districts, Territories, Spaces, Areas, Domains",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "bot.ttl",
+            "facility.ttl",
+            "donto_2015-06-19.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3"
+          ],
+          "approved_sources": [
+            "oum_2020-06-06.n3"
+          ],
+          "approved_uris": [
+            "http://www.ontology-of-units-of-measure.org/resource/om-2/Volume"
+          ]
+        }
+      },
+      {
+        "id": "2",
+        "query": "Construction sites are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nConstructionSite, Area, SpatialVolume, 3DVolume, BuildingSite, ConstructionArea, Site, Volume, Space, Location, Geospatial, GeographicRegion, Region, Zone, Sector, Domain\n\nNote: The list includes both nouns (e.g., \"ConstructionSite\", \"SpatialVolume\") and verbs (e.g., \"Location\", \"Sector\") that are relevant to the concept of construction sites with spatial 3D volumes.",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "saref4bldg.n3",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "ssn_2011-06-20.n3",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "cis_2016-03-30.n3",
+            "tsnc_2017-05-15.n3",
+            "m4i_2025-03-10.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "contax.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "tsnc_2017-05-15.n3",
+            "schema.ttl",
+            "bpo.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "3",
+        "query": "Buildings are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Buildings are areas with spatial 3D volumes\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuilding, Structure, Architecture, Area, Volume, Space, Spatial, ThreeDimensional, 3D, Ontology, Category:BuiltStructure, Class:Architecture, Type:Edifice, Edificatory, SpatialRegion, GeometricShape, Geometry, Dimensionality\n\nNote that I've used a mix of English and technical terms to provide a comprehensive search list.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "bot.ttl",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "building.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "th_building.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "https://schema.org/spatialCoverage",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#PlanarGeometry"
+          ]
+        }
+      },
+      {
+        "id": "4",
+        "query": "Storeys are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpatialVolume, 3DRegion, Area, Volume, Space, Region, Zone, Layer, Level, Floor, Story, BuildingComponent, OntologicalClass, SpatialEntity\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Storeys\n\t* Areas\n\t* Spatial 3D volumes\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type):\n\t* SpatialVolume\n\t* 3DRegion\n\t* Area\n\t* Volume\n\t* Space\n\t* Region\n\t* Zone\n\t* Layer\n\t* Level\n\t* Floor\n\t* Story\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* BuildingComponent\n\t* OntologicalClass\n\t* SpatialEntity\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "cgov_2012-08-28.n3",
+            "qudt_2020-04-20.n3",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "top_k_sources": [
+            "fabio_2019-02-19.n3",
+            "th_building.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Nanopublication",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Equation"
+          ]
+        }
+      },
+      {
+        "id": "5",
+        "query": "Spaces are limited three-dimensional extent defined physically or notionally, and are areas with spatial 3D volumes",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpace, Area, Volume, Dimension, Extent, Region, Zone, Region, Spatial, Three-Dimensional, Physical, Notional, 3D, OWL:Class - Space, RDF:Resource - Space, Category - GeographicRegion, Type - SpatialExtent\n\nNote that I've included both the original terms and their normalized ontological equivalents (OWL/RDF) to facilitate searching. The list also includes technical synonyms for added precision.",
+          "raw_retrieved": [
+            "omg.ttl",
+            "base_ontology.owl",
+            "dogont_2015-01-11.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "cis_2016-03-30.n3",
+            "beo.ttl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "s4ehaw_2020-05-01.n3",
+            "roh_2022-01-01.n3",
+            "s4ener_2020-06-04.n3"
+          ],
+          "top_k_sources": [
+            "omg.ttl",
+            "base_ontology.owl",
+            "dpv_2025-08-01.n3",
+            "s4ehaw_2020-05-01.n3",
+            "s4ener_2020-06-04.n3"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "s4ehaw_2020-05-01.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4ehaw/banGeolocation",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Operation"
+          ]
+        }
+      },
+      {
+        "id": "6",
+        "query": "Zones may contain other zones",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Zones may contain other zones\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nZone, Container, Class, Type, Region, Area, Subzone, Enclosure, Enclave, Subset, Component, Part, Entity\n\nNote that I've used a combination of natural language processing (NLP) and ontology-based reasoning to generate this list. The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "saref4bldg.n3",
+            "base_ontology.owl",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "dpv_2025-08-01.n3",
+            "cerif_2013-04-23.n3",
+            "swo.owl",
+            "eurio_2023-09-28.n3",
+            "schema.ttl"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3",
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/skgo/modsci#NaturalLanguageProcessing"
+          ]
+        }
+      },
+      {
+        "id": "7",
+        "query": "Construction sites may contain buildings",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_VEREDICT_EXCLUSION",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"Construction sites may contain buildings\", I've analyzed it and generated a list of optimized search terms following the steps:\n\n1. **Concepts Nucleares:** Main nouns and verbs:\n\t* Construction, site, building\n\t* May, contain\n2. **Normalización Ontológica:**\n\t* Category: Building, Structure, Infrastructure\n\t* Class: Construction Site, Building Location\n\t* Type: Physical Structure, Man-made Object\n3. **Sinónimos Técnicos:**\n\t* Edifice, Architecture, Facility\n\nHere's the optimized list of search terms in English, separated by commas:\n\nConstruction, site, building, structure, infrastructure, physical structure, man-made object, edifice, architecture, facility, contain, may",
+          "raw_retrieved": [
+            "schema.ttl",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "bot.ttl",
+            "dpv_2025-08-01.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "bot.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Building"
+          ]
+        }
+      },
+      {
+        "id": "8",
+        "query": "Buildings may contain storeys",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Buildings may contain storeys\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nStructures, Buildings, Architecture, Storeys, Levels, Floors, Edifices, Construction, Real Estate, Ontology, OWL, RDF\n\nNote: The list is in English to facilitate international searching.\n\nNow, let me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Buildings (Structure)\n\t* Storeys (Levels/Floors)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Architecture\n\t* Class: Building Type\n\t* Type: Structure, Edifice\n3. **Sinónimos Técnicos:** I included precise alternatives:\n\t* Levels → Floors\n\t* Real Estate → Property\n\nBy combining these concepts, we can create a comprehensive search list that captures the essence of the user's request.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "saref4watr.n3",
+            "swo.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "fabio_2019-02-19.n3",
+            "th_building.owl",
+            "oum_2020-06-06.n3",
+            "bpo.ttl"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Nanopublication",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Equation"
+          ]
+        }
+      },
+      {
+        "id": "9",
+        "query": "Storeys may contain spaces",
+        "expected": "bot.ttl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"Storeys may contain spaces\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nBuilding, Floor, Level, Story, Space, Area, Room, Container, Entity, Concept, Class, Type, Spatial, Dimensional, Architectural, Structural\n\nNote: The terms are in English to facilitate searching across various databases and ontologies.\n\nNow, if you'll excuse me, I'll just tidy up my semantic web...",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "base_ontology.owl",
+            "swrc_2007-06-22.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "m3lite_2017-07-29.n3",
+            "donto_2015-06-19.n3",
+            "dpv_2025-08-01.n3",
+            "swo.owl",
+            "eurio_2023-09-28.n3",
+            "schema.ttl",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "tsn_2017-01-31.n3",
+            "base_ontology.owl",
+            "dpv_2025-08-01.n3",
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "10",
+        "query": "Spaces may be contained in storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.\n\nHere's a breakdown of the steps I followed:\n\n1. **Conceptos Nucleares:** The main nouns and verbs are:\n\t* Spaces\n\t* Storeys\n\t* Buildings\n\t* Construction Sites\n\t* Contained (verb)\n2. **Normalización Ontológica:**\n\t* Category: Spatial Entities\n\t* Class: Built Environment\n\t* Type: Architectural Features\n3. **Sinónimos Técnicos:**\n\t* Spaces: Areas, Zones, Regions\n\t* Storeys: Floors, Levels, Stories\n\t* Buildings: Structures, Edifices, Constructions\n\t* Construction Sites: Building Sites, Development Areas, Infrastructure Projects\n\nThe resulting list is a combination of these concepts, normalized and with technical synonyms:\n\nSpaces, Storeys, Buildings, Construction Sites, Contained, Architecture, Real Estate, Civil Engineering, Spatial Relationships, Ontology, Semantic Web.",
+          "raw_retrieved": [
+            "saref4envi.n3",
+            "th_building.owl",
+            "cgov_2012-08-28.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "dcterms_2012-06-14.n3",
+            "m3lite_2017-07-29.n3",
+            "donto_2015-06-19.n3",
+            "facility.ttl",
+            "dt.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "dcterms_2012-06-14.n3",
+            "fabio_2019-02-19.n3",
+            "th_building.owl",
+            "dt.n3"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "th_building.owl",
+            "dt.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Nanopublication",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Construction",
+            "https://w3id.org/dt#ConstructionObject"
+          ]
+        }
+      },
+      {
+        "id": "11",
+        "query": "Spaces may intersect different storeys, buildings, and construction sites",
+        "expected": "bot.ttl",
+        "difficulty": "hard",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSpaces, Intersections, Storeys, Buildings, Construction Sites, Areas, Regions, Zones, Overlaps, Enclosures, Boundaries, Spatial Relationships, Geometric Shapes, Architectural Features, Structural Elements\n\nNote: The list includes both nouns (e.g., Spaces, Storeys) and verbs (e.g., Intersections) that are relevant to the topic of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "th_building.owl",
+            "ssn_2011-06-20.n3",
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "swc_2009-05-11.n3",
+            "tsnc_2017-05-15.n3",
+            "bot.ttl",
+            "swo.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "bpo.ttl"
+          ],
+          "approved_sources": [
+            "bpo.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bpo#describesAttributeInSecondColumn",
+            "https://w3id.org/bpo#List2D"
+          ]
+        }
+      },
+      {
+        "id": "12",
+        "query": "A zone can be adjacent to another zone",
+        "expected": "bot.ttl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nZone, Adjacent, Region, Area, Territory, Border, Edge, Neighborhood, Proximity, SpatialRelationship, TopologicalNeighbor, OWL:Class, RDF:Type, SemanticWebConcept\n\nNote that I've included both technical terms (e.g., \"SpatialRelationship\", \"TopologicalNeighbor\") and more general concepts (e.g., \"Region\", \"Area\") to provide a comprehensive search scope. The added ontological formalizations (OWL:Class, RDF:Type) will help facilitate semantic searches across various knowledge graphs.",
+          "raw_retrieved": [
+            "saref_2020-05-29.n3",
+            "modsci_2022-12-18.n3",
+            "ssn_2011-06-20.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "tsnc_2017-05-15.n3",
+            "th_sharedvocalulary.owl",
+            "edupro_2016-09-13.n3",
+            "m4i_2025-03-10.n3",
+            "s4inma_2019-04-30.n3",
+            "swo.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "fea_2015-06-26.n3"
+          ],
+          "top_k_sources": [
+            "saref_2020-05-29.n3",
+            "modsci_2022-12-18.n3",
+            "th_sharedvocalulary.owl",
+            "schema.ttl",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [
+            "roh_2022-01-01.n3",
+            "th_sharedvocalulary.owl"
+          ],
+          "approved_uris": [
+            "http://w3id.org/roh/mirror/skos#Concept",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntologySharedVocabulary.owl#BuildingElement"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con conceptos espaciales, como zonas, edificios, pisos y sitios de construcción. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\n**Análisis**\n\nLa ontología `th_building.owl` tiene una cobertura significativa en términos de conceptos espaciales, como edificios, pisos y espacios. La ontología `fabio_2019-02-19.n3` también muestra una buena cobertura en este sentido.\n\nLa ontología `s4ehaw_2020-05-01.n3` tiene una cobertura similar a la de `th_building.owl`, pero con un enfoque más amplio en términos de espacios y zonas. La ontología `base_ontology.owl` también muestra una buena cobertura en este sentido.\n\nLa ontología `modsci_2022-12-18.n3` tiene una cobertura limitada, pero importante, en términos de relaciones entre zonas. La ontología `bot.ttl` y `dt.n3` tienen una cobertura más estrecha, pero pueden ser útiles para analizar la relación entre espacios y construcción.\n\nLa ontología `roh_2022-01-01.n3` y `th_sharedvocalulary.owl` tienen una cobertura limitada en términos de relaciones entre zonas y adyacencia.\n\n**Recomendación**\n\nEn función del análisis, se recomiendan las siguientes tres ontologías:\n\n* `th_building.owl`: Es la ontología más completa en términos de conceptos espaciales y relacionados con edificios.\n* `s4ehaw_2020-05-01.n3`: Ofrece una cobertura similar a la de `th_building.owl`, pero con un enfoque más amplio en términos de espacios y zonas.\n* `modsci_2022-12-18.n3`: Es importante para analizar las relaciones entre zonas.\n\n**Excluidas**\n\nLas siguientes ontologías no fueron seleccionadas debido a su cobertura limitada o estrecha:",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "th_building.owl",
+        "s4ehaw_2020-05-01.n3",
+        "modsci_2022-12-18.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "roh_2022-01-01.n3",
+          "motivo": "Cobertura limitada en términos de relaciones entre zonas y adyacencia"
+        },
+        {
+          "ontologia": "bot.ttl",
+          "motivo": "Cobertura estrecha en términos de relación entre espacios y construcción"
+        },
+        {
+          "ontologia": "dt.n3",
+          "motivo": "Cobertura estrecha en términos de relación entre espacios y construcción"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con conceptos espaciales, como zonas, edificios, pisos y sitios de construcción. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\n**Análisis**\n\nLa ontología `th_building.owl` tiene una cobertura significativa en términos de conceptos espaciales, como edificios, pisos y espacios. La ontología `fabio_2019-02-19.n3` también muestra una buena cobertura en este sentido.\n\nLa ontología `s4ehaw_2020-05-01.n3` tiene una cobertura similar a la de `th_building.owl`, pero con un enfoque más amplio en términos de espacios y zonas. La ontología `base_ontology.owl` también muestra una buena cobertura en este sentido.\n\nLa ontología `modsci_2022-12-18.n3` tiene una cobertura limitada, pero importante, en términos de relaciones entre zonas. La ontología `bot.ttl` y `dt.n3` tienen una cobertura más estrecha, pero pueden ser útiles para analizar la relación entre espacios y construcción.\n\nLa ontología `roh_2022-01-01.n3` y `th_sharedvocalulary.owl` tienen una cobertura limitada en términos de relaciones entre zonas y adyacencia.\n\n**Recomendación**\n\nEn función del análisis, se recomiendan las siguientes tres ontologías:\n\n* `th_building.owl`: Es la ontología más completa en términos de conceptos espaciales y relacionados con edificios.\n* `s4ehaw_2020-05-01.n3`: Ofrece una cobertura similar a la de `th_building.owl`, pero con un enfoque más amplio en términos de espacios y zonas.\n* `modsci_2022-12-18.n3`: Es importante para analizar las relaciones entre zonas.\n\n**Excluidas**\n\nLas siguientes ontologías no fueron seleccionadas debido a su cobertura limitada o estrecha:"
+    }
+  }
+]

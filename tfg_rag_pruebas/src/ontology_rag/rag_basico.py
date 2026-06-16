@@ -92,10 +92,20 @@ class OntologyRecommender:
     def _setup_retrievers(self):
         logger.info(" - Construyendo índice BM25...")
         try:
-            collection_data = self.vectorstore.get()
-            texts = collection_data.get("documents") or []
-            metadatas = collection_data.get("metadatas") or []
-            docs = [Document(page_content=t, metadata=m or {}) for t, m in zip(texts, metadatas)]
+            docs = []
+            limit = 5000
+            offset = 0
+            while True:
+                batch = self.vectorstore.get(limit=limit, offset=offset)
+                batch_texts = batch.get("documents") or []
+                batch_metas = batch.get("metadatas") or []
+                if not batch_texts:
+                    break
+                for t, m in zip(batch_texts, batch_metas):
+                    docs.append(Document(page_content=t, metadata=m or {}))
+                offset += len(batch_texts)
+                if len(batch_texts) < limit:
+                    break
         except Exception as e:
             logger.error(f"Error cargando docs para BM25: {e}")
             docs = []

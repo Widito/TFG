@@ -1,0 +1,3188 @@
+[
+  {
+    "config_name": "Híbrido + Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.25,
+      "judge_accuracy": 0.08333333333333333,
+      "veredict_accuracy": 0.0,
+      "veredict_precision": 0.0,
+      "veredict_recall": 0.0,
+      "veredict_f1": 0.0,
+      "average_time": 5.453765829404195,
+      "total_time": 65.44518995285034
+    },
+    "cases": [
+      {
+        "id": "13",
+        "query": "A device performs one or more functions",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nDevice, FunctionalEntity, Perform, Functionality, Capability, Action, Task, Operation, Execution, Activity, Service, Utility\n\nNote: The terms are in English, as per your request.",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "s4ehaw_2020-05-01.n3",
+            "base_ontology.owl",
+            "m3lite_2017-07-29.n3",
+            "saref_2020-05-29.n3",
+            "s4agri_2020-06-05.n3",
+            "s4inma_2019-04-30.n3",
+            "m4i_2025-03-10.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/Device",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#hasFunction"
+          ]
+        }
+      },
+      {
+        "id": "14",
+        "query": "Examples of devices are a light switch, a temperature sensor, an energy meter, a washing machine",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Devices, switch, sensor, meter, machine\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device (Class), Switch (Type), Sensor (Type), Meter (Type), Machine (Class)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Appliance, Equipment, Instrument, Gadget\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Class, Switch, Type, Sensor, Type, Meter, Type, Machine, Class, Appliance, Equipment, Instrument, Gadget",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "frapo_2014-01-31.n3",
+            "saref4bldg.n3",
+            "ssn_2011-06-20.n3",
+            "modsci_2022-12-18.n3",
+            "cerif_2013-04-23.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "sosa_2017-04-17.n3",
+            "s4watr_2020-06-03.n3",
+            "th_sharedvocalulary.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4bldg.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/Device",
+            "https://brickschema.org/schema/Brick#Equipment"
+          ]
+        }
+      },
+      {
+        "id": "15",
+        "query": "A device shall have a model property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_VEREDICT_EXCLUSION",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a model property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Model, Property\n2. **Normalización Ontológica:** Formal equivalents:\nClass (owl:Class), Type (rdfs:Type), Category (skos:Concept)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Object, Thing, Instance\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Model, Property, Class, Type, Category, Entity, Object, Thing, Instance",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "base_ontology.owl",
+            "s4ener_2020-06-04.n3",
+            "doap.rdf",
+            "fabio_2019-02-19.n3",
+            "saref_2020-05-29.n3",
+            "building.ttl",
+            "bot.ttl",
+            "datex_2016-06-13.n3",
+            "s4watr_2020-06-03.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "frapo_2014-01-31.n3",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasModel",
+            "https://schema.org/model"
+          ]
+        }
+      },
+      {
+        "id": "16",
+        "query": "A device shall have a manufacturer property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a manufacturer property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Manufacturer, Property\n2. **Normalización Ontológica:** Formal equivalents:\nClass (Device), Category (Manufacturer), Type (Property)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Item, Object (Device); Producer, Maker, Fabricator (Manufacturer); Attribute, Feature, Characteristic (Property)\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Class, Manufacturer, Category, Type, Entity, Item, Object, Producer, Maker, Fabricator, Attribute, Feature, Characteristic, Property",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "s4ener_2020-06-04.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "cerif_2013-04-23.n3",
+            "vivo_2014-07-12.n3",
+            "dbo.rdf",
+            "s4inma_2019-04-30.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_sharedvocalulary.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "s4ener_2020-06-04.n3",
+            "s4ehaw_2020-05-01.n3"
+          ],
+          "approved_sources": [
+            "s4ehaw_2020-05-01.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasManufacturer"
+          ]
+        }
+      },
+      {
+        "id": "17",
+        "query": "A device can optionally have a description",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Description, Optional, Class, Type, Entity, Concept, Property, Attribute, Characteristic, Definition, Specification, Description, Ontology, Category\n\nHere's my thought process:\n\n1. **Conceptos Nucleares:**\n\t* Device (main concept)\n\t* Description (key attribute)\n\t* Optional (qualifier)\n2. **Normalización Ontológica:**\n\t* Class (equivalent to \"Device\" in OWL/RDF)\n\t* Type (equivalent to \"Description\" in OWL/RDF)\n3. **Sinónimos Técnicos:**\n\t* Entity (alternative for \"Device\")\n\t* Concept (alternative for \"Description\")\n\t* Property (alternative for \"Attribute\" or \"Characteristic\")\n\t* Attribute (alternative for \"Property\" or \"Characteristic\")\n\t* Characteristic (alternative for \"Property\" or \"Attribute\")\n\nBy combining these concepts, I've generated the optimized search list:\n\nDevice, Description, Optional, Class, Type, Entity, Concept, Property, Attribute, Characteristic, Definition, Specification, Description, Ontology, Category\n\nThis list should help you find relevant resources and ontologies related to devices with optional descriptions in Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "ifc4.ttl",
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "ifc4.ttl"
+          ],
+          "approved_sources": [
+            "ifc4.ttl"
+          ],
+          "approved_uris": [
+            "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#description_IfcConstraint",
+            "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#description_IfcApproval"
+          ]
+        }
+      },
+      {
+        "id": "18",
+        "query": "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Building space, device, kitchen, living room, location\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* BuildingSpace (Class), DeviceLocation (Type), PhysicalSpace (Category)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Space, Location, Place\n\nHere's the optimized search list in English, separated by commas:\n\nBuildingSpace, DeviceLocation, PhysicalSpace, Room, Area, Space, Location, Place, Kitchen, LivingRoom",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "fabio_2019-02-19.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "dogont_2015-01-11.n3",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4agri/BuildingSpace",
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "19",
+        "query": "A building space contains devices or building objects",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A building space contains devices or building objects\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuildingSpace, Container, Space, Device, BuildingObject, PhysicalEntity, Thing, Entity, Object, Item, Component, Structure, Architecture\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "brick.ttl",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4inma_2019-04-30.n3",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4agri/BuildingSpace",
+            "https://saref.etsi.org/saref4bldg/BuildingSpace",
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "20",
+        "query": "Building objects are objects in the building that can be controlled by devices, such as doors or windows",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\n\t* Building\n\t* Objects\n\t* Doors\n\t* Windows\n2. **Normalización Ontológica:**\n\t* Category: ConstructedThing (OWL)\n\t* Class: BuildingObject (RDF)\n\t* Type: PhysicalEntity (OWL)\n3. **Sinónimos Técnicos:**\n\t* Fixture\n\t* Installation\n\t* Component\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Object, Door, Window, ConstructedThing, BuildingObject, PhysicalEntity, Fixture, Installation, Component",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "beo.ttl",
+            "building.ttl",
+            "bot.ttl",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "beo.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "beo.ttl",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+            "https://pi.pauwel.be/voc/buildingelement#BuildingElement"
+          ]
+        }
+      },
+      {
+        "id": "21",
+        "query": "A building object can be opened or closed by an actuator",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nBuilding, Object, Actuator, Open, Close\n2. **Normalización Ontológica:**\n\t* Building (Class)\n\t* Object (Thing)\n\t* Actuator (Device)\n\t* Open (Action)\n\t* Close (Action)\n3. **Sinónimos Técnicos:**\n\t* Structure (alternative to \"Building\")\n\t* Entity (alternative to \"Object\")\n\t* Controller (alternative to \"Actuator\")\n\t* Operate (alternative to \"Open\" and \"Close\")\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Class, Object, Thing, Actuator, Device, Open, Close, Structure, Entity, Controller, Operate",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "bpo.ttl",
+            "beo.ttl",
+            "vivo_2014-07-12.n3",
+            "fabio_2019-02-19.n3",
+            "bot.ttl",
+            "sosa_2017-04-17.n3",
+            "dbo.rdf",
+            "brick.ttl",
+            "th_building.owl",
+            "dogont_2015-01-11.n3",
+            "mep.ttl",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "mep.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-HANDOPERATEDACTUATOR",
+            "https://saref.etsi.org/core/Actuator"
+          ]
+        }
+      },
+      {
+        "id": "22",
+        "query": "A building space has also a property that can be used to specify the type of space, for example, the living room or the bedroom",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Building space, property, type of space, living room, bedroom\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Space, Property, Type, Category, Class\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Zone, Sector, Domain\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding space, property, type of space, living room, bedroom, space, property, type, category, class, room, area, zone, sector, domain",
+          "raw_retrieved": [
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "fabio_2019-02-19.n3",
+            "building.ttl",
+            "bot.ttl",
+            "schema.ttl",
+            "th_building.owl",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Space",
+            "http://bimerr.iot.linkeddata.es/def/building#type",
+            "http://bimerr.iot.linkeddata.es/def/building#Apartment"
+          ]
+        }
+      },
+      {
+        "id": "23",
+        "query": "A building space is a geographical point characterized by a certain altitude, latitude and longitude",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicPoint, BuildingSpace, Altitude, Latitude, Longitude, PointOfInterest, SpatialThing, GeographicLocation, Coordinate, Position, LocationType, SpatialReferenceSystem, GeospatialData\n\nThis list includes the main nouns (BuildingSpace, GeographicPoint) and verbs (characterized by) from the original request. I've also added formal equivalents in OWL/RDF terminology (Category, Class, Type), as well as technical synonyms (GeographicLocation, Coordinate, Position).",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "donto_2015-06-19.n3",
+            "sbim.owl",
+            "s4city_2020-06-05.n3",
+            "ifc4.ttl",
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl",
+            "datex_2016-06-13.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://www.w3.org/2003/01/geo/wgs84_pos#lat",
+            "http://www.w3.org/2003/01/geo/wgs84_pos#alt",
+            "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+          ]
+        }
+      },
+      {
+        "id": "24",
+        "query": "The devices can be classified into categories: FunctionRelated, EnergyRelated and BuildingRelated",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCategory, Class, Type, Classification, Ontology, Concept, Device, Function, Energy, Building, CategorySystem, Taxonomy, Hierarchy, ClassificationScheme, OntologicalClassification, SemanticType, RDFClass\n\nNote that I've included both technical terms (e.g., \"Function\", \"Energy\") and ontological concepts (e.g., \"Category\", \"Ontology\") to provide a comprehensive search list. The list is separated by commas as requested.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "beo.ttl",
+            "dbo.rdf",
+            "s4inma_2019-04-30.n3",
+            "th_building.owl",
+            "seo_2019-04-10.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "dbo.rdf",
+            "th_building.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/Function",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Function"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en el proyecto y los requisitos que cubren. Analizando la matriz, podemos identificar tres ontologías que tienen una buena cobertura de requisitos: `s4inma_2019-04-30.n3`, `building.ttl` y `base_ontology.owl`.\n\nLa ontología `s4inma_2019-04-30.n3` cubre los requisitos relacionados con la clasificación de dispositivos en categorías (FunctionRelated, EnergyRelated and BuildingRelated) y el desempeño de funciones por parte de los dispositivos. Además, también se menciona la existencia de ejemplos de dispositivos.\n\nLa ontología `building.ttl` cubre una amplia gama de requisitos relacionados con el espacio físico del edificio (kitchen, living room, etc.) y los objetos que se encuentran en ese espacio. También se mencionan propiedades para especificar el tipo de espacio y características geográficas.\n\nLa ontología `base_ontology.owl` cubre requisitos relacionados con la clasificación de dispositivos y su desempeño de funciones. Además, también se menciona la existencia de ejemplos de dispositivos.\n\nEn cuanto a las ontologías que no fueron seleccionadas, podemos destacar que `s4watr_2020-06-03.n3` y `brick.ttl` tienen pocos requisitos asociados y no cubren una amplia gama de necesidades. Por otro lado, `saref_2020-05-29.n3` y `schema.ttl` se enfocan en propiedades específicas de los dispositivos (model property) que no están directamente relacionadas con la cobertura de requisitos.\n\n**Recomendaciones**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "s4inma_2019-04-30.n3",
+        "building.ttl",
+        "base_ontology.owl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "s4watr_2020-06-03.n3",
+          "motivo": "Pocos requisitos asociados"
+        },
+        {
+          "ontologia": "brick.ttl",
+          "motivo": "Pocos requisitos asociados"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en el proyecto y los requisitos que cubren. Analizando la matriz, podemos identificar tres ontologías que tienen una buena cobertura de requisitos: `s4inma_2019-04-30.n3`, `building.ttl` y `base_ontology.owl`.\n\nLa ontología `s4inma_2019-04-30.n3` cubre los requisitos relacionados con la clasificación de dispositivos en categorías (FunctionRelated, EnergyRelated and BuildingRelated) y el desempeño de funciones por parte de los dispositivos. Además, también se menciona la existencia de ejemplos de dispositivos.\n\nLa ontología `building.ttl` cubre una amplia gama de requisitos relacionados con el espacio físico del edificio (kitchen, living room, etc.) y los objetos que se encuentran en ese espacio. También se mencionan propiedades para especificar el tipo de espacio y características geográficas.\n\nLa ontología `base_ontology.owl` cubre requisitos relacionados con la clasificación de dispositivos y su desempeño de funciones. Además, también se menciona la existencia de ejemplos de dispositivos.\n\nEn cuanto a las ontologías que no fueron seleccionadas, podemos destacar que `s4watr_2020-06-03.n3` y `brick.ttl` tienen pocos requisitos asociados y no cubren una amplia gama de necesidades. Por otro lado, `saref_2020-05-29.n3` y `schema.ttl` se enfocan en propiedades específicas de los dispositivos (model property) que no están directamente relacionadas con la cobertura de requisitos.\n\n**Recomendaciones**"
+    }
+  },
+  {
+    "config_name": "Híbrido Sin Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.3333333333333333,
+      "judge_accuracy": 0.25,
+      "veredict_accuracy": 0.25,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.532231589158376,
+      "total_time": 54.38677906990051
+    },
+    "cases": [
+      {
+        "id": "13",
+        "query": "A device performs one or more functions",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nDevice, Entity, Thing, Object, Perform, Execute, Function, Capability, Service, Action, Task, Operation, Activity\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "s4ehaw_2020-05-01.n3",
+            "base_ontology.owl",
+            "m3lite_2017-07-29.n3",
+            "saref_2020-05-29.n3",
+            "s4agri_2020-06-05.n3",
+            "s4inma_2019-04-30.n3",
+            "saref4envi.n3",
+            "mep.ttl",
+            "m4i_2025-03-10.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_uris": [
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#hasFunction",
+            "https://saref.etsi.org/core/Device",
+            "https://saref.etsi.org/core/Function",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Function"
+          ]
+        }
+      },
+      {
+        "id": "14",
+        "query": "Examples of devices are a light switch, a temperature sensor, an energy meter, a washing machine",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Devices, switch, sensor, meter, machine\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device (Class), Sensor (Type), Meter (Type), Machine (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Appliance, Equipment, Instrument, Gadget\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Sensor, Meter, Machine, Switch, Appliance, Equipment, Instrument, Gadget",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "saref4bldg.n3",
+            "ssn_2011-06-20.n3",
+            "modsci_2022-12-18.n3",
+            "cerif_2013-04-23.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "sosa_2017-04-17.n3",
+            "s4watr_2020-06-03.n3",
+            "th_sharedvocalulary.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "sosa_2017-04-17.n3",
+            "mep.ttl",
+            "brick.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/rec#SensorEquipment",
+            "https://brickschema.org/schema/Brick#Sensor_Equipment",
+            "https://saref.etsi.org/core/Appliance"
+          ]
+        }
+      },
+      {
+        "id": "15",
+        "query": "A device shall have a model property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a model property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Model, Property\n2. **Normalización Ontológica:** Formal equivalents:\nClass (e.g., rdfs:Class), Type (e.g., owl:Type), Category (e.g., rdf:Category)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Object, Thing, Instance\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Model, Property, Class, Type, Category, Entity, Object, Thing, Instance",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "base_ontology.owl",
+            "s4ener_2020-06-04.n3",
+            "doap.rdf",
+            "saref_2020-05-29.n3",
+            "building.ttl",
+            "bot.ttl",
+            "meb_2013-03-26.n3",
+            "s4watr_2020-06-03.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref_2020-05-29.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasModel",
+            "https://schema.org/device"
+          ]
+        }
+      },
+      {
+        "id": "16",
+        "query": "A device shall have a manufacturer property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a manufacturer property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Manufacturer, Property\n2. **Normalización Ontológica:** Formal equivalents:\nCategory (e.g., rdfs:Class), Class (e.g., owl:Class), Type (e.g., rdf:Type)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Producer, Maker, Fabricator\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Manufacturer, Property, Category, rdfs:Class, Class, owl:Class, Type, rdf:Type, Entity, Producer, Maker, Fabricator",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "s4ener_2020-06-04.n3",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "cerif_2013-04-23.n3",
+            "vivo_2014-07-12.n3",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "s4inma_2019-04-30.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "swc_2009-05-11.n3",
+            "th_sharedvocalulary.owl"
+          ],
+          "top_k_sources": [
+            "s4ener_2020-06-04.n3",
+            "schema.ttl",
+            "vivo_2014-07-12.n3",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasManufacturer",
+            "https://schema.org/manufacturer"
+          ]
+        }
+      },
+      {
+        "id": "17",
+        "query": "A device can optionally have a description",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Description, Optional, Class, Type, Entity, Concept, Property, Ontology, Semantic, Resource, RDF, OWL, Schema, Definition, Attribute, Characteristic\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "qudt_2020-04-20.n3",
+            "schema.ttl",
+            "facility.ttl",
+            "th_sharedvocalulary.owl",
+            "seo_2019-04-10.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "ei2a_2021-10-21.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/keywords"
+          ]
+        }
+      },
+      {
+        "id": "18",
+        "query": "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Building space, device, kitchen, living room, location\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* BuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Space, Place, Zone\n\nHere's the optimized search list in English, separated by commas:\n\nBuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType, Room, Area, Space, Place, Zone",
+          "raw_retrieved": [
+            "brick.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "beo.ttl",
+            "s4inma_2019-04-30.n3",
+            "mep.ttl",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "dogont_2015-01-11.n3",
+            "brick.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "dogont_2015-01-11.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Building",
+            "http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment",
+            "https://brickschema.org/schema/Brick#Zone"
+          ]
+        }
+      },
+      {
+        "id": "19",
+        "query": "A building space contains devices or building objects",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A building space contains devices or building objects\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuildingSpace, Container, Space, Device, BuildingObject, PhysicalEntity, Thing, Entity, Object, Item, Component, Structure, Architecture\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "brick.ttl",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4inma_2019-04-30.n3",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4bldg/BuildingSpace",
+            "https://saref.etsi.org/saref4agri/BuildingSpace",
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "20",
+        "query": "Building objects are objects in the building that can be controlled by devices, such as doors or windows",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\n\t* Building\n\t* Object\n\t* Device\n\t* Door\n\t* Window\n2. **Normalización Ontológica:**\n\t* Category: PhysicalObject\n\t* Class: BuildingComponent\n\t* Type: ControllableEntity\n3. **Sinónimos Técnicos:**\n\t* Fixture\n\t* Component\n\t* Entity\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Object, Device, Door, Window, PhysicalObject, BuildingComponent, ControllableEntity, Fixture, Component, Entity",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "beo.ttl",
+            "fabio_2019-02-19.n3",
+            "building.ttl",
+            "bot.ttl",
+            "schema.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "mep.ttl",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "th_sharedvocalulary.owl",
+            "beo.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "beo.ttl",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Element",
+            "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+            "https://pi.pauwel.be/voc/buildingelement#BuildingElement"
+          ]
+        }
+      },
+      {
+        "id": "21",
+        "query": "A building object can be opened or closed by an actuator",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nBuilding, Object, Actuator, Open, Close\n2. **Normalización Ontológica:**\n\t* Building (Class)\n\t* Object (Thing)\n\t* Actuator (Device)\n\t* Open (Action)\n\t* Close (Action)\n3. **Sinónimos Técnicos:**\n\t* Structure (Building)\n\t* Entity (Object)\n\t* Controller (Actuator)\n\t* Operate (Open/Close)\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Class, Object, Thing, Actuator, Device, Open, Close, Action, Structure, Entity, Controller, Operate",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "beo.ttl",
+            "vivo_2014-07-12.n3",
+            "building.ttl",
+            "bot.ttl",
+            "fabio_2019-02-19.n3",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "facility.ttl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "mep.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-PNEUMATICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-ELECTRICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-HANDOPERATEDACTUATOR"
+          ]
+        }
+      },
+      {
+        "id": "22",
+        "query": "A building space has also a property that can be used to specify the type of space, for example, the living room or the bedroom",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated a list of optimized search terms following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Building space, property, type, room, bedroom, living room\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Concept, Class, Category, Type, Property\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Space, Area, Room, Chamber, Apartment\n\nHere is the list of search terms separated by commas:\n\nBuilding space, property, type, room, bedroom, living room, concept, class, category, type, property, space, area, room, chamber, apartment",
+          "raw_retrieved": [
+            "sbim.owl",
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl",
+            "schema.ttl",
+            "teach_2013-04-25.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Apartment",
+            "https://schema.org/Room",
+            "https://brickschema.org/schema/Brick#Room",
+            "http://vivoweb.org/ontology/core#Room"
+          ]
+        }
+      },
+      {
+        "id": "23",
+        "query": "A building space is a geographical point characterized by a certain altitude, latitude and longitude",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicPoint, BuildingSpace, Altitude, Latitude, Longitude, PointOfInterest, SpatialThing, GeographicLocation, Coordinate, Position, LocationType, SpatialReferenceSystem, GeospatialData\n\nThis list includes the main nouns (BuildingSpace, GeographicPoint) and verbs (characterized by) from the original request. I've also added formal equivalents (Category: GeographicPoint, Class: BuildingSpace), as well as technical synonyms (e.g., PointOfInterest instead of BuildingSpace).\n\nNote that some terms might be more specific or general than others, but they all relate to the concept of a building space with geographical coordinates.",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "donto_2015-06-19.n3",
+            "s4city_2020-06-05.n3",
+            "beo.ttl",
+            "building.ttl",
+            "bot.ttl",
+            "cis_2016-03-30.n3",
+            "datex_2016-06-13.n3",
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "eurio_2023-09-28.n3"
+          ],
+          "top_k_sources": [
+            "s4city_2020-06-05.n3",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4city_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "http://www.w3.org/2003/01/geo/wgs84_pos#Point",
+            "http://www.w3.org/2003/01/geo/wgs84_pos#location"
+          ]
+        }
+      },
+      {
+        "id": "24",
+        "query": "The devices can be classified into categories: FunctionRelated, EnergyRelated and BuildingRelated",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCategory, Class, Type, Classification, Ontology, Concept, Device, Function, Energy, Building, CategorySystem, Taxonomy, Hierarchy, ClassificationScheme, OntologicalClassification, SemanticType, RDFClass\n\nNote that I've included both formal ontological terms (e.g., \"Category\", \"Class\", \"Type\") and technical synonyms (e.g., \"Classification\", \"Ontology\", \"Concept\"). This list should provide a good starting point for searching and querying in the context of Web Semantics using OWL/RDF.",
+          "raw_retrieved": [
+            "swo.owl",
+            "ifc4.ttl",
+            "gc_2009-08-24.n3",
+            "bibo_2009-11-04.n3",
+            "swc_2009-05-11.n3",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "seo_2019-04-10.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "ifc4.ttl",
+            "seo_2019-04-10.n3",
+            "swo.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "ifc4.ttl",
+            "seo_2019-04-10.n3"
+          ],
+          "approved_uris": [
+            "http://www.w3.org/2000/01/rdf-schema#Class",
+            "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcClassificationReference"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en la representación de conceptos relacionados con dispositivos, espacios físicos y objetos en un edificio. Analizando la cobertura, podemos identificar tres ontologías que cubren los requisitos más amplios: `brick.ttl`, `saref_2020-05-29.n3` y `schema.ttl`.\n\n* `brick.ttl` proporciona definiciones de dispositivos y espacios físicos, lo que es fundamental para la representación de edificios inteligentes.\n* `saref_2020-05-29.n3` agrega información sobre las propiedades de los dispositivos, como modelo y fabricante, lo que es importante para la gestión y el mantenimiento de los sistemas.\n* `schema.ttl` proporciona una visión más amplia de los conceptos relacionados con dispositivos y espacios físicos, incluyendo la descripción opcional de los dispositivos.\n\nEn cuanto a las ontologías excluidas, podemos identificar algunas que no cubren los requisitos más amplios. Por ejemplo, `mep.ttl` se enfoca en la representación de actores y objetos en un edificio, pero no proporciona información sobre los dispositivos o espacios físicos.\n\n**Recomendadas y excluidas**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "brick.ttl",
+        "saref_2020-05-29.n3",
+        "schema.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "mep.ttl",
+          "motivo": "Se enfoca en actores y objetos, no cubre dispositivos o espacios físicos"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en la representación de conceptos relacionados con dispositivos, espacios físicos y objetos en un edificio. Analizando la cobertura, podemos identificar tres ontologías que cubren los requisitos más amplios: `brick.ttl`, `saref_2020-05-29.n3` y `schema.ttl`.\n\n* `brick.ttl` proporciona definiciones de dispositivos y espacios físicos, lo que es fundamental para la representación de edificios inteligentes.\n* `saref_2020-05-29.n3` agrega información sobre las propiedades de los dispositivos, como modelo y fabricante, lo que es importante para la gestión y el mantenimiento de los sistemas.\n* `schema.ttl` proporciona una visión más amplia de los conceptos relacionados con dispositivos y espacios físicos, incluyendo la descripción opcional de los dispositivos.\n\nEn cuanto a las ontologías excluidas, podemos identificar algunas que no cubren los requisitos más amplios. Por ejemplo, `mep.ttl` se enfoca en la representación de actores y objetos en un edificio, pero no proporciona información sobre los dispositivos o espacios físicos.\n\n**Recomendadas y excluidas**"
+    }
+  },
+  {
+    "config_name": "Denso + Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.3333333333333333,
+      "judge_accuracy": 0.16666666666666666,
+      "veredict_accuracy": 0.16666666666666666,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 5.075458546479543,
+      "total_time": 60.90550255775452
+    },
+    "cases": [
+      {
+        "id": "13",
+        "query": "A device performs one or more functions",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nDevice, Entity, Thing, Object, Perform, Execute, Function, Capability, Service, Action, Task, Operation, Activity\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "s4ehaw_2020-05-01.n3",
+            "base_ontology.owl",
+            "m3lite_2017-07-29.n3",
+            "saref_2020-05-29.n3",
+            "s4agri_2020-06-05.n3",
+            "s4inma_2019-04-30.n3",
+            "saref4envi.n3",
+            "mep.ttl",
+            "m4i_2025-03-10.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/Device",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#hasFunction"
+          ]
+        }
+      },
+      {
+        "id": "14",
+        "query": "Examples of devices are a light switch, a temperature sensor, an energy meter, a washing machine",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Devices, switch, sensor, meter, machine\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device (Class), Sensor (Type), Meter (Type), Machine (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Appliance, Equipment, Instrument, Gadget\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Sensor, Meter, Machine, Switch, Appliance, Equipment, Instrument, Gadget",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "saref4bldg.n3",
+            "ssn_2011-06-20.n3",
+            "modsci_2022-12-18.n3",
+            "cerif_2013-04-23.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "sosa_2017-04-17.n3",
+            "s4watr_2020-06-03.n3",
+            "th_sharedvocalulary.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4bldg.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/Device",
+            "https://brickschema.org/schema/Brick#Equipment",
+            "https://brickschema.org/schema/Brick#Meter"
+          ]
+        }
+      },
+      {
+        "id": "15",
+        "query": "A device shall have a model property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a model property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Model, Property\n2. **Normalización Ontológica:** Formal equivalents:\nClass (e.g., rdfs:Class), Type (e.g., owl:Type), Category (e.g., rdf:Category)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Object, Thing, Instance\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Model, Property, Class, Type, Category, Entity, Object, Thing, Instance",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "base_ontology.owl",
+            "s4ener_2020-06-04.n3",
+            "doap.rdf",
+            "saref_2020-05-29.n3",
+            "building.ttl",
+            "bot.ttl",
+            "meb_2013-03-26.n3",
+            "s4watr_2020-06-03.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "frapo_2014-01-31.n3",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasModel",
+            "https://schema.org/model"
+          ]
+        }
+      },
+      {
+        "id": "16",
+        "query": "A device shall have a manufacturer property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a manufacturer property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Manufacturer, Property\n2. **Normalización Ontológica:** Formal equivalents:\nCategory (e.g., rdfs:Class), Class (e.g., owl:Class), Type (e.g., rdf:Type)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Producer, Maker, Fabricator\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Manufacturer, Property, Category, rdfs:Class, Class, owl:Class, Type, rdf:Type, Entity, Producer, Maker, Fabricator",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "s4ener_2020-06-04.n3",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "cerif_2013-04-23.n3",
+            "vivo_2014-07-12.n3",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "s4inma_2019-04-30.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "swc_2009-05-11.n3",
+            "th_sharedvocalulary.owl"
+          ],
+          "top_k_sources": [
+            "s4ener_2020-06-04.n3",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasManufacturer"
+          ]
+        }
+      },
+      {
+        "id": "17",
+        "query": "A device can optionally have a description",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Description, Optional, Class, Type, Entity, Concept, Property, Ontology, Semantic, Resource, RDF, OWL, Schema, Definition, Attribute, Characteristic\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "qudt_2020-04-20.n3",
+            "schema.ttl",
+            "facility.ttl",
+            "th_sharedvocalulary.owl",
+            "seo_2019-04-10.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "qudt_2020-04-20.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/description"
+          ]
+        }
+      },
+      {
+        "id": "18",
+        "query": "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Building space, device, kitchen, living room, location\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* BuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Space, Place, Zone\n\nHere's the optimized search list in English, separated by commas:\n\nBuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType, Room, Area, Space, Place, Zone",
+          "raw_retrieved": [
+            "brick.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "beo.ttl",
+            "s4inma_2019-04-30.n3",
+            "mep.ttl",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "dogont_2015-01-11.n3",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4agri/BuildingSpace",
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "19",
+        "query": "A building space contains devices or building objects",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A building space contains devices or building objects\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuildingSpace, Container, Space, Device, BuildingObject, PhysicalEntity, Thing, Entity, Object, Item, Component, Structure, Architecture\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "brick.ttl",
+            "s4inma_2019-04-30.n3",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4inma_2019-04-30.n3",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4agri/BuildingSpace",
+            "https://saref.etsi.org/saref4bldg/BuildingSpace",
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "20",
+        "query": "Building objects are objects in the building that can be controlled by devices, such as doors or windows",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\n\t* Building\n\t* Object\n\t* Device\n\t* Door\n\t* Window\n2. **Normalización Ontológica:**\n\t* Category: PhysicalObject\n\t* Class: BuildingComponent\n\t* Type: ControllableEntity\n3. **Sinónimos Técnicos:**\n\t* Fixture\n\t* Component\n\t* Entity\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Object, Device, Door, Window, PhysicalObject, BuildingComponent, ControllableEntity, Fixture, Component, Entity",
+          "raw_retrieved": [
+            "beo.ttl",
+            "building.ttl",
+            "bot.ttl",
+            "th_sharedvocalulary.owl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "beo.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "beo.ttl",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+            "https://pi.pauwel.be/voc/buildingelement#BuildingElement"
+          ]
+        }
+      },
+      {
+        "id": "21",
+        "query": "A building object can be opened or closed by an actuator",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nBuilding, Object, Actuator, Open, Close\n2. **Normalización Ontológica:**\n\t* Building (Class)\n\t* Object (Thing)\n\t* Actuator (Device)\n\t* Open (Action)\n\t* Close (Action)\n3. **Sinónimos Técnicos:**\n\t* Structure (Building)\n\t* Entity (Object)\n\t* Controller (Actuator)\n\t* Operate (Open/Close)\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Class, Object, Thing, Actuator, Device, Open, Close, Action, Structure, Entity, Controller, Operate",
+          "raw_retrieved": [
+            "beo.ttl",
+            "vivo_2014-07-12.n3",
+            "building.ttl",
+            "bot.ttl",
+            "facility.ttl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "mep.ttl",
+            "beo.ttl"
+          ],
+          "approved_sources": [
+            "mep.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-HANDOPERATEDACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-ELECTRICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-PNEUMATICACTUATOR"
+          ]
+        }
+      },
+      {
+        "id": "22",
+        "query": "A building space has also a property that can be used to specify the type of space, for example, the living room or the bedroom",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated a list of optimized search terms following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Building space, property, type, room, bedroom, living room\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Concept, Class, Category, Type, Property\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Space, Area, Room, Chamber, Apartment\n\nHere is the list of search terms separated by commas:\n\nBuilding space, property, type, room, bedroom, living room, concept, class, category, type, property, space, area, room, chamber, apartment",
+          "raw_retrieved": [
+            "sbim.owl",
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl",
+            "schema.ttl",
+            "teach_2013-04-25.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Space",
+            "http://bimerr.iot.linkeddata.es/def/building#type",
+            "http://bimerr.iot.linkeddata.es/def/building#Apartment"
+          ]
+        }
+      },
+      {
+        "id": "23",
+        "query": "A building space is a geographical point characterized by a certain altitude, latitude and longitude",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicPoint, BuildingSpace, Altitude, Latitude, Longitude, PointOfInterest, SpatialThing, GeographicLocation, Coordinate, Position, LocationType, SpatialReferenceSystem, GeospatialData\n\nThis list includes the main nouns (BuildingSpace, GeographicPoint) and verbs (characterized by) from the original request. I've also added formal equivalents (Category: GeographicPoint, Class: BuildingSpace), as well as technical synonyms (e.g., PointOfInterest instead of BuildingSpace).\n\nNote that some terms might be more specific or general than others, but they all relate to the concept of a building space with geographical coordinates.",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "donto_2015-06-19.n3",
+            "s4city_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "cis_2016-03-30.n3",
+            "datex_2016-06-13.n3",
+            "schema.ttl",
+            "eurio_2023-09-28.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://www.w3.org/2003/01/geo/wgs84_pos#lat",
+            "http://www.w3.org/2003/01/geo/wgs84_pos#alt",
+            "http://www.w3.org/2003/01/geo/wgs84_pos#long"
+          ]
+        }
+      },
+      {
+        "id": "24",
+        "query": "The devices can be classified into categories: FunctionRelated, EnergyRelated and BuildingRelated",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCategory, Class, Type, Classification, Ontology, Concept, Device, Function, Energy, Building, CategorySystem, Taxonomy, Hierarchy, ClassificationScheme, OntologicalClassification, SemanticType, RDFClass\n\nNote that I've included both formal ontological terms (e.g., \"Category\", \"Class\", \"Type\") and technical synonyms (e.g., \"Classification\", \"Ontology\", \"Concept\"). This list should provide a good starting point for searching and querying in the context of Web Semantics using OWL/RDF.",
+          "raw_retrieved": [
+            "swo.owl",
+            "ifc4.ttl",
+            "gc_2009-08-24.n3",
+            "bibo_2009-11-04.n3",
+            "swc_2009-05-11.n3",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "seo_2019-04-10.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "gc_2009-08-24.n3"
+          ],
+          "approved_sources": [
+            "th_building.owl"
+          ],
+          "approved_uris": [
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Energy",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Flow"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en la representación de conceptos relacionados con dispositivos, edificios y espacios físicos. A continuación, se analizará la cobertura para recomendar una red de ontologías recomendada.\n\n**Análisis**\n\nLa ontología `s4inma_2019-04-30.n3` proporciona conceptos básicos sobre dispositivos y edificios, mientras que `base_ontology.owl` aporta información adicional sobre los dispositivos. La ontología `saref_2020-05-29.n3` se enfoca en las propiedades de los dispositivos, como modelo y fabricante.\n\nLa ontología `building.ttl` es la más completa, ya que describe conceptos relacionados con edificios y espacios físicos, incluyendo la clasificación de objetos y espacios. La ontología `beo.ttl` se enfoca en los objetos del edificio que pueden ser controlados por dispositivos.\n\nLa ontología `mep.ttl` proporciona información sobre el control de objetos mediante actuadores. Por último, la ontología `th_building.owl` clasifica los dispositivos en categorías relacionadas con funciones, energía y edificios.\n\n**Recomendación**\n\nConsiderando la cobertura de requisitos por ontología, se recomiendan las siguientes tres ontologías:\n\n* `building.ttl`: Es la más completa y proporciona una visión general del concepto de edificio y espacio físico.\n* `saref_2020-05-29.n3`: Proporciona información adicional sobre los dispositivos, como modelo y fabricante.\n* `s4inma_2019-04-30.n3`: Ofrece conceptos básicos sobre dispositivos y edificios que complementan la información de las otras dos ontologías.\n\n**Excluidas**\n\nLas siguientes ontologías no fueron seleccionadas debido a su limitada cobertura:",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "building.ttl",
+        "saref_2020-05-29.n3",
+        "s4inma_2019-04-30.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "base_ontology.owl",
+          "motivo": "Cobertura limitada y redundante con otras ontologías"
+        },
+        {
+          "ontologia": "s4watr_2020-06-03.n3",
+          "motivo": "No proporciona información adicional significativa"
+        },
+        {
+          "ontologia": "brick.ttl",
+          "motivo": "Repetición de conceptos en otras ontologías"
+        },
+        {
+          "ontologia": "s4agri_2020-06-05.n3",
+          "motivo": "No proporciona información adicional significativa para el dominio de dispositivos y edificios"
+        },
+        {
+          "ontologia": "schema.ttl",
+          "motivo": "Cobertura limitada y no específica para el dominio de dispositivos y edificios"
+        },
+        {
+          "ontologia": "mep.ttl",
+          "motivo": "No proporciona información adicional significativa fuera del control de objetos mediante actuadores"
+        },
+        {
+          "ontologia": "beo.ttl",
+          "motivo": "Cobertura limitada y no específica para el dominio de dispositivos y edificios"
+        },
+        {
+          "ontologia": "th_building.owl",
+          "motivo": "No proporciona información adicional significativa fuera de la clasificación de dispositivos"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en la representación de conceptos relacionados con dispositivos, edificios y espacios físicos. A continuación, se analizará la cobertura para recomendar una red de ontologías recomendada.\n\n**Análisis**\n\nLa ontología `s4inma_2019-04-30.n3` proporciona conceptos básicos sobre dispositivos y edificios, mientras que `base_ontology.owl` aporta información adicional sobre los dispositivos. La ontología `saref_2020-05-29.n3` se enfoca en las propiedades de los dispositivos, como modelo y fabricante.\n\nLa ontología `building.ttl` es la más completa, ya que describe conceptos relacionados con edificios y espacios físicos, incluyendo la clasificación de objetos y espacios. La ontología `beo.ttl` se enfoca en los objetos del edificio que pueden ser controlados por dispositivos.\n\nLa ontología `mep.ttl` proporciona información sobre el control de objetos mediante actuadores. Por último, la ontología `th_building.owl` clasifica los dispositivos en categorías relacionadas con funciones, energía y edificios.\n\n**Recomendación**\n\nConsiderando la cobertura de requisitos por ontología, se recomiendan las siguientes tres ontologías:\n\n* `building.ttl`: Es la más completa y proporciona una visión general del concepto de edificio y espacio físico.\n* `saref_2020-05-29.n3`: Proporciona información adicional sobre los dispositivos, como modelo y fabricante.\n* `s4inma_2019-04-30.n3`: Ofrece conceptos básicos sobre dispositivos y edificios que complementan la información de las otras dos ontologías.\n\n**Excluidas**\n\nLas siguientes ontologías no fueron seleccionadas debido a su limitada cobertura:"
+    }
+  },
+  {
+    "config_name": "Denso Sin Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.3333333333333333,
+      "judge_accuracy": 0.25,
+      "veredict_accuracy": 0.25,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.4994471073150635,
+      "total_time": 53.99336528778076
+    },
+    "cases": [
+      {
+        "id": "13",
+        "query": "A device performs one or more functions",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nDevice, Entity, Thing, Object, Perform, Execute, Function, Capability, Service, Action, Task, Operation, Activity\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "s4ehaw_2020-05-01.n3",
+            "base_ontology.owl",
+            "m3lite_2017-07-29.n3",
+            "saref_2020-05-29.n3",
+            "s4agri_2020-06-05.n3",
+            "s4inma_2019-04-30.n3",
+            "saref4envi.n3",
+            "mep.ttl",
+            "m4i_2025-03-10.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "s4inma_2019-04-30.n3"
+          ],
+          "approved_uris": [
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#hasFunction",
+            "https://saref.etsi.org/core/Device",
+            "https://saref.etsi.org/core/Function",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Function"
+          ]
+        }
+      },
+      {
+        "id": "14",
+        "query": "Examples of devices are a light switch, a temperature sensor, an energy meter, a washing machine",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Devices, switch, sensor, meter, machine\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device (Class), Sensor (Type), Meter (Type), Machine (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Appliance, Equipment, Instrument, Gadget\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Sensor, Meter, Machine, Switch, Appliance, Equipment, Instrument, Gadget",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "saref4bldg.n3",
+            "ssn_2011-06-20.n3",
+            "modsci_2022-12-18.n3",
+            "cerif_2013-04-23.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "sosa_2017-04-17.n3",
+            "s4watr_2020-06-03.n3",
+            "th_sharedvocalulary.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "sosa_2017-04-17.n3",
+            "mep.ttl",
+            "brick.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "brick.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/rec#SensorEquipment",
+            "https://brickschema.org/schema/Brick#Sensor_Equipment",
+            "https://saref.etsi.org/core/Appliance"
+          ]
+        }
+      },
+      {
+        "id": "15",
+        "query": "A device shall have a model property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a model property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Model, Property\n2. **Normalización Ontológica:** Formal equivalents:\nClass (e.g., rdfs:Class), Type (e.g., owl:Type), Category (e.g., rdf:Category)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Object, Thing, Instance\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Model, Property, Class, Type, Category, Entity, Object, Thing, Instance",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "base_ontology.owl",
+            "s4ener_2020-06-04.n3",
+            "doap.rdf",
+            "saref_2020-05-29.n3",
+            "building.ttl",
+            "bot.ttl",
+            "meb_2013-03-26.n3",
+            "s4watr_2020-06-03.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref_2020-05-29.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasModel",
+            "https://schema.org/device"
+          ]
+        }
+      },
+      {
+        "id": "16",
+        "query": "A device shall have a manufacturer property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a manufacturer property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Manufacturer, Property\n2. **Normalización Ontológica:** Formal equivalents:\nCategory (e.g., rdfs:Class), Class (e.g., owl:Class), Type (e.g., rdf:Type)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Producer, Maker, Fabricator\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Manufacturer, Property, Category, rdfs:Class, Class, owl:Class, Type, rdf:Type, Entity, Producer, Maker, Fabricator",
+          "raw_retrieved": [
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "s4ener_2020-06-04.n3",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "cerif_2013-04-23.n3",
+            "vivo_2014-07-12.n3",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "s4inma_2019-04-30.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "swc_2009-05-11.n3",
+            "th_sharedvocalulary.owl"
+          ],
+          "top_k_sources": [
+            "s4ener_2020-06-04.n3",
+            "schema.ttl",
+            "vivo_2014-07-12.n3",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasManufacturer",
+            "https://schema.org/manufacturer"
+          ]
+        }
+      },
+      {
+        "id": "17",
+        "query": "A device can optionally have a description",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Description, Optional, Class, Type, Entity, Concept, Property, Ontology, Semantic, Resource, RDF, OWL, Schema, Definition, Attribute, Characteristic\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "qudt_2020-04-20.n3",
+            "schema.ttl",
+            "facility.ttl",
+            "th_sharedvocalulary.owl",
+            "seo_2019-04-10.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "ei2a_2021-10-21.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/keywords"
+          ]
+        }
+      },
+      {
+        "id": "18",
+        "query": "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Building space, device, kitchen, living room, location\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* BuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Space, Place, Zone\n\nHere's the optimized search list in English, separated by commas:\n\nBuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType, Room, Area, Space, Place, Zone",
+          "raw_retrieved": [
+            "brick.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "beo.ttl",
+            "s4inma_2019-04-30.n3",
+            "mep.ttl",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "dogont_2015-01-11.n3",
+            "brick.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "dogont_2015-01-11.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Building",
+            "http://elite.polito.it/ontologies/dogont.owl#BuildingEnvironment",
+            "https://brickschema.org/schema/Brick#Zone"
+          ]
+        }
+      },
+      {
+        "id": "19",
+        "query": "A building space contains devices or building objects",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A building space contains devices or building objects\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuildingSpace, Container, Space, Device, BuildingObject, PhysicalEntity, Thing, Entity, Object, Item, Component, Structure, Architecture\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "brick.ttl",
+            "s4inma_2019-04-30.n3",
+            "facility.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4inma_2019-04-30.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4inma_2019-04-30.n3",
+            "s4agri_2020-06-05.n3",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4bldg/BuildingSpace",
+            "https://saref.etsi.org/saref4agri/BuildingSpace",
+            "http://bimerr.iot.linkeddata.es/def/building#Space"
+          ]
+        }
+      },
+      {
+        "id": "20",
+        "query": "Building objects are objects in the building that can be controlled by devices, such as doors or windows",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\n\t* Building\n\t* Object\n\t* Device\n\t* Door\n\t* Window\n2. **Normalización Ontológica:**\n\t* Category: PhysicalObject\n\t* Class: BuildingComponent\n\t* Type: ControllableEntity\n3. **Sinónimos Técnicos:**\n\t* Fixture\n\t* Component\n\t* Entity\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Object, Device, Door, Window, PhysicalObject, BuildingComponent, ControllableEntity, Fixture, Component, Entity",
+          "raw_retrieved": [
+            "beo.ttl",
+            "building.ttl",
+            "bot.ttl",
+            "th_sharedvocalulary.owl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "th_sharedvocalulary.owl",
+            "beo.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "beo.ttl",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#Element",
+            "http://bimerr.iot.linkeddata.es/def/building#BuildingElement",
+            "https://pi.pauwel.be/voc/buildingelement#BuildingElement"
+          ]
+        }
+      },
+      {
+        "id": "21",
+        "query": "A building object can be opened or closed by an actuator",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nBuilding, Object, Actuator, Open, Close\n2. **Normalización Ontológica:**\n\t* Building (Class)\n\t* Object (Thing)\n\t* Actuator (Device)\n\t* Open (Action)\n\t* Close (Action)\n3. **Sinónimos Técnicos:**\n\t* Structure (Building)\n\t* Entity (Object)\n\t* Controller (Actuator)\n\t* Operate (Open/Close)\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Class, Object, Thing, Actuator, Device, Open, Close, Action, Structure, Entity, Controller, Operate",
+          "raw_retrieved": [
+            "beo.ttl",
+            "vivo_2014-07-12.n3",
+            "building.ttl",
+            "bot.ttl",
+            "facility.ttl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "mep.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-PNEUMATICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-ELECTRICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-HANDOPERATEDACTUATOR"
+          ]
+        }
+      },
+      {
+        "id": "22",
+        "query": "A building space has also a property that can be used to specify the type of space, for example, the living room or the bedroom",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated a list of optimized search terms following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Building space, property, type, room, bedroom, living room\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Concept, Class, Category, Type, Property\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Space, Area, Room, Chamber, Apartment\n\nHere is the list of search terms separated by commas:\n\nBuilding space, property, type, room, bedroom, living room, concept, class, category, type, property, space, area, room, chamber, apartment",
+          "raw_retrieved": [
+            "sbim.owl",
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "building.ttl",
+            "bot.ttl",
+            "schema.ttl",
+            "teach_2013-04-25.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "vivo_2014-07-12.n3",
+            "brick.ttl",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_uris": [
+            "http://bimerr.iot.linkeddata.es/def/building#Apartment",
+            "https://schema.org/Room",
+            "https://brickschema.org/schema/Brick#Room",
+            "http://vivoweb.org/ontology/core#Room"
+          ]
+        }
+      },
+      {
+        "id": "23",
+        "query": "A building space is a geographical point characterized by a certain altitude, latitude and longitude",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicPoint, BuildingSpace, Altitude, Latitude, Longitude, PointOfInterest, SpatialThing, GeographicLocation, Coordinate, Position, LocationType, SpatialReferenceSystem, GeospatialData\n\nThis list includes the main nouns (BuildingSpace, GeographicPoint) and verbs (characterized by) from the original request. I've also added formal equivalents (Category: GeographicPoint, Class: BuildingSpace), as well as technical synonyms (e.g., PointOfInterest instead of BuildingSpace).\n\nNote that some terms might be more specific or general than others, but they all relate to the concept of a building space with geographical coordinates.",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "donto_2015-06-19.n3",
+            "s4city_2020-06-05.n3",
+            "building.ttl",
+            "bot.ttl",
+            "cis_2016-03-30.n3",
+            "datex_2016-06-13.n3",
+            "schema.ttl",
+            "eurio_2023-09-28.n3"
+          ],
+          "top_k_sources": [
+            "s4city_2020-06-05.n3",
+            "schema.ttl",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4city_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "http://www.w3.org/2003/01/geo/wgs84_pos#Point",
+            "http://www.w3.org/2003/01/geo/wgs84_pos#location"
+          ]
+        }
+      },
+      {
+        "id": "24",
+        "query": "The devices can be classified into categories: FunctionRelated, EnergyRelated and BuildingRelated",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCategory, Class, Type, Classification, Ontology, Concept, Device, Function, Energy, Building, CategorySystem, Taxonomy, Hierarchy, ClassificationScheme, OntologicalClassification, SemanticType, RDFClass\n\nNote that I've included both formal ontological terms (e.g., \"Category\", \"Class\", \"Type\") and technical synonyms (e.g., \"Classification\", \"Ontology\", \"Concept\"). This list should provide a good starting point for searching and querying in the context of Web Semantics using OWL/RDF.",
+          "raw_retrieved": [
+            "swo.owl",
+            "ifc4.ttl",
+            "gc_2009-08-24.n3",
+            "bibo_2009-11-04.n3",
+            "swc_2009-05-11.n3",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "seo_2019-04-10.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "ifc4.ttl",
+            "seo_2019-04-10.n3",
+            "swo.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "ifc4.ttl",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "http://www.ebi.ac.uk/swo/SWO_0000140",
+            "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#IfcClassificationReference"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con dispositivos, espacios y objetos en edificios. Para recomendar las mejores ontologías para cubrir los requisitos, debemos analizar la cobertura de cada ontología.\n\nEn primer lugar, observamos que algunas ontologías tienen un conjunto de requisitos similares, como \"A device performs one or more functions\" o \"A building space contains devices or building objects\". Esto sugiere que estas ontologías pueden ser consideradas para cubrir los requisitos básicos.\n\nPor otro lado, algunas ontologías se enfocan en aspectos específicos, como la clasificación de dispositivos (swo.owl e ifc4.ttl) o la descripción de espacios y objetos (brick.ttl y building.ttl). Estas ontologías pueden ser útiles para cubrir requisitos más especializados.\n\nDespués de analizar la cobertura, puedo recomendar las siguientes tres ontologías:\n\n* **saref_2020-05-29.n3**: Esta ontología tiene un buen conjunto de requisitos que cubren aspectos básicos y especializados. Incluye conceptos como \"A device shall have a model property\" y \"A building space has also a property that can be used to specify the type of space\".\n* **schema.ttl**: Esta ontología también tiene un buen conjunto de requisitos que cubren aspectos básicos y especializados. Incluye conceptos como \"A device can optionally have a description\" y \"A building space has also a property that can be used to specify the type of space\".\n* **swo.owl**: Esta ontología se enfoca en la clasificación de dispositivos, lo que puede ser útil para cubrir requisitos especializados.\n\nEn cuanto a las ontologías excluidas, puedo recomendar excluir las siguientes:\n\n* **dogont_2015-01-11.n3**: Esta ontología solo tiene un requisito relacionado con la descripción de espacios, lo que no es tan relevante para cubrir los requisitos generales.\n* **vivo_2014-07-12.n3**: Esta ontología solo tiene un requisito relacionado con la descripción de espacios, lo que no es tan relevante para cubrir los requisitos generales.\n\n**Recomendaciones y Exclusiones**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "saref_2020-05-29.n3",
+        "schema.ttl",
+        "swo.owl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "dogont_2015-01-11.n3",
+          "motivo": "Solo cubre requisitos relacionados con la descripción de espacios"
+        },
+        {
+          "ontologia": "vivo_2014-07-12.n3",
+          "motivo": "Solo cubre requisitos relacionados con la descripción de espacios"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con dispositivos, espacios y objetos en edificios. Para recomendar las mejores ontologías para cubrir los requisitos, debemos analizar la cobertura de cada ontología.\n\nEn primer lugar, observamos que algunas ontologías tienen un conjunto de requisitos similares, como \"A device performs one or more functions\" o \"A building space contains devices or building objects\". Esto sugiere que estas ontologías pueden ser consideradas para cubrir los requisitos básicos.\n\nPor otro lado, algunas ontologías se enfocan en aspectos específicos, como la clasificación de dispositivos (swo.owl e ifc4.ttl) o la descripción de espacios y objetos (brick.ttl y building.ttl). Estas ontologías pueden ser útiles para cubrir requisitos más especializados.\n\nDespués de analizar la cobertura, puedo recomendar las siguientes tres ontologías:\n\n* **saref_2020-05-29.n3**: Esta ontología tiene un buen conjunto de requisitos que cubren aspectos básicos y especializados. Incluye conceptos como \"A device shall have a model property\" y \"A building space has also a property that can be used to specify the type of space\".\n* **schema.ttl**: Esta ontología también tiene un buen conjunto de requisitos que cubren aspectos básicos y especializados. Incluye conceptos como \"A device can optionally have a description\" y \"A building space has also a property that can be used to specify the type of space\".\n* **swo.owl**: Esta ontología se enfoca en la clasificación de dispositivos, lo que puede ser útil para cubrir requisitos especializados.\n\nEn cuanto a las ontologías excluidas, puedo recomendar excluir las siguientes:\n\n* **dogont_2015-01-11.n3**: Esta ontología solo tiene un requisito relacionado con la descripción de espacios, lo que no es tan relevante para cubrir los requisitos generales.\n* **vivo_2014-07-12.n3**: Esta ontología solo tiene un requisito relacionado con la descripción de espacios, lo que no es tan relevante para cubrir los requisitos generales.\n\n**Recomendaciones y Exclusiones**"
+    }
+  },
+  {
+    "config_name": "BM25 + Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.16666666666666666,
+      "judge_accuracy": 0.16666666666666666,
+      "veredict_accuracy": 0.16666666666666666,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.3848327199618025,
+      "total_time": 52.617992639541626
+    },
+    "cases": [
+      {
+        "id": "13",
+        "query": "A device performs one or more functions",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nDevice, Entity, Thing, Object, Perform, Execute, Function, Capability, Service, Action, Task, Operation, Activity\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "cgov_2012-08-28.n3",
+            "base_ontology.owl",
+            "m3lite_2017-07-29.n3",
+            "oum_2020-06-06.n3",
+            "s4ener_2020-06-04.n3",
+            "fabio_2019-02-19.n3",
+            "saref_2020-05-29.n3",
+            "datex_2016-06-13.n3",
+            "apco_2022-08-31.n3",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "mep.ttl",
+            "edupro_2016-09-13.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "datex_2016-06-13.n3",
+            "mep.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_sources": [
+            "mep.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/Device",
+            "https://pi.pauwel.be/voc/distributionelement#CoolingTower-MECHANICALFORCEDDRAFT"
+          ]
+        }
+      },
+      {
+        "id": "14",
+        "query": "Examples of devices are a light switch, a temperature sensor, an energy meter, a washing machine",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Devices, switch, sensor, meter, machine\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device (Class), Sensor (Type), Meter (Type), Machine (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Appliance, Equipment, Instrument, Gadget\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Sensor, Meter, Machine, Switch, Appliance, Equipment, Instrument, Gadget",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "apco_2022-08-31.n3",
+            "swc_2009-05-11.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "sosa_2017-04-17.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/iot/vocab/m3-lite#SoundSensor"
+          ]
+        }
+      },
+      {
+        "id": "15",
+        "query": "A device shall have a model property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a model property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Model, Property\n2. **Normalización Ontológica:** Formal equivalents:\nClass (e.g., rdfs:Class), Type (e.g., owl:Type), Category (e.g., rdf:Category)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Object, Thing, Instance\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Model, Property, Class, Type, Category, Entity, Object, Thing, Instance",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "saref4watr.n3",
+            "swo.owl",
+            "s4ener_2020-06-04.n3",
+            "m3lite_2017-07-29.n3",
+            "fabio_2019-02-19.n3",
+            "s4agri_2020-06-05.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "s4ener_2020-06-04.n3",
+            "saref4watr.n3",
+            "s4watr_2020-06-03.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasModel"
+          ]
+        }
+      },
+      {
+        "id": "16",
+        "query": "A device shall have a manufacturer property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a manufacturer property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Manufacturer, Property\n2. **Normalización Ontológica:** Formal equivalents:\nCategory (e.g., rdfs:Class), Class (e.g., owl:Class), Type (e.g., rdf:Type)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Producer, Maker, Fabricator\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Manufacturer, Property, Category, rdfs:Class, Class, owl:Class, Type, rdf:Type, Entity, Producer, Maker, Fabricator",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "s4ener_2020-06-04.n3",
+            "m3lite_2017-07-29.n3",
+            "fabio_2019-02-19.n3",
+            "s4agri_2020-06-05.n3",
+            "schema.ttl",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "s4ener_2020-06-04.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasManufacturer"
+          ]
+        }
+      },
+      {
+        "id": "17",
+        "query": "A device can optionally have a description",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Description, Optional, Class, Type, Entity, Concept, Property, Ontology, Semantic, Resource, RDF, OWL, Schema, Definition, Attribute, Characteristic\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "oum_2020-06-06.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "dstv.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "edupro_2016-09-13.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "bpo.ttl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/keywords"
+          ]
+        }
+      },
+      {
+        "id": "18",
+        "query": "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Building space, device, kitchen, living room, location\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* BuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Space, Place, Zone\n\nHere's the optimized search list in English, separated by commas:\n\nBuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType, Room, Area, Space, Place, Zone",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "bpo.ttl",
+            "swo.owl",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "eurio_2023-09-28.n3",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "s4ehaw_2020-05-01.n3",
+            "bpo.ttl",
+            "swo.owl",
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_sources": [
+            "s4ehaw_2020-05-01.n3",
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4ehaw/hasLocation",
+            "http://purl.org/iot/vocab/m3-lite#Place"
+          ]
+        }
+      },
+      {
+        "id": "19",
+        "query": "A building space contains devices or building objects",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A building space contains devices or building objects\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuildingSpace, Container, Space, Device, BuildingObject, PhysicalEntity, Thing, Entity, Object, Item, Component, Structure, Architecture\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "brick.ttl",
+            "s4agri_2020-06-05.n3",
+            "beo.ttl",
+            "schema.ttl"
+          ],
+          "top_k_sources": [
+            "saref4bldg.n3",
+            "beo.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "saref4bldg.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4bldg/BuildingSpace",
+            "https://saref.etsi.org/saref4agri/BuildingSpace"
+          ]
+        }
+      },
+      {
+        "id": "20",
+        "query": "Building objects are objects in the building that can be controlled by devices, such as doors or windows",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\n\t* Building\n\t* Object\n\t* Device\n\t* Door\n\t* Window\n2. **Normalización Ontológica:**\n\t* Category: PhysicalObject\n\t* Class: BuildingComponent\n\t* Type: ControllableEntity\n3. **Sinónimos Técnicos:**\n\t* Fixture\n\t* Component\n\t* Entity\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Object, Device, Door, Window, PhysicalObject, BuildingComponent, ControllableEntity, Fixture, Component, Entity",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "base_ontology.owl",
+            "cerif_2013-04-23.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "bpo.ttl",
+            "base_ontology.owl",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "base_ontology.owl"
+          ],
+          "approved_uris": [
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#InterworkedDevice"
+          ]
+        }
+      },
+      {
+        "id": "21",
+        "query": "A building object can be opened or closed by an actuator",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nBuilding, Object, Actuator, Open, Close\n2. **Normalización Ontológica:**\n\t* Building (Class)\n\t* Object (Thing)\n\t* Actuator (Device)\n\t* Open (Action)\n\t* Close (Action)\n3. **Sinónimos Técnicos:**\n\t* Structure (Building)\n\t* Entity (Object)\n\t* Controller (Actuator)\n\t* Operate (Open/Close)\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Class, Object, Thing, Actuator, Device, Open, Close, Action, Structure, Entity, Controller, Operate",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "ei2a_2021-10-21.n3",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "sosa_2017-04-17.n3",
+            "ei2a_2021-10-21.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Open_Close_Command",
+            "https://brickschema.org/schema/Brick#Open_Close_Status"
+          ]
+        }
+      },
+      {
+        "id": "22",
+        "query": "A building space has also a property that can be used to specify the type of space, for example, the living room or the bedroom",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated a list of optimized search terms following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Building space, property, type, room, bedroom, living room\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Concept, Class, Category, Type, Property\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Space, Area, Room, Chamber, Apartment\n\nHere is the list of search terms separated by commas:\n\nBuilding space, property, type, room, bedroom, living room, concept, class, category, type, property, space, area, room, chamber, apartment",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "cis_2016-03-30.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "eurio_2023-09-28.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "schema.ttl",
+            "eurio_2023-09-28.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/lodgingUnitType"
+          ]
+        }
+      },
+      {
+        "id": "23",
+        "query": "A building space is a geographical point characterized by a certain altitude, latitude and longitude",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicPoint, BuildingSpace, Altitude, Latitude, Longitude, PointOfInterest, SpatialThing, GeographicLocation, Coordinate, Position, LocationType, SpatialReferenceSystem, GeospatialData\n\nThis list includes the main nouns (BuildingSpace, GeographicPoint) and verbs (characterized by) from the original request. I've also added formal equivalents (Category: GeographicPoint, Class: BuildingSpace), as well as technical synonyms (e.g., PointOfInterest instead of BuildingSpace).\n\nNote that some terms might be more specific or general than others, but they all relate to the concept of a building space with geographical coordinates.",
+          "raw_retrieved": [
+            "beo.ttl",
+            "bot.ttl",
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "eurio_2023-09-28.n3"
+          ],
+          "top_k_sources": [
+            "bot.ttl",
+            "fabio_2019-02-19.n3",
+            "beo.ttl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "bot.ttl"
+          ],
+          "approved_uris": [
+            "https://w3id.org/bot#hasZeroPoint"
+          ]
+        }
+      },
+      {
+        "id": "24",
+        "query": "The devices can be classified into categories: FunctionRelated, EnergyRelated and BuildingRelated",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCategory, Class, Type, Classification, Ontology, Concept, Device, Function, Energy, Building, CategorySystem, Taxonomy, Hierarchy, ClassificationScheme, OntologicalClassification, SemanticType, RDFClass\n\nNote that I've included both formal ontological terms (e.g., \"Category\", \"Class\", \"Type\") and technical synonyms (e.g., \"Classification\", \"Ontology\", \"Concept\"). This list should provide a good starting point for searching and querying in the context of Web Semantics using OWL/RDF.",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "saref_2020-05-29.n3",
+            "bot.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "saref_2020-05-29.n3",
+            "bot.ttl",
+            "schema.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "bot.ttl",
+            "saref_2020-05-29.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/accomplishes",
+            "https://w3id.org/bot#hasZeroPoint"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la inteligencia del hogar (Smart Home) y la automatización de edificios. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nSe observa que algunas ontologías tienen requisitos en común, como la clasificación de dispositivos por categorías (FunctionRelated, EnergyRelated y BuildingRelated) o la definición de espacios físicos dentro de un edificio. Esto sugiere una relación entre estas ontologías y la necesidad de integración para lograr una cobertura más amplia.\n\nEn cuanto a las ontologías que no tienen requisitos en común, algunas pueden ser excluidas debido a su especialización o falta de relevancia en el contexto de la Smart Home. Por ejemplo, la ontología `bot.ttl` se centra en la caracterización geográfica de espacios físicos, lo que no es directamente relacionado con los dispositivos y edificios.\n\n**Recomendaciones**\n\nConsiderando la cobertura y la relación entre las ontologías, se recomiendan las siguientes tres ontologías:\n\n\n\nEstas ontologías cubren una amplia gama de conceptos relacionados con la Smart Home, incluyendo la clasificación de dispositivos, la definición de espacios físicos y la caracterización de dispositivos. La integración de estas ontologías permitiría crear un modelo más completo y preciso de la inteligencia del hogar y la automatización de edificios.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "saref_2020-05-29.n3",
+        "mep.ttl",
+        "schema.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "bot.ttl",
+          "motivo": "No tiene requisitos en común con otras ontologías"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la inteligencia del hogar (Smart Home) y la automatización de edificios. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nSe observa que algunas ontologías tienen requisitos en común, como la clasificación de dispositivos por categorías (FunctionRelated, EnergyRelated y BuildingRelated) o la definición de espacios físicos dentro de un edificio. Esto sugiere una relación entre estas ontologías y la necesidad de integración para lograr una cobertura más amplia.\n\nEn cuanto a las ontologías que no tienen requisitos en común, algunas pueden ser excluidas debido a su especialización o falta de relevancia en el contexto de la Smart Home. Por ejemplo, la ontología `bot.ttl` se centra en la caracterización geográfica de espacios físicos, lo que no es directamente relacionado con los dispositivos y edificios.\n\n**Recomendaciones**\n\nConsiderando la cobertura y la relación entre las ontologías, se recomiendan las siguientes tres ontologías:\n\n\n\nEstas ontologías cubren una amplia gama de conceptos relacionados con la Smart Home, incluyendo la clasificación de dispositivos, la definición de espacios físicos y la caracterización de dispositivos. La integración de estas ontologías permitiría crear un modelo más completo y preciso de la inteligencia del hogar y la automatización de edificios."
+    }
+  },
+  {
+    "config_name": "BM25 Sin Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.16666666666666666,
+      "judge_accuracy": 0.0,
+      "veredict_accuracy": 0.0,
+      "veredict_precision": 0.0,
+      "veredict_recall": 0.0,
+      "veredict_f1": 0.0,
+      "average_time": 4.28631063302358,
+      "total_time": 51.43572759628296
+    },
+    "cases": [
+      {
+        "id": "13",
+        "query": "A device performs one or more functions",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device performs one or more functions\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nDevice, Entity, Thing, Object, Perform, Execute, Function, Capability, Service, Action, Task, Operation, Activity\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "cgov_2012-08-28.n3",
+            "base_ontology.owl",
+            "m3lite_2017-07-29.n3",
+            "oum_2020-06-06.n3",
+            "s4ener_2020-06-04.n3",
+            "fabio_2019-02-19.n3",
+            "saref_2020-05-29.n3",
+            "datex_2016-06-13.n3",
+            "apco_2022-08-31.n3",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "mep.ttl",
+            "edupro_2016-09-13.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "edupro_2016-09-13.n3"
+          ],
+          "approved_sources": [
+            "base_ontology.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/dpv#StandardFormContract",
+            "https://git.onem2m.org/MAS/BaseOntology/raw/master/base_ontology.owl#Service"
+          ]
+        }
+      },
+      {
+        "id": "14",
+        "query": "Examples of devices are a light switch, a temperature sensor, an energy meter, a washing machine",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Devices, switch, sensor, meter, machine\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device (Class), Sensor (Type), Meter (Type), Machine (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Appliance, Equipment, Instrument, Gadget\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Sensor, Meter, Machine, Switch, Appliance, Equipment, Instrument, Gadget",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "apco_2022-08-31.n3",
+            "swc_2009-05-11.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "15",
+        "query": "A device shall have a model property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a model property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Model, Property\n2. **Normalización Ontológica:** Formal equivalents:\nClass (e.g., rdfs:Class), Type (e.g., owl:Type), Category (e.g., rdf:Category)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Object, Thing, Instance\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Model, Property, Class, Type, Category, Entity, Object, Thing, Instance",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "saref4watr.n3",
+            "swo.owl",
+            "s4ener_2020-06-04.n3",
+            "m3lite_2017-07-29.n3",
+            "fabio_2019-02-19.n3",
+            "s4agri_2020-06-05.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "s4ener_2020-06-04.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "m4i_2025-03-10.n3"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasModel"
+          ]
+        }
+      },
+      {
+        "id": "16",
+        "query": "A device shall have a manufacturer property",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A device shall have a manufacturer property\", I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nDevice, Manufacturer, Property\n2. **Normalización Ontológica:** Formal equivalents:\nCategory (e.g., rdfs:Class), Class (e.g., owl:Class), Type (e.g., rdf:Type)\n3. **Sinónimos Técnicos:** Precise alternative terms:\nEntity, Producer, Maker, Fabricator\n\nHere's the optimized search list in English, separated by commas:\n\nDevice, Manufacturer, Property, Category, rdfs:Class, Class, owl:Class, Type, rdf:Type, Entity, Producer, Maker, Fabricator",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "s4ener_2020-06-04.n3",
+            "m3lite_2017-07-29.n3",
+            "fabio_2019-02-19.n3",
+            "s4agri_2020-06-05.n3",
+            "schema.ttl",
+            "m4i_2025-03-10.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "s4ener_2020-06-04.n3",
+            "s4agri_2020-06-05.n3",
+            "schema.ttl",
+            "m4i_2025-03-10.n3"
+          ],
+          "approved_sources": [
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/core/hasManufacturer"
+          ]
+        }
+      },
+      {
+        "id": "17",
+        "query": "A device can optionally have a description",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nDevice, Description, Optional, Class, Type, Entity, Concept, Property, Ontology, Semantic, Resource, RDF, OWL, Schema, Definition, Attribute, Characteristic\n\nThese terms are separated by commas, as requested.",
+          "raw_retrieved": [
+            "iot-lite_2015-06-01.n3",
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "oum_2020-06-06.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "vivo_2014-07-12.n3",
+            "dstv.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "edupro_2016-09-13.n3"
+          ],
+          "top_k_sources": [
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/dpv#ConsumerStandardFormContract",
+            "https://w3id.org/dpv#ProviderStandardFormContract",
+            "https://w3id.org/dpv#NegotiatedContract"
+          ]
+        }
+      },
+      {
+        "id": "18",
+        "query": "A building space defines the physical spaces of the building where a device is located, such as a kitchen or a living room",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Building space, device, kitchen, living room, location\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* BuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Room, Area, Space, Place, Zone\n\nHere's the optimized search list in English, separated by commas:\n\nBuildingSpace, DeviceLocation, Kitchen, LivingRoom, LocationType, Room, Area, Space, Place, Zone",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "bpo.ttl",
+            "swo.owl",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "eurio_2023-09-28.n3",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Nanopublication",
+            "https://schema.org/item"
+          ]
+        }
+      },
+      {
+        "id": "19",
+        "query": "A building space contains devices or building objects",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request \"A building space contains devices or building objects\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here is the optimized search list:\n\nBuildingSpace, Container, Space, Device, BuildingObject, PhysicalEntity, Thing, Entity, Object, Item, Component, Structure, Architecture\n\nNote: The terms are separated by commas as requested.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "brick.ttl",
+            "s4agri_2020-06-05.n3",
+            "beo.ttl",
+            "schema.ttl"
+          ],
+          "top_k_sources": [
+            "saref4bldg.n3",
+            "brick.ttl",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_sources": [
+            "saref4bldg.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4agri/BuildingSpace",
+            "https://saref.etsi.org/saref4bldg/BuildingSpace"
+          ]
+        }
+      },
+      {
+        "id": "20",
+        "query": "Building objects are objects in the building that can be controlled by devices, such as doors or windows",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\n\t* Building\n\t* Object\n\t* Device\n\t* Door\n\t* Window\n2. **Normalización Ontológica:**\n\t* Category: PhysicalObject\n\t* Class: BuildingComponent\n\t* Type: ControllableEntity\n3. **Sinónimos Técnicos:**\n\t* Fixture\n\t* Component\n\t* Entity\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Object, Device, Door, Window, PhysicalObject, BuildingComponent, ControllableEntity, Fixture, Component, Entity",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "base_ontology.owl",
+            "cerif_2013-04-23.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/spar/fabio/Nanopublication",
+            "https://www.auto.tuwien.ac.at/downloads/thinkhome/ontology/BuildingOntology.owl#Equation"
+          ]
+        }
+      },
+      {
+        "id": "21",
+        "query": "A building object can be opened or closed by an actuator",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs:\nBuilding, Object, Actuator, Open, Close\n2. **Normalización Ontológica:**\n\t* Building (Class)\n\t* Object (Thing)\n\t* Actuator (Device)\n\t* Open (Action)\n\t* Close (Action)\n3. **Sinónimos Técnicos:**\n\t* Structure (Building)\n\t* Entity (Object)\n\t* Controller (Actuator)\n\t* Operate (Open/Close)\n\nHere's the optimized search list in English, separated by commas:\n\nBuilding, Class, Object, Thing, Actuator, Device, Open, Close, Action, Structure, Entity, Controller, Operate",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "ei2a_2021-10-21.n3",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "th_building.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Open_Close_Status"
+          ]
+        }
+      },
+      {
+        "id": "22",
+        "query": "A building space has also a property that can be used to specify the type of space, for example, the living room or the bedroom",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated a list of optimized search terms following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and technical verbs\n\t* Building space, property, type, room, bedroom, living room\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Concept, Class, Category, Type, Property\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Space, Area, Room, Chamber, Apartment\n\nHere is the list of search terms separated by commas:\n\nBuilding space, property, type, room, bedroom, living room, concept, class, category, type, property, space, area, room, chamber, apartment",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "cis_2016-03-30.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "eurio_2023-09-28.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "schema.ttl",
+            "eurio_2023-09-28.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/MeetingRoom",
+            "https://schema.org/lodgingUnitType"
+          ]
+        }
+      },
+      {
+        "id": "23",
+        "query": "A building space is a geographical point characterized by a certain altitude, latitude and longitude",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGeographicPoint, BuildingSpace, Altitude, Latitude, Longitude, PointOfInterest, SpatialThing, GeographicLocation, Coordinate, Position, LocationType, SpatialReferenceSystem, GeospatialData\n\nThis list includes the main nouns (BuildingSpace, GeographicPoint) and verbs (characterized by) from the original request. I've also added formal equivalents (Category: GeographicPoint, Class: BuildingSpace), as well as technical synonyms (e.g., PointOfInterest instead of BuildingSpace).\n\nNote that some terms might be more specific or general than others, but they all relate to the concept of a building space with geographical coordinates.",
+          "raw_retrieved": [
+            "beo.ttl",
+            "bot.ttl",
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "eurio_2023-09-28.n3"
+          ],
+          "top_k_sources": [
+            "fabio_2019-02-19.n3",
+            "schema.ttl",
+            "eurio_2023-09-28.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "24",
+        "query": "The devices can be classified into categories: FunctionRelated, EnergyRelated and BuildingRelated",
+        "expected": "saref_2020-05-29.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCategory, Class, Type, Classification, Ontology, Concept, Device, Function, Energy, Building, CategorySystem, Taxonomy, Hierarchy, ClassificationScheme, OntologicalClassification, SemanticType, RDFClass\n\nNote that I've included both formal ontological terms (e.g., \"Category\", \"Class\", \"Type\") and technical synonyms (e.g., \"Classification\", \"Ontology\", \"Concept\"). This list should provide a good starting point for searching and querying in the context of Web Semantics using OWL/RDF.",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "swo.owl",
+            "modsci_2022-12-18.n3",
+            "saref_2020-05-29.n3",
+            "bot.ttl",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/BreadcrumbList",
+            "https://schema.org/occupationalCategory"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona una visión general de las ontologías involucradas y los requisitos que cubren. Analizando la cobertura, podemos identificar tres ontologías que se recomiendan para abordar la mayoría de los requisitos.\n\nLa primera ontología recomendada es **schema.ttl**, que cubre una amplia gama de conceptos relacionados con edificios y dispositivos, incluyendo la definición de espacios físicos y la clasificación de dispositivos en categorías. Esta ontología es fundamental para entender el contexto en el que se encuentran los dispositivos.\n\nLa segunda ontología recomendada es **dpv_2025-08-01.n3**, que proporciona información sobre las características y funcionalidades de los dispositivos, como la descripción opcional y las funciones que pueden realizar. Esta ontología es importante para entender el comportamiento y propiedades de los dispositivos.\n\nLa tercera ontología recomendada es **s4agri_2020-06-05.n3**, que cubre conceptos relacionados con edificios, espacios físicos y dispositivos, incluyendo la relación entre dispositivos y espacios. Esta ontologia es útil para entender cómo los dispositivos se integran en el contexto de un edificio.\n\nEn cuanto a las ontologías excluidas, **brick.ttl** no fue seleccionada porque su contenido se centra principalmente en la apertura o cierre de objetos por actuadores, lo que no cubre una amplia gama de requisitos. Por otro lado, **th_building.owl** y **saref4bldg.n3** tienen un contenido más específico y no cubren los requisitos de manera tan exhaustiva como las ontologías recomendadas.\n\nEn resumen, se recomiendan tres ontologías para abordar la mayoría de los requisitos: **schema.ttl**, **dpv_2025-08-01.n3** y **s4agri_2020-06-05.n3**. Las ontologías excluidas no cubren una amplia gama de requisitos y pueden ser consideradas para un uso más específico.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "schema.ttl",
+        "dpv_2025-08-01.n3",
+        "s4agri_2020-06-05.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "brick.ttl",
+          "motivo": "Contenido específico sobre apertura y cierre de objetos"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona una visión general de las ontologías involucradas y los requisitos que cubren. Analizando la cobertura, podemos identificar tres ontologías que se recomiendan para abordar la mayoría de los requisitos.\n\nLa primera ontología recomendada es **schema.ttl**, que cubre una amplia gama de conceptos relacionados con edificios y dispositivos, incluyendo la definición de espacios físicos y la clasificación de dispositivos en categorías. Esta ontología es fundamental para entender el contexto en el que se encuentran los dispositivos.\n\nLa segunda ontología recomendada es **dpv_2025-08-01.n3**, que proporciona información sobre las características y funcionalidades de los dispositivos, como la descripción opcional y las funciones que pueden realizar. Esta ontología es importante para entender el comportamiento y propiedades de los dispositivos.\n\nLa tercera ontología recomendada es **s4agri_2020-06-05.n3**, que cubre conceptos relacionados con edificios, espacios físicos y dispositivos, incluyendo la relación entre dispositivos y espacios. Esta ontologia es útil para entender cómo los dispositivos se integran en el contexto de un edificio.\n\nEn cuanto a las ontologías excluidas, **brick.ttl** no fue seleccionada porque su contenido se centra principalmente en la apertura o cierre de objetos por actuadores, lo que no cubre una amplia gama de requisitos. Por otro lado, **th_building.owl** y **saref4bldg.n3** tienen un contenido más específico y no cubren los requisitos de manera tan exhaustiva como las ontologías recomendadas.\n\nEn resumen, se recomiendan tres ontologías para abordar la mayoría de los requisitos: **schema.ttl**, **dpv_2025-08-01.n3** y **s4agri_2020-06-05.n3**. Las ontologías excluidas no cubren una amplia gama de requisitos y pueden ser consideradas para un uso más específico."
+    }
+  }
+]

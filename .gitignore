@@ -15,4 +15,19 @@ tfg_rag_pruebas/*.egg-info/
 
 # Caché de modelos y VS Code
 .cache/
-.vscode/
+.vscode/
+
+# Memoria del TFG (y ejemplos)
+memoria_tfg/
+tfg_rag_pruebas/TFG_ADRIAN_MORA_CARRERO.pdf
+
+# Peticiones y peticiones originales
+ORIGINAL_REQUEST.md
+request.md
+*request.md
+
+# Directorios de agentes locales
+.agents/
+
+
+

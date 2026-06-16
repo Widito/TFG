@@ -73,7 +73,18 @@ class EvaluadorRequisitos:
             candidate_py = json_candidate.replace("true", "True").replace("false", "False").replace("null", "None")
             parsed = ast.literal_eval(candidate_py)
             if isinstance(parsed, dict):
-                return parsed
+                # Eliminar objetos Ellipsis (...) recursivamente para evitar fallos de serialización JSON
+                def remove_ellipsis(val):
+                    if val is Ellipsis:
+                        return "..."
+                    elif isinstance(val, dict):
+                        return {k: remove_ellipsis(v) for k, v in val.items()}
+                    elif isinstance(val, list):
+                        return [remove_ellipsis(x) for x in val]
+                    elif isinstance(val, tuple):
+                        return tuple(remove_ellipsis(x) for x in val)
+                    return val
+                return remove_ellipsis(parsed)
         except Exception as e_ast:
             logger.warning(f"ast.literal_eval fallo: {e_ast}")
 

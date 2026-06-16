@@ -1,0 +1,3004 @@
+[
+  {
+    "config_name": "Híbrido + Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 1.0,
+      "judge_accuracy": 0.8333333333333334,
+      "veredict_accuracy": 0.8333333333333334,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 5.318654318650563,
+      "total_time": 63.82385182380676
+    },
+    "cases": [
+      {
+        "id": "37",
+        "query": "What is the username of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main concept)\n\t* Username (key term)\n2. **Normalización Ontológica:**\n\t* Entity (OWL/RDF equivalent for \"Player\")\n\t* Individual (OWL/RDF equivalent for \"username\")\n\t* Character (OWL/RDF equivalent for \"player\" in a broader sense)\n3. **Sinónimos Técnicos:**\n\t* Account (alternative term for \"player\" or \"username\")\n\t* Identifier (technical synonym for \"username\")\n\t* Name (synonym for \"username\" or \"label\")\n\t* URI (Uniform Resource Identifier, which can be used to identify a player or username)\n\nNow, here's the optimized search list in English, separated by commas:\n\nPlayer, entity, individual, character, account, identifier, name, label, URI",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "swrc_2007-06-22.n3",
+            "GameOntologyv3.owl",
+            "mep.ttl",
+            "scoro_2017-09-04.n3",
+            "foaf_2014-01-14.n3",
+            "meb_2013-03-26.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "cerif_2013-04-23.n3",
+            "schema.ttl",
+            "building.ttl",
+            "cgo.rdf",
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#username",
+            "http://rdf.myexperiment.org/ontologies/base/username"
+          ]
+        }
+      },
+      {
+        "id": "38",
+        "query": "Who are the friends of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, Friend, SocialNetwork, Relationship, Entity, Person, Individual, Human, Associate, Companion, Buddy, Colleague\n\nHere's my thought process:\n\n1. **Conceptos Nucleares:**\n\t* Player (main subject)\n\t* Friends (related concept)\n2. **Normalización Ontológica:**\n\t* Category: SocialEntity\n\t* Class: Person\n\t* Type: Individual\n3. **Sinónimos Técnicos:**\n\t* Associate, Companion, Buddy, Colleague (alternative terms for \"Friend\")\n\nNote that I've used a mix of natural language processing and ontological concepts to generate this list. The resulting search terms should provide an efficient way to query a Web Semantics-based system (OWL/RDF) to retrieve information about the friends of a player.\n\nNow, if you'll excuse me, I need to go optimize some semantic queries!",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "vivo_2014-07-12.n3",
+            "GameOntologyv3.owl",
+            "swc_2009-05-11.n3",
+            "meb_2013-03-26.n3",
+            "m4i_2025-03-10.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#isFriendWithPlayer",
+            "http://rdf.myexperiment.org/ontologies/base/is-friends-with"
+          ]
+        }
+      },
+      {
+        "id": "39",
+        "query": "What is the genre of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Genre, Category, Type, Class, Video Game Genre, Electronic Game Genre, Computer Game Genre, Role-Playing Game (RPG), Adventure Game, Action Game, Strategy Game, Simulation Game\n\nThese terms are separated by commas to facilitate a comprehensive search in the realm of Web Semantics using OWL/RDF.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf",
+            "foaf_2014-01-14.n3"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Genre",
+            "https://schema.org/Game"
+          ]
+        }
+      },
+      {
+        "id": "40",
+        "query": "Who is the creator of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Creator, Ontology, Class, Type, Entity, Developer, Author, Maker, Producer, Designer\n\nThese terms are separated by commas to facilitate searching in OWL/RDF ontologies.\n\nHere's a brief explanation of each term:\n\n1. **Game**: The subject of interest.\n2. **Creator**: The entity responsible for creating the game (equivalent to \"Author\" or \"Developer\").\n3. **Ontology**: The formal representation of concepts and relationships (e.g., OWL/RDF).\n4. **Class**: A category or type of thing (equivalent to \"Type\" or \"Entity\").\n5. **Type**: A classification or categorization (equivalent to \"Class\" or \"Category\").\n6. **Entity**: A thing with existence, such as a person, organization, or concept.\n7. **Developer**: The entity responsible for creating the game's content or mechanics.\n8. **Author**: The creator of the game's narrative, story, or intellectual property.\n9. **Maker**: The entity responsible for crafting or producing the game (equivalent to \"Producer\").\n10. **Producer**: The entity responsible for overseeing the creation and distribution of the game.\n\nThese terms should help you search for relevant information in OWL/RDF ontologies related to games and their creators.",
+          "raw_retrieved": [
+            "prov_2015-01-11.n3",
+            "dstv.ttl",
+            "base_ontology.owl",
+            "swrc_2007-06-22.n3",
+            "GameOntologyv3.owl",
+            "foaf_2014-01-14.n3",
+            "schema.ttl",
+            "cgo.rdf",
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "dstv.ttl",
+            "GameOntologyv3.owl"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "https://schema.org/creator",
+            "http://purl.org/dc/terms/creator",
+            "http://purl.org/dc/elements/1.1/creator"
+          ]
+        }
+      },
+      {
+        "id": "41",
+        "query": "What achievements does a game have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Achievement, Ontology, Concept, Class, Type, Score, Reward, Progression, Level, Victory, Success, Completion, Goal, Objective.\n\nThese terms are separated by commas to facilitate searching in a semantic web environment using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "vivo_2014-07-12.n3",
+            "GameOntologyv3.owl",
+            "swo.owl",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Achievement",
+            "http://purl.org/net/VideoGameOntology#Completion"
+          ]
+        }
+      },
+      {
+        "id": "42",
+        "query": "What items does the player have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, Item, Possession, Entity, Resource, Asset, Object, Thing, Concept, Class, Type, Ontology, Semantic, Web\n\nThis list includes:\n\n1. **Conceptos Nucleares:**\n\t* Player\n\t* Item\n2. **Normalización Ontológica:**\n\t* Category (owl:Class)\n\t* Class (rdfs:Class)\n\t* Type (owl:DatatypeProperty)\n3. **Sinónimos Técnicos:**\n\t* Entity (owl:Thing)\n\t* Resource (owl:Resource)\n\t* Asset (owl:ObjectProperty)\n\t* Object (owl:ObjectProperty)\n\t* Thing (owl:Thing)\n\nNote that I've used OWL/RDF terminology to provide a formal and standardized representation of the concepts. This list should facilitate efficient querying and reasoning in a Web Semantics context.",
+          "raw_retrieved": [
+            "saref4envi.n3",
+            "base_ontology.owl",
+            "ifc4.ttl",
+            "dogont_2015-01-11.n3",
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3",
+            "donto_2015-06-19.n3",
+            "sbim.owl",
+            "odrl_2017-09-16.n3",
+            "swo.owl",
+            "th_sharedvocalulary.owl",
+            "seo_2019-04-10.n3"
+          ],
+          "top_k_sources": [
+            "saref4envi.n3",
+            "ifc4.ttl",
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3",
+            "swo.owl"
+          ],
+          "approved_sources": [
+            "ifc4.ttl",
+            "swo.owl"
+          ],
+          "approved_uris": [
+            "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2/OWL#items_IfcRepresentation",
+            "http://purl.obolibrary.org/obo/IAO_0000027"
+          ]
+        }
+      },
+      {
+        "id": "43",
+        "query": "What games has the player played?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Played, Ontology, Instance, Entity, Concept, Class, Type, GameInstance, Gameplay, Activity, Experience\n\nThese terms are separated by commas to facilitate searching in a Web Semantics framework using OWL/RDF.\n\nHere's the breakdown of each term:\n\n1. **Concepts Nucleares:**\n\t* Game\n\t* Player\n\t* Played (verb)\n2. **Normalización Ontológica:**\n\t* Class (equivalent to \"Game\" or \"Player\")\n\t* Type (equivalent to \"GameType\" or \"PlayerType\")\n3. **Sinónimos Técnicos:**\n\t* GameInstance (alternative for \"Game\")\n\t* Gameplay (alternative for \"Played\")\n\t* Activity (alternative for \"Played\")\n\t* Experience (alternative for \"Played\")\n\nThese terms can be used as search queries in a Web Semantics framework to retrieve relevant information about games played by players.",
+          "raw_retrieved": [
+            "dogont_2015-01-11.n3",
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "mexcore.ttl",
+            "cgo.rdf",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Game",
+            "https://schema.org/Game"
+          ]
+        }
+      },
+      {
+        "id": "44",
+        "query": "How many hours has this game been played in total?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Play, Hour, Total, Time, Duration, Ontology, Class, Type, Concept, Instance, Semantic Web, OWL, RDF, FOAF, GamePlay, Gameplay, PlayTime\n\nLet me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main nouns and verbs:\n\t* Game\n\t* Play\n\t* Hour\n\t* Total\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Class: Game, Play, Time\n\t* Type: Instance, Concept\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Gameplay (synonym for \"Game\")\n\t* PlayTime (synonym for \"Play\" and \"Hour\")\n\nHere's the final list of terms separated by commas:\n\nGame, Play, Hour, Total, Time, Duration, Ontology, Class, Type, Concept, Instance, Semantic Web, OWL, RDF, FOAF, GamePlay, Gameplay, PlayTime",
+          "raw_retrieved": [
+            "schema.ttl",
+            "dogont_2015-01-11.n3",
+            "GameOntologyv3.owl",
+            "mexcore.ttl",
+            "seo_2019-04-10.n3",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#playsGame"
+          ]
+        }
+      },
+      {
+        "id": "45",
+        "query": "What are the games similar to this one?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request \"What are the games similar to this one?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGame, Video Game, Electronic Game, Similar, Comparable, Analogous, Genre, Category, Type, Platform, Console, PC, Mobile, Handheld, Simulation, Strategy, Adventure, Role-Playing, Puzzle, Action, Arcade.\n\nNote: I've used OWL/RDF terminology to ensure the concepts are formally defined and easily searchable.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf",
+            "foaf_2014-01-14.n3"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Game",
+            "https://schema.org/Game",
+            "https://schema.org/VideoGame"
+          ]
+        }
+      },
+      {
+        "id": "46",
+        "query": "What is the preferred weapon of players with a certain character class?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCharacterClass, Player, Weapon, Preferred, Type, Class, Category, Role, Profession, Specialty, Equipment, Armament, Tool, Device\n\nThese terms are carefully selected to capture the essence of the question, incorporating both technical and domain-specific vocabulary. The list includes:\n\n* **Conceptos Nucleares:** CharacterClass, Player, Weapon\n* **Normalización Ontológica:** Type (equivalent to Class), Category (equivalent to Type)\n* **Sinónimos Técnicos:** Role (synonym for Profession/Specialty), Equipment (synonym for Armament/Tool/Device)\n\nThis optimized search list will help you navigate the vast expanse of Web Semantics, leveraging OWL/RDF ontologies and reasoning techniques to uncover relevant information about players' preferred weapons based on their character class.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "th_sharedvocalulary.owl",
+            "m4i_2025-03-10.n3",
+            "schema.ttl",
+            "cgo.rdf",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "47",
+        "query": "How big percentage of players have made a certain decision in the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Decision, Percentage, Statistics, Ontology, Class, Type, Category, Entity, Instance, Semantic Web, OWL, RDF, Data Mining, Game Theory\n\nThese terms will help me navigate the semantic web and retrieve relevant information about players' decisions in a game.\n\nLet me know if you'd like me to elaborate on any of these concepts or provide more insights!",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Player",
+            "https://schema.org/Game"
+          ]
+        }
+      },
+      {
+        "id": "48",
+        "query": "How many players have made in-app purchases?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayers, In-App Purchases, Gamers, Consumers, Customers, Subscribers, Users, Mobile App Users, Digital Goods Buyers, Payment Processors, Transactional Data, E-commerce, Online Shopping, Microtransactions, Virtual Currency, Monetization, Revenue Streams.\n\nThis list includes the main nouns and verbs related to the request, along with their formal ontological equivalents (Category, Class, Type) and technical synonyms.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "brick.ttl",
+            "fea_2015-06-26.n3",
+            "dbo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "frapo_2014-01-31.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#purchasesGameOffering",
+            "http://purl.org/net/VideoGameOntology#InAppPurchaseEvent"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre qué requisitos están cubiertos por cada ontología. Analizando la matriz, podemos identificar las ontologías que cubren un mayor número de requisitos.\n\nLa ontología `GameOntologyv3.owl` es la que más requisitos cubre (8), seguida de `schema.ttl` y `ifc4.ttl`, que cubren 5 cada una. La ontología `swrc_2007-06-22.n3` solo cubre un requisito, mientras que las ontologías `meb_2013-03-26.n3` y `swo.owl` cubren dos requisitos cada una.\n\nEn cuanto a la cobertura de requisitos específicos, podemos ver que algunas ontologías se especializan en ciertos temas. Por ejemplo, `GameOntologyv3.owl` y `schema.ttl` cubren requisitos relacionados con la información del juego y el jugador, mientras que `ifc4.ttl` y `swo.owl` cubren requisitos relacionados con los items del jugador.\n\n**Recomendaciones**\n\nConsiderando la cobertura de requisitos y la especialización de cada ontología, puedo recomendar las siguientes tres ontologías:\n\n\n\nEstas tres ontologías cubren un amplio rango de requisitos y se relacionan entre sí, lo que las hace ideales para una red de ontologias recomendada.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "GameOntologyv3.owl",
+        "schema.ttl",
+        "ifc4.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "meb_2013-03-26.n3",
+          "motivo": "Cubre pocos requisitos y no se especializa en un tema específico"
+        },
+        {
+          "ontologia": "swrc_2007-06-22.n3",
+          "motivo": "Cubre solo un requisito y no se relaciona con otros temas"
+        },
+        {
+          "ontologia": "swo.owl",
+          "motivo": "Cubre pocos requisitos y no se especializa en un tema específico"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre qué requisitos están cubiertos por cada ontología. Analizando la matriz, podemos identificar las ontologías que cubren un mayor número de requisitos.\n\nLa ontología `GameOntologyv3.owl` es la que más requisitos cubre (8), seguida de `schema.ttl` y `ifc4.ttl`, que cubren 5 cada una. La ontología `swrc_2007-06-22.n3` solo cubre un requisito, mientras que las ontologías `meb_2013-03-26.n3` y `swo.owl` cubren dos requisitos cada una.\n\nEn cuanto a la cobertura de requisitos específicos, podemos ver que algunas ontologías se especializan en ciertos temas. Por ejemplo, `GameOntologyv3.owl` y `schema.ttl` cubren requisitos relacionados con la información del juego y el jugador, mientras que `ifc4.ttl` y `swo.owl` cubren requisitos relacionados con los items del jugador.\n\n**Recomendaciones**\n\nConsiderando la cobertura de requisitos y la especialización de cada ontología, puedo recomendar las siguientes tres ontologías:\n\n\n\nEstas tres ontologías cubren un amplio rango de requisitos y se relacionan entre sí, lo que las hace ideales para una red de ontologias recomendada."
+    }
+  },
+  {
+    "config_name": "Híbrido Sin Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 1.0,
+      "judge_accuracy": 0.9166666666666666,
+      "veredict_accuracy": 0.9166666666666666,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.7260580857594805,
+      "total_time": 56.71269702911377
+    },
+    "cases": [
+      {
+        "id": "37",
+        "query": "What is the username of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main concept)\n\t* Username (key term)\n2. **Normalización Ontológica:**\n\t* Entity (equivalent to \"Player\" in OWL/RDF terms)\n\t* Individual (equivalent to \"Player\" with a focus on unique instances)\n\t* Character (related concept, often used in gaming contexts)\n3. **Sinónimos Técnicos:**\n\t* Account (alternative term for \"player\" or \"username\")\n\t* Identifier (technical synonym for \"username\")\n\t* Name (synonym for \"username\" with a focus on human-readable labels)\n\t* Label (RDF term equivalent to \"name\" or \"identifier\")\n\nNow, let's combine these terms into a single list, separated by commas:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nThis optimized search list should help you find relevant information about the username of a player in various contexts, including gaming, social media, and data modeling.",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "swrc_2007-06-22.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "scoro_2017-09-04.n3",
+            "foaf_2014-01-14.n3",
+            "meb_2013-03-26.n3",
+            "frapo_2014-01-31.n3",
+            "cerif_2013-04-23.n3",
+            "schema.ttl",
+            "building.ttl",
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#username",
+            "http://rdf.myexperiment.org/ontologies/base/username"
+          ]
+        }
+      },
+      {
+        "id": "38",
+        "query": "Who are the friends of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, Friend, SocialNetwork, Relationship, Entity, Person, Individual, Human, Associate, Companion, Buddy, Colleague\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main subject)\n\t* Friends (related concept)\n2. **Normalización Ontológica:**\n\t* Category: Social Entity\n\t* Class: Person\n\t* Type: Individual, Human\n3. **Sinónimos Técnicos:**\n\t* Associate\n\t* Companion\n\t* Buddy\n\t* Colleague\n\nThese terms are all related to the concept of friendship and social relationships, which is what the user is asking about. The list includes both specific types of friends (e.g., buddy) as well as more general categories (e.g., associate).",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "vivo_2014-07-12.n3",
+            "apco_2022-08-31.n3",
+            "GameOntologyv3.owl",
+            "foaf_2014-01-14.n3",
+            "bot.ttl",
+            "meb_2013-03-26.n3",
+            "m4i_2025-03-10.n3",
+            "dpv_2025-08-01.n3",
+            "eurio_2023-09-28.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#isFriendWithPlayer",
+            "http://rdf.myexperiment.org/ontologies/base/is-friends-with"
+          ]
+        }
+      },
+      {
+        "id": "39",
+        "query": "What is the genre of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Genre, Category, Type, Class, Video Game Genre, Electronic Game Genre, Computer Game Genre, Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Game\n\t* Genre\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type)\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* Video Game Genre\n\t* Electronic Game Genre\n\t* Computer Game Genre\n\t* Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms should help you find the desired information about the genre of a game.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Genre"
+          ]
+        }
+      },
+      {
+        "id": "40",
+        "query": "Who is the creator of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Creator, Ontology, Class, Type, Entity, Developer, Author, Maker, Producer, Designer\n\nThese terms are separated by commas to facilitate searching in OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "prov_2015-01-11.n3",
+            "ei2a_2021-10-21.n3",
+            "GameOntologyv3.owl",
+            "cgo.rdf",
+            "swc_2009-05-11.n3",
+            "m4i_2025-03-10.n3",
+            "th_sharedvocalulary.owl",
+            "meb_2013-03-26.n3",
+            "swo.owl",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "scip_2012-07-03.n3",
+            "dstv.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "prov_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "prov_2015-01-11.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/dc/terms/creator",
+            "http://www.w3.org/ns/prov#Creator"
+          ]
+        }
+      },
+      {
+        "id": "41",
+        "query": "What achievements does a game have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Achievement, Ontology, Concept, Class, Type, Score, Reward, Progression, Level, Victory, Success, Completion, Goal, Objective.\n\nThese terms are separated by commas to facilitate searching in a semantic web environment using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "vivo_2014-07-12.n3",
+            "GameOntologyv3.owl",
+            "swo.owl",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "seo_2019-04-10.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Achievement"
+          ]
+        }
+      },
+      {
+        "id": "42",
+        "query": "What items does the player have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"What items does the player have?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGameItem, PlayerInventory, ItemCollection, Asset, Resource, Entity, Object, Thing, Concept, Class, Type, EntityInstance, Instance, Item, Possession, Ownership\n\nNote that I've used a mix of OWL/RDF terminology to ensure maximum coverage and precision. The list includes both concrete nouns (e.g., GameItem) and abstract concepts (e.g., Possession), as well as technical synonyms (e.g., Asset vs. Resource). This comprehensive list should facilitate efficient querying and retrieval of relevant information in a Web Semantics context.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "swrc_2007-06-22.n3",
+            "ifc4.ttl",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "facility.ttl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "GameOntologyv3.owl"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "https://schema.org/gameItem",
+            "http://purl.org/net/VideoGameOntology#ownsItem",
+            "http://purl.org/net/VideoGameOntology#hasItem",
+            "http://purl.org/net/VideoGameOntology#isItemInGame"
+          ]
+        }
+      },
+      {
+        "id": "43",
+        "query": "What games has the player played?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Played, Ontology, Instance, Entity, Concept, Class, Type, RDF, OWL, Semantic Web, Resource, Statement, Property, Object, Subject\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Game\n\t* Player\n\t* Played (verb)\n2. **Normalización Ontológica:** I added formal equivalents for these concepts:\n\t* Game -> Instance of Game (Class), Type:Game, Resource:Game\n\t* Player -> Entity, Instance of Player (Class), Type:Player\n\t* Played -> Property:Played, Object:Game, Subject:Player\n3. **Sinónimos Técnicos:** I included alternative precise terms:\n\t* Ontology -> Semantic Web, RDF, OWL\n\nHere's the final list, separated by commas:\n\nGame, Instance of Game, Type:Game, Resource:Game, Player, Entity, Instance of Player, Type:Player, Played, Property:Played, Object:Game, Subject:Player, Ontology, Semantic Web, RDF, OWL",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "cgo.rdf"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Player",
+            "http://autosemanticgame.eu/ontologies/cgo#hasGameplay"
+          ]
+        }
+      },
+      {
+        "id": "44",
+        "query": "How many hours has this game been played in total?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Play, Hour, Total, Time, Duration, Ontology, Class, Type, Concept, Instance, Semantic Web, OWL, RDF, FOAF, GamePlay, Gameplay, PlayTime\n\nLet me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main nouns and verbs:\n\t* Game\n\t* Play\n\t* Hour\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Class: Game, Play, Time\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Gameplay (synonym for GamePlay)\n\t* PlayTime (synonym for Duration)\n\nThis list should help you find relevant information about the total playtime of a game in the context of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "schema.ttl",
+            "ifc4.ttl",
+            "dogont_2015-01-11.n3",
+            "GameOntologyv3.owl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "mexcore.ttl",
+            "cgo.rdf",
+            "GameOntologyv3.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "cgo.rdf"
+          ],
+          "approved_uris": [
+            "http://autosemanticgame.eu/ontologies/cgo#Gameplay",
+            "http://purl.org/net/VideoGameOntology#Player"
+          ]
+        }
+      },
+      {
+        "id": "45",
+        "query": "What are the games similar to this one?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request \"What are the games similar to this one?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGame, Video Game, Electronic Game, Similar, Comparable, Analogous, Genre, Category, Type, Platform, Console, PC, Mobile, Handheld, Indie, Casual, Adventure, Role-Playing, Strategy, Puzzle, Simulation.\n\nNote: I've used OWL/RDF terminology to ensure the concepts are formally defined and easily searchable.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Genre",
+            "https://schema.org/Game",
+            "https://schema.org/VideoGame"
+          ]
+        }
+      },
+      {
+        "id": "46",
+        "query": "What is the preferred weapon of players with a certain character class?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCharacterClass, Player, Weapon, Preferred, Type, Class, Category, Role, Profession, Specialty, Equipment, Armament, Tool, Device\n\nThese terms are carefully selected to capture the essence of the question, incorporating both technical and domain-specific vocabulary. The list includes:\n\n* **Conceptos Nucleares:** CharacterClass, Player, Weapon\n* **Normalización Ontológica:** Type (equivalent to Class), Category (equivalent to Type)\n* **Sinónimos Técnicos:** Role (synonym for Profession/Specialty), Equipment (synonym for Armament/Tool/Device)\n\nThis search list should provide a solid foundation for querying relevant information in the realm of Web Semantics, using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "GameOntologyv3.owl",
+            "swc_2009-05-11.n3",
+            "doap.rdf",
+            "th_sharedvocalulary.owl",
+            "m4i_2025-03-10.n3",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "cgo.rdf",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "th_sharedvocalulary.owl",
+            "swc_2009-05-11.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "47",
+        "query": "How big percentage of players have made a certain decision in the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Decision, Percentage, Statistics, Ontology, Class, Type, Category, Entity, Instance, Semantic Web, OWL, RDF, Data Mining, Game Analytics\n\nThese terms will help me navigate the semantic web and retrieve relevant information about players' decisions in a game.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "foaf_2014-01-14.n3",
+            "schema.ttl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "cgo.rdf"
+          ],
+          "approved_uris": [
+            "http://autosemanticgame.eu/ontologies/cgo#Gameplay",
+            "http://purl.org/net/VideoGameOntology#Player",
+            "http://autosemanticgame.eu/ontologies/cgo#Game"
+          ]
+        }
+      },
+      {
+        "id": "48",
+        "query": "How many players have made in-app purchases?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayers, In-App Purchases, Gamers, Consumers, Customers, Subscribers, Users, Mobile App Users, Digital Goods Buyers, Payment Processors, Transaction Records, Purchase History, User Behavior, Analytics Data\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Players (mainly referring to gamers)\n\t* In-App Purchases\n2. **Normalización Ontológica:**\n\t* Players → Entity (Class), Gamer (Type)\n\t* In-App Purchases → Transaction (Category), Digital Goods (Type)\n3. **Sinónimos Técnicos:**\n\t* Gamers → Consumers, Customers, Subscribers, Users\n\t* Mobile App Users → Digital Goods Buyers, Payment Processors\n\nThis list should help you search for relevant data and concepts related to players making in-app purchases.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "brick.ttl",
+            "seo_2019-04-10.n3",
+            "fea_2015-06-26.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/dpv#Customer",
+            "http://purl.org/net/VideoGameOntology#InAppPurchaseEvent"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre qué requisitos están cubiertos por cada ontología. Analizando la matriz, podemos identificar las ontologías que cubren un mayor número de requisitos.\n\nLa ontología `GameOntologyv3.owl` es la que más requisitos cubre (9), seguida de `cgo.rdf` con 3 requisitos y `schema.ttl` con 2. Las otras ontologías tienen un menor número de requisitos cubiertos.\n\nConsiderando la cobertura y la especialización de cada ontología, puedo recomendar las siguientes tres ontologías:\n\n* `GameOntologyv3.owl`: Cubre un amplio rango de requisitos relacionados con el juego, como la información del jugador, los logros y los items.\n* `cgo.rdf`: Cubre requisitos importantes sobre el historial de juegos jugados y el tiempo total jugado.\n* `schema.ttl`: Cubre requisitos sobre los items del jugador y las sugerencias de juegos similares.\n\nEstas tres ontologías cubren un amplio rango de requisitos y pueden ser utilizadas como base para construir una red de ontologias más grande.\n\n**Recomendaciones y Exclusiones (JSON)**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "GameOntologyv3.owl",
+        "cgo.rdf",
+        "schema.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "meb_2013-03-26.n3",
+          "motivo": "Cubre solo dos requisitos y no es especializada en juegos"
+        },
+        {
+          "ontologia": "prov_2015-01-11.n3",
+          "motivo": "Cubre solo un requisito y no es relevante para la mayoría de los casos"
+        },
+        {
+          "ontologia": "dpv_2025-08-01.n3",
+          "motivo": "Cubre solo un requisito y no es especializada en juegos"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre qué requisitos están cubiertos por cada ontología. Analizando la matriz, podemos identificar las ontologías que cubren un mayor número de requisitos.\n\nLa ontología `GameOntologyv3.owl` es la que más requisitos cubre (9), seguida de `cgo.rdf` con 3 requisitos y `schema.ttl` con 2. Las otras ontologías tienen un menor número de requisitos cubiertos.\n\nConsiderando la cobertura y la especialización de cada ontología, puedo recomendar las siguientes tres ontologías:\n\n* `GameOntologyv3.owl`: Cubre un amplio rango de requisitos relacionados con el juego, como la información del jugador, los logros y los items.\n* `cgo.rdf`: Cubre requisitos importantes sobre el historial de juegos jugados y el tiempo total jugado.\n* `schema.ttl`: Cubre requisitos sobre los items del jugador y las sugerencias de juegos similares.\n\nEstas tres ontologías cubren un amplio rango de requisitos y pueden ser utilizadas como base para construir una red de ontologias más grande.\n\n**Recomendaciones y Exclusiones (JSON)**"
+    }
+  },
+  {
+    "config_name": "Denso + Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 1.0,
+      "judge_accuracy": 0.9166666666666666,
+      "veredict_accuracy": 0.9166666666666666,
+      "veredict_precision": 0.5,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.6666666666666666,
+      "average_time": 5.127976576487224,
+      "total_time": 61.53571891784668
+    },
+    "cases": [
+      {
+        "id": "37",
+        "query": "What is the username of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main concept)\n\t* Username (key term)\n2. **Normalización Ontológica:**\n\t* Entity (equivalent to \"Player\" in OWL/RDF terms)\n\t* Individual (equivalent to \"Player\" with a focus on unique instances)\n\t* Character (related concept, often used in gaming contexts)\n3. **Sinónimos Técnicos:**\n\t* Account (alternative term for \"player\" or \"username\")\n\t* Identifier (technical synonym for \"username\")\n\t* Name (synonym for \"username\" with a focus on human-readable labels)\n\t* Label (RDF term equivalent to \"name\" or \"identifier\")\n\nNow, let's combine these terms into a single list, separated by commas:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nThis optimized search list should help you find relevant information about the username of a player in various contexts, including gaming, social media, and data modeling.",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "swrc_2007-06-22.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "scoro_2017-09-04.n3",
+            "foaf_2014-01-14.n3",
+            "meb_2013-03-26.n3",
+            "frapo_2014-01-31.n3",
+            "cerif_2013-04-23.n3",
+            "schema.ttl",
+            "building.ttl",
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#username",
+            "http://rdf.myexperiment.org/ontologies/base/username"
+          ]
+        }
+      },
+      {
+        "id": "38",
+        "query": "Who are the friends of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, Friend, SocialNetwork, Relationship, Entity, Person, Individual, Human, Associate, Companion, Buddy, Colleague\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main subject)\n\t* Friends (related concept)\n2. **Normalización Ontológica:**\n\t* Category: Social Entity\n\t* Class: Person\n\t* Type: Individual, Human\n3. **Sinónimos Técnicos:**\n\t* Associate\n\t* Companion\n\t* Buddy\n\t* Colleague\n\nThese terms are all related to the concept of friendship and social relationships, which is what the user is asking about. The list includes both specific types of friends (e.g., buddy) as well as more general categories (e.g., associate).",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "vivo_2014-07-12.n3",
+            "apco_2022-08-31.n3",
+            "GameOntologyv3.owl",
+            "foaf_2014-01-14.n3",
+            "bot.ttl",
+            "meb_2013-03-26.n3",
+            "m4i_2025-03-10.n3",
+            "dpv_2025-08-01.n3",
+            "eurio_2023-09-28.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#isFriendWithPlayer",
+            "http://rdf.myexperiment.org/ontologies/base/is-friends-with"
+          ]
+        }
+      },
+      {
+        "id": "39",
+        "query": "What is the genre of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Genre, Category, Type, Class, Video Game Genre, Electronic Game Genre, Computer Game Genre, Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Game\n\t* Genre\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type)\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* Video Game Genre\n\t* Electronic Game Genre\n\t* Computer Game Genre\n\t* Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms should help you find the desired information about the genre of a game.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Genre",
+            "https://schema.org/Game"
+          ]
+        }
+      },
+      {
+        "id": "40",
+        "query": "Who is the creator of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Creator, Ontology, Class, Type, Entity, Developer, Author, Maker, Producer, Designer\n\nThese terms are separated by commas to facilitate searching in OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "prov_2015-01-11.n3",
+            "ei2a_2021-10-21.n3",
+            "GameOntologyv3.owl",
+            "cgo.rdf",
+            "swc_2009-05-11.n3",
+            "m4i_2025-03-10.n3",
+            "th_sharedvocalulary.owl",
+            "meb_2013-03-26.n3",
+            "swo.owl",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "scip_2012-07-03.n3",
+            "dstv.ttl"
+          ],
+          "top_k_sources": [
+            "prov_2015-01-11.n3",
+            "dstv.ttl",
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "prov_2015-01-11.n3",
+            "dstv.ttl",
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "https://schema.org/creator",
+            "http://purl.org/dc/terms/creator",
+            "http://w3id.org/dstv#Creator",
+            "http://www.w3.org/ns/prov#Creator"
+          ]
+        }
+      },
+      {
+        "id": "41",
+        "query": "What achievements does a game have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Achievement, Ontology, Concept, Class, Type, Score, Reward, Progression, Level, Victory, Success, Completion, Goal, Objective.\n\nThese terms are separated by commas to facilitate searching in a semantic web environment using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "vivo_2014-07-12.n3",
+            "GameOntologyv3.owl",
+            "swo.owl",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Achievement",
+            "http://purl.org/net/VideoGameOntology#Completion"
+          ]
+        }
+      },
+      {
+        "id": "42",
+        "query": "What items does the player have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"What items does the player have?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGameItem, PlayerInventory, ItemCollection, Asset, Resource, Entity, Object, Thing, Concept, Class, Type, EntityInstance, Instance, Item, Possession, Ownership\n\nNote that I've used a mix of OWL/RDF terminology to ensure maximum coverage and precision. The list includes both concrete nouns (e.g., GameItem) and abstract concepts (e.g., Possession), as well as technical synonyms (e.g., Asset vs. Resource). This comprehensive list should facilitate efficient querying and retrieval of relevant information in a Web Semantics context.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "swrc_2007-06-22.n3",
+            "ifc4.ttl",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "facility.ttl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "GameOntologyv3.owl"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "https://schema.org/gameItem",
+            "http://purl.org/net/VideoGameOntology#ownsItem",
+            "http://purl.org/net/VideoGameOntology#hasItem"
+          ]
+        }
+      },
+      {
+        "id": "43",
+        "query": "What games has the player played?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Played, Ontology, Instance, Entity, Concept, Class, Type, RDF, OWL, Semantic Web, Resource, Statement, Property, Object, Subject\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Game\n\t* Player\n\t* Played (verb)\n2. **Normalización Ontológica:** I added formal equivalents for these concepts:\n\t* Game -> Instance of Game (Class), Type:Game, Resource:Game\n\t* Player -> Entity, Instance of Player (Class), Type:Player\n\t* Played -> Property:Played, Object:Game, Subject:Player\n3. **Sinónimos Técnicos:** I included alternative precise terms:\n\t* Ontology -> Semantic Web, RDF, OWL\n\nHere's the final list, separated by commas:\n\nGame, Instance of Game, Type:Game, Resource:Game, Player, Entity, Instance of Player, Type:Player, Played, Property:Played, Object:Game, Subject:Player, Ontology, Semantic Web, RDF, OWL",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#playsGame"
+          ]
+        }
+      },
+      {
+        "id": "44",
+        "query": "How many hours has this game been played in total?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Play, Hour, Total, Time, Duration, Ontology, Class, Type, Concept, Instance, Semantic Web, OWL, RDF, FOAF, GamePlay, Gameplay, PlayTime\n\nLet me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main nouns and verbs:\n\t* Game\n\t* Play\n\t* Hour\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Class: Game, Play, Time\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Gameplay (synonym for GamePlay)\n\t* PlayTime (synonym for Duration)\n\nThis list should help you find relevant information about the total playtime of a game in the context of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "schema.ttl",
+            "ifc4.ttl",
+            "dogont_2015-01-11.n3",
+            "GameOntologyv3.owl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#playsGame",
+            "http://purl.org/net/VideoGameOntology#endTime"
+          ]
+        }
+      },
+      {
+        "id": "45",
+        "query": "What are the games similar to this one?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request \"What are the games similar to this one?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGame, Video Game, Electronic Game, Similar, Comparable, Analogous, Genre, Category, Type, Platform, Console, PC, Mobile, Handheld, Indie, Casual, Adventure, Role-Playing, Strategy, Puzzle, Simulation.\n\nNote: I've used OWL/RDF terminology to ensure the concepts are formally defined and easily searchable.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Game",
+            "https://schema.org/Game",
+            "https://schema.org/VideoGame"
+          ]
+        }
+      },
+      {
+        "id": "46",
+        "query": "What is the preferred weapon of players with a certain character class?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCharacterClass, Player, Weapon, Preferred, Type, Class, Category, Role, Profession, Specialty, Equipment, Armament, Tool, Device\n\nThese terms are carefully selected to capture the essence of the question, incorporating both technical and domain-specific vocabulary. The list includes:\n\n* **Conceptos Nucleares:** CharacterClass, Player, Weapon\n* **Normalización Ontológica:** Type (equivalent to Class), Category (equivalent to Type)\n* **Sinónimos Técnicos:** Role (synonym for Profession/Specialty), Equipment (synonym for Armament/Tool/Device)\n\nThis search list should provide a solid foundation for querying relevant information in the realm of Web Semantics, using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "GameOntologyv3.owl",
+            "swc_2009-05-11.n3",
+            "doap.rdf",
+            "th_sharedvocalulary.owl",
+            "m4i_2025-03-10.n3",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "cgo.rdf",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf",
+            "mep.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "47",
+        "query": "How big percentage of players have made a certain decision in the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Decision, Percentage, Statistics, Ontology, Class, Type, Category, Entity, Instance, Semantic Web, OWL, RDF, Data Mining, Game Analytics\n\nThese terms will help me navigate the semantic web and retrieve relevant information about players' decisions in a game.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "foaf_2014-01-14.n3",
+            "schema.ttl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Player",
+            "http://purl.org/net/VideoGameOntology#Leaderboard"
+          ]
+        }
+      },
+      {
+        "id": "48",
+        "query": "How many players have made in-app purchases?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayers, In-App Purchases, Gamers, Consumers, Customers, Subscribers, Users, Mobile App Users, Digital Goods Buyers, Payment Processors, Transaction Records, Purchase History, User Behavior, Analytics Data\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Players (mainly referring to gamers)\n\t* In-App Purchases\n2. **Normalización Ontológica:**\n\t* Players → Entity (Class), Gamer (Type)\n\t* In-App Purchases → Transaction (Category), Digital Goods (Type)\n3. **Sinónimos Técnicos:**\n\t* Gamers → Consumers, Customers, Subscribers, Users\n\t* Mobile App Users → Digital Goods Buyers, Payment Processors\n\nThis list should help you search for relevant data and concepts related to players making in-app purchases.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "brick.ttl",
+            "seo_2019-04-10.n3",
+            "fea_2015-06-26.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#purchasesGameOffering",
+            "http://purl.org/net/VideoGameOntology#InAppPurchaseEvent"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en la representación de conceptos relacionados con juegos y jugadores. Analizando la cobertura, podemos identificar patrones y relaciones entre las ontologías.\n\nEn primer lugar, observamos que **GameOntologyv3.owl** es la ontología más completa, cubriendo un amplio rango de conceptos relacionados con juegos, como género, creadores, logros y items. Esta ontología es fundamental para representar información sobre juegos y jugadores.\n\nEn segundo lugar, **schema.ttl** y **dstv.ttl** se enfocan en aspectos más específicos, como el género del juego y la creación de éste. Estas ontologías pueden ser útiles para agregar detalles adicionales a la representación de juegos.\n\nPor otro lado, **meb_2013-03-26.n3** y **prov_2015-01-11.n3** tienen una cobertura más limitada, enfocándose principalmente en la información del jugador (username y amigos). Estas ontologías pueden ser útiles para representar información sobre jugadores individuales.\n\nConsiderando estos patrones y relaciones, propongo una red de ontologias recomendadas que maximice la cobertura y minimice la redundancia. La recomendación es:\n\n**Recomendadas**\n\n\n\nEn resumen, la recomendación se basa en la cobertura y la relación entre las ontologías. La ontología **GameOntologyv3.owl** es fundamental para representar información sobre juegos, mientras que **schema.ttl** agrega detalles adicionales. Las ontologías excluidas tienen una cobertura limitada y pueden ser reemplazadas por otras más completas.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "GameOntologyv3.owl",
+        "schema.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "meb_2013-03-26.n3",
+          "motivo": "Cobertura limitada en información de jugadores"
+        },
+        {
+          "ontologia": "dstv.ttl",
+          "motivo": "Cobertura limitada en aspectos específicos del juego"
+        },
+        {
+          "ontologia": "prov_2015-01-11.n3",
+          "motivo": "Cobertura limitada en información de jugadores"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en la representación de conceptos relacionados con juegos y jugadores. Analizando la cobertura, podemos identificar patrones y relaciones entre las ontologías.\n\nEn primer lugar, observamos que **GameOntologyv3.owl** es la ontología más completa, cubriendo un amplio rango de conceptos relacionados con juegos, como género, creadores, logros y items. Esta ontología es fundamental para representar información sobre juegos y jugadores.\n\nEn segundo lugar, **schema.ttl** y **dstv.ttl** se enfocan en aspectos más específicos, como el género del juego y la creación de éste. Estas ontologías pueden ser útiles para agregar detalles adicionales a la representación de juegos.\n\nPor otro lado, **meb_2013-03-26.n3** y **prov_2015-01-11.n3** tienen una cobertura más limitada, enfocándose principalmente en la información del jugador (username y amigos). Estas ontologías pueden ser útiles para representar información sobre jugadores individuales.\n\nConsiderando estos patrones y relaciones, propongo una red de ontologias recomendadas que maximice la cobertura y minimice la redundancia. La recomendación es:\n\n**Recomendadas**\n\n\n\nEn resumen, la recomendación se basa en la cobertura y la relación entre las ontologías. La ontología **GameOntologyv3.owl** es fundamental para representar información sobre juegos, mientras que **schema.ttl** agrega detalles adicionales. Las ontologías excluidas tienen una cobertura limitada y pueden ser reemplazadas por otras más completas."
+    }
+  },
+  {
+    "config_name": "Denso Sin Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 1.0,
+      "judge_accuracy": 0.9166666666666666,
+      "veredict_accuracy": 0.9166666666666666,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.961671471595764,
+      "total_time": 59.54005765914917
+    },
+    "cases": [
+      {
+        "id": "37",
+        "query": "What is the username of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main concept)\n\t* Username (key term)\n2. **Normalización Ontológica:**\n\t* Entity (equivalent to \"Player\" in OWL/RDF terms)\n\t* Individual (equivalent to \"Player\" with a focus on unique instances)\n\t* Character (related concept, often used in gaming contexts)\n3. **Sinónimos Técnicos:**\n\t* Account (alternative term for \"player\" or \"username\")\n\t* Identifier (technical synonym for \"username\")\n\t* Name (synonym for \"username\" with a focus on human-readable labels)\n\t* Label (RDF term equivalent to \"name\" or \"identifier\")\n\nNow, let's combine these terms into a single list, separated by commas:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nThis optimized search list should help you find relevant information about the username of a player in various contexts, including gaming, social media, and data modeling.",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "swrc_2007-06-22.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "scoro_2017-09-04.n3",
+            "foaf_2014-01-14.n3",
+            "meb_2013-03-26.n3",
+            "frapo_2014-01-31.n3",
+            "cerif_2013-04-23.n3",
+            "schema.ttl",
+            "building.ttl",
+            "doap.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#username",
+            "http://rdf.myexperiment.org/ontologies/base/username"
+          ]
+        }
+      },
+      {
+        "id": "38",
+        "query": "Who are the friends of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, Friend, SocialNetwork, Relationship, Entity, Person, Individual, Human, Associate, Companion, Buddy, Colleague\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main subject)\n\t* Friends (related concept)\n2. **Normalización Ontológica:**\n\t* Category: Social Entity\n\t* Class: Person\n\t* Type: Individual, Human\n3. **Sinónimos Técnicos:**\n\t* Associate\n\t* Companion\n\t* Buddy\n\t* Colleague\n\nThese terms are all related to the concept of friendship and social relationships, which is what the user is asking about. The list includes both specific types of friends (e.g., buddy) as well as more general categories (e.g., associate).",
+          "raw_retrieved": [
+            "ei2a_2021-10-21.n3",
+            "vivo_2014-07-12.n3",
+            "apco_2022-08-31.n3",
+            "GameOntologyv3.owl",
+            "foaf_2014-01-14.n3",
+            "bot.ttl",
+            "meb_2013-03-26.n3",
+            "m4i_2025-03-10.n3",
+            "dpv_2025-08-01.n3",
+            "eurio_2023-09-28.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "meb_2013-03-26.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#isFriendWithPlayer",
+            "http://rdf.myexperiment.org/ontologies/base/is-friends-with"
+          ]
+        }
+      },
+      {
+        "id": "39",
+        "query": "What is the genre of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Genre, Category, Type, Class, Video Game Genre, Electronic Game Genre, Computer Game Genre, Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Game\n\t* Genre\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type)\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* Video Game Genre\n\t* Electronic Game Genre\n\t* Computer Game Genre\n\t* Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms should help you find the desired information about the genre of a game.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "swrc_2007-06-22.n3",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Genre"
+          ]
+        }
+      },
+      {
+        "id": "40",
+        "query": "Who is the creator of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Creator, Ontology, Class, Type, Entity, Developer, Author, Maker, Producer, Designer\n\nThese terms are separated by commas to facilitate searching in OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "prov_2015-01-11.n3",
+            "ei2a_2021-10-21.n3",
+            "GameOntologyv3.owl",
+            "cgo.rdf",
+            "swc_2009-05-11.n3",
+            "m4i_2025-03-10.n3",
+            "th_sharedvocalulary.owl",
+            "meb_2013-03-26.n3",
+            "swo.owl",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "scip_2012-07-03.n3",
+            "dstv.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "prov_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "prov_2015-01-11.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/dc/terms/creator",
+            "http://www.w3.org/ns/prov#Creator"
+          ]
+        }
+      },
+      {
+        "id": "41",
+        "query": "What achievements does a game have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Achievement, Ontology, Concept, Class, Type, Score, Reward, Progression, Level, Victory, Success, Completion, Goal, Objective.\n\nThese terms are separated by commas to facilitate searching in a semantic web environment using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "vivo_2014-07-12.n3",
+            "GameOntologyv3.owl",
+            "swo.owl",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "seo_2019-04-10.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Achievement"
+          ]
+        }
+      },
+      {
+        "id": "42",
+        "query": "What items does the player have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"What items does the player have?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGameItem, PlayerInventory, ItemCollection, Asset, Resource, Entity, Object, Thing, Concept, Class, Type, EntityInstance, Instance, Item, Possession, Ownership\n\nNote that I've used a mix of OWL/RDF terminology to ensure maximum coverage and precision. The list includes both concrete nouns (e.g., GameItem) and abstract concepts (e.g., Possession), as well as technical synonyms (e.g., Asset vs. Resource). This comprehensive list should facilitate efficient querying and retrieval of relevant information in a Web Semantics context.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "swrc_2007-06-22.n3",
+            "ifc4.ttl",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "facility.ttl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "GameOntologyv3.owl"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "https://schema.org/gameItem",
+            "http://purl.org/net/VideoGameOntology#ownsItem",
+            "http://purl.org/net/VideoGameOntology#hasItem",
+            "http://purl.org/net/VideoGameOntology#isItemInGame"
+          ]
+        }
+      },
+      {
+        "id": "43",
+        "query": "What games has the player played?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Played, Ontology, Instance, Entity, Concept, Class, Type, RDF, OWL, Semantic Web, Resource, Statement, Property, Object, Subject\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Game\n\t* Player\n\t* Played (verb)\n2. **Normalización Ontológica:** I added formal equivalents for these concepts:\n\t* Game -> Instance of Game (Class), Type:Game, Resource:Game\n\t* Player -> Entity, Instance of Player (Class), Type:Player\n\t* Played -> Property:Played, Object:Game, Subject:Player\n3. **Sinónimos Técnicos:** I included alternative precise terms:\n\t* Ontology -> Semantic Web, RDF, OWL\n\nHere's the final list, separated by commas:\n\nGame, Instance of Game, Type:Game, Resource:Game, Player, Entity, Instance of Player, Type:Player, Played, Property:Played, Object:Game, Subject:Player, Ontology, Semantic Web, RDF, OWL",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "cgo.rdf"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Player",
+            "http://autosemanticgame.eu/ontologies/cgo#hasGameplay"
+          ]
+        }
+      },
+      {
+        "id": "44",
+        "query": "How many hours has this game been played in total?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Play, Hour, Total, Time, Duration, Ontology, Class, Type, Concept, Instance, Semantic Web, OWL, RDF, FOAF, GamePlay, Gameplay, PlayTime\n\nLet me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main nouns and verbs:\n\t* Game\n\t* Play\n\t* Hour\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Class: Game, Play, Time\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Gameplay (synonym for GamePlay)\n\t* PlayTime (synonym for Duration)\n\nThis list should help you find relevant information about the total playtime of a game in the context of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "schema.ttl",
+            "ifc4.ttl",
+            "dogont_2015-01-11.n3",
+            "GameOntologyv3.owl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "mexcore.ttl",
+            "cgo.rdf",
+            "GameOntologyv3.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "cgo.rdf"
+          ],
+          "approved_uris": [
+            "http://autosemanticgame.eu/ontologies/cgo#Gameplay",
+            "http://purl.org/net/VideoGameOntology#Player"
+          ]
+        }
+      },
+      {
+        "id": "45",
+        "query": "What are the games similar to this one?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request \"What are the games similar to this one?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGame, Video Game, Electronic Game, Similar, Comparable, Analogous, Genre, Category, Type, Platform, Console, PC, Mobile, Handheld, Indie, Casual, Adventure, Role-Playing, Strategy, Puzzle, Simulation.\n\nNote: I've used OWL/RDF terminology to ensure the concepts are formally defined and easily searchable.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Genre",
+            "https://schema.org/Game",
+            "https://schema.org/VideoGame"
+          ]
+        }
+      },
+      {
+        "id": "46",
+        "query": "What is the preferred weapon of players with a certain character class?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCharacterClass, Player, Weapon, Preferred, Type, Class, Category, Role, Profession, Specialty, Equipment, Armament, Tool, Device\n\nThese terms are carefully selected to capture the essence of the question, incorporating both technical and domain-specific vocabulary. The list includes:\n\n* **Conceptos Nucleares:** CharacterClass, Player, Weapon\n* **Normalización Ontológica:** Type (equivalent to Class), Category (equivalent to Type)\n* **Sinónimos Técnicos:** Role (synonym for Profession/Specialty), Equipment (synonym for Armament/Tool/Device)\n\nThis search list should provide a solid foundation for querying relevant information in the realm of Web Semantics, using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "GameOntologyv3.owl",
+            "swc_2009-05-11.n3",
+            "doap.rdf",
+            "th_sharedvocalulary.owl",
+            "m4i_2025-03-10.n3",
+            "schema.ttl",
+            "seo_2019-04-10.n3",
+            "cgo.rdf",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "th_sharedvocalulary.owl",
+            "swc_2009-05-11.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "47",
+        "query": "How big percentage of players have made a certain decision in the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Decision, Percentage, Statistics, Ontology, Class, Type, Category, Entity, Instance, Semantic Web, OWL, RDF, Data Mining, Game Analytics\n\nThese terms will help me navigate the semantic web and retrieve relevant information about players' decisions in a game.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "foaf_2014-01-14.n3",
+            "schema.ttl",
+            "mexcore.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "cgo.rdf"
+          ],
+          "approved_uris": [
+            "http://autosemanticgame.eu/ontologies/cgo#Gameplay",
+            "http://purl.org/net/VideoGameOntology#Player",
+            "http://autosemanticgame.eu/ontologies/cgo#Game"
+          ]
+        }
+      },
+      {
+        "id": "48",
+        "query": "How many players have made in-app purchases?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayers, In-App Purchases, Gamers, Consumers, Customers, Subscribers, Users, Mobile App Users, Digital Goods Buyers, Payment Processors, Transaction Records, Purchase History, User Behavior, Analytics Data\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Players (mainly referring to gamers)\n\t* In-App Purchases\n2. **Normalización Ontológica:**\n\t* Players → Entity (Class), Gamer (Type)\n\t* In-App Purchases → Transaction (Category), Digital Goods (Type)\n3. **Sinónimos Técnicos:**\n\t* Gamers → Consumers, Customers, Subscribers, Users\n\t* Mobile App Users → Digital Goods Buyers, Payment Processors\n\nThis list should help you search for relevant data and concepts related to players making in-app purchases.",
+          "raw_retrieved": [
+            "GameOntologyv3.owl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "brick.ttl",
+            "seo_2019-04-10.n3",
+            "fea_2015-06-26.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/dpv#Customer",
+            "http://purl.org/net/VideoGameOntology#InAppPurchaseEvent"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en la representación de conceptos relacionados con juegos y jugadores. Analizando la cobertura, podemos identificar patrones y relaciones entre las ontologías.\n\nEn primer lugar, observamos que **GameOntologyv3.owl** es la ontología más amplia, cubriendo una variedad de conceptos como el username del jugador, género del juego, logros y items. Esta ontología parece ser un buen punto de partida para representar información sobre juegos.\n\nEn segundo lugar, notamos que **meb_2013-03-26.n3** y **prov_2015-01-11.n3** tienen una cobertura limitada, solo cubriendo conceptos relacionados con el jugador (username y amigos). Estas ontologías pueden ser consideradas como especializaciones de la ontología principal.\n\nPor otro lado, **schema.ttl** y **cgo.rdf** se enfocan en aspectos específicos del juego, como items y juegos similares. Estas ontologías pueden ser vistas como complementarias a la ontología principal.\n\nFinalmente, **dpv_2025-08-01.n3** se centra en información financiera relacionada con los jugadores (in-app purchases). Esta ontología puede ser considerada como una especialización de la ontología principal.\n\n**Recomendación**\n\nConsiderando la cobertura y las relaciones entre las ontologías, propongo la siguiente red de ontologías recomendadas:\n\n* **GameOntologyv3.owl**: Ontología principal que cubre una variedad de conceptos relacionados con juegos.\n* **schema.ttl**: Ontología complementaria que se enfoca en items y juegos similares.\n* **cgo.rdf**: Ontología especializada que se centra en información sobre juegos y jugadores.\n\n**Excluidas**\n\nNo hay ontologías excluidas, ya que todas las ontologías presentadas tienen al menos un requisito asociado en la matriz de cobertura. Sin embargo, si tuviéramos que excluir algunas, podríamos considerar a **meb_2013-03-26.n3** y **prov_2015-01-11.n3**, ya que su cobertura es limitada y pueden ser vistas como especializaciones de la ontología principal.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "GameOntologyv3.owl",
+        "schema.ttl",
+        "cgo.rdf"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "meb_2013-03-26.n3",
+          "motivo": "Cobertura limitada y especialización de la ontología principal"
+        },
+        {
+          "ontologia": "prov_2015-01-11.n3",
+          "motivo": "Cobertura limitada y especialización de la ontología principal"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporciona información sobre las ontologías involucradas en la representación de conceptos relacionados con juegos y jugadores. Analizando la cobertura, podemos identificar patrones y relaciones entre las ontologías.\n\nEn primer lugar, observamos que **GameOntologyv3.owl** es la ontología más amplia, cubriendo una variedad de conceptos como el username del jugador, género del juego, logros y items. Esta ontología parece ser un buen punto de partida para representar información sobre juegos.\n\nEn segundo lugar, notamos que **meb_2013-03-26.n3** y **prov_2015-01-11.n3** tienen una cobertura limitada, solo cubriendo conceptos relacionados con el jugador (username y amigos). Estas ontologías pueden ser consideradas como especializaciones de la ontología principal.\n\nPor otro lado, **schema.ttl** y **cgo.rdf** se enfocan en aspectos específicos del juego, como items y juegos similares. Estas ontologías pueden ser vistas como complementarias a la ontología principal.\n\nFinalmente, **dpv_2025-08-01.n3** se centra en información financiera relacionada con los jugadores (in-app purchases). Esta ontología puede ser considerada como una especialización de la ontología principal.\n\n**Recomendación**\n\nConsiderando la cobertura y las relaciones entre las ontologías, propongo la siguiente red de ontologías recomendadas:\n\n* **GameOntologyv3.owl**: Ontología principal que cubre una variedad de conceptos relacionados con juegos.\n* **schema.ttl**: Ontología complementaria que se enfoca en items y juegos similares.\n* **cgo.rdf**: Ontología especializada que se centra en información sobre juegos y jugadores.\n\n**Excluidas**\n\nNo hay ontologías excluidas, ya que todas las ontologías presentadas tienen al menos un requisito asociado en la matriz de cobertura. Sin embargo, si tuviéramos que excluir algunas, podríamos considerar a **meb_2013-03-26.n3** y **prov_2015-01-11.n3**, ya que su cobertura es limitada y pueden ser vistas como especializaciones de la ontología principal."
+    }
+  },
+  {
+    "config_name": "BM25 + Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.5,
+      "judge_accuracy": 0.25,
+      "veredict_accuracy": 0.25,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.963120520114899,
+      "total_time": 59.557446241378784
+    },
+    "cases": [
+      {
+        "id": "37",
+        "query": "What is the username of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main concept)\n\t* Username (key term)\n2. **Normalización Ontológica:**\n\t* Entity (equivalent to \"Player\" in OWL/RDF terms)\n\t* Individual (equivalent to \"Player\" with a focus on unique instances)\n\t* Character (related concept, often used in gaming contexts)\n3. **Sinónimos Técnicos:**\n\t* Account (alternative term for \"player\" or \"username\")\n\t* Identifier (technical synonym for \"username\")\n\t* Name (synonym for \"username\" with a focus on human-readable labels)\n\t* Label (RDF term equivalent to \"name\" or \"identifier\")\n\nNow, let's combine these terms into a single list, separated by commas:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nThis optimized search list should help you find relevant information about the username of a player in various contexts, including gaming, social media, and data modeling.",
+          "raw_retrieved": [
+            "prov_2015-01-11.n3",
+            "omg.ttl",
+            "th_building.owl",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "s4inma_2019-04-30.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "roh_2022-01-01.n3",
+            "swo.owl",
+            "schema.ttl",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "GameOntologyv3.owl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "38",
+        "query": "Who are the friends of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, Friend, SocialNetwork, Relationship, Entity, Person, Individual, Human, Associate, Companion, Buddy, Colleague\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main subject)\n\t* Friends (related concept)\n2. **Normalización Ontológica:**\n\t* Category: Social Entity\n\t* Class: Person\n\t* Type: Individual, Human\n3. **Sinónimos Técnicos:**\n\t* Associate\n\t* Companion\n\t* Buddy\n\t* Colleague\n\nThese terms are all related to the concept of friendship and social relationships, which is what the user is asking about. The list includes both specific types of friends (e.g., buddy) as well as more general categories (e.g., associate).",
+          "raw_retrieved": [
+            "aoi.ttl",
+            "tsn_2017-01-31.n3",
+            "th_building.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "swc_2009-05-11.n3",
+            "oum_2020-06-06.n3",
+            "tsnc_2017-05-15.n3",
+            "m4i_2025-03-10.n3",
+            "saref4watr.n3",
+            "swo.owl",
+            "schema.ttl"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "oum_2020-06-06.n3",
+            "m4i_2025-03-10.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "39",
+        "query": "What is the genre of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Genre, Category, Type, Class, Video Game Genre, Electronic Game Genre, Computer Game Genre, Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Game\n\t* Genre\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type)\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* Video Game Genre\n\t* Electronic Game Genre\n\t* Computer Game Genre\n\t* Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms should help you find the desired information about the genre of a game.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Genre",
+            "https://schema.org/genre"
+          ]
+        }
+      },
+      {
+        "id": "40",
+        "query": "Who is the creator of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Creator, Ontology, Class, Type, Entity, Developer, Author, Maker, Producer, Designer\n\nThese terms are separated by commas to facilitate searching in OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "saref4bldg.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "s4agri_2020-06-05.n3",
+            "modsci_2022-12-18.n3",
+            "base_ontology.owl",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "datex_2016-06-13.n3",
+            "oum_2020-06-06.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "edupro_2016-09-13.n3",
+            "dstv.ttl"
+          ],
+          "top_k_sources": [
+            "frapo_2014-01-31.n3",
+            "base_ontology.owl",
+            "oum_2020-06-06.n3",
+            "modsci_2022-12-18.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "41",
+        "query": "What achievements does a game have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Achievement, Ontology, Concept, Class, Type, Score, Reward, Progression, Level, Victory, Success, Completion, Goal, Objective.\n\nThese terms are separated by commas to facilitate searching in a semantic web environment using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "base_ontology.owl",
+            "th_building.owl",
+            "s4agri_2020-06-05.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "dpv_2025-08-01.n3",
+            "edupro_2016-09-13.n3",
+            "dstv.ttl"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "base_ontology.owl"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_uris": [
+            "https://schema.org/openingHours",
+            "http://purl.org/spar/fabio/RelationalDatabase"
+          ]
+        }
+      },
+      {
+        "id": "42",
+        "query": "What items does the player have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"What items does the player have?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGameItem, PlayerInventory, ItemCollection, Asset, Resource, Entity, Object, Thing, Concept, Class, Type, EntityInstance, Instance, Item, Possession, Ownership\n\nNote that I've used a mix of OWL/RDF terminology to ensure maximum coverage and precision. The list includes both concrete nouns (e.g., GameItem) and abstract concepts (e.g., Possession), as well as technical synonyms (e.g., Asset vs. Resource). This comprehensive list should facilitate efficient querying and retrieval of relevant information in a Web Semantics context.",
+          "raw_retrieved": [
+            "s4city_2020-06-05.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "iot-lite_2015-06-01.n3"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "43",
+        "query": "What games has the player played?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Played, Ontology, Instance, Entity, Concept, Class, Type, RDF, OWL, Semantic Web, Resource, Statement, Property, Object, Subject\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Game\n\t* Player\n\t* Played (verb)\n2. **Normalización Ontológica:** I added formal equivalents for these concepts:\n\t* Game -> Instance of Game (Class), Type:Game, Resource:Game\n\t* Player -> Entity, Instance of Player (Class), Type:Player\n\t* Played -> Property:Played, Object:Game, Subject:Player\n3. **Sinónimos Técnicos:** I included alternative precise terms:\n\t* Ontology -> Semantic Web, RDF, OWL\n\nHere's the final list, separated by commas:\n\nGame, Instance of Game, Type:Game, Resource:Game, Player, Entity, Instance of Player, Type:Player, Played, Property:Played, Object:Game, Subject:Player, Ontology, Semantic Web, RDF, OWL",
+          "raw_retrieved": [
+            "prov_2015-01-11.n3",
+            "th_building.owl",
+            "swrc_2007-06-22.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "swo.owl",
+            "schema.ttl",
+            "cgo.rdf",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl",
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Game",
+            "https://schema.org/Game"
+          ]
+        }
+      },
+      {
+        "id": "44",
+        "query": "How many hours has this game been played in total?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Play, Hour, Total, Time, Duration, Ontology, Class, Type, Concept, Instance, Semantic Web, OWL, RDF, FOAF, GamePlay, Gameplay, PlayTime\n\nLet me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main nouns and verbs:\n\t* Game\n\t* Play\n\t* Hour\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Class: Game, Play, Time\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Gameplay (synonym for GamePlay)\n\t* PlayTime (synonym for Duration)\n\nThis list should help you find relevant information about the total playtime of a game in the context of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "omg.ttl",
+            "th_building.owl",
+            "cgov_2012-08-28.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "swc_2009-05-11.n3",
+            "cis_2016-03-30.n3",
+            "donto_2015-06-19.n3",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "45",
+        "query": "What are the games similar to this one?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request \"What are the games similar to this one?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGame, Video Game, Electronic Game, Similar, Comparable, Analogous, Genre, Category, Type, Platform, Console, PC, Mobile, Handheld, Indie, Casual, Adventure, Role-Playing, Strategy, Puzzle, Simulation.\n\nNote: I've used OWL/RDF terminology to ensure the concepts are formally defined and easily searchable.",
+          "raw_retrieved": [
+            "omg.ttl",
+            "saref4bldg.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "cis_2016-03-30.n3",
+            "beo.ttl",
+            "dpv_2025-08-01.n3",
+            "edupro_2016-09-13.n3"
+          ],
+          "top_k_sources": [
+            "omg.ttl",
+            "saref4bldg.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "datex_2016-06-13.n3"
+          ],
+          "approved_sources": [
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "http://purl.org/net/VideoGameOntology#Genre"
+          ]
+        }
+      },
+      {
+        "id": "46",
+        "query": "What is the preferred weapon of players with a certain character class?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCharacterClass, Player, Weapon, Preferred, Type, Class, Category, Role, Profession, Specialty, Equipment, Armament, Tool, Device\n\nThese terms are carefully selected to capture the essence of the question, incorporating both technical and domain-specific vocabulary. The list includes:\n\n* **Conceptos Nucleares:** CharacterClass, Player, Weapon\n* **Normalización Ontológica:** Type (equivalent to Class), Category (equivalent to Type)\n* **Sinónimos Técnicos:** Role (synonym for Profession/Specialty), Equipment (synonym for Armament/Tool/Device)\n\nThis search list should provide a solid foundation for querying relevant information in the realm of Web Semantics, using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "s4city_2020-06-05.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "swc_2009-05-11.n3",
+            "bot.ttl",
+            "schema.ttl",
+            "saref_2020-05-29.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "vivo_2014-07-12.n3",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "swc_2009-05-11.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "47",
+        "query": "How big percentage of players have made a certain decision in the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Decision, Percentage, Statistics, Ontology, Class, Type, Category, Entity, Instance, Semantic Web, OWL, RDF, Data Mining, Game Analytics\n\nThese terms will help me navigate the semantic web and retrieve relevant information about players' decisions in a game.",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "base_ontology.owl",
+            "vivo_2014-07-12.n3",
+            "swrc_2007-06-22.n3",
+            "s4city_2020-06-05.n3",
+            "cgov_2012-08-28.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "saref_2020-05-29.n3",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "frapo_2014-01-31.n3",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_uris": [
+            "https://schema.org/Game",
+            "http://autosemanticgame.eu/ontologies/cgo#GameDesign",
+            "http://autosemanticgame.eu/ontologies/cgo#Game"
+          ]
+        }
+      },
+      {
+        "id": "48",
+        "query": "How many players have made in-app purchases?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayers, In-App Purchases, Gamers, Consumers, Customers, Subscribers, Users, Mobile App Users, Digital Goods Buyers, Payment Processors, Transaction Records, Purchase History, User Behavior, Analytics Data\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Players (mainly referring to gamers)\n\t* In-App Purchases\n2. **Normalización Ontológica:**\n\t* Players → Entity (Class), Gamer (Type)\n\t* In-App Purchases → Transaction (Category), Digital Goods (Type)\n3. **Sinónimos Técnicos:**\n\t* Gamers → Consumers, Customers, Subscribers, Users\n\t* Mobile App Users → Digital Goods Buyers, Payment Processors\n\nThis list should help you search for relevant data and concepts related to players making in-app purchases.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "saref4envi.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "m3lite_2017-07-29.n3",
+            "cerif_2013-04-23.n3",
+            "swo.owl",
+            "brick.ttl",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "th_building.owl",
+            "swo.owl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre las ontologías y los requisitos asociados. A continuación, se analizará la cobertura para recomendar una red de ontologías.\n\nLa primera observación es que hay tres ontologías con al menos un requisito asociado: GameOntologyv3.owl, schema.ttl y fabio_2019-02-19.n3. Estas ontologías cubren diferentes aspectos relacionados con los juegos, como género, logros y similares.\n\nLa ontología cgo.rdf solo tiene un requisito asociado, que se refiere a la frecuencia de decisiones en el juego. Aunque es importante, no cubre tanto terreno como las otras tres ontologías.\n\n**Recomendación**\n\nConsiderando la cobertura y la relación entre los requisitos, se recomiendan las siguientes tres ontologías:\n\n* GameOntologyv3.owl: Cubre aspectos generales de los juegos, como género y similares.\n* schema.ttl: Ofrece información sobre logros y juegos jugados por el jugador.\n* fabio_2019-02-19.n3: Proporciona detalles sobre logros en específico.\n\nEstas tres ontologías cubren una amplia gama de requisitos y ofrecen una buena cobertura para la mayoría de los casos.\n\n**Excluidas**\n\nLa ontología cgo.rdf, aunque importante, no es tan relevante como las otras tres. Por lo tanto, se excluye de la recomendación.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "GameOntologyv3.owl",
+        "schema.ttl",
+        "fabio_2019-02-19.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "cgo.rdf",
+          "motivo": "No cubre tanto terreno como las otras tres ontologías"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre las ontologías y los requisitos asociados. A continuación, se analizará la cobertura para recomendar una red de ontologías.\n\nLa primera observación es que hay tres ontologías con al menos un requisito asociado: GameOntologyv3.owl, schema.ttl y fabio_2019-02-19.n3. Estas ontologías cubren diferentes aspectos relacionados con los juegos, como género, logros y similares.\n\nLa ontología cgo.rdf solo tiene un requisito asociado, que se refiere a la frecuencia de decisiones en el juego. Aunque es importante, no cubre tanto terreno como las otras tres ontologías.\n\n**Recomendación**\n\nConsiderando la cobertura y la relación entre los requisitos, se recomiendan las siguientes tres ontologías:\n\n* GameOntologyv3.owl: Cubre aspectos generales de los juegos, como género y similares.\n* schema.ttl: Ofrece información sobre logros y juegos jugados por el jugador.\n* fabio_2019-02-19.n3: Proporciona detalles sobre logros en específico.\n\nEstas tres ontologías cubren una amplia gama de requisitos y ofrecen una buena cobertura para la mayoría de los casos.\n\n**Excluidas**\n\nLa ontología cgo.rdf, aunque importante, no es tan relevante como las otras tres. Por lo tanto, se excluye de la recomendación."
+    }
+  },
+  {
+    "config_name": "BM25 Sin Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.5,
+      "judge_accuracy": 0.08333333333333333,
+      "veredict_accuracy": 0.08333333333333333,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 4.602447311083476,
+      "total_time": 55.22936773300171
+    },
+    "cases": [
+      {
+        "id": "37",
+        "query": "What is the username of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main concept)\n\t* Username (key term)\n2. **Normalización Ontológica:**\n\t* Entity (equivalent to \"Player\" in OWL/RDF terms)\n\t* Individual (equivalent to \"Player\" with a focus on unique instances)\n\t* Character (related concept, often used in gaming contexts)\n3. **Sinónimos Técnicos:**\n\t* Account (alternative term for \"player\" or \"username\")\n\t* Identifier (technical synonym for \"username\")\n\t* Name (synonym for \"username\" with a focus on human-readable labels)\n\t* Label (RDF term equivalent to \"name\" or \"identifier\")\n\nNow, let's combine these terms into a single list, separated by commas:\n\nPlayer, username, entity, individual, character, account, identifier, name, label, URI\n\nThis optimized search list should help you find relevant information about the username of a player in various contexts, including gaming, social media, and data modeling.",
+          "raw_retrieved": [
+            "prov_2015-01-11.n3",
+            "omg.ttl",
+            "th_building.owl",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "s4inma_2019-04-30.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "roh_2022-01-01.n3",
+            "swo.owl",
+            "schema.ttl",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "th_building.owl",
+            "swo.owl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "38",
+        "query": "Who are the friends of the player?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayer, Friend, SocialNetwork, Relationship, Entity, Person, Individual, Human, Associate, Companion, Buddy, Colleague\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Player (main subject)\n\t* Friends (related concept)\n2. **Normalización Ontológica:**\n\t* Category: Social Entity\n\t* Class: Person\n\t* Type: Individual, Human\n3. **Sinónimos Técnicos:**\n\t* Associate\n\t* Companion\n\t* Buddy\n\t* Colleague\n\nThese terms are all related to the concept of friendship and social relationships, which is what the user is asking about. The list includes both specific types of friends (e.g., buddy) as well as more general categories (e.g., associate).",
+          "raw_retrieved": [
+            "aoi.ttl",
+            "tsn_2017-01-31.n3",
+            "th_building.owl",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "swc_2009-05-11.n3",
+            "oum_2020-06-06.n3",
+            "tsnc_2017-05-15.n3",
+            "m4i_2025-03-10.n3",
+            "saref4watr.n3",
+            "swo.owl",
+            "schema.ttl"
+          ],
+          "top_k_sources": [
+            "aoi.ttl",
+            "th_building.owl",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "39",
+        "query": "What is the genre of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Genre, Category, Type, Class, Video Game Genre, Electronic Game Genre, Computer Game Genre, Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms are a combination of:\n\n1. **Conceptos Nucleares:** Sustantivos y verbos técnicos principales:\n\t* Game\n\t* Genre\n2. **Normalización Ontológica:** Equivalentes formales más probables (Category, Class, Type)\n3. **Sinónimos Técnicos:** Términos alternativos precisos:\n\t* Video Game Genre\n\t* Electronic Game Genre\n\t* Computer Game Genre\n\t* Role-Playing Game (RPG), Adventure Game, Strategy Game, Action Game, Simulation Game\n\nThese terms should help you find the desired information about the genre of a game.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "odrl_2017-09-16.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "cgo.rdf",
+            "GameOntologyv3.owl"
+          ],
+          "approved_sources": [
+            "schema.ttl",
+            "cgo.rdf",
+            "GameOntologyv3.owl"
+          ],
+          "approved_uris": [
+            "https://schema.org/Game",
+            "http://autosemanticgame.eu/ontologies/cgo#Game",
+            "http://purl.org/net/VideoGameOntology#Game"
+          ]
+        }
+      },
+      {
+        "id": "40",
+        "query": "Who is the creator of the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Creator, Ontology, Class, Type, Entity, Developer, Author, Maker, Producer, Designer\n\nThese terms are separated by commas to facilitate searching in OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "saref4bldg.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "s4agri_2020-06-05.n3",
+            "modsci_2022-12-18.n3",
+            "base_ontology.owl",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "datex_2016-06-13.n3",
+            "oum_2020-06-06.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "edupro_2016-09-13.n3",
+            "dstv.ttl"
+          ],
+          "top_k_sources": [
+            "fabio_2019-02-19.n3",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "41",
+        "query": "What achievements does a game have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Achievement, Ontology, Concept, Class, Type, Score, Reward, Progression, Level, Victory, Success, Completion, Goal, Objective.\n\nThese terms are separated by commas to facilitate searching in a semantic web environment using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "base_ontology.owl",
+            "th_building.owl",
+            "s4agri_2020-06-05.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "dpv_2025-08-01.n3",
+            "edupro_2016-09-13.n3",
+            "dstv.ttl"
+          ],
+          "top_k_sources": [
+            "edupro_2016-09-13.n3",
+            "base_ontology.owl",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_uris": [
+            "https://w3id.org/dpv#StandardFormContract"
+          ]
+        }
+      },
+      {
+        "id": "42",
+        "query": "What items does the player have?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a delightful challenge!\n\nAfter analyzing the user's request \"What items does the player have?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGameItem, PlayerInventory, ItemCollection, Asset, Resource, Entity, Object, Thing, Concept, Class, Type, EntityInstance, Instance, Item, Possession, Ownership\n\nNote that I've used a mix of OWL/RDF terminology to ensure maximum coverage and precision. The list includes both concrete nouns (e.g., GameItem) and abstract concepts (e.g., Possession), as well as technical synonyms (e.g., Asset vs. Resource). This comprehensive list should facilitate efficient querying and retrieval of relevant information in a Web Semantics context.",
+          "raw_retrieved": [
+            "s4city_2020-06-05.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "roh_2022-01-01.n3",
+            "iot-lite_2015-06-01.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "bpo.ttl",
+            "qudt_2020-04-20.n3"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/numberOfItems"
+          ]
+        }
+      },
+      {
+        "id": "43",
+        "query": "What games has the player played?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Played, Ontology, Instance, Entity, Concept, Class, Type, RDF, OWL, Semantic Web, Resource, Statement, Property, Object, Subject\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Game\n\t* Player\n\t* Played (verb)\n2. **Normalización Ontológica:** I added formal equivalents for these concepts:\n\t* Game -> Instance of Game (Class), Type:Game, Resource:Game\n\t* Player -> Entity, Instance of Player (Class), Type:Player\n\t* Played -> Property:Played, Object:Game, Subject:Player\n3. **Sinónimos Técnicos:** I included alternative precise terms:\n\t* Ontology -> Semantic Web, RDF, OWL\n\nHere's the final list, separated by commas:\n\nGame, Instance of Game, Type:Game, Resource:Game, Player, Entity, Instance of Player, Type:Player, Played, Property:Played, Object:Game, Subject:Player, Ontology, Semantic Web, RDF, OWL",
+          "raw_retrieved": [
+            "prov_2015-01-11.n3",
+            "th_building.owl",
+            "swrc_2007-06-22.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "swo.owl",
+            "schema.ttl",
+            "cgo.rdf",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "oum_2020-06-06.n3",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "approved_sources": [
+            "schema.ttl"
+          ],
+          "approved_uris": [
+            "https://schema.org/Game"
+          ]
+        }
+      },
+      {
+        "id": "44",
+        "query": "How many hours has this game been played in total?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Play, Hour, Total, Time, Duration, Ontology, Class, Type, Concept, Instance, Semantic Web, OWL, RDF, FOAF, GamePlay, Gameplay, PlayTime\n\nLet me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main nouns and verbs:\n\t* Game\n\t* Play\n\t* Hour\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Class: Game, Play, Time\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Gameplay (synonym for GamePlay)\n\t* PlayTime (synonym for Duration)\n\nThis list should help you find relevant information about the total playtime of a game in the context of Web Semantics (OWL/RDF).",
+          "raw_retrieved": [
+            "omg.ttl",
+            "th_building.owl",
+            "cgov_2012-08-28.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "swc_2009-05-11.n3",
+            "cis_2016-03-30.n3",
+            "donto_2015-06-19.n3",
+            "schema.ttl",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "th_building.owl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "45",
+        "query": "What are the games similar to this one?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request \"What are the games similar to this one?\", I've extracted the key concepts, normalized them ontologically, and included technical synonyms. Here's the optimized search list:\n\nGame, Video Game, Electronic Game, Similar, Comparable, Analogous, Genre, Category, Type, Platform, Console, PC, Mobile, Handheld, Indie, Casual, Adventure, Role-Playing, Strategy, Puzzle, Simulation.\n\nNote: I've used OWL/RDF terminology to ensure the concepts are formally defined and easily searchable.",
+          "raw_retrieved": [
+            "omg.ttl",
+            "saref4bldg.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "GameOntologyv3.owl",
+            "fabio_2019-02-19.n3",
+            "datex_2016-06-13.n3",
+            "cis_2016-03-30.n3",
+            "beo.ttl",
+            "dpv_2025-08-01.n3",
+            "edupro_2016-09-13.n3"
+          ],
+          "top_k_sources": [
+            "GameOntologyv3.owl",
+            "datex_2016-06-13.n3",
+            "dpv_2025-08-01.n3",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "46",
+        "query": "What is the preferred weapon of players with a certain character class?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nCharacterClass, Player, Weapon, Preferred, Type, Class, Category, Role, Profession, Specialty, Equipment, Armament, Tool, Device\n\nThese terms are carefully selected to capture the essence of the question, incorporating both technical and domain-specific vocabulary. The list includes:\n\n* **Conceptos Nucleares:** CharacterClass, Player, Weapon\n* **Normalización Ontológica:** Type (equivalent to Class), Category (equivalent to Type)\n* **Sinónimos Técnicos:** Role (synonym for Profession/Specialty), Equipment (synonym for Armament/Tool/Device)\n\nThis search list should provide a solid foundation for querying relevant information in the realm of Web Semantics, using OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "s4city_2020-06-05.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "swc_2009-05-11.n3",
+            "bot.ttl",
+            "schema.ttl",
+            "saref_2020-05-29.n3",
+            "s4agri_2020-06-05.n3"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "vivo_2014-07-12.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "47",
+        "query": "How big percentage of players have made a certain decision in the game?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "hard",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a fascinating question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nGame, Player, Decision, Percentage, Statistics, Ontology, Class, Type, Category, Entity, Instance, Semantic Web, OWL, RDF, Data Mining, Game Analytics\n\nThese terms will help me navigate the semantic web and retrieve relevant information about players' decisions in a game.",
+          "raw_retrieved": [
+            "tsn_2017-01-31.n3",
+            "base_ontology.owl",
+            "vivo_2014-07-12.n3",
+            "swrc_2007-06-22.n3",
+            "s4city_2020-06-05.n3",
+            "cgov_2012-08-28.n3",
+            "fabio_2019-02-19.n3",
+            "bpo.ttl",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3",
+            "schema.ttl",
+            "saref_2020-05-29.n3",
+            "cgo.rdf"
+          ],
+          "top_k_sources": [
+            "schema.ttl",
+            "fabio_2019-02-19.n3",
+            "frapo_2014-01-31.n3",
+            "dpv_2025-08-01.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "48",
+        "query": "How many players have made in-app purchases?",
+        "expected": "GameOntologyv3.owl",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPlayers, In-App Purchases, Gamers, Consumers, Customers, Subscribers, Users, Mobile App Users, Digital Goods Buyers, Payment Processors, Transaction Records, Purchase History, User Behavior, Analytics Data\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Players (mainly referring to gamers)\n\t* In-App Purchases\n2. **Normalización Ontológica:**\n\t* Players → Entity (Class), Gamer (Type)\n\t* In-App Purchases → Transaction (Category), Digital Goods (Type)\n3. **Sinónimos Técnicos:**\n\t* Gamers → Consumers, Customers, Subscribers, Users\n\t* Mobile App Users → Digital Goods Buyers, Payment Processors\n\nThis list should help you search for relevant data and concepts related to players making in-app purchases.",
+          "raw_retrieved": [
+            "schema.ttl",
+            "saref4envi.n3",
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "swrc_2007-06-22.n3",
+            "fabio_2019-02-19.n3",
+            "m3lite_2017-07-29.n3",
+            "cerif_2013-04-23.n3",
+            "swo.owl",
+            "brick.ttl",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "vivo_2014-07-12.n3",
+            "modsci_2022-12-18.n3",
+            "fabio_2019-02-19.n3",
+            "cerif_2013-04-23.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte de Análisis**\n\nLa matriz de cobertura proporciona información sobre qué ontologías están relacionadas con qué requisitos. En este caso, vemos que hay varias ontologías que se relacionan con el requisito \"What is the genre of the game?\" (¿Cuál es el género del juego?). Esto sugiere que estas ontologías pueden ser útiles para abordar este requisito.\n\nLa ontología `schema.ttl` tiene una cobertura significativa en cuanto a la información de juego, incluyendo el género y los items que posee el jugador. La ontología `cgo.rdf` también se relaciona con el género del juego, lo que sugiere que puede ser útil para abordar este requisito.\n\nLa ontología `GameOntologyv3.owl` tiene una cobertura más limitada en comparación con las otras dos, pero aún así se relaciona con el género del juego. La ontología `dpv_2025-08-01.n3` se relaciona con los logros de un juego, lo que sugiere que puede ser útil para abordar este requisito.\n\n**Recomendación**\n\nConsiderando la cobertura y la relación entre las ontologías, recomiendo una red de ontologías que incluya `schema.ttl`, `cgo.rdf` y `GameOntologyv3.owl`. Estas ontologías se relacionan con el género del juego y pueden ser útiles para abordar este requisito.\n\n**JSON**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "schema.ttl",
+        "cgo.rdf",
+        "GameOntologyv3.owl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "dpv_2025-08-01.n3",
+          "motivo": "No se relaciona directamente con el género del juego"
+        }
+      ],
+      "veredicto_markdown": "**Reporte de Análisis**\n\nLa matriz de cobertura proporciona información sobre qué ontologías están relacionadas con qué requisitos. En este caso, vemos que hay varias ontologías que se relacionan con el requisito \"What is the genre of the game?\" (¿Cuál es el género del juego?). Esto sugiere que estas ontologías pueden ser útiles para abordar este requisito.\n\nLa ontología `schema.ttl` tiene una cobertura significativa en cuanto a la información de juego, incluyendo el género y los items que posee el jugador. La ontología `cgo.rdf` también se relaciona con el género del juego, lo que sugiere que puede ser útil para abordar este requisito.\n\nLa ontología `GameOntologyv3.owl` tiene una cobertura más limitada en comparación con las otras dos, pero aún así se relaciona con el género del juego. La ontología `dpv_2025-08-01.n3` se relaciona con los logros de un juego, lo que sugiere que puede ser útil para abordar este requisito.\n\n**Recomendación**\n\nConsiderando la cobertura y la relación entre las ontologías, recomiendo una red de ontologías que incluya `schema.ttl`, `cgo.rdf` y `GameOntologyv3.owl`. Estas ontologías se relacionan con el género del juego y pueden ser útiles para abordar este requisito.\n\n**JSON**"
+    }
+  }
+]

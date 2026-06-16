@@ -1,0 +1,1202 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns5: <http://schema.org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s4city: <https://saref.etsi.org/saref4city/> .
+@prefix s4syst: <https://saref.etsi.org/saref4syst/> .
+@prefix s4watr: <https://saref.etsi.org/saref4watr/> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:issued a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:modified a owl:AnnotationProperty .
+
+dcterms:publisher a owl:AnnotationProperty .
+
+dcterms:source a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+ns5:affiliation a owl:ObjectProperty .
+
+ns5:familyName a owl:DatatypeProperty .
+
+ns5:givenName a owl:DatatypeProperty .
+
+ns5:name a owl:DatatypeProperty .
+
+geo:hasGeometry a owl:ObjectProperty ;
+    rdfs:label "hasGeometry"@en ;
+    rdfs:isDefinedBy geo: .
+
+geo:sfContains a owl:ObjectProperty ;
+    rdfs:label "sfContains"@en ;
+    rdfs:isDefinedBy geo: .
+
+geo:sfWithin a owl:ObjectProperty ;
+    rdfs:label "sfWithin"@en ;
+    rdfs:isDefinedBy geo: .
+
+<http://www.opengis.net/ont/sf#Point> a owl:Class ;
+    rdfs:label "Point"@en ;
+    rdfs:isDefinedBy <http://www.opengis.net/ont/sf#> ;
+    rdfs:subClassOf geo:Geometry .
+
+<http://www.opengis.net/ont/sf#Polygon> a owl:Class ;
+    rdfs:label "Polygon"@en ;
+    rdfs:isDefinedBy <http://www.opengis.net/ont/sf#> ;
+    rdfs:subClassOf geo:Geometry .
+
+time:Instant a owl:Class ;
+    rdfs:label "Instant"@en ;
+    rdfs:comment "A temporal entity with zero extent or duration"@en ;
+    rdfs:isDefinedBy time: ;
+    rdfs:subClassOf time:TemporalEntity .
+
+saref:hasManufacturer a owl:DatatypeProperty ;
+    rdfs:label "has manufacturer"@en ;
+    rdfs:comment "A relationship identifying the manufacturer of an entity (e.g., device)"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:hasModel a owl:DatatypeProperty ;
+    rdfs:label "has model"@en ;
+    rdfs:comment "A relationship identifying the model of an entity (e.g., device)"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:isMeasurementOf a owl:ObjectProperty ;
+    rdfs:label "is measurement of"@en ;
+    rdfs:isDefinedBy saref: ;
+    owl:inverseOf saref:hasMeasurement .
+
+saref:isPropertyOf a owl:ObjectProperty ;
+    rdfs:label "is property of"@en ;
+    rdfs:isDefinedBy saref: .
+
+s4city:KeyPerformanceIndicatorAssessment a owl:Class ;
+    rdfs:label "Key performance indicator assessment"@en ;
+    rdfs:comment "A Key Performance Indicator assessment represents the assessment of a KPI calculated by a given agent in a given time."@en ;
+    rdfs:isDefinedBy s4city: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty s4city:hasExpirationDate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty s4city:hasLastUpdateDate ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty saref:hasValue ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:FeatureOfInterest ;
+            owl:onProperty s4city:assesses ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom s4city:Agent ;
+            owl:onProperty s4city:isAssessedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:Measurement ;
+            owl:onProperty s4city:isDerivedFrom ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:UnitOfMeasure ;
+            owl:onProperty saref:isMeasuredIn ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom s4city:KeyPerformanceIndicator ;
+            owl:onProperty s4city:quantifiesKPI ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom time:TemporalEntity ;
+            owl:onProperty s4city:refersToTime ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty s4city:hasCreationDate ] .
+
+s4city:hasKPI a owl:ObjectProperty ;
+    rdfs:label "has key performance indicator"@en ;
+    rdfs:isDefinedBy s4city: ;
+    owl:inverseOf s4city:isKPIOf .
+
+s4city:refersToFeature a owl:ObjectProperty ;
+    rdfs:label "refers to feature"@en ;
+    rdfs:comment "Relation between a KPI assessment and the geographical feature it refers to"@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4syst:hasSubSystem a owl:ObjectProperty ;
+    rdfs:label "has sub-system"@en ;
+    rdfs:isDefinedBy s4syst: .
+
+s4watr: a owl:Ontology ;
+    dcterms:creator <http://www.garcia-castro.com/foaf.rdf#me> ;
+    dcterms:description "This ontology extends the SAREF ontology for the water domain. This work has been developed in the context of the STF 566, which was established with the goal to create three SAREF extensions, one of them for the water domain."@en ;
+    dcterms:issued "2020-04-01"^^xsd:date ;
+    dcterms:license <https://forge.etsi.org/etsi-software-license> ;
+    dcterms:modified "2020-06-03"^^xsd:date ;
+    dcterms:publisher <https://www.etsi.org/> ;
+    dcterms:source <https://saref.etsi.org/sources/saref4watr/> ;
+    dcterms:title "SAREF extension for water"@en ;
+    vann:preferredNamespacePrefix "s4watr" ;
+    vann:preferredNamespaceUri "https://saref.etsi.org/saref4watr/" ;
+    rdfs:seeAlso <https://www.etsi.org/deliver/etsi_ts/103400_103499/10341010/01.01.01_60/ts_10341010v010101p.pdf> ;
+    owl:versionIRI <https://saref.etsi.org/saref4watr/v1.1.1/> ;
+    owl:versionInfo "v1.1.1" .
+
+s4watr:12Dichloroethane a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "1,2-dichloroethane"@en ;
+    rdfs:comment "Property of the water indicating its concentration of 1,2-dichloroethane."@en .
+
+s4watr:Acrylamide a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Acrylamide"@en ;
+    rdfs:comment "Property of the water indicating its concentration of acrylamide."@en .
+
+s4watr:Agriculture a owl:NamedIndividual,
+        s4watr:WaterUse ;
+    rdfs:label "Agriculture"@en ;
+    rdfs:comment "Use of water for the farming of plants and livestock."@en .
+
+s4watr:Aluminium a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Aluminium"@en ;
+    rdfs:comment "Property of the water indicating its concentration of aluminium."@en .
+
+s4watr:Ammonium a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Ammonium"@en ;
+    rdfs:comment "Property of the water indicating its concentration of ammonium."@en .
+
+s4watr:Antimony a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Antimony"@en ;
+    rdfs:comment "Property of the water indicating its concentration of antimony."@en .
+
+s4watr:Aquaculture a owl:NamedIndividual,
+        s4watr:WaterUse ;
+    rdfs:label "Aquaculture"@en ;
+    rdfs:comment "Use of water for the farming of fish, crustaceans, molluscs, aquatic plants, algae, and other organisms."@en .
+
+s4watr:Aquifer a owl:Class ;
+    rdfs:label "Aquifer"@en ;
+    rdfs:comment "An aquifer is an underground layer of water-bearing permeable rock, rock fractures or unconsolidated materials."@en ;
+    rdfs:subClassOf s4watr:StorageAsset .
+
+s4watr:Arsenic a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Arsenic"@en ;
+    rdfs:comment "Property of the water indicating its concentration of arsenic."@en .
+
+s4watr:AtmosphericPressure a owl:NamedIndividual,
+        s4watr:EnvironmentalProperty ;
+    rdfs:label "Atmospheric pressure"@en ;
+    rdfs:comment "Property of the environment indicating the atmospheric pressure."@en .
+
+s4watr:BatteryLastChange a owl:NamedIndividual,
+        s4watr:WaterMeterProperty ;
+    rdfs:label "Battery last change"@en ;
+    rdfs:comment "The time in which the battery was last changed."@en .
+
+s4watr:BatteryOperatingTime a owl:NamedIndividual,
+        s4watr:WaterMeterProperty ;
+    rdfs:label "Battery operating time"@en ;
+    rdfs:comment "The time for which the battery has been operating since the last charge."@en .
+
+s4watr:BatteryRemainingTime a owl:NamedIndividual,
+        s4watr:WaterMeterProperty ;
+    rdfs:label "Battery remaining time"@en ;
+    rdfs:comment "The time until the battery is discharged."@en .
+
+s4watr:Benzene a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Benzene"@en ;
+    rdfs:comment "Property of the water indicating its concentration of benzene."@en .
+
+s4watr:Benzoapyrene a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Benzo(a)pyrene"@en ;
+    rdfs:comment "Property of the water indicating its concentration of benzo(a)pyrene."@en .
+
+s4watr:Boron a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Boron"@en ;
+    rdfs:comment "Property of the water indicating its concentration of boron."@en .
+
+s4watr:Bromate a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Bromate"@en ;
+    rdfs:comment "Property of the water indicating its concentration of bromate."@en .
+
+s4watr:Cadmium a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Cadmium"@en ;
+    rdfs:comment "Property of the water indicating its concentration of cadmium."@en .
+
+s4watr:Channel a owl:Class ;
+    rdfs:label "Channel"@en ;
+    rdfs:comment "A channel is a passage of water flowing in an open conduit (i.e., subject to atmospheric pressure)."@en ;
+    rdfs:subClassOf s4watr:Main .
+
+s4watr:Chloride a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Chloride"@en ;
+    rdfs:comment "Property of the water indicating its concentration of chloride."@en .
+
+s4watr:Chromium a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Chromium"@en ;
+    rdfs:comment "Property of the water indicating its concentration of chromium."@en .
+
+s4watr:ClostridiumPerfringens a owl:NamedIndividual,
+        s4watr:BacterialProperty ;
+    rdfs:label "Clostridium perfringens"@en ;
+    rdfs:comment "Property of the water indicating its concentration of clostridium perfringens."@en .
+
+s4watr:ColiformBacteria a owl:NamedIndividual,
+        s4watr:BacterialProperty ;
+    rdfs:label "Coliform bacteria"@en ;
+    rdfs:comment "Property of the water indicating its concentration of coliform bacteria."@en .
+
+s4watr:ColonyCount22C a owl:NamedIndividual,
+        s4watr:BacterialProperty ;
+    rdfs:label "Colony count at 22 °C"@en ;
+    rdfs:comment "Property of the water indicating its colony count at 22 ºC."@en .
+
+s4watr:ColonyCount37C a owl:NamedIndividual,
+        s4watr:BacterialProperty ;
+    rdfs:label "Colony count at 37 °C"@en ;
+    rdfs:comment "Property of the water indicating its colony count at 37 ºC."@en .
+
+s4watr:Colour a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Colour"@en ;
+    rdfs:comment "Property of the water indicating its colour."@en .
+
+s4watr:Conductivity a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Conductivity"@en ;
+    rdfs:comment "Property of the water indicating its conductivity."@en .
+
+s4watr:Copper a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Copper"@en ;
+    rdfs:comment "Property of the water indicating its concentration of copper."@en .
+
+s4watr:Cyanide a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Cyanide"@en ;
+    rdfs:comment "Property of the water indicating its concentration of cyanide."@en .
+
+s4watr:DistributionSystem a owl:Class ;
+    rdfs:label "Distribution system"@en ;
+    rdfs:comment "A water distribution system is an infrastructure to carry potable water from a centralized treatment plant or wells to water consumers in order to adequately deliver water to satisfy residential, commercial, industrial and fire fighting requirements."@en ;
+    rdfs:subClassOf s4watr:WaterInfrastructure .
+
+s4watr:Domestic a owl:NamedIndividual,
+        s4watr:WaterUse ;
+    rdfs:label "Domestic"@en ;
+    rdfs:comment "Use of water for domestic purposes."@en .
+
+s4watr:DrinkingWater a owl:NamedIndividual,
+        s4watr:Water ;
+    rdfs:label "Drinking water"@en,
+        "Potable water"@en ;
+    rdfs:comment "Drinking water is water that is treated to comply with drinking water standards."@en .
+
+s4watr:Enterococci a owl:NamedIndividual,
+        s4watr:BacterialProperty ;
+    rdfs:label "Enterococci"@en ;
+    rdfs:comment "Property of the water indicating its concentration of enterococci."@en .
+
+s4watr:Epichlorohydrin a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Epichlorohydrin"@en ;
+    rdfs:comment "Property of the water indicating its concentration of epichlorohydrin."@en .
+
+s4watr:EscherichiaColi a owl:NamedIndividual,
+        s4watr:BacterialProperty ;
+    rdfs:label "E. coli"@en,
+        "Escherichia coli"@en ;
+    rdfs:comment "Property of the water indicating its concentration of escherichia coli."@en .
+
+s4watr:Estuary a owl:Class ;
+    rdfs:label "Estuary"@en ;
+    rdfs:comment "An estuary is a partially enclosed coastal body of brackish water with one or more rivers or streams flowing into it, and with a free connection to the open sea."@en ;
+    rdfs:subClassOf s4watr:SinkAsset .
+
+s4watr:ExternalTemperature a owl:NamedIndividual,
+        s4watr:EnvironmentalProperty ;
+    rdfs:label "External temperature"@en ;
+    rdfs:comment "Property of the environment indicating the temperature."@en .
+
+s4watr:FireHydrant a owl:Class ;
+    rdfs:label "Fire hydrant"@en ;
+    rdfs:comment "A fire hydrant is a fitting in a street or other public place with a nozzle by which a fire hose may be attached to a water main."@en ;
+    rdfs:subClassOf s4watr:WaterDevice .
+
+s4watr:FlowPressure a owl:NamedIndividual,
+        s4watr:WaterFlowProperty ;
+    rdfs:label "Flow pressure"@en ;
+    rdfs:comment "Property indicating the pressure of a water flow."@en .
+
+s4watr:FlowRate a owl:NamedIndividual,
+        s4watr:WaterFlowProperty ;
+    rdfs:label "Flow rate"@en ;
+    rdfs:comment "Property indicating the rate of a water flow."@en .
+
+s4watr:FlowTemperature a owl:NamedIndividual,
+        s4watr:WaterFlowProperty ;
+    rdfs:label "Flow temperature"@en ;
+    rdfs:comment "Property indicating the temperature of a water flow."@en .
+
+s4watr:FlowVolume a owl:NamedIndividual,
+        s4watr:WaterFlowProperty ;
+    rdfs:label "Flow volume"@en ;
+    rdfs:comment "Property indicating the volume of a water flow."@en .
+
+s4watr:Fluoride a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Fluoride"@en ;
+    rdfs:comment "Property of the water indicating its concentration of fluoride."@en .
+
+s4watr:GaugingStation a owl:Class ;
+    rdfs:label "Gauging station"@en ;
+    rdfs:comment "A gauging station is an infrastructure to monitor and test terrestrial bodies of water."@en ;
+    rdfs:subClassOf s4watr:MonitoringInfrastructure .
+
+s4watr:Glacier a owl:Class ;
+    rdfs:label "Glacier"@en ;
+    rdfs:comment "A glacier is a persistent body of dense ice that is constantly moving under its own weight."@en ;
+    rdfs:subClassOf s4watr:SourceAsset .
+
+s4watr:Hardness a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Hardness"@en ;
+    rdfs:comment "Property of the water indicating its hardness."@en .
+
+s4watr:Humidity a owl:NamedIndividual,
+        s4watr:EnvironmentalProperty ;
+    rdfs:label "Humidity"@en ;
+    rdfs:comment "Property of the environment indicating the humidity."@en .
+
+s4watr:HydroelectricPowerPlant a owl:Class ;
+    rdfs:label "Hydroelectric power plant"@en ;
+    rdfs:comment "A hydroelectric power plant is an infrastructure to generate electricity by conversion of the energy of running water."@en ;
+    rdfs:subClassOf s4watr:WaterInfrastructure .
+
+s4watr:HydrogenIonConcentration a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Hydrogen ion concentration"@en,
+        "pH"@en ;
+    rdfs:comment "Property of the water indicating its hydrogen ion concentration."@en .
+
+s4watr:Industry a owl:NamedIndividual,
+        s4watr:WaterUse ;
+    rdfs:label "Industry"@en ;
+    rdfs:comment "Use of water for industrial purposes."@en .
+
+s4watr:Intake a owl:Class ;
+    rdfs:label "Intake"@en ;
+    rdfs:comment "An intake is an installation for obtaining water from a source of supply (river, lake, reservoir, and so on)."@en ;
+    rdfs:subClassOf s4watr:TransportAsset .
+
+s4watr:Iron a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Iron"@en ;
+    rdfs:comment "Property of the water indicating its concentration of iron."@en .
+
+s4watr:Lagoon a owl:Class ;
+    rdfs:label "Lagoon"@en ;
+    rdfs:comment "A lagoon is a shallow body of water separated from a larger body of water by barrier islands or reefs."@en ;
+    rdfs:subClassOf s4watr:SourceAsset .
+
+s4watr:Lake a owl:Class ;
+    rdfs:label "Lake"@en ;
+    rdfs:comment "A lake is an area filled with water, localized in a basin, surrounded by land, apart from any river or other outlet that serves to feed or drain the lake."@en ;
+    rdfs:subClassOf s4watr:SourceAsset .
+
+s4watr:Lead a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Lead"@en ;
+    rdfs:comment "Property of the water indicating its concentration of lead."@en .
+
+s4watr:Manganese a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Manganese"@en ;
+    rdfs:comment "Property of the water indicating its concentration of manganese."@en .
+
+s4watr:Manhole a owl:Class ;
+    rdfs:label "Maintenance hole"@en,
+        "Manhole"@en ;
+    rdfs:comment "A maintenance hole is an enclosure that facilitates human access to and working space for equipment."@en ;
+    rdfs:subClassOf s4watr:TransportAsset .
+
+s4watr:Mercury a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Mercury"@en ;
+    rdfs:comment "Property of the water indicating its concentration of mercury."@en .
+
+s4watr:MeterOnTime a owl:NamedIndividual,
+        s4watr:WaterMeterProperty ;
+    rdfs:label "Meter on time"@en ;
+    rdfs:comment "The duration of the meter power up."@en .
+
+s4watr:MeterOperatingTime a owl:NamedIndividual,
+        s4watr:WaterMeterProperty ;
+    rdfs:label "Meter operating time"@en ;
+    rdfs:comment "The time for which the meter has been operating."@en .
+
+s4watr:Nickel a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Nickel"@en ;
+    rdfs:comment "Property of the water indicating its concentration of nickel."@en .
+
+s4watr:Nitrate a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Nitrate"@en ;
+    rdfs:comment "Property of the water indicating its concentration of nitrate."@en .
+
+s4watr:Nitrite a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Nitrite"@en ;
+    rdfs:comment "Property of the water indicating its concentration of nitrite."@en .
+
+s4watr:Ocean a owl:Class ;
+    rdfs:label "Ocean"@en ;
+    rdfs:comment "An ocean is a large body of salt water."@en ;
+    rdfs:subClassOf s4watr:SinkAsset .
+
+s4watr:Odour a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Odour"@en ;
+    rdfs:comment "Property of the water indicating its odour."@en .
+
+s4watr:Oxidisability a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Oxidisability"@en ;
+    rdfs:comment "Property of the water indicating its oxidisability."@en .
+
+s4watr:Oxygen a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Dissolved oxygen"@en,
+        "Oxygen"@en,
+        "Oxygen saturation"@en ;
+    rdfs:comment "Property of the water indicating its oxygen saturation."@en .
+
+s4watr:Pipe a owl:Class ;
+    rdfs:label "Pipe"@en ;
+    rdfs:comment "A pipe is a passage of water flowing in a closed conduit (i.e., not subject to atmospheric pressure)."@en ;
+    rdfs:subClassOf s4watr:Main .
+
+s4watr:Pit a owl:Class ;
+    rdfs:label "Pit"@en ;
+    rdfs:comment "A pit is a well or hole sunk in the ground to procure, store or drain water."@en ;
+    rdfs:subClassOf s4watr:TransportAsset .
+
+s4watr:PolycyclicAromaticHydrocarbons a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Polycyclic aromatic hydrocarbons"@en ;
+    rdfs:comment "Property of the water indicating its concentration of polycyclic aromatic hydrocarbons."@en .
+
+s4watr:Precipitation a owl:NamedIndividual,
+        s4watr:EnvironmentalProperty ;
+    rdfs:label "Precipitation"@en ;
+    rdfs:comment "Property of the environment indicating the precipitation."@en .
+
+s4watr:PseudomonasAeruginosa a owl:NamedIndividual,
+        s4watr:BacterialProperty ;
+    rdfs:label "Pseudomonas aeruginosa"@en ;
+    rdfs:comment "Property of the water indicating its concentration of pseudomonas aeruginosa."@en .
+
+s4watr:Pump a owl:Class ;
+    rdfs:label "Pump"@en ;
+    rdfs:comment "A pump is a device for moving water by mechanical action."@en ;
+    rdfs:subClassOf saref:Actuator,
+        s4watr:WaterDevice .
+
+s4watr:RawWater a owl:NamedIndividual,
+        s4watr:Water ;
+    rdfs:label "Raw water"@en ;
+    rdfs:comment "Raw water is water found in the environment that has not been treated and does not have any of its minerals, ions, particles, bacteria, or parasites removed."@en .
+
+s4watr:Recreation a owl:NamedIndividual,
+        s4watr:WaterUse ;
+    rdfs:label "Recreation"@en ;
+    rdfs:comment "Use of water for recreational purposes."@en .
+
+s4watr:Reservoir a owl:Class ;
+    rdfs:label "Reservoir"@en ;
+    rdfs:comment "A reservoir is an enlarged natural or artificial lake, pond or impoundment created using a dam or lock to store water."@en ;
+    rdfs:subClassOf s4watr:StorageAsset .
+
+s4watr:River a owl:Class ;
+    rdfs:label "River"@en ;
+    rdfs:comment "A river is a natural flowing watercourse, usually freshwater, flowing towards an ocean, sea, lake or another river."@en ;
+    rdfs:subClassOf s4watr:SinkAsset .
+
+s4watr:Sea a owl:Class ;
+    rdfs:label "Sea"@en ;
+    rdfs:comment "A sea is a body of salt water partly or fully enclosed by land."@en ;
+    rdfs:subClassOf s4watr:SinkAsset .
+
+s4watr:Selenium a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Selenium"@en ;
+    rdfs:comment "Property of the water indicating its concentration of selenium."@en .
+
+s4watr:Sodium a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Sodium"@en ;
+    rdfs:comment "Property of the water indicating its concentration of sodium."@en .
+
+s4watr:StorageInfrastructure a owl:Class ;
+    rdfs:label "Storage infrastructure"@en ;
+    rdfs:comment "An storage infrastructure is an infrastructure to storage both potable water for consumption, and non potable water for use in agriculture."@en ;
+    rdfs:subClassOf s4watr:WaterInfrastructure .
+
+s4watr:Stormwater a owl:NamedIndividual,
+        s4watr:Water ;
+    rdfs:label "Storm water"@en ;
+    rdfs:comment "Stormwater is water that originates during precipitation events and snow/ice melt."@en .
+
+s4watr:Sulphate a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Sulphate"@en ;
+    rdfs:comment "Property of the water indicating its concentration of sulphate."@en .
+
+s4watr:Tank a owl:Class ;
+    rdfs:label "Tank"@en ;
+    rdfs:comment "A tank is a container for storing water."@en ;
+    rdfs:subClassOf s4watr:StorageAsset .
+
+s4watr:Taste a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Taste"@en ;
+    rdfs:comment "Property of the water indicating its taste."@en .
+
+s4watr:Temperature a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Temperature"@en ;
+    rdfs:comment "Property of the water indicating its temperature."@en .
+
+s4watr:Tetrachloroethene a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Tetrachloroethene"@en ;
+    rdfs:comment "Property of the water indicating its concentration of tetrachloroethene."@en .
+
+s4watr:TotalDissolvedSolids a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Total dissolved solids"@en ;
+    rdfs:comment "Property of the water indicating the dissolved combined content of all inorganic and organic substances present in a sample of water."@en .
+
+s4watr:TotalIndicativeDose a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Total indicative dose"@en ;
+    rdfs:comment "Property of the water indicating its total indicative dose."@en .
+
+s4watr:TotalOrganicCarbon a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "TOC"@en,
+        "Total organic carbon"@en ;
+    rdfs:comment "Property of the water indicating its concentration of total organic carbon."@en .
+
+s4watr:TotalSuspendedSolids a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Total suspended solids"@en ;
+    rdfs:comment "Property of the water indicating the dry-weight of suspended particles, that are not dissolved, in a sample of water."@en .
+
+s4watr:TreatmentPlant a owl:Class ;
+    rdfs:label "Treatment plant"@en ;
+    rdfs:comment "A treatment plant is an infrastructure to improve the quality of water to make it more acceptable for a specific end-use."@en ;
+    rdfs:subClassOf s4watr:WaterInfrastructure .
+
+s4watr:Trichloroethene a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Trichloroethene"@en ;
+    rdfs:comment "Property of the water indicating its concentration of trichloroethene."@en .
+
+s4watr:Trihalomethanes a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Trihalomethanes"@en ;
+    rdfs:comment "Property of the water indicating its concentration of trihalomethanes."@en .
+
+s4watr:Tritium a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Tritium"@en ;
+    rdfs:comment "Property of the water indicating its concentration of tritium."@en .
+
+s4watr:Turbidity a owl:NamedIndividual,
+        s4watr:AcceptabilityProperty ;
+    rdfs:label "Turbidity"@en ;
+    rdfs:comment "Property of the water indicating its turbidity."@en .
+
+s4watr:Valve a owl:Class ;
+    rdfs:label "Valve"@en ;
+    rdfs:comment "A valve is a device designed to control water flow, pressure or volume."@en ;
+    rdfs:subClassOf saref:Actuator,
+        s4watr:WaterDevice .
+
+s4watr:Vent a owl:Class ;
+    rdfs:label "Vent"@en ;
+    rdfs:comment "A vent is the part of a system that allows air to enter a plumbing system to maintain proper air pressure and sewer gases to escape to the outside."@en ;
+    rdfs:subClassOf s4watr:TransportAsset .
+
+s4watr:VinylChloride a owl:NamedIndividual,
+        s4watr:ChemicalProperty ;
+    rdfs:label "Vinyl chloride"@en ;
+    rdfs:comment "Property of the water indicating its concentration of vinyl chloride."@en .
+
+s4watr:Wastewater a owl:NamedIndividual,
+        s4watr:Water ;
+    rdfs:label "Waste water"@en ;
+    rdfs:comment "Wastewater is water that has been used in the home, in a business, or as part of an industrial process."@en .
+
+s4watr:appliesTo a owl:ObjectProperty ;
+    rdfs:label "applies to"@en ;
+    rdfs:comment "The water meter to which a tariff applies to."@en ;
+    rdfs:domain s4watr:Tariff ;
+    rdfs:range s4watr:WaterMeter .
+
+s4watr:controlsFeature a owl:ObjectProperty ;
+    rdfs:label "controls feature"@en ;
+    rdfs:comment "A relationship specifying the features of interest that are controlled by a device."@en ;
+    rdfs:domain saref:Device ;
+    rdfs:range saref:FeatureOfInterest .
+
+s4watr:featureIsControlledByDevice a owl:ObjectProperty ;
+    rdfs:label "feature is controlled by device"@en ;
+    rdfs:comment "A relationship specifying the devices that control a feature of interest."@en ;
+    rdfs:domain saref:FeatureOfInterest ;
+    rdfs:range saref:Device .
+
+s4watr:featureIsMeasuredByDevice a owl:ObjectProperty ;
+    rdfs:label "feature is measured by device"@en ;
+    rdfs:comment "A relationship specifying the devices that measure a feature of interest."@en ;
+    rdfs:domain saref:FeatureOfInterest ;
+    rdfs:range saref:Device .
+
+s4watr:forAbsoluteTimeAtDay a owl:ObjectProperty ;
+    rdfs:label "for absolute time at day"@en ;
+    rdfs:comment "The time interval in each day for which a tariff is applied (e.g., 8:00 to 10:00)."@en ;
+    rdfs:domain s4watr:TimeBasedTariff ;
+    rdfs:range time:Interval .
+
+s4watr:forDayInMonth a owl:DatatypeProperty ;
+    rdfs:label "for day in month"@en ;
+    rdfs:comment "The day of the month for which a tariff is applied (e.g., each 15)."@en ;
+    rdfs:domain s4watr:TimeBasedTariff ;
+    rdfs:range xsd:gDay .
+
+s4watr:forFinancialConsumption a owl:DatatypeProperty ;
+    rdfs:label "for financial consumption"@en ;
+    rdfs:comment "The financial consumption related to a tariff (e.g., prepaid tariffs)."@en ;
+    rdfs:domain s4watr:ConsumptionBasedTariff .
+
+s4watr:forVolumeConsumption a owl:DatatypeProperty ;
+    rdfs:label "for volume consumption"@en ;
+    rdfs:comment "The volume consumption related to a tariff (e.g., after consumption of 900 litres)."@en ;
+    rdfs:domain s4watr:ConsumptionBasedTariff .
+
+s4watr:forVolumeFlow a owl:DatatypeProperty ;
+    rdfs:label "for volume flow"@en ;
+    rdfs:comment "The volume flow related to a tariff."@en ;
+    rdfs:domain s4watr:ThresholdBasedTariff .
+
+s4watr:forWeekDay a owl:ObjectProperty ;
+    rdfs:label "for week day"@en ;
+    rdfs:comment "The day of the week for which a tariff is applied (e.g., each Saturday and Sunday)."@en ;
+    rdfs:domain s4watr:TimeBasedTariff ;
+    rdfs:range time:DayOfWeek .
+
+s4watr:hasBillingDate a owl:DatatypeProperty ;
+    rdfs:label "has billing date"@en ;
+    rdfs:comment "The billing date of a tariff."@en ;
+    rdfs:domain s4watr:Tariff ;
+    rdfs:range xsd:dateTime .
+
+s4watr:hasBillingPeriod a owl:ObjectProperty ;
+    rdfs:label "has billing period"@en ;
+    rdfs:comment "The billing period of a tariff."@en ;
+    rdfs:domain s4watr:Tariff ;
+    rdfs:range time:TemporalDuration .
+
+s4watr:hasDuration a owl:ObjectProperty ;
+    rdfs:label "has duration"@en ;
+    rdfs:comment "The duration of a tariff."@en ;
+    rdfs:domain s4watr:Tariff ;
+    rdfs:range time:TemporalDuration .
+
+s4watr:hasPeriod a owl:ObjectProperty ;
+    rdfs:label "has period"@en ;
+    rdfs:comment "The period of a tariff."@en ;
+    rdfs:domain s4watr:Tariff ;
+    rdfs:range time:TemporalDuration .
+
+s4watr:hasPhenomenonTime a owl:ObjectProperty ;
+    rdfs:label "has phenomenon time"@en ;
+    rdfs:comment "The time for which the value of a measurement applies to the feature of interest."@en ;
+    rdfs:domain saref:Measurement ;
+    rdfs:range time:TemporalEntity .
+
+s4watr:hasStartTimestamp a owl:DatatypeProperty ;
+    rdfs:label "has start timestamp"@en ;
+    rdfs:comment "The start date and time of a tariff."@en ;
+    rdfs:domain s4watr:Tariff ;
+    rdfs:range xsd:dateTime .
+
+s4watr:measuresFeature a owl:ObjectProperty ;
+    rdfs:label "measures feature"@en ;
+    rdfs:comment "A relationship specifying the features of interest that are measured by a device."@en ;
+    rdfs:domain saref:Device ;
+    rdfs:range saref:FeatureOfInterest .
+
+s4watr:operatesAtRadioFrequency a owl:DatatypeProperty ;
+    rdfs:label "operates at radio frequency"@en ;
+    rdfs:comment "The radio frequency at which a device operates."@en .
+
+s4watr:requiresPower a owl:DatatypeProperty ;
+    rdfs:label "requires power"@en ;
+    rdfs:comment "The power required by a device."@en .
+
+ns5:Organization a owl:Class .
+
+ns5:Person a owl:Class .
+
+<http://www.garcia-castro.com/foaf.rdf#me> a ns5:Person ;
+    ns5:affiliation <https://www.upm.es/> ;
+    ns5:familyName "García-Castro" ;
+    ns5:givenName "Raúl" .
+
+xsd:gDay a rdfs:Datatype .
+
+time:DayOfWeek a owl:Class ;
+    rdfs:label "Day of week"@en ;
+    rdfs:comment "The day of week."@en ;
+    rdfs:isDefinedBy time: .
+
+time:Interval a owl:Class ;
+    rdfs:label "Interval"@en ;
+    rdfs:comment "A temporal entity with an extent or duration."@en ;
+    rdfs:isDefinedBy time: ;
+    rdfs:subClassOf time:TemporalEntity .
+
+saref:Meter a owl:Class ;
+    rdfs:label "Meter"@en ;
+    rdfs:comment "A device built to accurately detect and display a quantity in a form readable by a human being. Further, a device of category saref:Meter that performs a saref:MeteringFunction."@en ;
+    rdfs:isDefinedBy saref: ;
+    rdfs:subClassOf saref:Sensor .
+
+saref:controlsProperty a owl:ObjectProperty ;
+    rdfs:label "controls property"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:hasTimestamp a owl:DatatypeProperty ;
+    rdfs:label "has timestamp"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:isControlledByDevice a owl:ObjectProperty ;
+    rdfs:label "is controlled by device"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:isMeasuredByDevice a owl:ObjectProperty ;
+    rdfs:label "is measured by device"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:makesMeasurement a owl:ObjectProperty ;
+    rdfs:label "makes measurement"@en ;
+    rdfs:isDefinedBy saref: ;
+    owl:inverseOf saref:measurementMadeBy .
+
+saref:measurementMadeBy a owl:ObjectProperty ;
+    rdfs:label "measurement made by"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:relatesToMeasurement a owl:ObjectProperty ;
+    rdfs:label "relates to measurement"@en ;
+    rdfs:isDefinedBy saref: .
+
+s4city:Agent a owl:Class ;
+    rdfs:label "Agent"@en ;
+    rdfs:comment "An agent making an action in the context of a city. An agent could be a person, software, etc."@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4city:KeyPerformanceIndicator a owl:Class ;
+    rdfs:label "Key Performance Indicator"@en ;
+    rdfs:comment "A Key Performance Indicator (KPI) is a type of performance measurement. KPIs evaluate the success of an organization or of a particular activity in which it engages. (Definition taken from FIWARE)"@en ;
+    rdfs:isDefinedBy s4city: ;
+    rdfs:seeAlso <http://fiware-datamodels.readthedocs.io/en/latest/KeyPerformanceIndicator/doc/spec/index.html> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom time:TemporalDuration ;
+            owl:onProperty s4city:hasCalculationPeriod ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:FeatureOfInterest ;
+            owl:onProperty s4city:isKPIOf ] .
+
+s4city:assesses a owl:ObjectProperty ;
+    rdfs:label "assesses"@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4city:hasCalculationPeriod a owl:ObjectProperty ;
+    rdfs:label "has calculation period"@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4city:hasCreationDate a owl:DatatypeProperty ;
+    rdfs:label "has creation date"@en ;
+    rdfs:isDefinedBy s4city: ;
+    rdfs:range xsd:dateTime .
+
+s4city:hasExpirationDate a owl:DatatypeProperty ;
+    rdfs:label "has expiration date"@en ;
+    rdfs:isDefinedBy s4city: ;
+    rdfs:range xsd:dateTime .
+
+s4city:hasLastUpdateDate a owl:DatatypeProperty ;
+    rdfs:label "has last update date"@en ;
+    rdfs:isDefinedBy s4city: ;
+    rdfs:range xsd:dateTime .
+
+s4city:isAssessedBy a owl:ObjectProperty ;
+    rdfs:label "is assessed by"@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4city:isDerivedFrom a owl:ObjectProperty ;
+    rdfs:label "is derived from"@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4city:quantifiesKPI a owl:ObjectProperty ;
+    rdfs:label "quantifies KPI"@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4city:refersToTime a owl:ObjectProperty ;
+    rdfs:label "refers to time"@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4watr:MicrobialProperty a owl:Class ;
+    rdfs:label "Microbial property"@en ;
+    rdfs:comment "A microbial property is a property of water that is related to microbes."@en ;
+    rdfs:subClassOf s4watr:WaterProperty .
+
+s4watr:MonitoringInfrastructure a owl:Class ;
+    rdfs:label "Monitoring infrastructure"@en ;
+    rdfs:comment "A monitoring infrastructure is an infrastructure to monitor water."@en ;
+    rdfs:subClassOf s4watr:WaterInfrastructure .
+
+s4watr:ThresholdBasedTariff a owl:Class ;
+    rdfs:label "Threshold-based tariff"@en ;
+    rdfs:comment "A threshold-based tariff is a tariff that is based on a threshold."@en ;
+    rdfs:subClassOf s4watr:Tariff .
+
+s4watr:WaterMeter a owl:Class ;
+    rdfs:label "Water meter"@en ;
+    rdfs:comment "A water meter is an instrument intended to measure continuously, memorize, and display the volume of water passing through the meter."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom s4watr:WaterMeterProperty ;
+            owl:onProperty saref:hasProperty ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty s4watr:hasFabricationNumber ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty s4watr:hasVersion ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty s4watr:hasFirmwareVersion ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty s4watr:hasHardwareVersion ],
+        [ a owl:Restriction ;
+            owl:onProperty saref:measuresProperty ;
+            owl:someValuesFrom s4watr:WaterFlowProperty ],
+        saref:Meter,
+        s4watr:WaterDevice .
+
+s4watr:hasFabricationNumber a owl:DatatypeProperty ;
+    rdfs:label "has fabrication number"@en ;
+    rdfs:comment "The fabrication number of a device."@en ;
+    rdfs:range rdfs:Literal .
+
+s4watr:hasFirmwareVersion a owl:DatatypeProperty ;
+    rdfs:label "has firmware version"@en ;
+    rdfs:comment "The firmware version of a device."@en ;
+    rdfs:range rdfs:Literal .
+
+s4watr:hasHardwareVersion a owl:DatatypeProperty ;
+    rdfs:label "has hardware version"@en ;
+    rdfs:comment "The hardware version of a device."@en ;
+    rdfs:range rdfs:Literal .
+
+s4watr:hasVersion a owl:DatatypeProperty ;
+    rdfs:label "has version"@en ;
+    rdfs:comment "The version of a device."@en ;
+    rdfs:range rdfs:Literal .
+
+s4watr:isDesignedFor a owl:ObjectProperty ;
+    rdfs:label "is designed for"@en ;
+    rdfs:comment "The type of water for which an infrastructure is designed for."@en .
+
+s4watr:isIntendedFor a owl:ObjectProperty ;
+    rdfs:label "is intended for"@en ;
+    rdfs:comment "The intended use of the infrastructure."@en .
+
+<https://www.upm.es/> a ns5:Organization ;
+    ns5:name "Universidad Politécnica de Madrid" .
+
+geo:Feature a owl:Class ;
+    rdfs:label "Feature"@en ;
+    rdfs:comment "This class represents the top-level feature type. This class is equivalent to GFI_Feature defined in ISO 19156:2011, and it is superclass of all feature types."@en ;
+    rdfs:isDefinedBy geo: ;
+    rdfs:subClassOf geo:SpatialObject .
+
+geo:Geometry a owl:Class ;
+    rdfs:label "Geometry"@en ;
+    rdfs:comment "The class represents the top-level geometry type. This class is equivalent to the UML class GM_Object defined in ISO 19107, and it is superclass of all geometry types."@en ;
+    rdfs:isDefinedBy geo: ;
+    rdfs:subClassOf geo:SpatialObject .
+
+geo:SpatialObject a owl:Class ;
+    rdfs:label "Spatial object"@en ;
+    rdfs:isDefinedBy geo: .
+
+saref:Actuator a owl:Class ;
+    rdfs:label "Actuator"@en ;
+    rdfs:comment "A device responsible for moving or controlling a mechanism or system."@en ;
+    rdfs:isDefinedBy saref: ;
+    rdfs:subClassOf saref:Device ;
+    owl:disjointWith saref:Sensor .
+
+saref:Sensor a owl:Class ;
+    rdfs:label "Sensor"@en ;
+    rdfs:comment "A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. A device that has category saref:Sensor and performs a saref:SensingFunction."@en ;
+    rdfs:isDefinedBy saref: ;
+    rdfs:subClassOf saref:Device .
+
+saref:hasMeasurement a owl:ObjectProperty ;
+    rdfs:label "has measurement"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:hasProperty a owl:ObjectProperty ;
+    rdfs:label "has property"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:measuresProperty a owl:ObjectProperty ;
+    rdfs:label "measures property"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:relatesToProperty a owl:ObjectProperty ;
+    rdfs:label "relates to property"@en ;
+    rdfs:isDefinedBy saref: .
+
+s4city:isKPIOf a owl:ObjectProperty ;
+    rdfs:label "is key performance indicator of"@en ;
+    rdfs:isDefinedBy s4city: .
+
+s4syst:System a owl:Class ;
+    rdfs:label "System"@en ;
+    rdfs:isDefinedBy s4syst: .
+
+s4watr:ConsumptionBasedTariff a owl:Class ;
+    rdfs:label "Consumption-based tariff"@en ;
+    rdfs:comment "A consumption-based tariff is a tariff that is based on consumption."@en ;
+    rdfs:subClassOf s4watr:Tariff .
+
+s4watr:Main a owl:Class ;
+    rdfs:label "Main"@en ;
+    rdfs:comment "A main is a passage of water to flow through."@en ;
+    rdfs:subClassOf s4watr:TransportAsset .
+
+saref:UnitOfMeasure a owl:Class ;
+    rdfs:label "Unit of measure"@en ;
+    rdfs:comment "The unit of measure is a standard for measurement of a quantity, such as a Property. For example, Power is a property and Watt is a unit of power that represents a definite predetermined power: when we say 10 Watt, we actually mean 10 times the definite predetermined power called \"watt\". Our definition is based on the definition of unit of measure in the Ontology of units of Measure (OM). We propose here a list of some units of measure that are relevant for the purpose of the Smart Appliances ontology, but this list can be extended."@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:hasValue a owl:DatatypeProperty ;
+    rdfs:label "has value"@en ;
+    rdfs:isDefinedBy saref: .
+
+saref:isMeasuredIn a owl:ObjectProperty ;
+    rdfs:label "is measured in"@en ;
+    rdfs:isDefinedBy saref: .
+
+s4watr:SourceAsset a owl:Class ;
+    rdfs:label "Source asset"@en ;
+    rdfs:comment "A source asset is a water asset that is a natural source of water."@en ;
+    rdfs:subClassOf s4watr:WaterAsset .
+
+s4watr:StorageAsset a owl:Class ;
+    rdfs:label "Storage asset"@en ;
+    rdfs:comment "A storage asset is a water asset used to store water."@en ;
+    rdfs:subClassOf s4watr:WaterAsset .
+
+s4watr:TimeBasedTariff a owl:Class ;
+    rdfs:label "Time-based tariff"@en ;
+    rdfs:comment "A time-based tariff is a tariff that is based on time."@en ;
+    rdfs:subClassOf s4watr:Tariff .
+
+time:TemporalDuration a owl:Class ;
+    rdfs:label "Temporal duration"@en ;
+    rdfs:comment "Time extent; duration of a time interval separate from its particular start position"@en ;
+    rdfs:isDefinedBy time: .
+
+time:TemporalEntity a owl:Class ;
+    rdfs:label "Temporal entity"@en ;
+    rdfs:comment "A temporal interval or instant."@en ;
+    rdfs:isDefinedBy time: .
+
+s4watr:EnvironmentalProperty a owl:Class ;
+    rdfs:label "Environmental property"@en ;
+    rdfs:comment "Class to group those properties related to the environment."@en ;
+    rdfs:subClassOf saref:Property .
+
+s4watr:SinkAsset a owl:Class ;
+    rdfs:label "Sink asset"@en ;
+    rdfs:comment "A sink asset is a water asset where water sinks."@en ;
+    rdfs:subClassOf s4watr:WaterAsset .
+
+s4watr:WaterDevice a owl:Class ;
+    rdfs:label "Water device"@en ;
+    rdfs:comment "A water device is a device that is also a water asset."@en ;
+    rdfs:subClassOf saref:Device,
+        s4watr:WaterAsset .
+
+s4watr:WaterProperty a owl:Class ;
+    rdfs:label "Water property"@en ;
+    rdfs:comment "Class to group those properties related to the water."@en ;
+    rdfs:subClassOf saref:Property .
+
+saref:Measurement a owl:Class ;
+    rdfs:label "Measurement"@en ;
+    rdfs:comment "Represents the measured value made over a property. It is also linked to the unit of measure in which the value is expressed and the timestamp of the measurement."@en ;
+    rdfs:isDefinedBy saref: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom saref:UnitOfMeasure ;
+            owl:onProperty saref:isMeasuredIn ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:Property ;
+            owl:onProperty saref:relatesToProperty ],
+        [ a owl:Restriction ;
+            owl:onClass saref:UnitOfMeasure ;
+            owl:onProperty saref:isMeasuredIn ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onClass saref:Property ;
+            owl:onProperty saref:relatesToProperty ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty saref:hasTimestamp ],
+        [ a owl:Restriction ;
+            owl:cardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty saref:hasValue ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty saref:hasValue ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+s4watr:TransportAsset a owl:Class ;
+    rdfs:label "Transport asset"@en ;
+    rdfs:comment "A transport asset is a water asset used to enable and support the transport and distribution of water."@en ;
+    rdfs:subClassOf s4watr:WaterAsset .
+
+s4watr:Water a owl:Class ;
+    rdfs:label "Water"@en ;
+    rdfs:comment "This class is used to define a particular quantity or body of water."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom s4watr:WaterProperty ;
+            owl:onProperty saref:hasProperty ],
+        saref:FeatureOfInterest .
+
+s4watr:WaterAsset a owl:Class ;
+    rdfs:label "Water asset"@en ;
+    rdfs:comment "A water asset is a physical entity used in the process of transporting, treating, storing and distributing water."@en ;
+    rdfs:subClassOf geo:Feature,
+        saref:FeatureOfInterest,
+        s4syst:System .
+
+s4watr:WaterFlowProperty a owl:Class ;
+    rdfs:label "Water flow property"@en ;
+    rdfs:comment "Class to group those properties related to water flow."@en ;
+    rdfs:subClassOf saref:Property .
+
+s4watr:WaterInfrastructure a owl:Class ;
+    rdfs:label "Water infrastructure"@en ;
+    rdfs:comment "A water infrastructure is the set of facilities, services, and installations needed for water management."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty s4watr:isDesignedFor ;
+            owl:someValuesFrom s4watr:Water ],
+        [ a owl:Restriction ;
+            owl:onProperty s4watr:isIntendedFor ;
+            owl:someValuesFrom s4watr:WaterUse ],
+        geo:Feature,
+        saref:FeatureOfInterest,
+        s4syst:System .
+
+s4watr:WaterMeterProperty a owl:Class ;
+    rdfs:label "Water meter property"@en ;
+    rdfs:comment "Class to group those properties related to water meters."@en ;
+    rdfs:subClassOf saref:Property .
+
+s4watr:WaterUse a owl:Class ;
+    rdfs:label "Water use"@en ;
+    rdfs:comment "This class is used to define the different uses of water."@en .
+
+s4watr:BacterialProperty a owl:Class ;
+    rdfs:label "Bacterial property"@en ;
+    rdfs:comment "A bacterial property is a property of water that is related to bacteria."@en ;
+    rdfs:subClassOf s4watr:MicrobialProperty .
+
+saref:Property a owl:Class ;
+    rdfs:label "Property"@en ;
+    rdfs:comment "An aspect of an entity that can be observable by a sensor."@en ;
+    rdfs:isDefinedBy saref: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom saref:Device ;
+            owl:onProperty saref:isControlledByDevice ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:Device ;
+            owl:onProperty saref:isMeasuredByDevice ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:Measurement ;
+            owl:onProperty saref:relatesToMeasurement ] .
+
+saref:Device a owl:Class ;
+    rdfs:label "Device"@en ;
+    rdfs:comment "A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended."@en ;
+    rdfs:isDefinedBy saref: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom saref:Property ;
+            owl:onProperty saref:controlsProperty ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:Measurement ;
+            owl:onProperty saref:makesMeasurement ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom saref:Property ;
+            owl:onProperty saref:measuresProperty ] .
+
+saref:FeatureOfInterest a owl:Class ;
+    rdfs:isDefinedBy saref: ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom saref:Measurement ;
+            owl:onProperty saref:hasMeasurement ] .
+
+s4watr:Tariff a owl:Class ;
+    rdfs:label "Tariff"@en ;
+    rdfs:comment "A tariff is a schedule of rates or charges of a business or a public utility. Tariffs can be based on time, thresholds or consumption; however, combined tariffs may also exist that mix more than one of these types."@en .
+
+s4watr:AcceptabilityProperty a owl:Class ;
+    rdfs:label "Acceptability property"@en ;
+    rdfs:comment "An acceptability property is a property of water that is related to its acceptability."@en ;
+    rdfs:subClassOf s4watr:WaterProperty .
+
+s4watr:ChemicalProperty a owl:Class ;
+    rdfs:label "ChemicalProperty"@en ;
+    rdfs:comment "A chemical property is a property of water that is related to chemical components."@en ;
+    rdfs:subClassOf s4watr:WaterProperty .
+

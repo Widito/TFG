@@ -35,3 +35,39 @@ id;query_natural;expected_ontology;difficulty
 34;Ability to link from a Policy or a Permission to the original (text-based) license.;odrl_2017-09-16.n3;medium
 35;It should be possible to define policies of type Assertion.;odrl_2017-09-16.n3;easy
 36;An Assertion policy does not grant any permissions/prohibitions, but reflects policy terms that a party believes to have.;odrl_2017-09-16.n3;medium
+37;What is the username of the player?;GameOntologyv3.owl;easy
+38;Who are the friends of the player?;GameOntologyv3.owl;easy
+39;What is the genre of the game?;GameOntologyv3.owl;easy
+40;Who is the creator of the game?;GameOntologyv3.owl;easy
+41;What achievements does a game have?;GameOntologyv3.owl;medium
+42;What items does the player have?;GameOntologyv3.owl;medium
+43;What games has the player played?;GameOntologyv3.owl;medium
+44;How many hours has this game been played in total?;GameOntologyv3.owl;medium
+45;What are the games similar to this one?;GameOntologyv3.owl;hard
+46;What is the preferred weapon of players with a certain character class?;GameOntologyv3.owl;hard
+47;How big percentage of players have made a certain decision in the game?;GameOntologyv3.owl;hard
+48;How many players have made in-app purchases?;GameOntologyv3.owl;medium
+49;What software works best with RDF data?;swo.owl;hard
+50;Does SIM render a gif?;swo.owl;easy
+51;Is PostgreSQL compatible with dfp?;swo.owl;medium
+52;What platform does qvalue run on?;swo.owl;easy
+53;Does MATLAB work on 64 bit windows?;swo.owl;medium
+54;What software can perform clustering task?;swo.owl;easy
+55;What are the alternatives to Weka?;swo.owl;medium
+56;In what language was Ringo implemented?;swo.owl;easy
+57;Do I need a license key to use Ringo?;swo.owl;medium
+58;What compiler do I need to compile source code on Windows platform?;swo.owl;hard
+59;What are the primary inputs and outputs of XDE?;swo.owl;medium
+60;Is Weka available as a web service?;swo.owl;medium
+61;Which assets compose a water distribution infrastructure?;saref4watr.n3;medium
+62;Which types of sensors are used in water infrastructures?;saref4watr.n3;medium
+63;Which types of actuators are used in water infrastructures?;saref4watr.n3;medium
+64;What is the fabrication number of the water meter?;saref4watr.n3;easy
+65;What are the manufacturer and the model of the water meter?;saref4watr.n3;easy
+66;What is the geolocation of the water meter?;saref4watr.n3;easy
+67;What firmware version is the water meter using?;saref4watr.n3;easy
+68;What is the power of the water meter?;saref4watr.n3;easy
+69;Water meters can provide measurements according to different temporal settings.;saref4watr.n3;medium
+70;What are the physical properties of water?;saref4watr.n3;medium
+71;What are the chemical properties of water?;saref4watr.n3;medium
+72;What is the duration of the current tariff of the water meter?;saref4watr.n3;hard

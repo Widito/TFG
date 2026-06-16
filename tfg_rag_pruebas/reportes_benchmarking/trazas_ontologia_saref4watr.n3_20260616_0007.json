@@ -1,0 +1,2954 @@
+[
+  {
+    "config_name": "Híbrido + Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.5833333333333334,
+      "judge_accuracy": 0.4166666666666667,
+      "veredict_accuracy": 0.4166666666666667,
+      "veredict_precision": 0.5,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.6666666666666666,
+      "average_time": 5.767655809720357,
+      "total_time": 69.21186971664429
+    },
+    "cases": [
+      {
+        "id": "61",
+        "query": "Which assets compose a water distribution infrastructure?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPipes, pumps, valves, tanks, reservoirs, distribution networks, water treatment plants, pumping stations, storage facilities, transmission lines, infrastructure components, asset types.\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:** The main nouns and verbs are:\n\t* Assets\n\t* Distribution\n\t* Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Water Distribution Infrastructure Components\n\t* Class: Water Distribution System Assets\n\t* Type: Water Distribution Infrastructure Elements\n3. **Sinónimos Técnicos:**\n\t* Pipes: transmission lines, distribution lines, water mains\n\t* Pumps: pumping stations, booster pumps, lift pumps\n\t* Valves: control valves, isolation valves, check valves\n\t* Tanks: storage tanks, reservoirs, holding tanks\n\t* Reservoirs: storage facilities, water storage tanks\n\nBy combining these concepts and normalizing the terminology, we can create a comprehensive list of search terms that accurately capture the essence of the user's question.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "brick.ttl",
+            "building.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterAsset",
+            "https://saref.etsi.org/saref4watr/DistributionSystem",
+            "https://saref.etsi.org/saref4watr/WaterInfrastructure"
+          ]
+        }
+      },
+      {
+        "id": "62",
+        "query": "Which types of sensors are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSensors, Water Infrastructure, Type, Category, Class, Flow Meter, Level Sensor, Pressure Transducer, Temperature Sensor, pH Sensor, Conductivity Sensor, Turbidity Sensor, Water Quality Sensor, Liquid Level Sensor, Pressure Gauge, Flow Indicator, Water Treatment Sensor\n\nThese terms are a combination of the original request's key concepts (sensors and water infrastructure), normalized ontologically with formal equivalents (Category, Class, Type), and including technical synonyms for precision.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "dbo.rdf",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/iot/vocab/m3-lite#WaterConductivitySensor",
+            "https://brickschema.org/schema/Brick#Water_Pressure_Sensor",
+            "http://purl.org/iot/vocab/m3-lite#WaterPHSensor",
+            "https://brickschema.org/schema/Brick#Water_Flow_Sensor"
+          ]
+        }
+      },
+      {
+        "id": "63",
+        "query": "Which types of actuators are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical terms and concepts. Here's the optimized search list:\n\nActuators, Water Infrastructure, Type, Actuator Type, Valve, Pump, Motor, Solenoid, Piezoelectric, Hydraulic, Pneumatic, Electric, Mechanical, Control System, Automation, Water Treatment, Irrigation, Drainage, Wastewater.\n\nHere's a brief explanation of each term:\n\n1. **Actuators**: Devices that convert energy into motion or force.\n2. **Water Infrastructure**: Systems for managing and distributing water resources.\n3. **Type**: A classification or category (e.g., valve type, pump type).\n4. **Valve**, **Pump**, **Motor**: Specific types of actuators used in water infrastructure.\n5. **Solenoid**, **Piezoelectric**: Types of electric actuators used in water treatment and control systems.\n6. **Hydraulic**, **Pneumatic**: Types of fluid-powered actuators used in irrigation, drainage, and wastewater management.\n7. **Electric**, **Mechanical**: Types of actuators powered by electricity or mechanical energy.\n8. **Control System**, **Automation**: Technologies for managing and controlling water infrastructure.\n\nThese terms should provide a solid foundation for searching and retrieving relevant information on the types of actuators used in water infrastructures.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "s4city_2020-06-05.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "building.ttl",
+            "sosa_2017-04-17.n3",
+            "s4watr_2020-06-03.n3",
+            "th_building.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "saref4bldg.n3",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "saref4bldg.n3",
+            "mep.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4bldg/Actuator",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-HYDRAULICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator"
+          ]
+        }
+      },
+      {
+        "id": "64",
+        "query": "What is the fabrication number of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Fabrication Number, Serial Number, Unique Identifier, Product Code, Part Number, Manufacturing Information, Ontology:Device, Class:MeasurementInstrument, Type:FlowMeter\n\nNote that I've included both technical synonyms (e.g., \"Serial Number\" and \"Unique Identifier\") as well as formal ontological equivalents (e.g., \"Ontology:Device\", \"Class:MeasurementInstrument\", and \"Type:FlowMeter\"). This list should help facilitate a more precise search for the desired information.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "65",
+        "query": "What are the manufacturer and the model of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nManufacturer, Model, Water Meter, Device, Appliance, Instrument, Measurement, Sensor, Flow Rate, Pressure, Pipe, Plumbing, Utility, Infrastructure, Supply Chain, Product, Classification, Type, Category\n\nThese terms are separated by commas to facilitate searching in OWL/RDF ontologies.",
+          "raw_retrieved": [
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "66",
+        "query": "What is the geolocation of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Geolocation, Location, Position, Coordinate, Latitude, Longitude, Spatial Reference System, Geographic Information System, GIS, Sensor, Measurement, Utility Infrastructure, Water Supply Network\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Water Meter (noun)\n\t* Geolocation (verb/noun)\n2. **Normalización Ontológica:**\n\t* Category: Sensor/Measurement\n\t* Class: Utility Infrastructure/Water Supply Network\n\t* Type: Geographic Information System (GIS)\n3. **Sinónimos Técnicos:**\n\t* Coordinate → Latitude, Longitude\n\t* Position → Location\n\nBy combining these concepts and normalizing the terminology, I've created a comprehensive list of search terms that should help find relevant information about the geolocation of water meters.\n\nHere's the final list in English, separated by commas:\n\nWater Meter, Geolocation, Location, Coordinate, Latitude, Longitude, Sensor, Measurement, Utility Infrastructure, Water Supply Network, GIS, Spatial Reference System",
+          "raw_retrieved": [
+            "s4ehaw_2020-05-01.n3",
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "datex_2016-06-13.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4ehaw_2020-05-01.n3",
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "s4ehaw_2020-05-01.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4ehaw/geolocation"
+          ]
+        }
+      },
+      {
+        "id": "67",
+        "query": "What firmware version is the water meter using?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nFirmwareVersion, WaterMeter, MeteringSystem, DeviceSoftware, SoftwareRelease, VersionNumber, SemanticType:SoftwareVersion, Type:Firmware, Category:DeviceSoftware, Class:WaterMeterSoftware\n\nNote that I've included both the original terms and their ontological equivalents (e.g., \"SemanticType:SoftwareVersion\" is a formal equivalent of \"firmware version\"). This list should help you search for relevant information in a Web Semantics context.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "ifc4.ttl",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "68",
+        "query": "What is the power of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Flow Rate, Pressure, Measurement, Sensor, Data Acquisition, Hydraulic Power, Energy Consumption, Water Utility, Metering System, Flow Control, Pressure Regulation, Water Quality Monitoring\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Water Meter (main concept)\n\t* Power (key term)\n2. **Normalización Ontológica:**\n\t* Category: Measurement Device\n\t* Class: Sensor\n\t* Type: Flow Rate Indicator\n3. **Sinónimos Técnicos:**\n\t* Hydraulic Power\n\t* Energy Consumption\n\t* Water Utility\n\t* Metering System\n\t* Flow Control\n\t* Pressure Regulation\n\t* Water Quality Monitoring\n\nThis list should provide a solid foundation for searching and retrieving relevant information about the power of water meters.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "69",
+        "query": "Water meters can provide measurements according to different temporal settings.",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meters, measurements, temporal settings\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Water Meter (Class), Measurement (Property), Time Setting (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Flow Meters, Ammeters, Voltmeters, Frequency Meters, Interval Measurements\n\nHere's the optimized search list in English, separated by commas:\n\nWater Meter, Measurement, Time Setting, Flow Meter, Ammeter, Voltmeter, Frequency Meter, Interval Measurement",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "ifc4.ttl",
+            "brick.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "70",
+        "query": "What are the physical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and verbs:\n\t* Water\n\t* Properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type):\n\t* Water (owl:Class)\n\t* PhysicalProperty (owl:Class)\n3. **Sinónimos Técnicos:** Precise alternative terms:\n\t* ChemicalProperties\n\t* ThermodynamicProperties\n\t* PhysicalCharacteristics\n\nHere's the optimized search list in English, separated by commas:\n\nWater, owl:Class, PhysicalProperty, owl:Class, ChemicalProperties, ThermodynamicProperties, PhysicalCharacteristics",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "building.ttl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterProperty",
+            "https://saref.etsi.org/saref4watr/ChemicalProperty"
+          ]
+        }
+      },
+      {
+        "id": "71",
+        "query": "What are the chemical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Water\n\t* Chemical properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* OWL:Water (Class), ChemicalProperty (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* H2O (Chemical formula), Liquid (State), Hydrogen oxide (Alternative name)\n\nHere's the optimized search list in English, separated by commas:\n\nWater, Chemical properties, OWL:Water, Class, Type, ChemicalProperty, H2O, Liquid, Hydrogen oxide\n\nThis list should help you find relevant information about the chemical properties of water.",
+          "raw_retrieved": [
+            "oum_2020-06-06.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "mexalgo.ttl",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/ChemicalProperty",
+            "http://purl.org/iot/vocab/m3-lite#ChemicalAgentWaterConcentration"
+          ]
+        }
+      },
+      {
+        "id": "72",
+        "query": "What is the duration of the current tariff of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Tariff, Duration, Measurement, Utility, Consumption, Rate, Interval, Period, Timeframe, Cycle, Billing, Account, Customer, Service, Supply, Water Resource\n\nNow, let me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main technical nouns and verbs:\n\t* Water Meter\n\t* Tariff\n\t* Duration\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Measurement (Type: Quantity)\n\t* Utility (Class: Service)\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Consumption (synonym for Measurement)\n\t* Rate (synonym for Tariff)\n\t* Interval (synonym for Duration)\n\t* Period (synonym for Timeframe)\n\t* Cycle (synonym for Billing)\n\nHere's the final list, separated by commas:\n\nWater Meter, Tariff, Duration, Measurement, Utility, Consumption, Rate, Interval, Period, Timeframe, Cycle, Billing, Account, Customer, Service, Supply, Water Resource",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "brick.ttl",
+            "datex_2016-06-13.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/hasDuration"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de agua y los sensores asociados. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `saref4watr.n3` cubre temas como la composición de la infraestructura de agua, el número de fabricación del medidor de agua y la versión de firmware. Esta ontología es fundamental para entender la infraestructura de agua.\n\nLa ontología `brick.ttl` también es relevante ya que abarca aspectos como el tipo de sensores utilizados en la infraestructura de agua, el número de fabricación del medidor de agua y la versión de firmware. Esta ontología proporciona una visión más amplia de los componentes involucrados en la infraestructura de agua.\n\nLa ontología `s4ehaw_2020-05-01.n3` se centra en la geolocalización del medidor de agua, lo que es importante para entender el contexto espacial de la infraestructura de agua.\n\nPor otro lado, las ontologías `m3lite_2017-07-29.n3`, `saref4bldg.n3` y `mep.ttl` no cubren temas tan amplios como las mencionadas anteriormente. La ontología `m3lite_2017-07-29.n3` se centra en los sensores utilizados en la infraestructura de agua, pero no proporciona información sobre la composición de la infraestructura o el número de fabricación del medidor de agua.\n\n**Recomendaciones**\n\nA continuación, se presentan las ontologías recomendadas y excluidas:\n\n\n\nEn resumen, se recomiendan las ontologías `saref4watr.n3` y `brick.ttl` debido a su cobertura amplia y relevancia para entender la infraestructura de agua. Las ontologías excluidas no cubren temas tan amplios como las recomendadas.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "saref4watr.n3",
+        "brick.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "m3lite_2017-07-29.n3",
+          "motivo": "No proporciona información sobre la composición de la infraestructura o el número de fabricación del medidor de agua"
+        },
+        {
+          "ontologia": "saref4bldg.n3",
+          "motivo": "No cubre temas amplios como la composición de la infraestructura o el número de fabricación del medidor de agua"
+        },
+        {
+          "ontologia": "mep.ttl",
+          "motivo": "No proporciona información sobre la composición de la infraestructura o el número de fabricación del medidor de agua"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de agua y los sensores asociados. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `saref4watr.n3` cubre temas como la composición de la infraestructura de agua, el número de fabricación del medidor de agua y la versión de firmware. Esta ontología es fundamental para entender la infraestructura de agua.\n\nLa ontología `brick.ttl` también es relevante ya que abarca aspectos como el tipo de sensores utilizados en la infraestructura de agua, el número de fabricación del medidor de agua y la versión de firmware. Esta ontología proporciona una visión más amplia de los componentes involucrados en la infraestructura de agua.\n\nLa ontología `s4ehaw_2020-05-01.n3` se centra en la geolocalización del medidor de agua, lo que es importante para entender el contexto espacial de la infraestructura de agua.\n\nPor otro lado, las ontologías `m3lite_2017-07-29.n3`, `saref4bldg.n3` y `mep.ttl` no cubren temas tan amplios como las mencionadas anteriormente. La ontología `m3lite_2017-07-29.n3` se centra en los sensores utilizados en la infraestructura de agua, pero no proporciona información sobre la composición de la infraestructura o el número de fabricación del medidor de agua.\n\n**Recomendaciones**\n\nA continuación, se presentan las ontologías recomendadas y excluidas:\n\n\n\nEn resumen, se recomiendan las ontologías `saref4watr.n3` y `brick.ttl` debido a su cobertura amplia y relevancia para entender la infraestructura de agua. Las ontologías excluidas no cubren temas tan amplios como las recomendadas."
+    }
+  },
+  {
+    "config_name": "Híbrido Sin Reranker",
+    "retrieval_mode": "hybrid",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.6666666666666666,
+      "judge_accuracy": 0.3333333333333333,
+      "veredict_accuracy": 0.0,
+      "veredict_precision": 0.0,
+      "veredict_recall": 0.0,
+      "veredict_f1": 0.0,
+      "average_time": 5.540017863114675,
+      "total_time": 66.4802143573761
+    },
+    "cases": [
+      {
+        "id": "61",
+        "query": "Which assets compose a water distribution infrastructure?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPipes, pumps, valves, tanks, reservoirs, distribution lines, transmission mains, storage facilities, treatment plants, water meters, sensors, actuators, control systems, infrastructure components, network assets, hydraulic systems, fluid conveyance systems.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Assets\n\t* Water distribution\n\t* Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Hydraulic System (or Fluid Conveyance System)\n\t* Class: Water Distribution Infrastructure Component\n\t* Type: Network Asset\n3. **Sinónimos Técnicos:**\n\t* Pipes → Piping Systems, Pipe Networks\n\t* Pumps → Pumping Stations, Booster Pumps\n\t* Valves → Valve Assemblies, Control Valves\n\t* Tanks → Storage Vessels, Reservoirs\n\t* Distribution lines → Transmission Mains, Water Supply Lines\n\t* Treatment plants → Wastewater Treatment Facilities, Water Purification Plants\n\nThis list should provide a comprehensive foundation for searching and retrieving relevant information about the assets that compose a water distribution infrastructure.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "brick.ttl",
+            "building.ttl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "building.ttl",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/DistributionSystem",
+            "https://saref.etsi.org/saref4watr/WaterInfrastructure"
+          ]
+        }
+      },
+      {
+        "id": "62",
+        "query": "Which types of sensors are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSensors, Water Infrastructure, Type, Category, Class, Flow Meter, Level Sensor, Pressure Transducer, Temperature Sensor, pH Sensor, Conductivity Sensor, Turbidity Sensor, Water Quality Sensor, Liquid Level Sensor, Pressure Gauge, Flow Indicator, Water Treatment Sensor\n\nThese terms are a combination of the original request's key concepts (sensors, water infrastructure), normalized ontological equivalents (category, class, type), and technical synonyms (e.g., flow meter instead of flow sensor). This list should provide an effective starting point for searching relevant information on sensors used in water infrastructures.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3",
+            "dogont_2015-01-11.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/iot/vocab/m3-lite#WaterPHSensor",
+            "https://brickschema.org/schema/Brick#Water_Flow_Sensor",
+            "http://elite.polito.it/ontologies/dogont.owl#PressureSensor"
+          ]
+        }
+      },
+      {
+        "id": "63",
+        "query": "Which types of actuators are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical terms and concepts. Here's the optimized search list:\n\nActuators, Water Infrastructure, Pumps, Valves, Motors, Solenoids, Linear Actuators, Rotary Actuators, Piezoelectric Actuators, Hydraulic Actuators, Electric Actuators, Control Systems, Automation Systems, Water Treatment Plants, Wastewater Treatment Plants, Drinking Water Distribution Networks.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Actuators\n\t* Water Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Mechanical Device (Actuator)\n\t* Class: Type of Actuator (e.g., Pumps, Valves, Motors)\n3. **Sinónimos Técnicos:**\n\t* Pumps (Fluid Control Devices)\n\t* Valves (Flow Control Devices)\n\t* Motors (Electric or Hydraulic)\n\t* Solenoids (Electromagnetic Actuators)\n\t* Linear Actuators (Mechanical or Electric)\n\t* Rotary Actuators (Mechanical or Electric)\n\t* Piezoelectric Actuators (Sensors and Actuators)\n\t* Hydraulic Actuators (Fluid-Powered Devices)\n\t* Electric Actuators (Electrically Powered Devices)\n\nThis list should provide a comprehensive starting point for searching the Web of Data (RDF) and Ontologies (OWL) related to actuators in water infrastructures.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "s4city_2020-06-05.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "th_building.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "s4city_2020-06-05.n3",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "mep.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-HYDRAULICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-ELECTRICACTUATOR"
+          ]
+        }
+      },
+      {
+        "id": "64",
+        "query": "What is the fabrication number of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_VEREDICT_EXCLUSION",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Fabrication Number, Serial Number, Unique Identifier, Product Code, Part Number, Manufacturing Information, Ontology:PhysicalObject, OWL Class:Device, RDF Type:MeasurementInstrument\n\nThis list includes the main nouns and verbs related to the request, along with their formal ontological equivalents (Category, Class, Type) and technical synonyms.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "dogont_2015-01-11.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#FlowMeter-WATERMETER",
+            "https://brickschema.org/schema/Brick#Water_Meter",
+            "https://saref.etsi.org/saref4watr/WaterMeter"
+          ]
+        }
+      },
+      {
+        "id": "65",
+        "query": "What are the manufacturer and the model of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nManufacturer, Model, Water Meter, Device, Instrument, Measurement, Sensor, Flow Rate, Pressure, Pipe, Plumbing, Utility, Infrastructure, Equipment, Product, Classification, Type, Category\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Manufacturer\n\t* Model\n\t* Water Meter (main concept)\n2. **Normalización Ontológica:**\n\t* Device (equivalent to \"Water Meter\")\n\t* Instrument (related to measurement)\n\t* Sensor (related to flow rate and pressure)\n3. **Sinónimos Técnicos:**\n\t* Measurement (alternative for \"Flow Rate\" and \"Pressure\")\n\t* Pipe (related to plumbing infrastructure)\n\t* Utility (related to water supply)\n\nThis list should help you search for relevant information about water meters, including their manufacturers and models.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "dogont_2015-01-11.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "66",
+        "query": "What is the geolocation of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Geolocation, Location, Position, Coordinate, Latitude, Longitude, Spatial Reference System, Geographic Information System, GIS, Sensor, Measurement, Utility Infrastructure, Water Supply Network\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Water Meter\n\t* Geolocation (verb: locate)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Geographic Information System (GIS)\n\t* Class: Spatial Reference System\n\t* Type: Coordinate, Latitude, Longitude\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Location → Position\n\t* Sensor → Measurement\n\nThis list should help you find relevant information about the geolocation of a water meter.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "vivo_2014-07-12.n3",
+            "datex_2016-06-13.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "dogont_2015-01-11.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "67",
+        "query": "What firmware version is the water meter using?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_VEREDICT_EXCLUSION",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meter, firmware, version\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device, MeteringDevice, FirmwareVersion\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Measurement device, Smart meter, Software update\n\nHere's the optimized search list in English, separated by commas:\n\nWater meter, firmware, version, Device, MeteringDevice, FirmwareVersion, Measurement device, Smart meter, Software update",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "dogont_2015-01-11.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://pi.pauwel.be/voc/distributionelement#FlowMeter-WATERMETER",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "68",
+        "query": "What is the power of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Flow Rate, Pressure, Measurement, Sensor, Data Acquisition, Hydraulic Power, Energy Consumption, Water Utility, Metering System, Flow Control, Pressure Regulation, Water Quality Monitoring\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Water Meter (main concept)\n\t* Power (key term)\n2. **Normalización Ontológica:**\n\t* Category: Measurement Device\n\t* Class: Sensor\n\t* Type: Hydraulic Instrument\n3. **Sinónimos Técnicos:**\n\t* Flow Rate: Volume Flow, Discharge Rate\n\t* Pressure: Head, Gauge Pressure\n\t* Measurement: Monitoring, Recording\n\t* Data Acquisition: Data Logging, Telemetry\n\nThis list should provide a solid foundation for searching and retrieving relevant information about the power of water meters.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "69",
+        "query": "Water meters can provide measurements according to different temporal settings.",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_VEREDICT_EXCLUSION",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meters, measurements, temporal settings\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Water Meter (Class), Measurement (Property), Time Setting (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Flow Meters, Ammeters, Voltmeters, Frequency Meters, Interval Measurements\n\nHere's the optimized search list in English, separated by commas:\n\nWater Meter, Measurement, Temporal Setting, Water Meter (Class), Measurement (Property), Time Setting (Type), Flow Meter, Ammeter, Voltmeter, Frequency Meter, Interval Measurement",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "ifc4.ttl",
+            "brick.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "dogont_2015-01-11.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#FlowMeter-WATERMETER",
+            "https://brickschema.org/schema/Brick#Water_Meter",
+            "https://saref.etsi.org/saref4watr/WaterMeter"
+          ]
+        }
+      },
+      {
+        "id": "70",
+        "query": "What are the physical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and verbs:\n\t* Water\n\t* Properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type):\n\t* Water (owl:Class)\n\t* PhysicalProperty (owl:Class)\n3. **Sinónimos Técnicos:** Precise alternative terms:\n\t* ChemicalProperties\n\t* ThermodynamicProperties\n\t* PhysicalCharacteristics\n\nHere's the optimized search list in English, separated by commas:\n\nWater, owl:Class, PhysicalProperty, owl:Class, ChemicalProperties, ThermodynamicProperties, PhysicalCharacteristics",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "building.ttl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "s4watr_2020-06-03.n3",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/ChemicalProperty",
+            "https://saref.etsi.org/saref4watr/WaterProperty"
+          ]
+        }
+      },
+      {
+        "id": "71",
+        "query": "What are the chemical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Water\n\t* Chemical properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Liquid substance (Class)\n\t* H2O (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Hydrous oxide (synonym for water)\n\t* Physical properties (synonym for chemical properties)\n\nHere's the optimized search list in English, separated by commas:\n\nWater, Liquid substance, Chemical properties, Physical properties, H2O, Hydrous oxide\n\nThis list should help you find relevant information about the chemical properties of water.",
+          "raw_retrieved": [
+            "oum_2020-06-06.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "mexalgo.ttl",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "saref_2020-05-29.n3",
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/iot/vocab/m3-lite#ChemicalAgentWaterConcentrationO2"
+          ]
+        }
+      },
+      {
+        "id": "72",
+        "query": "What is the duration of the current tariff of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "hard",
+        "status": "FAIL_VEREDICT_EXCLUSION",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nNow, let me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main technical nouns and verbs:\n\t* Water Meter\n\t* Tariff\n\t* Duration\n\t* Current\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Water Meter (Class: Measurement Device)\n\t* Tariff (Type: Rate Schedule)\n\t* Duration (Property: Time Span)\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Metering (synonym for Water Meter)\n\t* Utility (related to water supply)\n\t* Billing Cycle (related to tariff duration)\n\t* Time Period (synonym for Duration)\n\t* Measurement Interval (related to metering)\n\nHere's the final list, separated by commas:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nThis optimized search list should help you find relevant information about the duration of a water tariff.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Water_Usage_Sensor",
+            "https://saref.etsi.org/saref4watr/Tariff"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de distribución de agua y los sensores asociados. A continuación, se analizarán las ontologías para determinar cuáles son las más relevantes y cómo pueden ser utilizadas para cubrir los requisitos.\n\n**Análisis**\n\nLa ontología `brick.ttl` es la que mejor cubre los requisitos relacionados con la infraestructura de distribución de agua, ya que tiene una gran cantidad de preguntas sobre el funcionamiento y características de los medidores de agua. La ontología `s4watr_2020-06-03.n3` también es relevante, ya que proporciona información sobre las propiedades físicas del agua y la infraestructura.\n\nLa ontología `mep.ttl` se enfoca más en la parte de actuadores y no tiene una gran cantidad de preguntas relacionadas con la infraestructura de distribución de agua. La ontología `dogont_2015-01-11.n3` es la que menos cubre los requisitos, ya que solo tiene una pregunta sobre sensores.\n\n**Recomendación**\n\nEn función del análisis anterior, se recomiendan las siguientes tres ontologías:\n\n* `brick.ttl`: Es la ontología más completa y relevante para la infraestructura de distribución de agua.\n* `s4watr_2020-06-03.n3`: Proporciona información adicional sobre las propiedades físicas del agua y la infraestructura.\n* `mep.ttl`: Aunque no es tan relevante como las otras dos, puede ser útil para obtener información sobre actuadores.\n\n**Excluidas**\n\nLa ontología `dogont_2015-01-11.n3` no fue seleccionada porque solo cubre una pregunta relacionada con sensores y no tiene una gran cantidad de preguntas relevantes para la infraestructura de distribución de agua.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "brick.ttl",
+        "s4watr_2020-06-03.n3",
+        "mep.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "dogont_2015-01-11.n3",
+          "motivo": "Solo cubre una pregunta relacionada con sensores"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de distribución de agua y los sensores asociados. A continuación, se analizarán las ontologías para determinar cuáles son las más relevantes y cómo pueden ser utilizadas para cubrir los requisitos.\n\n**Análisis**\n\nLa ontología `brick.ttl` es la que mejor cubre los requisitos relacionados con la infraestructura de distribución de agua, ya que tiene una gran cantidad de preguntas sobre el funcionamiento y características de los medidores de agua. La ontología `s4watr_2020-06-03.n3` también es relevante, ya que proporciona información sobre las propiedades físicas del agua y la infraestructura.\n\nLa ontología `mep.ttl` se enfoca más en la parte de actuadores y no tiene una gran cantidad de preguntas relacionadas con la infraestructura de distribución de agua. La ontología `dogont_2015-01-11.n3` es la que menos cubre los requisitos, ya que solo tiene una pregunta sobre sensores.\n\n**Recomendación**\n\nEn función del análisis anterior, se recomiendan las siguientes tres ontologías:\n\n* `brick.ttl`: Es la ontología más completa y relevante para la infraestructura de distribución de agua.\n* `s4watr_2020-06-03.n3`: Proporciona información adicional sobre las propiedades físicas del agua y la infraestructura.\n* `mep.ttl`: Aunque no es tan relevante como las otras dos, puede ser útil para obtener información sobre actuadores.\n\n**Excluidas**\n\nLa ontología `dogont_2015-01-11.n3` no fue seleccionada porque solo cubre una pregunta relacionada con sensores y no tiene una gran cantidad de preguntas relevantes para la infraestructura de distribución de agua."
+    }
+  },
+  {
+    "config_name": "Denso + Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.6666666666666666,
+      "judge_accuracy": 0.3333333333333333,
+      "veredict_accuracy": 0.3333333333333333,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 5.837115069230397,
+      "total_time": 70.04538083076477
+    },
+    "cases": [
+      {
+        "id": "61",
+        "query": "Which assets compose a water distribution infrastructure?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPipes, pumps, valves, tanks, reservoirs, distribution lines, transmission mains, storage facilities, treatment plants, water meters, sensors, actuators, control systems, infrastructure components, network assets, hydraulic systems, fluid conveyance systems.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Assets\n\t* Water distribution\n\t* Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Hydraulic System (or Fluid Conveyance System)\n\t* Class: Water Distribution Infrastructure Component\n\t* Type: Network Asset\n3. **Sinónimos Técnicos:**\n\t* Pipes → Piping Systems, Pipe Networks\n\t* Pumps → Pumping Stations, Booster Pumps\n\t* Valves → Valve Assemblies, Control Valves\n\t* Tanks → Storage Vessels, Reservoirs\n\t* Distribution lines → Transmission Mains, Water Supply Lines\n\t* Treatment plants → Wastewater Treatment Facilities, Water Purification Plants\n\nThis list should provide a comprehensive foundation for searching and retrieving relevant information about the assets that compose a water distribution infrastructure.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "brick.ttl",
+            "building.ttl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/TransportAsset",
+            "https://saref.etsi.org/saref4watr/WaterAsset",
+            "https://saref.etsi.org/saref4watr/DistributionSystem",
+            "https://saref.etsi.org/saref4watr/WaterInfrastructure"
+          ]
+        }
+      },
+      {
+        "id": "62",
+        "query": "Which types of sensors are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSensors, Water Infrastructure, Type, Category, Class, Flow Meter, Level Sensor, Pressure Transducer, Temperature Sensor, pH Sensor, Conductivity Sensor, Turbidity Sensor, Water Quality Sensor, Liquid Level Sensor, Pressure Gauge, Flow Indicator, Water Treatment Sensor\n\nThese terms are a combination of the original request's key concepts (sensors, water infrastructure), normalized ontological equivalents (category, class, type), and technical synonyms (e.g., flow meter instead of flow sensor). This list should provide an effective starting point for searching relevant information on sensors used in water infrastructures.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/iot/vocab/m3-lite#WaterConductivitySensor",
+            "https://brickschema.org/schema/Brick#Water_Pressure_Sensor",
+            "https://brickschema.org/schema/Brick#Water_Flow_Sensor"
+          ]
+        }
+      },
+      {
+        "id": "63",
+        "query": "Which types of actuators are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical terms and concepts. Here's the optimized search list:\n\nActuators, Water Infrastructure, Pumps, Valves, Motors, Solenoids, Linear Actuators, Rotary Actuators, Piezoelectric Actuators, Hydraulic Actuators, Electric Actuators, Control Systems, Automation Systems, Water Treatment Plants, Wastewater Treatment Plants, Drinking Water Distribution Networks.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Actuators\n\t* Water Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Mechanical Device (Actuator)\n\t* Class: Type of Actuator (e.g., Pumps, Valves, Motors)\n3. **Sinónimos Técnicos:**\n\t* Pumps (Fluid Control Devices)\n\t* Valves (Flow Control Devices)\n\t* Motors (Electric or Hydraulic)\n\t* Solenoids (Electromagnetic Actuators)\n\t* Linear Actuators (Mechanical or Electric)\n\t* Rotary Actuators (Mechanical or Electric)\n\t* Piezoelectric Actuators (Sensors and Actuators)\n\t* Hydraulic Actuators (Fluid-Powered Devices)\n\t* Electric Actuators (Electrically Powered Devices)\n\nThis list should provide a comprehensive starting point for searching the Web of Data (RDF) and Ontologies (OWL) related to actuators in water infrastructures.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "s4city_2020-06-05.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "th_building.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "saref4bldg.n3",
+            "mep.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4bldg/Actuator",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-HYDRAULICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator"
+          ]
+        }
+      },
+      {
+        "id": "64",
+        "query": "What is the fabrication number of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Fabrication Number, Serial Number, Unique Identifier, Product Code, Part Number, Manufacturing Information, Ontology:PhysicalObject, OWL Class:Device, RDF Type:MeasurementInstrument\n\nThis list includes the main nouns and verbs related to the request, along with their formal ontological equivalents (Category, Class, Type) and technical synonyms.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "65",
+        "query": "What are the manufacturer and the model of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nManufacturer, Model, Water Meter, Device, Instrument, Measurement, Sensor, Flow Rate, Pressure, Pipe, Plumbing, Utility, Infrastructure, Equipment, Product, Classification, Type, Category\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Manufacturer\n\t* Model\n\t* Water Meter (main concept)\n2. **Normalización Ontológica:**\n\t* Device (equivalent to \"Water Meter\")\n\t* Instrument (related to measurement)\n\t* Sensor (related to flow rate and pressure)\n3. **Sinónimos Técnicos:**\n\t* Measurement (alternative for \"Flow Rate\" and \"Pressure\")\n\t* Pipe (related to plumbing infrastructure)\n\t* Utility (related to water supply)\n\nThis list should help you search for relevant information about water meters, including their manufacturers and models.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "66",
+        "query": "What is the geolocation of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Geolocation, Location, Position, Coordinate, Latitude, Longitude, Spatial Reference System, Geographic Information System, GIS, Sensor, Measurement, Utility Infrastructure, Water Supply Network\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Water Meter\n\t* Geolocation (verb: locate)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Geographic Information System (GIS)\n\t* Class: Spatial Reference System\n\t* Type: Coordinate, Latitude, Longitude\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Location → Position\n\t* Sensor → Measurement\n\nThis list should help you find relevant information about the geolocation of a water meter.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "vivo_2014-07-12.n3",
+            "datex_2016-06-13.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "67",
+        "query": "What firmware version is the water meter using?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meter, firmware, version\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device, MeteringDevice, FirmwareVersion\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Measurement device, Smart meter, Software update\n\nHere's the optimized search list in English, separated by commas:\n\nWater meter, firmware, version, Device, MeteringDevice, FirmwareVersion, Measurement device, Smart meter, Software update",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "68",
+        "query": "What is the power of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Flow Rate, Pressure, Measurement, Sensor, Data Acquisition, Hydraulic Power, Energy Consumption, Water Utility, Metering System, Flow Control, Pressure Regulation, Water Quality Monitoring\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Water Meter (main concept)\n\t* Power (key term)\n2. **Normalización Ontológica:**\n\t* Category: Measurement Device\n\t* Class: Sensor\n\t* Type: Hydraulic Instrument\n3. **Sinónimos Técnicos:**\n\t* Flow Rate: Volume Flow, Discharge Rate\n\t* Pressure: Head, Gauge Pressure\n\t* Measurement: Monitoring, Recording\n\t* Data Acquisition: Data Logging, Telemetry\n\nThis list should provide a solid foundation for searching and retrieving relevant information about the power of water meters.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "69",
+        "query": "Water meters can provide measurements according to different temporal settings.",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meters, measurements, temporal settings\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Water Meter (Class), Measurement (Property), Time Setting (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Flow Meters, Ammeters, Voltmeters, Frequency Meters, Interval Measurements\n\nHere's the optimized search list in English, separated by commas:\n\nWater Meter, Measurement, Temporal Setting, Water Meter (Class), Measurement (Property), Time Setting (Type), Flow Meter, Ammeter, Voltmeter, Frequency Meter, Interval Measurement",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "ifc4.ttl",
+            "brick.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "70",
+        "query": "What are the physical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and verbs:\n\t* Water\n\t* Properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type):\n\t* Water (owl:Class)\n\t* PhysicalProperty (owl:Class)\n3. **Sinónimos Técnicos:** Precise alternative terms:\n\t* ChemicalProperties\n\t* ThermodynamicProperties\n\t* PhysicalCharacteristics\n\nHere's the optimized search list in English, separated by commas:\n\nWater, owl:Class, PhysicalProperty, owl:Class, ChemicalProperties, ThermodynamicProperties, PhysicalCharacteristics",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "building.ttl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterProperty",
+            "https://saref.etsi.org/saref4watr/ChemicalProperty"
+          ]
+        }
+      },
+      {
+        "id": "71",
+        "query": "What are the chemical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Water\n\t* Chemical properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Liquid substance (Class)\n\t* H2O (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Hydrous oxide (synonym for water)\n\t* Physical properties (synonym for chemical properties)\n\nHere's the optimized search list in English, separated by commas:\n\nWater, Liquid substance, Chemical properties, Physical properties, H2O, Hydrous oxide\n\nThis list should help you find relevant information about the chemical properties of water.",
+          "raw_retrieved": [
+            "oum_2020-06-06.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "mexalgo.ttl",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "m3lite_2017-07-29.n3",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/ChemicalProperty",
+            "http://purl.org/iot/vocab/m3-lite#ChemicalAgentWaterConcentration"
+          ]
+        }
+      },
+      {
+        "id": "72",
+        "query": "What is the duration of the current tariff of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nNow, let me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main technical nouns and verbs:\n\t* Water Meter\n\t* Tariff\n\t* Duration\n\t* Current\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Water Meter (Class: Measurement Device)\n\t* Tariff (Type: Rate Schedule)\n\t* Duration (Property: Time Span)\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Metering (synonym for Water Meter)\n\t* Utility (related to water supply)\n\t* Billing Cycle (related to tariff duration)\n\t* Time Period (synonym for Duration)\n\t* Measurement Interval (related to metering)\n\nHere's the final list, separated by commas:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nThis optimized search list should help you find relevant information about the duration of a water tariff.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/hasDuration"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de distribución de agua y los sensores asociados. A continuación, se analizarán las ontologías para determinar cuáles son las más relevantes y cómo pueden ser utilizadas para cubrir los requisitos.\n\n**Análisis**\n\nLa ontología `s4watr_2020-06-03.n3` es la que cubre el mayor número de requisitos, relacionados con la infraestructura de distribución de agua y los sensores asociados. La ontología `brick.ttl` también cubre un buen número de requisitos, aunque no todos están relacionados directamente con la infraestructura de distribución de agua.\n\nLa ontología `saref4bldg.n3` y `mep.ttl` tienen pocos requisitos asociados y no son tan relevantes para el análisis. La ontología `saref4watr.n3` tiene algunos requisitos relacionados con la infraestructura de distribución de agua, pero no cubre tantos como `s4watr_2020-06-03.n3`.\n\n**Recomendación**\n\nEn función del análisis anterior, se recomiendan las siguientes ontologías:\n\n* `s4watr_2020-06-03.n3`: Esta ontología es la que cubre el mayor número de requisitos y es muy relevante para el análisis.\n* `brick.ttl`: Esta ontología también cubre un buen número de requisitos y puede ser utilizada para complementar los requisitos no cubiertos por `s4watr_2020-06-03.n3`.\n* `saref4watr.n3`: Esta ontología tiene algunos requisitos relacionados con la infraestructura de distribución de agua y puede ser utilizada para cubrir algunos requisitos específicos.\n\n**Excluidas**\n\nLas siguientes ontologías no fueron seleccionadas debido a que no cubren tantos requisitos como las recomendadas:\n\n* `m3lite_2017-07-29.n3`: Esta ontología tiene pocos requisitos asociados y no es tan relevante para el análisis.\n* `saref4bldg.n3` y `mep.ttl`: Estas ontologías tienen pocos requisitos asociados y no son tan relevantes para el análisis.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "s4watr_2020-06-03.n3",
+        "brick.ttl",
+        "saref4watr.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "m3lite_2017-07-29.n3",
+          "motivo": "Pocos requisitos asociados"
+        },
+        {
+          "ontologia": "saref4bldg.n3",
+          "motivo": "Pocos requisitos asociados"
+        },
+        {
+          "ontologia": "mep.ttl",
+          "motivo": "Pocos requisitos asociados"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de distribución de agua y los sensores asociados. A continuación, se analizarán las ontologías para determinar cuáles son las más relevantes y cómo pueden ser utilizadas para cubrir los requisitos.\n\n**Análisis**\n\nLa ontología `s4watr_2020-06-03.n3` es la que cubre el mayor número de requisitos, relacionados con la infraestructura de distribución de agua y los sensores asociados. La ontología `brick.ttl` también cubre un buen número de requisitos, aunque no todos están relacionados directamente con la infraestructura de distribución de agua.\n\nLa ontología `saref4bldg.n3` y `mep.ttl` tienen pocos requisitos asociados y no son tan relevantes para el análisis. La ontología `saref4watr.n3` tiene algunos requisitos relacionados con la infraestructura de distribución de agua, pero no cubre tantos como `s4watr_2020-06-03.n3`.\n\n**Recomendación**\n\nEn función del análisis anterior, se recomiendan las siguientes ontologías:\n\n* `s4watr_2020-06-03.n3`: Esta ontología es la que cubre el mayor número de requisitos y es muy relevante para el análisis.\n* `brick.ttl`: Esta ontología también cubre un buen número de requisitos y puede ser utilizada para complementar los requisitos no cubiertos por `s4watr_2020-06-03.n3`.\n* `saref4watr.n3`: Esta ontología tiene algunos requisitos relacionados con la infraestructura de distribución de agua y puede ser utilizada para cubrir algunos requisitos específicos.\n\n**Excluidas**\n\nLas siguientes ontologías no fueron seleccionadas debido a que no cubren tantos requisitos como las recomendadas:\n\n* `m3lite_2017-07-29.n3`: Esta ontología tiene pocos requisitos asociados y no es tan relevante para el análisis.\n* `saref4bldg.n3` y `mep.ttl`: Estas ontologías tienen pocos requisitos asociados y no son tan relevantes para el análisis."
+    }
+  },
+  {
+    "config_name": "Denso Sin Reranker",
+    "retrieval_mode": "dense",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.6666666666666666,
+      "judge_accuracy": 0.3333333333333333,
+      "veredict_accuracy": 0.3333333333333333,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 5.279943923155467,
+      "total_time": 63.3593270778656
+    },
+    "cases": [
+      {
+        "id": "61",
+        "query": "Which assets compose a water distribution infrastructure?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPipes, pumps, valves, tanks, reservoirs, distribution lines, transmission mains, storage facilities, treatment plants, water meters, sensors, actuators, control systems, infrastructure components, network assets, hydraulic systems, fluid conveyance systems.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Assets\n\t* Water distribution\n\t* Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Hydraulic System (or Fluid Conveyance System)\n\t* Class: Water Distribution Infrastructure Component\n\t* Type: Network Asset\n3. **Sinónimos Técnicos:**\n\t* Pipes → Piping Systems, Pipe Networks\n\t* Pumps → Pumping Stations, Booster Pumps\n\t* Valves → Valve Assemblies, Control Valves\n\t* Tanks → Storage Vessels, Reservoirs\n\t* Distribution lines → Transmission Mains, Water Supply Lines\n\t* Treatment plants → Wastewater Treatment Facilities, Water Purification Plants\n\nThis list should provide a comprehensive foundation for searching and retrieving relevant information about the assets that compose a water distribution infrastructure.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "brick.ttl",
+            "building.ttl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "building.ttl",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/DistributionSystem",
+            "https://saref.etsi.org/saref4watr/WaterInfrastructure"
+          ]
+        }
+      },
+      {
+        "id": "62",
+        "query": "Which types of sensors are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_JUDGE",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSensors, Water Infrastructure, Type, Category, Class, Flow Meter, Level Sensor, Pressure Transducer, Temperature Sensor, pH Sensor, Conductivity Sensor, Turbidity Sensor, Water Quality Sensor, Liquid Level Sensor, Pressure Gauge, Flow Indicator, Water Treatment Sensor\n\nThese terms are a combination of the original request's key concepts (sensors, water infrastructure), normalized ontological equivalents (category, class, type), and technical synonyms (e.g., flow meter instead of flow sensor). This list should provide an effective starting point for searching relevant information on sensors used in water infrastructures.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "dogont_2015-01-11.n3"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3",
+            "dogont_2015-01-11.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "http://purl.org/iot/vocab/m3-lite#WaterPHSensor",
+            "https://brickschema.org/schema/Brick#Water_Flow_Sensor",
+            "http://elite.polito.it/ontologies/dogont.owl#PressureSensor"
+          ]
+        }
+      },
+      {
+        "id": "63",
+        "query": "Which types of actuators are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical terms and concepts. Here's the optimized search list:\n\nActuators, Water Infrastructure, Pumps, Valves, Motors, Solenoids, Linear Actuators, Rotary Actuators, Piezoelectric Actuators, Hydraulic Actuators, Electric Actuators, Control Systems, Automation Systems, Water Treatment Plants, Wastewater Treatment Plants, Drinking Water Distribution Networks.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Actuators\n\t* Water Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Mechanical Device (Actuator)\n\t* Class: Type of Actuator (e.g., Pumps, Valves, Motors)\n3. **Sinónimos Técnicos:**\n\t* Pumps (Fluid Control Devices)\n\t* Valves (Flow Control Devices)\n\t* Motors (Electric or Hydraulic)\n\t* Solenoids (Electromagnetic Actuators)\n\t* Linear Actuators (Mechanical or Electric)\n\t* Rotary Actuators (Mechanical or Electric)\n\t* Piezoelectric Actuators (Sensors and Actuators)\n\t* Hydraulic Actuators (Fluid-Powered Devices)\n\t* Electric Actuators (Electrically Powered Devices)\n\nThis list should provide a comprehensive starting point for searching the Web of Data (RDF) and Ontologies (OWL) related to actuators in water infrastructures.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "s4city_2020-06-05.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "th_building.owl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "s4city_2020-06-05.n3",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "mep.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-HYDRAULICACTUATOR",
+            "https://pi.pauwel.be/voc/distributionelement#Actuator-ELECTRICACTUATOR"
+          ]
+        }
+      },
+      {
+        "id": "64",
+        "query": "What is the fabrication number of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Fabrication Number, Serial Number, Unique Identifier, Product Code, Part Number, Manufacturing Information, Ontology:PhysicalObject, OWL Class:Device, RDF Type:MeasurementInstrument\n\nThis list includes the main nouns and verbs related to the request, along with their formal ontological equivalents (Category, Class, Type) and technical synonyms.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "dogont_2015-01-11.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#FlowMeter-WATERMETER",
+            "https://brickschema.org/schema/Brick#Water_Meter",
+            "https://saref.etsi.org/saref4watr/WaterMeter"
+          ]
+        }
+      },
+      {
+        "id": "65",
+        "query": "What are the manufacturer and the model of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nManufacturer, Model, Water Meter, Device, Instrument, Measurement, Sensor, Flow Rate, Pressure, Pipe, Plumbing, Utility, Infrastructure, Equipment, Product, Classification, Type, Category\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Manufacturer\n\t* Model\n\t* Water Meter (main concept)\n2. **Normalización Ontológica:**\n\t* Device (equivalent to \"Water Meter\")\n\t* Instrument (related to measurement)\n\t* Sensor (related to flow rate and pressure)\n3. **Sinónimos Técnicos:**\n\t* Measurement (alternative for \"Flow Rate\" and \"Pressure\")\n\t* Pipe (related to plumbing infrastructure)\n\t* Utility (related to water supply)\n\nThis list should help you search for relevant information about water meters, including their manufacturers and models.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "dogont_2015-01-11.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "66",
+        "query": "What is the geolocation of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Geolocation, Location, Position, Coordinate, Latitude, Longitude, Spatial Reference System, Geographic Information System, GIS, Sensor, Measurement, Utility Infrastructure, Water Supply Network\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Water Meter\n\t* Geolocation (verb: locate)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Geographic Information System (GIS)\n\t* Class: Spatial Reference System\n\t* Type: Coordinate, Latitude, Longitude\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Location → Position\n\t* Sensor → Measurement\n\nThis list should help you find relevant information about the geolocation of a water meter.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "vivo_2014-07-12.n3",
+            "datex_2016-06-13.n3",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "dogont_2015-01-11.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "67",
+        "query": "What firmware version is the water meter using?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meter, firmware, version\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device, MeteringDevice, FirmwareVersion\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Measurement device, Smart meter, Software update\n\nHere's the optimized search list in English, separated by commas:\n\nWater meter, firmware, version, Device, MeteringDevice, FirmwareVersion, Measurement device, Smart meter, Software update",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "dogont_2015-01-11.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://pi.pauwel.be/voc/distributionelement#FlowMeter-WATERMETER",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "68",
+        "query": "What is the power of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Flow Rate, Pressure, Measurement, Sensor, Data Acquisition, Hydraulic Power, Energy Consumption, Water Utility, Metering System, Flow Control, Pressure Regulation, Water Quality Monitoring\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Water Meter (main concept)\n\t* Power (key term)\n2. **Normalización Ontológica:**\n\t* Category: Measurement Device\n\t* Class: Sensor\n\t* Type: Hydraulic Instrument\n3. **Sinónimos Técnicos:**\n\t* Flow Rate: Volume Flow, Discharge Rate\n\t* Pressure: Head, Gauge Pressure\n\t* Measurement: Monitoring, Recording\n\t* Data Acquisition: Data Logging, Telemetry\n\nThis list should provide a solid foundation for searching and retrieving relevant information about the power of water meters.",
+          "raw_retrieved": [
+            "saref4bldg.n3",
+            "m3lite_2017-07-29.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl",
+            "mep.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "69",
+        "query": "Water meters can provide measurements according to different temporal settings.",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meters, measurements, temporal settings\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Water Meter (Class), Measurement (Property), Time Setting (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Flow Meters, Ammeters, Voltmeters, Frequency Meters, Interval Measurements\n\nHere's the optimized search list in English, separated by commas:\n\nWater Meter, Measurement, Temporal Setting, Water Meter (Class), Measurement (Property), Time Setting (Type), Flow Meter, Ammeter, Voltmeter, Frequency Meter, Interval Measurement",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "ifc4.ttl",
+            "brick.ttl",
+            "mep.ttl",
+            "th_building.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "dogont_2015-01-11.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://pi.pauwel.be/voc/distributionelement#FlowMeter-WATERMETER",
+            "https://brickschema.org/schema/Brick#Water_Meter",
+            "https://saref.etsi.org/saref4watr/WaterMeter"
+          ]
+        }
+      },
+      {
+        "id": "70",
+        "query": "What are the physical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and verbs:\n\t* Water\n\t* Properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type):\n\t* Water (owl:Class)\n\t* PhysicalProperty (owl:Class)\n3. **Sinónimos Técnicos:** Precise alternative terms:\n\t* ChemicalProperties\n\t* ThermodynamicProperties\n\t* PhysicalCharacteristics\n\nHere's the optimized search list in English, separated by commas:\n\nWater, owl:Class, PhysicalProperty, owl:Class, ChemicalProperties, ThermodynamicProperties, PhysicalCharacteristics",
+          "raw_retrieved": [
+            "base_ontology.owl",
+            "building.ttl",
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "th_sharedvocalulary.owl",
+            "s4watr_2020-06-03.n3",
+            "building.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/ChemicalProperty",
+            "https://saref.etsi.org/saref4watr/WaterProperty"
+          ]
+        }
+      },
+      {
+        "id": "71",
+        "query": "What are the chemical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Water\n\t* Chemical properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Liquid substance (Class)\n\t* H2O (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Hydrous oxide (synonym for water)\n\t* Physical properties (synonym for chemical properties)\n\nHere's the optimized search list in English, separated by commas:\n\nWater, Liquid substance, Chemical properties, Physical properties, H2O, Hydrous oxide\n\nThis list should help you find relevant information about the chemical properties of water.",
+          "raw_retrieved": [
+            "oum_2020-06-06.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "brick.ttl",
+            "saref_2020-05-29.n3",
+            "dbo.rdf",
+            "mexalgo.ttl",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "mep.ttl"
+          ],
+          "top_k_sources": [
+            "dbo.rdf",
+            "s4watr_2020-06-03.n3",
+            "saref_2020-05-29.n3",
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/iot/vocab/m3-lite#ChemicalAgentWaterConcentrationO2"
+          ]
+        }
+      },
+      {
+        "id": "72",
+        "query": "What is the duration of the current tariff of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nNow, let me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main technical nouns and verbs:\n\t* Water Meter\n\t* Tariff\n\t* Duration\n\t* Current\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Water Meter (Class: Measurement Device)\n\t* Tariff (Type: Rate Schedule)\n\t* Duration (Property: Time Span)\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Metering (synonym for Water Meter)\n\t* Utility (related to water supply)\n\t* Billing Cycle (related to tariff duration)\n\t* Time Period (synonym for Duration)\n\t* Measurement Interval (related to metering)\n\nHere's the final list, separated by commas:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nThis optimized search list should help you find relevant information about the duration of a water tariff.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "brick.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "dogont_2015-01-11.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Water_Usage_Sensor",
+            "https://saref.etsi.org/saref4watr/Tariff"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de distribución de agua y los sensores asociados. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nSe observa que las ontologías `s4watr_2020-06-03.n3`, `brick.ttl` y `saref4watr.n3` tienen una alta cobertura en cuanto a los requisitos relacionados con la información de los sensores, la geolocalización y las propiedades físicas del agua. Estas ontologías cubren una amplia gama de temas, lo que las hace muy útiles para el análisis y la integración de datos.\n\nPor otro lado, las ontologías `m3lite_2017-07-29.n3` y `dogont_2015-01-11.n3` tienen una cobertura más limitada, pero siguen siendo relevantes en cuanto a la información sobre los sensores y actuadores utilizados en la infraestructura de agua.\n\nEn conclusión, se recomiendan las ontologías `s4watr_2020-06-03.n3`, `brick.ttl` y `saref4watr.n3` debido a su alta cobertura y variedad de temas relacionados con la infraestructura de distribución de agua.\n\n**Recomendadas y Excluidas**",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "s4watr_2020-06-03.n3",
+        "brick.ttl",
+        "saref4watr.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "m3lite_2017-07-29.n3",
+          "motivo": "Cobertura limitada en cuanto a la información de sensores y actuadores"
+        },
+        {
+          "ontologia": "dogont_2015-01-11.n3",
+          "motivo": "Cobertura limitada en cuanto a la información de sensores y actuadores"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de distribución de agua y los sensores asociados. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nSe observa que las ontologías `s4watr_2020-06-03.n3`, `brick.ttl` y `saref4watr.n3` tienen una alta cobertura en cuanto a los requisitos relacionados con la información de los sensores, la geolocalización y las propiedades físicas del agua. Estas ontologías cubren una amplia gama de temas, lo que las hace muy útiles para el análisis y la integración de datos.\n\nPor otro lado, las ontologías `m3lite_2017-07-29.n3` y `dogont_2015-01-11.n3` tienen una cobertura más limitada, pero siguen siendo relevantes en cuanto a la información sobre los sensores y actuadores utilizados en la infraestructura de agua.\n\nEn conclusión, se recomiendan las ontologías `s4watr_2020-06-03.n3`, `brick.ttl` y `saref4watr.n3` debido a su alta cobertura y variedad de temas relacionados con la infraestructura de distribución de agua.\n\n**Recomendadas y Excluidas**"
+    }
+  },
+  {
+    "config_name": "BM25 + Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": true,
+    "metrics": {
+      "retrieval_recall": 0.3333333333333333,
+      "judge_accuracy": 0.3333333333333333,
+      "veredict_accuracy": 0.3333333333333333,
+      "veredict_precision": 0.3333333333333333,
+      "veredict_recall": 1.0,
+      "veredict_f1": 0.5,
+      "average_time": 5.965218643347423,
+      "total_time": 71.58262372016907
+    },
+    "cases": [
+      {
+        "id": "61",
+        "query": "Which assets compose a water distribution infrastructure?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPipes, pumps, valves, tanks, reservoirs, distribution lines, transmission mains, storage facilities, treatment plants, water meters, sensors, actuators, control systems, infrastructure components, network assets, hydraulic systems, fluid conveyance systems.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Assets\n\t* Water distribution\n\t* Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Hydraulic System (or Fluid Conveyance System)\n\t* Class: Water Distribution Infrastructure Component\n\t* Type: Network Asset\n3. **Sinónimos Técnicos:**\n\t* Pipes → Piping Systems, Pipe Networks\n\t* Pumps → Pumping Stations, Booster Pumps\n\t* Valves → Valve Assemblies, Control Valves\n\t* Tanks → Storage Vessels, Reservoirs\n\t* Distribution lines → Transmission Mains, Water Supply Lines\n\t* Treatment plants → Wastewater Treatment Facilities, Water Purification Plants\n\nThis list should provide a comprehensive foundation for searching and retrieving relevant information about the assets that compose a water distribution infrastructure.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "swo.owl",
+            "brick.ttl",
+            "building.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/DistributionSystem",
+            "https://saref.etsi.org/saref4watr/WaterInfrastructure",
+            "https://brickschema.org/schema/Brick#Water_Distribution",
+            "https://brickschema.org/schema/Brick#Water_System"
+          ]
+        }
+      },
+      {
+        "id": "62",
+        "query": "Which types of sensors are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSensors, Water Infrastructure, Type, Category, Class, Flow Meter, Level Sensor, Pressure Transducer, Temperature Sensor, pH Sensor, Conductivity Sensor, Turbidity Sensor, Water Quality Sensor, Liquid Level Sensor, Pressure Gauge, Flow Indicator, Water Treatment Sensor\n\nThese terms are a combination of the original request's key concepts (sensors, water infrastructure), normalized ontological equivalents (category, class, type), and technical synonyms (e.g., flow meter instead of flow sensor). This list should provide an effective starting point for searching relevant information on sensors used in water infrastructures.",
+          "raw_retrieved": [
+            "sosa_2017-04-17.n3",
+            "m3lite_2017-07-29.n3",
+            "s4ehaw_2020-05-01.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Entering_Water_Flow_Sensor",
+            "https://brickschema.org/schema/Brick#Water_Flow_Sensor",
+            "https://brickschema.org/schema/Brick#Condenser_Water_Flow_Sensor"
+          ]
+        }
+      },
+      {
+        "id": "63",
+        "query": "Which types of actuators are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical terms and concepts. Here's the optimized search list:\n\nActuators, Water Infrastructure, Pumps, Valves, Motors, Solenoids, Linear Actuators, Rotary Actuators, Piezoelectric Actuators, Hydraulic Actuators, Electric Actuators, Control Systems, Automation Systems, Water Treatment Plants, Wastewater Treatment Plants, Drinking Water Distribution Networks.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Actuators\n\t* Water Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Mechanical Device (Actuator)\n\t* Class: Type of Actuator (e.g., Pumps, Valves, Motors)\n3. **Sinónimos Técnicos:**\n\t* Pumps (Fluid Control Devices)\n\t* Valves (Flow Control Devices)\n\t* Motors (Electric or Hydraulic)\n\t* Solenoids (Electromagnetic Actuators)\n\t* Linear Actuators (Mechanical or Electric)\n\t* Rotary Actuators (Mechanical or Electric)\n\t* Piezoelectric Actuators (Sensors and Actuators)\n\t* Hydraulic Actuators (Fluid-Powered Devices)\n\t* Electric Actuators (Electrically Powered Devices)\n\nThis list should provide a comprehensive starting point for searching the Web of Data (RDF) and Ontologies (OWL) related to actuators in water infrastructures.",
+          "raw_retrieved": [
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "sosa_2017-04-17.n3",
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Water_System",
+            "https://brickschema.org/schema/Brick#Chilled_Water_System",
+            "https://brickschema.org/schema/Brick#Hot_Water_System"
+          ]
+        }
+      },
+      {
+        "id": "64",
+        "query": "What is the fabrication number of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Fabrication Number, Serial Number, Unique Identifier, Product Code, Part Number, Manufacturing Information, Ontology:PhysicalObject, OWL Class:Device, RDF Type:MeasurementInstrument\n\nThis list includes the main nouns and verbs related to the request, along with their formal ontological equivalents (Category, Class, Type) and technical synonyms.",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "qudt_2020-04-20.n3",
+            "fabio_2019-02-19.n3",
+            "schema.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "65",
+        "query": "What are the manufacturer and the model of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nManufacturer, Model, Water Meter, Device, Instrument, Measurement, Sensor, Flow Rate, Pressure, Pipe, Plumbing, Utility, Infrastructure, Equipment, Product, Classification, Type, Category\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Manufacturer\n\t* Model\n\t* Water Meter (main concept)\n2. **Normalización Ontológica:**\n\t* Device (equivalent to \"Water Meter\")\n\t* Instrument (related to measurement)\n\t* Sensor (related to flow rate and pressure)\n3. **Sinónimos Técnicos:**\n\t* Measurement (alternative for \"Flow Rate\" and \"Pressure\")\n\t* Pipe (related to plumbing infrastructure)\n\t* Utility (related to water supply)\n\nThis list should help you search for relevant information about water meters, including their manufacturers and models.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "saref4watr.n3",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter"
+          ]
+        }
+      },
+      {
+        "id": "66",
+        "query": "What is the geolocation of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Geolocation, Location, Position, Coordinate, Latitude, Longitude, Spatial Reference System, Geographic Information System, GIS, Sensor, Measurement, Utility Infrastructure, Water Supply Network\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Water Meter\n\t* Geolocation (verb: locate)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Geographic Information System (GIS)\n\t* Class: Spatial Reference System\n\t* Type: Coordinate, Latitude, Longitude\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Location → Position\n\t* Sensor → Measurement\n\nThis list should help you find relevant information about the geolocation of a water meter.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "oum_2020-06-06.n3",
+            "brick.ttl",
+            "datex_2016-06-13.n3",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "swrc_2007-06-22.n3"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter"
+          ]
+        }
+      },
+      {
+        "id": "67",
+        "query": "What firmware version is the water meter using?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meter, firmware, version\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device, MeteringDevice, FirmwareVersion\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Measurement device, Smart meter, Software update\n\nHere's the optimized search list in English, separated by commas:\n\nWater meter, firmware, version, Device, MeteringDevice, FirmwareVersion, Measurement device, Smart meter, Software update",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "s4city_2020-06-05.n3",
+            "m3lite_2017-07-29.n3",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "saref_2020-05-29.n3",
+            "s4inma_2019-04-30.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "base_ontology.owl",
+            "saref_2020-05-29.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "68",
+        "query": "What is the power of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Flow Rate, Pressure, Measurement, Sensor, Data Acquisition, Hydraulic Power, Energy Consumption, Water Utility, Metering System, Flow Control, Pressure Regulation, Water Quality Monitoring\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Water Meter (main concept)\n\t* Power (key term)\n2. **Normalización Ontológica:**\n\t* Category: Measurement Device\n\t* Class: Sensor\n\t* Type: Hydraulic Instrument\n3. **Sinónimos Técnicos:**\n\t* Flow Rate: Volume Flow, Discharge Rate\n\t* Pressure: Head, Gauge Pressure\n\t* Measurement: Monitoring, Recording\n\t* Data Acquisition: Data Logging, Telemetry\n\nThis list should provide a solid foundation for searching and retrieving relevant information about the power of water meters.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Entering_Water_Pressure_Sensor",
+            "https://brickschema.org/schema/Brick#Leaving_Water_Pressure_Sensor"
+          ]
+        }
+      },
+      {
+        "id": "69",
+        "query": "Water meters can provide measurements according to different temporal settings.",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meters, measurements, temporal settings\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Water Meter (Class), Measurement (Property), Time Setting (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Flow Meters, Ammeters, Voltmeters, Frequency Meters, Interval Measurements\n\nHere's the optimized search list in English, separated by commas:\n\nWater Meter, Measurement, Temporal Setting, Water Meter (Class), Measurement (Property), Time Setting (Type), Flow Meter, Ammeter, Voltmeter, Frequency Meter, Interval Measurement",
+          "raw_retrieved": [
+            "donto_2015-06-19.n3",
+            "brick.ttl",
+            "building.ttl",
+            "cis_2016-03-30.n3",
+            "mep.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "cis_2016-03-30.n3",
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "mep.ttl",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Water_Meter",
+            "https://pi.pauwel.be/voc/distributionelement#FlowMeter-WATERMETER",
+            "https://brickschema.org/schema/Brick#Chilled_Water_Meter",
+            "https://brickschema.org/schema/Brick#Hot_Water_Meter"
+          ]
+        }
+      },
+      {
+        "id": "70",
+        "query": "What are the physical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and verbs:\n\t* Water\n\t* Properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type):\n\t* Water (owl:Class)\n\t* PhysicalProperty (owl:Class)\n3. **Sinónimos Técnicos:** Precise alternative terms:\n\t* ChemicalProperties\n\t* ThermodynamicProperties\n\t* PhysicalCharacteristics\n\nHere's the optimized search list in English, separated by commas:\n\nWater, owl:Class, PhysicalProperty, owl:Class, ChemicalProperties, ThermodynamicProperties, PhysicalCharacteristics",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "brick.ttl",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "brick.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "71",
+        "query": "What are the chemical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Water\n\t* Chemical properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Liquid substance (Class)\n\t* H2O (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Hydrous oxide (synonym for water)\n\t* Physical properties (synonym for chemical properties)\n\nHere's the optimized search list in English, separated by commas:\n\nWater, Liquid substance, Chemical properties, Physical properties, H2O, Hydrous oxide\n\nThis list should help you find relevant information about the chemical properties of water.",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "ssn_2011-06-20.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "s4agri_2020-06-05.n3",
+            "dstv.ttl",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "modsci_2022-12-18.n3",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_sources": [
+            "modsci_2022-12-18.n3",
+            "s4watr_2020-06-03.n3"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterProperty",
+            "https://w3id.org/skgo/modsci#EnvironmentalChemistry"
+          ]
+        }
+      },
+      {
+        "id": "72",
+        "query": "What is the duration of the current tariff of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "hard",
+        "status": "SUCCESS",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 1,
+          "judge": 1,
+          "veredict": 1
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nNow, let me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main technical nouns and verbs:\n\t* Water Meter\n\t* Tariff\n\t* Duration\n\t* Current\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Water Meter (Class: Measurement Device)\n\t* Tariff (Type: Rate Schedule)\n\t* Duration (Property: Time Span)\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Metering (synonym for Water Meter)\n\t* Utility (related to water supply)\n\t* Billing Cycle (related to tariff duration)\n\t* Time Period (synonym for Duration)\n\t* Measurement Interval (related to metering)\n\nHere's the final list, separated by commas:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nThis optimized search list should help you find relevant information about the duration of a water tariff.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "saref4watr.n3",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "saref4watr.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://saref.etsi.org/saref4watr/WaterMeter",
+            "https://brickschema.org/schema/Brick#Water_Meter"
+          ]
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre las ontologías y los requisitos asociados. A continuación, se analizará la cobertura para recomendar una red de ontologías.\n\nLa ontología `saref4watr.n3` cubre tres requisitos relacionados con la infraestructura de distribución de agua y la información del medidor de agua. La ontología `brick.ttl` también cubre estos requisitos, además de otros dos relacionados con los sensores y actuadores utilizados en la infraestructura de agua.\n\nLa ontología `s4watr_2020-06-03.n3` solo cubre dos requisitos, ambos relacionados con la infraestructura de distribución de agua. La ontología `mep.ttl` solo cubre un requisito relacionado con las mediciones del medidor de agua.\n\nLa ontología `modsci_2022-12-18.n3` solo cubre un requisito relacionado con las propiedades químicas del agua.\n\n**Recomendación**\n\nConsiderando la cobertura de los requisitos, se recomienda una red de ontologías que combine la información sobre la infraestructura de distribución de agua y los sensores/actuadores utilizados en `brick.ttl`, junto con la información química del agua en `modsci_2022-12-18.n3`. La ontología `saref4watr.n3` se incluye para cubrir los requisitos relacionados con la infraestructura de distribución de agua y el medidor de agua.\n\n**Recomendadas**\n\nLa ontología `s4watr_2020-06-03.n3` se excluye porque cubre solo dos requisitos relacionados con la infraestructura de distribución de agua, y no aporta información adicional. La ontología `mep.ttl` también se excluye porque cubre solo un requisito relacionado con las mediciones del medidor de agua, y no aporta información sobre la infraestructura de distribución de agua o los sensores/actuadores utilizados en ella.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "brick.ttl",
+        "modsci_2022-12-18.n3",
+        "saref4watr.n3"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "s4watr_2020-06-03.n3",
+          "motivo": "Cubre solo dos requisitos relacionados con la infraestructura de distribución de agua"
+        },
+        {
+          "ontologia": "mep.ttl",
+          "motivo": "Cubre solo un requisito relacionado con las mediciones del medidor de agua"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra la relación entre las ontologías y los requisitos asociados. A continuación, se analizará la cobertura para recomendar una red de ontologías.\n\nLa ontología `saref4watr.n3` cubre tres requisitos relacionados con la infraestructura de distribución de agua y la información del medidor de agua. La ontología `brick.ttl` también cubre estos requisitos, además de otros dos relacionados con los sensores y actuadores utilizados en la infraestructura de agua.\n\nLa ontología `s4watr_2020-06-03.n3` solo cubre dos requisitos, ambos relacionados con la infraestructura de distribución de agua. La ontología `mep.ttl` solo cubre un requisito relacionado con las mediciones del medidor de agua.\n\nLa ontología `modsci_2022-12-18.n3` solo cubre un requisito relacionado con las propiedades químicas del agua.\n\n**Recomendación**\n\nConsiderando la cobertura de los requisitos, se recomienda una red de ontologías que combine la información sobre la infraestructura de distribución de agua y los sensores/actuadores utilizados en `brick.ttl`, junto con la información química del agua en `modsci_2022-12-18.n3`. La ontología `saref4watr.n3` se incluye para cubrir los requisitos relacionados con la infraestructura de distribución de agua y el medidor de agua.\n\n**Recomendadas**\n\nLa ontología `s4watr_2020-06-03.n3` se excluye porque cubre solo dos requisitos relacionados con la infraestructura de distribución de agua, y no aporta información adicional. La ontología `mep.ttl` también se excluye porque cubre solo un requisito relacionado con las mediciones del medidor de agua, y no aporta información sobre la infraestructura de distribución de agua o los sensores/actuadores utilizados en ella."
+    }
+  },
+  {
+    "config_name": "BM25 Sin Reranker",
+    "retrieval_mode": "bm25",
+    "use_reranker": false,
+    "metrics": {
+      "retrieval_recall": 0.3333333333333333,
+      "judge_accuracy": 0.0,
+      "veredict_accuracy": 0.0,
+      "veredict_precision": 0.0,
+      "veredict_recall": 0.0,
+      "veredict_f1": 0.0,
+      "average_time": 5.551217158635457,
+      "total_time": 66.61460590362549
+    },
+    "cases": [
+      {
+        "id": "61",
+        "query": "Which assets compose a water distribution infrastructure?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nPipes, pumps, valves, tanks, reservoirs, distribution lines, transmission mains, storage facilities, treatment plants, water meters, sensors, actuators, control systems, infrastructure components, network assets, hydraulic systems, fluid conveyance systems.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Assets\n\t* Water distribution\n\t* Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Hydraulic System (or Fluid Conveyance System)\n\t* Class: Water Distribution Infrastructure Component\n\t* Type: Network Asset\n3. **Sinónimos Técnicos:**\n\t* Pipes → Piping Systems, Pipe Networks\n\t* Pumps → Pumping Stations, Booster Pumps\n\t* Valves → Valve Assemblies, Control Valves\n\t* Tanks → Storage Vessels, Reservoirs\n\t* Distribution lines → Transmission Mains, Water Supply Lines\n\t* Treatment plants → Wastewater Treatment Facilities, Water Purification Plants\n\nThis list should provide a comprehensive foundation for searching and retrieving relevant information about the assets that compose a water distribution infrastructure.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "swo.owl",
+            "brick.ttl",
+            "building.ttl",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "s4watr_2020-06-03.n3",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "s4watr_2020-06-03.n3",
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Water_System",
+            "https://brickschema.org/schema/Brick#Water_Distribution",
+            "https://saref.etsi.org/saref4watr/WaterInfrastructure"
+          ]
+        }
+      },
+      {
+        "id": "62",
+        "query": "Which types of sensors are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nSensors, Water Infrastructure, Type, Category, Class, Flow Meter, Level Sensor, Pressure Transducer, Temperature Sensor, pH Sensor, Conductivity Sensor, Turbidity Sensor, Water Quality Sensor, Liquid Level Sensor, Pressure Gauge, Flow Indicator, Water Treatment Sensor\n\nThese terms are a combination of the original request's key concepts (sensors, water infrastructure), normalized ontological equivalents (category, class, type), and technical synonyms (e.g., flow meter instead of flow sensor). This list should provide an effective starting point for searching relevant information on sensors used in water infrastructures.",
+          "raw_retrieved": [
+            "sosa_2017-04-17.n3",
+            "m3lite_2017-07-29.n3",
+            "s4ehaw_2020-05-01.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "sosa_2017-04-17.n3",
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_sources": [
+            "m3lite_2017-07-29.n3"
+          ],
+          "approved_uris": [
+            "http://purl.org/iot/vocab/m3-lite#SoundSensor",
+            "http://purl.org/iot/vocab/m3-lite#AtmosphericPressureSensor",
+            "http://purl.org/iot/vocab/m3-lite#WindSpeedSensor"
+          ]
+        }
+      },
+      {
+        "id": "63",
+        "query": "Which types of actuators are used in water infrastructures?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key technical terms and concepts. Here's the optimized search list:\n\nActuators, Water Infrastructure, Pumps, Valves, Motors, Solenoids, Linear Actuators, Rotary Actuators, Piezoelectric Actuators, Hydraulic Actuators, Electric Actuators, Control Systems, Automation Systems, Water Treatment Plants, Wastewater Treatment Plants, Drinking Water Distribution Networks.\n\nHere's the breakdown:\n\n1. **Conceptos Nucleares:**\n\t* Actuators\n\t* Water Infrastructure\n2. **Normalización Ontológica:**\n\t* Category: Mechanical Device (Actuator)\n\t* Class: Type of Actuator (e.g., Pumps, Valves, Motors)\n3. **Sinónimos Técnicos:**\n\t* Pumps (Fluid Control Devices)\n\t* Valves (Flow Control Devices)\n\t* Motors (Electric or Hydraulic)\n\t* Solenoids (Electromagnetic Actuators)\n\t* Linear Actuators (Mechanical or Electric)\n\t* Rotary Actuators (Mechanical or Electric)\n\t* Piezoelectric Actuators (Sensors and Actuators)\n\t* Hydraulic Actuators (Fluid-Powered Devices)\n\t* Electric Actuators (Electrically Powered Devices)\n\nThis list should provide a comprehensive starting point for searching the Web of Data (RDF) and Ontologies (OWL) related to actuators in water infrastructures.",
+          "raw_retrieved": [
+            "brick.ttl",
+            "sosa_2017-04-17.n3",
+            "s4watr_2020-06-03.n3",
+            "mep.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "sosa_2017-04-17.n3",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Water_Differential_Pressure_Setpoint",
+            "https://brickschema.org/schema/Brick#Water_Differential_Temperature_Sensor"
+          ]
+        }
+      },
+      {
+        "id": "64",
+        "query": "What is the fabrication number of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Fabrication Number, Serial Number, Unique Identifier, Product Code, Part Number, Manufacturing Information, Ontology:PhysicalObject, OWL Class:Device, RDF Type:MeasurementInstrument\n\nThis list includes the main nouns and verbs related to the request, along with their formal ontological equivalents (Category, Class, Type) and technical synonyms.",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "oum_2020-06-06.n3",
+            "qudt_2020-04-20.n3",
+            "modsci_2022-12-18.n3",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "qudt_2020-04-20.n3",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "65",
+        "query": "What are the manufacturer and the model of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nManufacturer, Model, Water Meter, Device, Instrument, Measurement, Sensor, Flow Rate, Pressure, Pipe, Plumbing, Utility, Infrastructure, Equipment, Product, Classification, Type, Category\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Manufacturer\n\t* Model\n\t* Water Meter (main concept)\n2. **Normalización Ontológica:**\n\t* Device (equivalent to \"Water Meter\")\n\t* Instrument (related to measurement)\n\t* Sensor (related to flow rate and pressure)\n3. **Sinónimos Técnicos:**\n\t* Measurement (alternative for \"Flow Rate\" and \"Pressure\")\n\t* Pipe (related to plumbing infrastructure)\n\t* Utility (related to water supply)\n\nThis list should help you search for relevant information about water meters, including their manufacturers and models.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "saref4watr.n3",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Water_Flow_Sensor",
+            "https://brickschema.org/schema/Brick#Condenser_Water_Booster_Pump",
+            "https://brickschema.org/schema/Brick#Hot_Water_Booster_Pump"
+          ]
+        }
+      },
+      {
+        "id": "66",
+        "query": "What is the geolocation of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Geolocation, Location, Position, Coordinate, Latitude, Longitude, Spatial Reference System, Geographic Information System, GIS, Sensor, Measurement, Utility Infrastructure, Water Supply Network\n\nLet me explain my thought process:\n\n1. **Conceptos Nucleares:** I identified the main nouns and verbs:\n\t* Water Meter\n\t* Geolocation (verb: locate)\n2. **Normalización Ontológica:** I added formal equivalents:\n\t* Category: Geographic Information System (GIS)\n\t* Class: Spatial Reference System\n\t* Type: Coordinate, Latitude, Longitude\n3. **Sinónimos Técnicos:** I included precise alternative terms:\n\t* Location → Position\n\t* Sensor → Measurement\n\nThis list should help you find relevant information about the geolocation of a water meter.",
+          "raw_retrieved": [
+            "saref4watr.n3",
+            "oum_2020-06-06.n3",
+            "brick.ttl",
+            "datex_2016-06-13.n3",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "swrc_2007-06-22.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Water_System",
+            "https://brickschema.org/schema/Brick#Chilled_Water_System",
+            "https://brickschema.org/schema/Brick#Hot_Water_System"
+          ]
+        }
+      },
+      {
+        "id": "67",
+        "query": "What firmware version is the water meter using?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meter, firmware, version\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Device, MeteringDevice, FirmwareVersion\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Measurement device, Smart meter, Software update\n\nHere's the optimized search list in English, separated by commas:\n\nWater meter, firmware, version, Device, MeteringDevice, FirmwareVersion, Measurement device, Smart meter, Software update",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "s4city_2020-06-05.n3",
+            "m3lite_2017-07-29.n3",
+            "base_ontology.owl",
+            "modsci_2022-12-18.n3",
+            "saref_2020-05-29.n3",
+            "s4inma_2019-04-30.n3",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "dpv_2025-08-01.n3",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "saref_2020-05-29.n3",
+            "s4inma_2019-04-30.n3",
+            "schema.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "68",
+        "query": "What is the power of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "easy",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Flow Rate, Pressure, Measurement, Sensor, Data Acquisition, Hydraulic Power, Energy Consumption, Water Utility, Metering System, Flow Control, Pressure Regulation, Water Quality Monitoring\n\nHere's how I arrived at this list:\n\n1. **Conceptos Nucleares:**\n\t* Water Meter (main concept)\n\t* Power (key term)\n2. **Normalización Ontológica:**\n\t* Category: Measurement Device\n\t* Class: Sensor\n\t* Type: Hydraulic Instrument\n3. **Sinónimos Técnicos:**\n\t* Flow Rate: Volume Flow, Discharge Rate\n\t* Pressure: Head, Gauge Pressure\n\t* Measurement: Monitoring, Recording\n\t* Data Acquisition: Data Logging, Telemetry\n\nThis list should provide a solid foundation for searching and retrieving relevant information about the power of water meters.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [
+            "brick.ttl"
+          ],
+          "approved_uris": [
+            "https://brickschema.org/schema/Brick#Discharge_Water_Flow_Sensor",
+            "https://brickschema.org/schema/Brick#Hot_Water_Discharge_Flow_Sensor",
+            "https://brickschema.org/schema/Brick#Chilled_Water_Discharge_Flow_Sensor"
+          ]
+        }
+      },
+      {
+        "id": "69",
+        "query": "Water meters can provide measurements according to different temporal settings.",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "Based on the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs\n\t* Water meters, measurements, temporal settings\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type)\n\t* Water Meter (Class), Measurement (Property), Time Setting (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms\n\t* Flow Meters, Ammeters, Voltmeters, Frequency Meters, Interval Measurements\n\nHere's the optimized search list in English, separated by commas:\n\nWater Meter, Measurement, Temporal Setting, Water Meter (Class), Measurement (Property), Time Setting (Type), Flow Meter, Ammeter, Voltmeter, Frequency Meter, Interval Measurement",
+          "raw_retrieved": [
+            "donto_2015-06-19.n3",
+            "brick.ttl",
+            "building.ttl",
+            "cis_2016-03-30.n3",
+            "mep.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "top_k_sources": [
+            "donto_2015-06-19.n3",
+            "building.ttl",
+            "cis_2016-03-30.n3",
+            "mep.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [
+            "donto_2015-06-19.n3"
+          ],
+          "approved_uris": [
+            "http://reference.data.gov.au/def/ont/dataset#Timelnterval"
+          ]
+        }
+      },
+      {
+        "id": "70",
+        "query": "What are the physical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main nouns and verbs:\n\t* Water\n\t* Properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type):\n\t* Water (owl:Class)\n\t* PhysicalProperty (owl:Class)\n3. **Sinónimos Técnicos:** Precise alternative terms:\n\t* ChemicalProperties\n\t* ThermodynamicProperties\n\t* PhysicalCharacteristics\n\nHere's the optimized search list in English, separated by commas:\n\nWater, owl:Class, PhysicalProperty, owl:Class, ChemicalProperties, ThermodynamicProperties, PhysicalCharacteristics",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "swo.owl",
+            "brick.ttl",
+            "bibo_2009-11-04.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "bpo.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "71",
+        "query": "What are the chemical properties of water?",
+        "expected": "saref4watr.n3",
+        "difficulty": "medium",
+        "status": "FAIL_RETRIEVAL",
+        "hits": {
+          "retrieval": 0,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've generated an optimized search list following the steps:\n\n1. **Conceptos Nucleares:** Main technical nouns and verbs.\n\t* Water\n\t* Chemical properties\n2. **Normalización Ontológica:** Formal equivalents (Category, Class, Type).\n\t* Liquid substance (Class)\n\t* H2O (Type)\n3. **Sinónimos Técnicos:** Precise alternative terms.\n\t* Hydrous oxide (synonym for water)\n\t* Physical properties (synonym for chemical properties)\n\nHere's the optimized search list in English, separated by commas:\n\nWater, Liquid substance, Chemical properties, Physical properties, H2O, Hydrous oxide\n\nThis list should help you find relevant information about the chemical properties of water.",
+          "raw_retrieved": [
+            "bpo.ttl",
+            "ssn_2011-06-20.n3",
+            "m3lite_2017-07-29.n3",
+            "modsci_2022-12-18.n3",
+            "s4agri_2020-06-05.n3",
+            "dstv.ttl",
+            "s4watr_2020-06-03.n3",
+            "schema.ttl",
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "roh_2022-01-01.n3"
+          ],
+          "top_k_sources": [
+            "bpo.ttl",
+            "ssn_2011-06-20.n3",
+            "s4agri_2020-06-05.n3",
+            "dstv.ttl",
+            "fabio_2019-02-19.n3"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      },
+      {
+        "id": "72",
+        "query": "What is the duration of the current tariff of the water meter?",
+        "expected": "saref4watr.n3",
+        "difficulty": "hard",
+        "status": "FAIL_RERANKER",
+        "hits": {
+          "retrieval": 1,
+          "reranker": 0,
+          "judge": 0,
+          "veredict": 0
+        },
+        "details": {
+          "keywords": "What a great question!\n\nAfter analyzing the user's request, I've extracted the key concepts and generated an optimized search list. Here it is:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nNow, let me explain each step:\n\n1. **Conceptos Nucleares:** I've identified the main technical nouns and verbs:\n\t* Water Meter\n\t* Tariff\n\t* Duration\n\t* Current\n2. **Normalización Ontológica:** I've added formal equivalents (Category, Class, Type) to provide a more precise search:\n\t* Water Meter (Class: Measurement Device)\n\t* Tariff (Type: Rate Schedule)\n\t* Duration (Property: Time Span)\n3. **Sinónimos Técnicos:** I've included alternative technical terms for a more comprehensive search:\n\t* Metering (synonym for Water Meter)\n\t* Utility (related to water supply)\n\t* Billing Cycle (related to tariff duration)\n\t* Time Period (synonym for Duration)\n\t* Measurement Interval (related to metering)\n\nHere's the final list, separated by commas:\n\nWater Meter, Tariff, Duration, Current, Metering, Utility, Billing Cycle, Time Period, Measurement Interval, Water Consumption, Rate, Charge, Fee, Cost.\n\nThis optimized search list should help you find relevant information about the duration of a water tariff.",
+          "raw_retrieved": [
+            "th_building.owl",
+            "saref4watr.n3",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "top_k_sources": [
+            "th_building.owl",
+            "fabio_2019-02-19.n3",
+            "brick.ttl"
+          ],
+          "approved_sources": [],
+          "approved_uris": []
+        }
+      }
+    ],
+    "veredicto_final": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de distribución de agua. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `brick.ttl` cubre un rango de temas relacionados con la infraestructura de distribución de agua, incluyendo la composición de activos y la información sobre medidores de agua. La cobertura es amplia y abarca diferentes aspectos de la infraestructura.\n\nLa ontología `s4watr_2020-06-03.n3` tiene una cobertura más limitada, solo cubriendo la composición de activos en la infraestructura de distribución de agua. Aunque es relevante, no proporciona la misma variedad de información que `brick.ttl`.\n\nLa ontología `m3lite_2017-07-29.n3` se centra en los sensores utilizados en la infraestructura de distribución de agua, lo que es un aspecto importante pero limitado.\n\nPor último, la ontologia `donto_2015-06-19.n3` se enfoca en la medición temporal y no proporciona información sobre la infraestructura en sí misma. Aunque es relevante para entender cómo funcionan los medidores de agua, no es tan amplia como otras ontologías.\n\n**Recomendaciones**\n\nConsiderando la cobertura y la variedad de temas abordados, se recomiendan las siguientes ontologías:\n\n\n\nLa ontología `brick.ttl` es la más recomendada debido a su amplia cobertura y variedad de temas relacionados con la infraestructura de distribución de agua.",
+    "veredicto_estructurado": {
+      "recomendadas": [
+        "brick.ttl"
+      ],
+      "excluidas": [
+        {
+          "ontologia": "s4watr_2020-06-03.n3",
+          "motivo": "Cobertura limitada"
+        },
+        {
+          "ontologia": "m3lite_2017-07-29.n3",
+          "motivo": "Enfoque en sensores, no infraestructura"
+        },
+        {
+          "ontologia": "donto_2015-06-19.n3",
+          "motivo": "No proporciona información sobre la infraestructura"
+        }
+      ],
+      "veredicto_markdown": "**Reporte**\n\nLa matriz de cobertura proporcionada muestra una variedad de ontologías relacionadas con la infraestructura de distribución de agua. A continuación, se analizará la cobertura para recomendar las ontologías más relevantes.\n\nLa ontología `brick.ttl` cubre un rango de temas relacionados con la infraestructura de distribución de agua, incluyendo la composición de activos y la información sobre medidores de agua. La cobertura es amplia y abarca diferentes aspectos de la infraestructura.\n\nLa ontología `s4watr_2020-06-03.n3` tiene una cobertura más limitada, solo cubriendo la composición de activos en la infraestructura de distribución de agua. Aunque es relevante, no proporciona la misma variedad de información que `brick.ttl`.\n\nLa ontología `m3lite_2017-07-29.n3` se centra en los sensores utilizados en la infraestructura de distribución de agua, lo que es un aspecto importante pero limitado.\n\nPor último, la ontologia `donto_2015-06-19.n3` se enfoca en la medición temporal y no proporciona información sobre la infraestructura en sí misma. Aunque es relevante para entender cómo funcionan los medidores de agua, no es tan amplia como otras ontologías.\n\n**Recomendaciones**\n\nConsiderando la cobertura y la variedad de temas abordados, se recomiendan las siguientes ontologías:\n\n\n\nLa ontología `brick.ttl` es la más recomendada debido a su amplia cobertura y variedad de temas relacionados con la infraestructura de distribución de agua."
+    }
+  }
+]
