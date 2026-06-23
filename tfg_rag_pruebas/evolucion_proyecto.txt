@@ -1,3 +1,0 @@
-2026-06-04
-Fase de Madurez: Refactorización a Librería Instalable
-Se ha decidido separar el motor de inferencia y recuperación de la ingesta de datos para convertir el proyecto en una librería instalable vía pip, con un núcleo reutilizable y desacoplado de rutas locales concretas. La inyección de dependencias en el constructor de OntologyRecommender permite que cada consumidor indique explícitamente su propia base ChromaDB y sus modelos, eliminando la dependencia de ubicaciones rígidas y facilitando que terceros integren el paquete en sus propios entornos, datasets y pipelines sin modificar el código fuente.
