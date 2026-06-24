@@ -181,10 +181,56 @@ class OntologyIndexer:
                     loaded = True
                 except Exception:
                     pass
+            elif self.FORMAT_MAP[file_ext] in ('turtle', 'n3'):
+                self.logger.info(f"Iniciando modo de recuperación para archivo corrupto: {filename}")
+                try:
+                    import re
+                    with open(filepath, 'r', encoding='utf-8', errors='replace') as f:
+                        lines = f.readlines()
+                    
+                    prefixes = []
+                    statements_lines = []
+                    for line in lines:
+                        clean_line = line.strip()
+                        if not clean_line:
+                            continue
+                        if clean_line.lower().startswith(('@prefix', 'prefix')):
+                            prefixes.append(clean_line)
+                        else:
+                            statements_lines.append(line)
+                    
+                    content = "".join(statements_lines)
+                    raw_statements = re.split(r'\.\s*\n', content)
+                    
+                    parsed_triples = 0
+                    for stmt in raw_statements:
+                        stmt_clean = stmt.strip()
+                        if not stmt_clean:
+                            continue
+                        
+                        stmt_text = "\n".join(prefixes) + "\n" + stmt_clean
+                        if not stmt_text.endswith('.'):
+                            stmt_text += ' .'
+                            
+                        temp_graph = rdflib.Graph()
+                        try:
+                            temp_graph.parse(data=stmt_text, format='turtle')
+                            for s, p, o in temp_graph:
+                                graph.add((s, p, o))
+                            parsed_triples += len(temp_graph)
+                        except Exception:
+                            pass
+                    
+                    if len(graph) > 0:
+                        loaded = True
+                        self.logger.info(f"Modo de recuperación: cargadas {parsed_triples} tripletas sanas de {filename}")
+                except Exception as e_rec:
+                    self.logger.error(f"Fallo crítico en el modo de recuperación de {filename}: {e_rec}")
         
         if not loaded:
-            self.logger.warning(f"No se pudo cargar: {filepath}")
+            self.logger.warning(f"No se pudo cargar ninguna tripleta de: {filepath}")
             return [], []
+
         
         # Análisis estructural
         ont_type, n_imports = self._analyze_ontology_structure(graph)
