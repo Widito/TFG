@@ -100,7 +100,7 @@ def generar_dashboard_html(nombre_tanda, config_runs, output_dir):
     
     # Cargar plantilla HTML
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    ruta_template = os.path.join(current_dir, "dashboard_template.html")
+    ruta_template = os.path.join(os.path.dirname(current_dir), "templates", "dashboard_template.html")
     if not os.path.exists(ruta_template):
         print(f"[ERROR] No se encuentra la plantilla HTML en {ruta_template}")
         return
@@ -227,7 +227,7 @@ def ejecutar_benchmark_config(config_name, retrieval_mode, use_reranker, filas_t
 
 def main():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(current_dir)
+    project_root = os.path.dirname(os.path.dirname(current_dir))
     ruta_csv = os.path.join(project_root, "dataset_bot_test.csv")
     
     if not os.path.exists(ruta_csv):

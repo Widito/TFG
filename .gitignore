@@ -17,17 +17,38 @@ tfg_rag_pruebas/*.egg-info/
 .cache/
 .vscode/
 
-# Memoria del TFG (y ejemplos)
+# Memoria del TFG (y referencias)
 memoria_tfg/
 tfg_rag_pruebas/TFG_ADRIAN_MORA_CARRERO.pdf
+tfg_rag_pruebas/ref_chapter*.txt
+tfg_rag_pruebas/ref_chapters*.txt
 
 # Peticiones y peticiones originales
 ORIGINAL_REQUEST.md
 request.md
 *request.md
+docs/
 
 # Directorios de agentes locales
 .agents/
+
+# Bases de datos de prueba adicionales
+tfg_rag_pruebas/chroma_db_test_robustez/
+
+# Logs locales y scripts legados
+tfg_rag_pruebas/code/legacy/
+tfg_rag_pruebas/code/logs/
+
+# Reportes y resultados de benchmarking locales
+tfg_rag_pruebas/resultado_pruebas_qa.md
+tfg_rag_pruebas/reportes_benchmarking/*.md
+tfg_rag_pruebas/reportes_benchmarking/*.txt
+
+
+
+# Scripts scratch y temporales
+tfg_rag_pruebas/scratch_*.py
+
 
 
 

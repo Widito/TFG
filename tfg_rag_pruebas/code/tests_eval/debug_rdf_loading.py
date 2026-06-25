@@ -20,13 +20,13 @@ class DualLogger(object):
 
 # Redirigir stdout al archivo y pantalla
 current_dir = os.path.dirname(os.path.abspath(__file__))
-log_filename = os.path.join(current_dir, "log_debug_ontologias.txt")
+log_filename = os.path.join(os.path.dirname(current_dir), "logs", "log_debug_ontologias.txt")
 sys.stdout = DualLogger(log_filename)
 
 
 
 # Configuración de carpetas (Rutas dinámicas)
-project_root = os.path.dirname(current_dir)
+project_root = os.path.dirname(os.path.dirname(current_dir))
 
 folders_to_process = [
     os.path.join(project_root, "dataset"),

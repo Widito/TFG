@@ -96,7 +96,7 @@ def ejecutar_tanda(nombre_tanda, ids_seleccionados, filas_tanda, ruta_csv, proje
 
 def main():
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(current_dir)
+    project_root = os.path.dirname(os.path.dirname(current_dir))
     ruta_csv = os.path.join(project_root, "dataset_bot_test.csv")
     
     if not os.path.exists(ruta_csv):

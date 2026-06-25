@@ -3,7 +3,10 @@ from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
 # Rutas (ajusta si tu carpeta se llama diferente)
-persist_directory = "tfg_rag_pruebas/chroma_db"
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir))
+persist_directory = os.path.join(project_root, "chroma_db")
 
 print("--- VERIFICANDO BASE DE DATOS ---")
 

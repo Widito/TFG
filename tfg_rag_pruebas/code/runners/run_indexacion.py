@@ -4,7 +4,7 @@ from ontology_rag import OntologyIndexer
 def main():
     # Obtener rutas absolutas del proyecto
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(current_dir)
+    project_root = os.path.dirname(os.path.dirname(current_dir))
     persist_directory = os.path.join(project_root, "chroma_db")
 
     # Definir los directorios origen de ontologías

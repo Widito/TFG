@@ -320,7 +320,7 @@ class OntologyIndexer:
                 if docs:
                     all_documents.extend(docs)
                     all_metadatas.extend(metas)
-                    self.logger.debug(f"  ✓ {filename}: {len(docs)} fragmentos extraídos")
+                    self.logger.debug(f"   {filename}: {len(docs)} fragmentos extraídos")
         
         return all_documents, all_metadatas
     
@@ -371,7 +371,7 @@ class OntologyIndexer:
                     metadatas=batch_metas,
                 )
         
-        self.logger.info("✓ Ingesta completada con metadatos estructurales.")
+        self.logger.info(" Ingesta completada con metadatos estructurales.")
     
     def build_index(self) -> None:
         """

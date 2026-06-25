@@ -22,13 +22,13 @@ class DualLogger(object):
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # Calculamos rutas absolutas hacia la raíz del proyecto
-project_root = os.path.dirname(current_dir)
+project_root = os.path.dirname(os.path.dirname(current_dir))
 CSV_PATH = os.path.join(project_root, "dataset_bot_test.csv")
 OUTPUT_CSV = os.path.join(project_root, "resultados_evaluacion.csv")
 # CORRECCIÓN 2: Calculamos la ruta de ChromaDB
 PERSIST_DIRECTORY = os.path.join(project_root, "chroma_db")
 
-log_filename = os.path.join(current_dir, "log_evaluacion_completa.txt")
+log_filename = os.path.join(os.path.dirname(current_dir), "logs", "log_evaluacion_completa.txt")
 sys.stdout = DualLogger(log_filename)
 
 def evaluate():

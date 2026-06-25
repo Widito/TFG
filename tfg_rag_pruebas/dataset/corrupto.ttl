@@ -1,0 +1,13 @@
+@prefix ex: <http://example.org/test#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:ValidZone a owl:Class ;
+    rdfs:label "Valid Zone" ;
+    rdfs:comment "A zone class successfully parsed from a partially corrupt file." .
+
+<<< THIS LINE IS DELIBERATELY CORRUPT AND WILL FAIL TO PARSE >>> ex:CorruptZone invalid syntax !!! .
+
+ex:RecoveredSensor a owl:Class ;
+    rdfs:label "Recovered Sensor" ;
+    rdfs:comment "A sensor class successfully parsed after recovering from syntax errors." .
