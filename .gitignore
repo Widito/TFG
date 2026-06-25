@@ -43,6 +43,8 @@ tfg_rag_pruebas/code/logs/
 tfg_rag_pruebas/resultado_pruebas_qa.md
 tfg_rag_pruebas/reportes_benchmarking/*.md
 tfg_rag_pruebas/reportes_benchmarking/*.txt
+**/trazas_ejecucion.json
+
 
 
 
